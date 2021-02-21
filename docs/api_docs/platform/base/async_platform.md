@@ -30,7 +30,8 @@ scrapli_cfg.platform.async_platform
         <code class="python">
 """scrapli_cfg.platform.async_platform"""
 from abc import ABC, abstractmethod
-from typing import Any, Callable, List, Pattern, Tuple
+from types import TracebackType
+from typing import Any, Callable, List, Optional, Pattern, Tuple, Type
 
 from scrapli.driver import AsyncNetworkDriver
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
@@ -86,6 +87,65 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
 
         self.logger.debug("executing scrapli_cfg on open method")
         await self.on_open(self)
+
+    async def close(self) -> None:
+        """
+        Close the scrapli connection
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            N/A
+
+        """
+        self.logger.info("closing scrapli connection")
+
+        if self.conn.isalive():
+            await self.conn.close()
+
+    async def __aenter__(self) -> "AsyncScrapliCfg":
+        """
+        Enter method for context manager
+
+        Args:
+            N/A
+
+        Returns:
+            AsyncScrapliCfg: opened AsyncScrapliCfg object
+
+        Raises:
+            N/A
+
+        """
+        await self.open()
+        return self
+
+    async def __aexit__(
+        self,
+        exception_type: Optional[Type[BaseException]],
+        exception_value: Optional[BaseException],
+        traceback: Optional[TracebackType],
+    ) -> None:
+        """
+        Exit method to cleanup for context manager
+
+        Args:
+            exception_type: exception type being raised
+            exception_value: message from exception being raised
+            traceback: traceback from exception being raised
+
+        Returns:
+            None
+
+        Raises:
+            N/A
+
+        """
+        await self.close()
 
     @abstractmethod
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:
@@ -296,6 +356,65 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         self.logger.debug("executing scrapli_cfg on open method")
         await self.on_open(self)
 
+    async def close(self) -> None:
+        """
+        Close the scrapli connection
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            N/A
+
+        """
+        self.logger.info("closing scrapli connection")
+
+        if self.conn.isalive():
+            await self.conn.close()
+
+    async def __aenter__(self) -> "AsyncScrapliCfg":
+        """
+        Enter method for context manager
+
+        Args:
+            N/A
+
+        Returns:
+            AsyncScrapliCfg: opened AsyncScrapliCfg object
+
+        Raises:
+            N/A
+
+        """
+        await self.open()
+        return self
+
+    async def __aexit__(
+        self,
+        exception_type: Optional[Type[BaseException]],
+        exception_value: Optional[BaseException],
+        traceback: Optional[TracebackType],
+    ) -> None:
+        """
+        Exit method to cleanup for context manager
+
+        Args:
+            exception_type: exception type being raised
+            exception_value: message from exception being raised
+            traceback: traceback from exception being raised
+
+        Returns:
+            None
+
+        Raises:
+            N/A
+
+        """
+        await self.close()
+
     @abstractmethod
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:
         """
@@ -455,6 +574,26 @@ Args:
 
 Returns:
     ScrapliCfgResponse: response object
+
+Raises:
+    N/A
+```
+
+
+
+    
+
+##### close
+`close(self) ‑> NoneType`
+
+```text
+Close the scrapli connection
+
+Args:
+    N/A
+
+Returns:
+    None
 
 Raises:
     N/A
