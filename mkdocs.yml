@@ -1,0 +1,98 @@
+---
+site_name: Scrapli CFG
+site_url: https://github.com/scrapli/scrapli-cfg
+site_description: "Scrapli CFG: Configuration management with scrapli"
+site_author: Carl Montanari
+
+repo_name: scrapli/scrapli-cfg
+repo_url: https://github.com/scrapli/scrapli-cfg
+edit_uri: ''
+
+theme:
+    name: material
+    palette:
+      primary: 'black'
+      accent: 'teal'
+    icon:
+      repo: fontawesome/brands/github-alt
+
+nav:
+  - Scrapli: index.md
+  - User Guide:
+      - Quick Start Guide: user_guide/quickstart.md
+      - Project Details: user_guide/project_details.md
+      - Versioning: user_guide/versioning.md
+      - Installation: user_guide/installation.md
+      - Basic Usage: user_guide/basic_usage.md
+  - API Docs:
+    - Platforms:
+      - Base:
+        - Base Platform: api_docs/platform/base/async_platform.md
+        - Async Platform: api_docs/platform/base/async_platform.md
+        - Sync Platform: api_docs/platform/base/sync_platform.md
+      - Core:
+        - Arista EOS:
+          - Base Platform: api_docs/platform/core/arista_eos/async_platform.md
+          - Async Platform: api_docs/platform/core/arista_eos/async_platform.md
+          - Sync Platform: api_docs/platform/core/arista_eos/sync_platform.md
+          - Patterns: api_docs/platform/core/arista_eos/patterns.md
+        - Cisco IOSXE:
+          - Base Platform: api_docs/platform/core/cisco_iosxe/async_platform.md
+          - Async Platform: api_docs/platform/core/cisco_iosxe/async_platform.md
+          - Sync Platform: api_docs/platform/core/cisco_iosxe/sync_platform.md
+          - Patterns: api_docs/platform/core/cisco_iosxe/patterns.md
+          - Types: api_docs/platform/core/cisco_iosxe/types.md
+        - Cisco IOSXR:
+          - Base Platform: api_docs/platform/core/cisco_iosxr/async_platform.md
+          - Async Platform: api_docs/platform/core/cisco_iosxr/async_platform.md
+          - Sync Platform: api_docs/platform/core/cisco_iosxr/sync_platform.md
+          - Patterns: api_docs/platform/core/cisco_iosxr/patterns.md
+        - Cisco NXOS:
+          - Base Platform: api_docs/platform/core/cisco_nxos/async_platform.md
+          - Async Platform: api_docs/platform/core/cisco_nxos/async_platform.md
+          - Sync Platform: api_docs/platform/core/cisco_nxos/sync_platform.md
+          - Patterns: api_docs/platform/core/cisco_nxos/patterns.md
+        - Juniper JUNOS:
+          - Base Platform: api_docs/platform/core/juniper_junos/async_platform.md
+          - Async Platform: api_docs/platform/core/juniper_junos/async_platform.md
+          - Sync Platform: api_docs/platform/core/juniper_junos/sync_platform.md
+          - Patterns: api_docs/platform/core/juniper_junos/patterns.md
+    - Diff: api_docs/diff.md
+    - Exceptions: api_docs/exceptions.md
+    - Factory: api_docs/factory.md
+    - Logging: api_docs/logging.md
+    - Response: api_docs/response.md
+  - Changelog: changelog.md
+  - More Scrapli:
+    - Scrapli: more_scrapli/scrapli.md
+    - Scrapli Netconf: more_scrapli/scrapli_netconf.md
+    - Scrapli Community: more_scrapli/scrapli_community.md
+    - Nornir Scrapli: more_scrapli/nornir_scrapli.md
+    - Scrapli Stubs: more_scrapli/scrapli_stubs.md
+  - Other:
+    - Contributing: about/contributing.md
+    - Code of Conduct: about/code_of_conduct.md
+
+markdown_extensions:
+    - toc:
+        permalink: True
+    - admonition
+    - codehilite
+    - extra
+    - mdx_gh_links:
+        user: mkdocs
+        repo: mkdocs
+
+extra:
+    social:
+        - icon: fontawesome/brands/github-alt
+          link: 'https://github.com/carlmontanari/'
+        - icon: fontawesome/brands/twitter
+          link: 'https://twitter.com/carlrmontanari'
+        - icon: fontawesome/brands/linkedin
+          link: 'https://www.linkedin.com/in/carl-montanari-47888931/'
+        - icon: fontawesome/solid/globe
+          link: 'https://montanari.io'
+
+plugins:
+    - search
