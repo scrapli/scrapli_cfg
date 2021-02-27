@@ -149,7 +149,7 @@ class ScrapliCfgIOSXRBase:
 
     def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
         """
-        Handle post "diff_config" operations for parity between sync and async
+        Normalize candidate config and source config so that we can easily diff them
 
         Args:
             source_config: current config of the source config store

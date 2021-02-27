@@ -137,20 +137,6 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfg, ScrapliCfgIOSXEBase):
         return delete_result
 
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:
-        """
-        Get device configuration
-
-        Args:
-            source: name of the config source, generally running|startup
-
-        Returns:
-            ScrapliCfgResponse: response object containing string of the target config source as the
-                `result` attribute
-
-        Raises:
-            N/A
-
-        """
         response = self._pre_get_config(source=source)
 
         config_result = await self.conn.send_command(
@@ -177,7 +163,8 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfg, ScrapliCfgIOSXEBase):
             config: string of the configuration to load
             replace: replace the configuration or not, if false configuration will be loaded as a
                 merge operation
-            kwargs: additional kwargs that the implementing classes may need for their platform
+            kwargs: additional kwargs that the implementing classes may need for their platform,
+                see above for iosxe supported kwargs
 
         Returns:
             ScrapliCfgResponse: response object
@@ -214,19 +201,6 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfg, ScrapliCfgIOSXEBase):
         )
 
     async def abort_config(self) -> ScrapliCfgResponse:
-        """
-        Abort a configuration -- discards any loaded config
-
-        Args:
-            N/A
-
-        Returns:
-            ScrapliCfgResponse: response object
-
-        Raises:
-            N/A
-
-        """
         response = self._pre_abort_config(
             session_or_config_file=bool(self.candidate_config_filename)
         )
@@ -237,19 +211,6 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfg, ScrapliCfgIOSXEBase):
         return self._post_abort_config(response=response, scrapli_responses=[abort_result])
 
     async def commit_config(self, source: str = "running") -> ScrapliCfgResponse:
-        """
-        Commit a loaded configuration
-
-        Args:
-            source: name of the config source to commit against, generally running|startup
-
-        Returns:
-            ScrapliCfgResponse: response object
-
-        Raises:
-            N/A
-
-        """
         scrapli_responses = []
         response = self._pre_commit_config(
             source=source, session_or_config_file=bool(self.candidate_config_filename)
@@ -307,21 +268,6 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfg, ScrapliCfgIOSXEBase):
         )
 
     async def diff_config(self, source: str = "running") -> ScrapliCfgDiffResponse:
-        """
-        Diff a loaded configuration against the source config store
-
-        Args:
-            source: name of the config source to diff against, generally running|startup -- device
-                diffs will generally not care about this argument, but the built in scrapli differ
-                will
-
-        Returns:
-            ScrapliCfgDiffResponse: scrapli cfg diff object
-
-        Raises:
-            N/A
-
-        """
         scrapli_responses = []
         device_diff = ""
         source_config = ""

@@ -177,7 +177,8 @@ class ScrapliCfg(ABC, ScrapliCfgBase):
             config: string of the configuration to load
             replace: replace the configuration or not, if false configuration will be loaded as a
                 merge operation
-            kwargs: additional kwargs that the implementing classes may need for their platform
+            kwargs: additional kwargs that the implementing classes may need for their platform,
+                see your specific platform for details
 
         Returns:
             ScrapliCfgResponse: response object

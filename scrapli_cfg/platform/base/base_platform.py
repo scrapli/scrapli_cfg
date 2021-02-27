@@ -400,7 +400,7 @@ class ScrapliCfgBase:
             ScrapliCfgResponse: response object
 
         Raises:
-            CommitConfigError: if the config session abort operation failed
+            N/A
 
         """
         response.record_response(scrapli_responses=scrapli_responses)
@@ -416,6 +416,7 @@ class ScrapliCfgBase:
         Handle pre "diff_config" operations for parity between sync and async
 
         Args:
+            source: config source to diff against
             session_or_config_file: bool of config_session_name or candidate_config_filename
 
         Returns:
@@ -462,6 +463,9 @@ class ScrapliCfgBase:
         Args:
             diff_response: response object to update
             scrapli_responses: list of scrapli response objects from committing the config
+            source_config: previous source config from the device
+            candidate_config: user provided configuration
+            device_diff: diff generated from the device itself
 
         Returns:
             ScrapliCfgDiffResponse: diff object for diff operation

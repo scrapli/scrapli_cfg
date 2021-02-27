@@ -21,6 +21,8 @@ scrapli_cfg
 scrapli_cfg makes merging or replacing device configurations over Telnet or SSH easy, all while giving you the 
 scrapli behaviour you know and love.
 
+*NOTE* this is still a work in progress, there is a lot of work to be done on the testing front in particular!
+
 
 #### Key Features:
 

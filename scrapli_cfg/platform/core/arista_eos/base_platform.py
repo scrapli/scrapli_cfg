@@ -78,7 +78,7 @@ class ScrapliCfgEOSBase:
     @staticmethod
     def _get_config_command(source: str) -> str:
         """
-        Handle pre "get_config" operations for parity between sync and async
+        Return command to use to get config based on the provided source
 
         Args:
             source: name of the config source, generally running|startup
@@ -87,7 +87,7 @@ class ScrapliCfgEOSBase:
             str: command to use to fetch the requested config
 
         Raises:
-            InvalidConfigTarget: if the requested config source is not valid
+            N/A
 
         """
         if source == "running":
@@ -127,7 +127,7 @@ class ScrapliCfgEOSBase:
 
     def _prepare_load_config_session_and_payload(self, config: str) -> Tuple[str, str, bool]:
         """
-        Handle pre "load_config" operations for parity between sync and async
+        Prepare the normal and eager payloads and decide if we need to register a config session
 
         Args:
             config: candidate config to load
@@ -175,7 +175,7 @@ class ScrapliCfgEOSBase:
 
     def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
         """
-        Handle post "diff_config" operations for parity between sync and async
+        Normalize candidate config and source config so that we can easily diff them
 
         Args:
             source_config: current config of the source config store
@@ -201,58 +201,6 @@ class ScrapliCfgEOSBase:
         candidate_config = "\n".join(line for line in candidate_config.splitlines() if line)
 
         return source_config, candidate_config
-
-    def _pre_get_version(self) -> ScrapliCfgResponse:
-        """
-        Handle pre "get_version" operations for parity between sync and async
-
-        Args:
-            N/A
-
-        Returns:
-            ScrapliCfgResponse: new response object to update w/ get results
-
-        Raises:
-            N/A
-
-        """
-        self.logger.info("get_version requested")
-
-        response = ScrapliCfgResponse(
-            host=self.conn.host, raise_for_status_exception=ScrapliCfgException
-        )
-
-        return response
-
-    def _post_get_version(
-        self,
-        response: ScrapliCfgResponse,
-        scrapli_responses: List[Response],
-        result: str,
-    ) -> ScrapliCfgResponse:
-        """
-        Handle post "get_version" operations for parity between sync and async
-
-        Args:
-            response: response object to update
-            scrapli_responses: list of scrapli response objects from fetching the version
-            result: final version string of the device
-
-        Returns:
-            ScrapliCfgResponse: response object containing string of the version as the `result`
-                attribute
-
-        Raises:
-            N/A
-
-        """
-        response.record_response(scrapli_responses=scrapli_responses, result=result)
-
-        if response.failed:
-            msg = "failed to clear device configuration sessions"
-            self.logger.critical(msg)
-
-        return response
 
     def _pre_clear_config_sessions(self) -> ScrapliCfgResponse:
         """

@@ -44,27 +44,18 @@ def unit_tests(session):
         session: nox session
 
     Returns:
-        N/A  # noqa: DAR202
+        None
 
     Raises:
         N/A
 
     """
-    # ensure test ssh key permissions are appropriate
-    session.run("chmod", "0600", "tests/test_data/files/vrnetlab_key", external=True)
-    session.run("chmod", "0600", "tests/test_data/files/vrnetlab_key_encrypted", external=True)
-
-    # install this repo in editable mode so that other scrapli libs can depend on a yet to be
-    # released version. for example, scrapli_asyncssh is new and released and requires the *next*
-    # release of scrapli; if we set the version to the next release in __init__ and install locally
-    # we can avoid a kind of circular dependency thing where pypi version of scrapli is not yet
-    # updated to match the new pins in other scrapli libs
     session.install("-e", ".")
 
     session.install("-r", "requirements-dev.txt")
     session.run(
         "pytest",
-        "--cov=scrapli",
+        "--cov=scrapli_cfg",
         "--cov-report",
         "xml",
         "--cov-report",
@@ -83,7 +74,7 @@ def isort(session):
         session: nox session
 
     Returns:
-        N/A  # noqa: DAR202
+        None
 
     Raises:
         N/A
@@ -102,7 +93,7 @@ def black(session):
         session: nox session
 
     Returns:
-        N/A  # noqa: DAR202
+        None
 
     Raises:
         N/A
@@ -122,7 +113,7 @@ def pylama(session):
         session: nox session
 
     Returns:
-        N/A  # noqa: DAR202
+        None
 
     Raises:
         N/A
@@ -142,7 +133,7 @@ def pydocstyle(session):
         session: nox session
 
     Returns:
-        N/A  # noqa: DAR202
+        None
 
     Raises:
         N/A
@@ -161,14 +152,14 @@ def mypy(session):
         session: nox session
 
     Returns:
-        N/A  # noqa: DAR202
+        None
 
     Raises:
         N/A
 
     """
     session.install(f"mypy{DEV_REQUIREMENTS['mypy']}")
-    session.run("mypy", "--strict", "scrapli/")
+    session.run("mypy", "--strict", "scrapli_cfg/")
 
 
 @nox.session(python=["3.9"])
@@ -180,16 +171,12 @@ def darglint(session):
         session: nox session
 
     Returns:
-        N/A  # noqa: DAR202
+        None
 
     Raises:
         N/A
 
     """
     session.install(f"darglint{DEV_REQUIREMENTS['darglint']}")
-    # snag all the files other than ptyprocess.py -- not linting/covering that file at this time
-    files_to_darglint = [
-        path for path in Path("scrapli").rglob("*.py") if not path.name.endswith("ptyprocess.py")
-    ]
-    for file in files_to_darglint:
+    for file in Path("scrapli").rglob("*.py"):
         session.run("darglint", f"{file.absolute()}")

@@ -14,7 +14,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         self, conn: AsyncNetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
     ) -> None:
         """
-        Scrapli Config base class
+        Scrapli Config async base class
 
         Args:
             conn: scrapli connection to use
@@ -84,7 +84,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
 
     async def __aenter__(self) -> "AsyncScrapliCfg":
         """
-        Enter method for context manager
+        Enter method for async context manager
 
         Args:
             N/A
@@ -106,7 +106,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         traceback: Optional[TracebackType],
     ) -> None:
         """
-        Exit method to cleanup for context manager
+        Exit method to cleanup for async context manager
 
         Args:
             exception_type: exception type being raised
@@ -175,7 +175,8 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
             config: string of the configuration to load
             replace: replace the configuration or not, if false configuration will be loaded as a
                 merge operation
-            kwargs: additional kwargs that the implementing classes may need for their platform
+            kwargs: additional kwargs that the implementing classes may need for their platform,
+                see your specific platform for details
 
         Returns:
             ScrapliCfgResponse: response object
