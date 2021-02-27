@@ -1,158 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/user_guide/quickstart/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/user_guide/quickstart/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/user_guide/project_details/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/user_guide/project_details/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/user_guide/versioning/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/user_guide/versioning/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/user_guide/installation/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/user_guide/installation/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/user_guide/basic_usage/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/user_guide/basic_usage/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/base/async_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/base/async_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/base/async_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/base/async_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/base/sync_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/base/sync_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/arista_eos/async_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/arista_eos/async_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/arista_eos/async_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/arista_eos/async_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/arista_eos/sync_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/arista_eos/sync_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/arista_eos/patterns/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/arista_eos/patterns/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_iosxe/async_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_iosxe/async_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_iosxe/async_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_iosxe/async_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_iosxe/sync_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_iosxe/sync_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_iosxe/patterns/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_iosxe/patterns/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_iosxe/types/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_iosxe/types/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_iosxr/async_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_iosxr/async_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_iosxr/async_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_iosxr/async_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_iosxr/sync_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_iosxr/sync_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_iosxr/patterns/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_iosxr/patterns/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_nxos/async_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_nxos/async_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_nxos/async_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_nxos/async_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_nxos/sync_platform/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_nxos/sync_platform/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/platform/core/cisco_nxos/patterns/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/platform/core/cisco_nxos/patterns/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/diff/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/diff/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/exceptions/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/exceptions/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/factory/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/factory/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/logging/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/logging/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/api_docs/response/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/api_docs/response/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/changelog/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/changelog/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/more_scrapli/scrapli/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/more_scrapli/scrapli/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/more_scrapli/scrapli_netconf/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/more_scrapli/scrapli_netconf/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/more_scrapli/scrapli_community/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/more_scrapli/scrapli_community/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/more_scrapli/nornir_scrapli/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/more_scrapli/nornir_scrapli/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/more_scrapli/scrapli_stubs/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/more_scrapli/scrapli_stubs/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/about/contributing/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/about/contributing/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/scrapli/scrapli-cfg/about/code_of_conduct/</loc>
+     <loc>https://github.com/scrapli/scrapli_cfg/about/code_of_conduct/</loc>
      <lastmod>2021-02-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
