@@ -35,12 +35,12 @@ from scrapli.driver import NetworkDriver
 from scrapli.response import Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, FailedToDetermineDeviceState
-from scrapli_cfg.platform.base.sync_platform import ScrapliCfg
+from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_nxos.base_platform import CONFIG_SOURCES, ScrapliCfgNXOSBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-def nxos_on_open(cls: ScrapliCfg) -> None:
+def nxos_on_open(cls: ScrapliCfgPlatform) -> None:
     """
     Scrapli CFG NXOS On open
 
@@ -59,7 +59,7 @@ def nxos_on_open(cls: ScrapliCfg) -> None:
     cls.conn.send_config(config="no logging monitor")
 
 
-class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
+class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
     def __init__(
         self,
         conn: NetworkDriver,
@@ -310,7 +310,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
     
 
 #### nxos_on_open
-`nxos_on_open(cls: scrapli_cfg.platform.base.sync_platform.ScrapliCfg) ‑> NoneType`
+`nxos_on_open(cls: scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform) ‑> NoneType`
 
 ```text
 Scrapli CFG NXOS On open
@@ -346,7 +346,7 @@ inheritance.
     </summary>
     <pre>
         <code class="python">
-class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
+class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
     def __init__(
         self,
         conn: NetworkDriver,
@@ -593,7 +593,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
 
 #### Ancestors (in MRO)
 - scrapli_cfg.platform.core.cisco_nxos.base_platform.ScrapliCfgNXOSBase
-- scrapli_cfg.platform.base.sync_platform.ScrapliCfg
+- scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform
 - abc.ABC
 - scrapli_cfg.platform.base.base_platform.ScrapliCfgBase
 #### Class variables

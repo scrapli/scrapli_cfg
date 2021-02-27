@@ -39,7 +39,7 @@ from scrapli_cfg.platform.base.base_platform import ScrapliCfgBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-class ScrapliCfg(ABC, ScrapliCfgBase):
+class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
     def __init__(
         self, conn: NetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
     ) -> None:
@@ -112,7 +112,7 @@ class ScrapliCfg(ABC, ScrapliCfgBase):
         if self.conn.isalive():
             self.conn.close()
 
-    def __enter__(self) -> "ScrapliCfg":
+    def __enter__(self) -> "ScrapliCfgPlatform":
         """
         Enter method for context manager
 
@@ -313,7 +313,7 @@ class ScrapliCfg(ABC, ScrapliCfgBase):
 
 ## Classes
 
-### ScrapliCfg
+### ScrapliCfgPlatform
 
 
 ```text
@@ -340,7 +340,7 @@ Raises:
     </summary>
     <pre>
         <code class="python">
-class ScrapliCfg(ABC, ScrapliCfgBase):
+class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
     def __init__(
         self, conn: NetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
     ) -> None:
@@ -413,7 +413,7 @@ class ScrapliCfg(ABC, ScrapliCfgBase):
         if self.conn.isalive():
             self.conn.close()
 
-    def __enter__(self) -> "ScrapliCfg":
+    def __enter__(self) -> "ScrapliCfgPlatform":
         """
         Enter method for context manager
 

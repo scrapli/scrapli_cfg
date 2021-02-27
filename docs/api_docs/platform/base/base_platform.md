@@ -1004,8 +1004,8 @@ class ScrapliCfgBase:
 
 
 #### Descendants
-- scrapli_cfg.platform.base.async_platform.AsyncScrapliCfg
-- scrapli_cfg.platform.base.sync_platform.ScrapliCfg
+- scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform
+- scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform
 #### Class variables
 
     

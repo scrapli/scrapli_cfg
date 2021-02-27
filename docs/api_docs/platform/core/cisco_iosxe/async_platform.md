@@ -35,13 +35,13 @@ from scrapli.driver import AsyncNetworkDriver
 from scrapli.response import Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, FailedToDetermineDeviceState
-from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfg
+from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_iosxe.base_platform import CONFIG_SOURCES, ScrapliCfgIOSXEBase
 from scrapli_cfg.platform.core.cisco_iosxe.types import FilePromptMode
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-async def async_iosxe_on_open(cls: AsyncScrapliCfg) -> None:
+async def async_iosxe_on_open(cls: AsyncScrapliCfgPlatform) -> None:
     """
     Scrapli CFG IOSXE On open
 
@@ -60,7 +60,7 @@ async def async_iosxe_on_open(cls: AsyncScrapliCfg) -> None:
     await cls.conn.send_config(config="no logging monitor")
 
 
-class AsyncScrapliCfgIOSXE(AsyncScrapliCfg, ScrapliCfgIOSXEBase):
+class AsyncScrapliCfgIOSXE(AsyncScrapliCfgPlatform, ScrapliCfgIOSXEBase):
     def __init__(
         self,
         conn: AsyncNetworkDriver,
@@ -354,7 +354,7 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfg, ScrapliCfgIOSXEBase):
     
 
 #### async_iosxe_on_open
-`async_iosxe_on_open(cls: scrapli_cfg.platform.base.async_platform.AsyncScrapliCfg) ‑> NoneType`
+`async_iosxe_on_open(cls: scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform) ‑> NoneType`
 
 ```text
 Scrapli CFG IOSXE On open
@@ -403,7 +403,7 @@ Raises:
     </summary>
     <pre>
         <code class="python">
-class AsyncScrapliCfgIOSXE(AsyncScrapliCfg, ScrapliCfgIOSXEBase):
+class AsyncScrapliCfgIOSXE(AsyncScrapliCfgPlatform, ScrapliCfgIOSXEBase):
     def __init__(
         self,
         conn: AsyncNetworkDriver,
@@ -692,7 +692,7 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfg, ScrapliCfgIOSXEBase):
 
 
 #### Ancestors (in MRO)
-- scrapli_cfg.platform.base.async_platform.AsyncScrapliCfg
+- scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform
 - abc.ABC
 - scrapli_cfg.platform.base.base_platform.ScrapliCfgBase
 - scrapli_cfg.platform.core.cisco_iosxe.base_platform.ScrapliCfgIOSXEBase

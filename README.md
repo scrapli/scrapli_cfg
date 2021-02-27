@@ -58,7 +58,7 @@ See the [docs](https://scrapli.github.io/scrapli_cfg/user_guide/installation) fo
 
 ```python
 from scrapli import Scrapli
-from scrapli_cfg.platform.core.cisco_iosxe import ScrapliCfgIOSXE
+from scrapli_cfg import ScrapliCfg
 
 device = {
    "host": "172.18.0.11",
@@ -72,7 +72,7 @@ with open("myconfig", "r") as f:
     my_config = f.read()
 
 conn = Scrapli(**device)
-cfg_conn = ScrapliCfgIOSXE(conn=conn)
+cfg_conn = ScrapliCfg(platform=device["platform"], conn=conn)
 cfg_conn.open()
 cfg_conn.load_config(config=my_config, replace=True)
 diff = cfg_conn.diff_config()

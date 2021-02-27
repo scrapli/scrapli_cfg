@@ -34,12 +34,12 @@ from typing import Any, Callable, List, Optional
 from scrapli.driver import AsyncNetworkDriver
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, LoadConfigError
-from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfg
+from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_iosxr.base_platform import CONFIG_SOURCES, ScrapliCfgIOSXRBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-async def async_iosxr_on_open(cls: AsyncScrapliCfg) -> None:
+async def async_iosxr_on_open(cls: AsyncScrapliCfgPlatform) -> None:
     """
     Scrapli CFG IOSXR On open
 
@@ -58,7 +58,7 @@ async def async_iosxr_on_open(cls: AsyncScrapliCfg) -> None:
     await cls.conn.send_configs(configs=["no logging console", "commit"])
 
 
-class AsyncScrapliCfgIOSXR(AsyncScrapliCfg, ScrapliCfgIOSXRBase):
+class AsyncScrapliCfgIOSXR(AsyncScrapliCfgPlatform, ScrapliCfgIOSXRBase):
     def __init__(
         self,
         conn: AsyncNetworkDriver,
@@ -233,7 +233,7 @@ class AsyncScrapliCfgIOSXR(AsyncScrapliCfg, ScrapliCfgIOSXRBase):
     
 
 #### async_iosxr_on_open
-`async_iosxr_on_open(cls: scrapli_cfg.platform.base.async_platform.AsyncScrapliCfg) ‑> NoneType`
+`async_iosxr_on_open(cls: scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform) ‑> NoneType`
 
 ```text
 Scrapli CFG IOSXR On open
@@ -282,7 +282,7 @@ Raises:
     </summary>
     <pre>
         <code class="python">
-class AsyncScrapliCfgIOSXR(AsyncScrapliCfg, ScrapliCfgIOSXRBase):
+class AsyncScrapliCfgIOSXR(AsyncScrapliCfgPlatform, ScrapliCfgIOSXRBase):
     def __init__(
         self,
         conn: AsyncNetworkDriver,
@@ -452,7 +452,7 @@ class AsyncScrapliCfgIOSXR(AsyncScrapliCfg, ScrapliCfgIOSXRBase):
 
 
 #### Ancestors (in MRO)
-- scrapli_cfg.platform.base.async_platform.AsyncScrapliCfg
+- scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform
 - abc.ABC
 - scrapli_cfg.platform.base.base_platform.ScrapliCfgBase
 - scrapli_cfg.platform.core.cisco_iosxr.base_platform.ScrapliCfgIOSXRBase

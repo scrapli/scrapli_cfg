@@ -32,6 +32,7 @@ def ScrapliCfg(
     conn: NetworkDriver,
     config_sources: Optional[List[str]] = None,
     on_open: Optional[Callable[..., Any]] = None,
+    **kwargs: Any,
 ) -> "ScrapliCfgPlatform":
     """
     Scrapli Config Sync Factory
@@ -46,6 +47,8 @@ def ScrapliCfg(
         conn: scrapli connection to use
         config_sources: list of config sources
         on_open: async callable to run at connection open
+        kwargs: keyword args to pass to the scrapli_cfg object (for things like iosxe 'filesystem'
+            argument)
 
     Returns:
         ScrapliCfg: sync scrapli cfg object
@@ -64,7 +67,7 @@ def ScrapliCfg(
         raise ScrapliCfgException(f"platform '{platform}' not a valid platform name")
 
     final_platform: "ScrapliCfgPlatform" = platform_class(
-        conn=conn, config_sources=config_sources, on_open=on_open
+        conn=conn, config_sources=config_sources, on_open=on_open, **kwargs
     )
 
     return final_platform
@@ -75,6 +78,7 @@ def AsyncScrapliCfg(
     conn: AsyncNetworkDriver,
     config_sources: Optional[List[str]] = None,
     on_open: Optional[Callable[..., Any]] = None,
+    **kwargs: Any,
 ) -> "AsyncScrapliCfgPlatform":
     """
     Scrapli Config Async Factory
@@ -89,6 +93,8 @@ def AsyncScrapliCfg(
         conn: scrapli connection to use
         config_sources: list of config sources
         on_open: async callable to run at connection open
+        kwargs: keyword args to pass to the scrapli_cfg object (for things like iosxe 'filesystem'
+            argument)
 
     Returns:
         AsyncScrapliCfg: async scrapli cfg object
@@ -107,7 +113,7 @@ def AsyncScrapliCfg(
         raise ScrapliCfgException(f"platform '{platform}' not a valid platform name")
 
     final_platform: "AsyncScrapliCfgPlatform" = platform_class(
-        conn=conn, config_sources=config_sources, on_open=on_open
+        conn=conn, config_sources=config_sources, on_open=on_open, **kwargs
     )
 
     return final_platform
