@@ -44,7 +44,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         self, conn: AsyncNetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
     ) -> None:
         """
-        Scrapli Config base class
+        Scrapli Config async base class
 
         Args:
             conn: scrapli connection to use
@@ -85,6 +85,11 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         if not self.conn.isalive():
             await self.conn.open()
 
+        if self._ignore_version is False:
+            self.logger.debug("ignore_version is False, fetching device version")
+            version_response = await self.get_version()
+            self._validate_and_set_version(version_response=version_response)
+
         self.logger.debug("executing scrapli_cfg on open method")
         await self.on_open(self)
 
@@ -109,7 +114,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
 
     async def __aenter__(self) -> "AsyncScrapliCfg":
         """
-        Enter method for context manager
+        Enter method for async context manager
 
         Args:
             N/A
@@ -131,7 +136,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         traceback: Optional[TracebackType],
     ) -> None:
         """
-        Exit method to cleanup for context manager
+        Exit method to cleanup for async context manager
 
         Args:
             exception_type: exception type being raised
@@ -146,6 +151,31 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
 
         """
         await self.close()
+
+    async def get_version(self) -> ScrapliCfgResponse:
+        """
+        Get device version string
+
+        Args:
+            N/A
+
+        Returns:
+            ScrapliCfgResponse: response object where result is the string of the primary version
+                (as in the "main" os version) of the device
+
+        Raises:
+            N/A
+
+        """
+        response = self._pre_get_version()
+
+        version_result = await self.conn.send_command(command=self._get_version_command)
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),  # type: ignore  # noqa
+        )
 
     @abstractmethod
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:
@@ -175,7 +205,8 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
             config: string of the configuration to load
             replace: replace the configuration or not, if false configuration will be loaded as a
                 merge operation
-            kwargs: additional kwargs that the implementing classes may need for their platform
+            kwargs: additional kwargs that the implementing classes may need for their platform,
+                see your specific platform for details
 
         Returns:
             ScrapliCfgResponse: response object
@@ -287,7 +318,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
 Helper class that provides a standard way to create an ABC using
 inheritance.
 
-Scrapli Config base class
+Scrapli Config async base class
 
 Args:
     conn: scrapli connection to use
@@ -312,7 +343,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         self, conn: AsyncNetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
     ) -> None:
         """
-        Scrapli Config base class
+        Scrapli Config async base class
 
         Args:
             conn: scrapli connection to use
@@ -353,6 +384,11 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         if not self.conn.isalive():
             await self.conn.open()
 
+        if self._ignore_version is False:
+            self.logger.debug("ignore_version is False, fetching device version")
+            version_response = await self.get_version()
+            self._validate_and_set_version(version_response=version_response)
+
         self.logger.debug("executing scrapli_cfg on open method")
         await self.on_open(self)
 
@@ -377,7 +413,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
 
     async def __aenter__(self) -> "AsyncScrapliCfg":
         """
-        Enter method for context manager
+        Enter method for async context manager
 
         Args:
             N/A
@@ -399,7 +435,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         traceback: Optional[TracebackType],
     ) -> None:
         """
-        Exit method to cleanup for context manager
+        Exit method to cleanup for async context manager
 
         Args:
             exception_type: exception type being raised
@@ -414,6 +450,31 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
 
         """
         await self.close()
+
+    async def get_version(self) -> ScrapliCfgResponse:
+        """
+        Get device version string
+
+        Args:
+            N/A
+
+        Returns:
+            ScrapliCfgResponse: response object where result is the string of the primary version
+                (as in the "main" os version) of the device
+
+        Raises:
+            N/A
+
+        """
+        response = self._pre_get_version()
+
+        version_result = await self.conn.send_command(command=self._get_version_command)
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),  # type: ignore  # noqa
+        )
 
     @abstractmethod
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:
@@ -443,7 +504,8 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
             config: string of the configuration to load
             replace: replace the configuration or not, if false configuration will be loaded as a
                 merge operation
-            kwargs: additional kwargs that the implementing classes may need for their platform
+            kwargs: additional kwargs that the implementing classes may need for their platform,
+                see your specific platform for details
 
         Returns:
             ScrapliCfgResponse: response object
@@ -666,6 +728,27 @@ Raises:
 
     
 
+##### get_version
+`get_version(self) ‑> scrapli_cfg.response.ScrapliCfgResponse`
+
+```text
+Get device version string
+
+Args:
+    N/A
+
+Returns:
+    ScrapliCfgResponse: response object where result is the string of the primary version
+        (as in the "main" os version) of the device
+
+Raises:
+    N/A
+```
+
+
+
+    
+
 ##### load_config
 `load_config(self, config: str, replace: bool = False, **kwargs: Any) ‑> scrapli_cfg.response.ScrapliCfgResponse`
 
@@ -676,7 +759,8 @@ Args:
     config: string of the configuration to load
     replace: replace the configuration or not, if false configuration will be loaded as a
         merge operation
-    kwargs: additional kwargs that the implementing classes may need for their platform
+    kwargs: additional kwargs that the implementing classes may need for their platform,
+        see your specific platform for details
 
 Returns:
     ScrapliCfgResponse: response object

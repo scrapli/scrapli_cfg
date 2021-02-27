@@ -31,6 +31,7 @@ scrapli_cfg.platforms.cisco_nxos.patterns
 """scrapli_cfg.platforms.cisco_nxos.patterns"""
 import re
 
+VERSION_PATTERN = re.compile(pattern=r"\d+\.[a-z0-9\(\)\.]+", flags=re.I)
 BYTES_FREE = re.compile(pattern=r"(?P<bytes_available>\d+)(?: bytes free)", flags=re.I)
 
 BUILD_CONFIG_PATTERN = re.compile(r"(^!command:.*$)", flags=re.I | re.M)

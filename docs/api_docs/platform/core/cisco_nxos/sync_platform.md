@@ -85,6 +85,8 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
 
         self.cleanup_post_commit = cleanup_post_commit
 
+        self._get_version_command = 'show version | i "NXOS: version"'
+
     def _get_filesystem_space_available(self) -> int:
         """
         Get available space on filesystem
@@ -160,20 +162,6 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
         )
 
     def get_config(self, source: str = "running") -> ScrapliCfgResponse:
-        """
-        Get device configuration
-
-        Args:
-            source: name of the config source, generally running|startup
-
-        Returns:
-            ScrapliCfgResponse: response object containing string of the target config source as the
-                `result` attribute
-
-        Raises:
-            N/A
-
-        """
         response = self._pre_get_config(source=source)
 
         config_result = self.conn.send_command(command=self._get_config_command(source=source))
@@ -196,7 +184,8 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
             config: string of the configuration to load
             replace: replace the configuration or not, if false configuration will be loaded as a
                 merge operation
-            kwargs: additional kwargs that the implementing classes may need for their platform
+            kwargs: additional kwargs that the implementing classes may need for their platform,
+                see above for nxos supported kwargs
 
         Returns:
             ScrapliCfgResponse: response object
@@ -222,19 +211,6 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
         )
 
     def abort_config(self) -> ScrapliCfgResponse:
-        """
-        Abort a configuration -- discards any loaded config
-
-        Args:
-            N/A
-
-        Returns:
-            ScrapliCfgResponse: response object
-
-        Raises:
-            N/A
-
-        """
         response = self._pre_abort_config(
             session_or_config_file=bool(self.candidate_config_filename)
         )
@@ -245,19 +221,6 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
         return self._post_abort_config(response=response, scrapli_responses=[abort_result])
 
     def commit_config(self, source: str = "running") -> ScrapliCfgResponse:
-        """
-        Commit a loaded configuration
-
-        Args:
-            source: name of the config source to commit against, generally running|startup
-
-        Returns:
-            ScrapliCfgResponse: response object
-
-        Raises:
-            N/A
-
-        """
         scrapli_responses = []
         response = self._pre_commit_config(
             source=source, session_or_config_file=bool(self.candidate_config_filename)
@@ -274,6 +237,9 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
 
         scrapli_responses.append(commit_result)
 
+        save_config_result = self.conn.send_command(command="copy running-config startup-config")
+        scrapli_responses.append(save_config_result)
+
         if self.cleanup_post_commit:
             cleanup_result = self._delete_candidate_config()
             scrapli_responses.append(cleanup_result)
@@ -286,21 +252,6 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
         )
 
     def diff_config(self, source: str = "running") -> ScrapliCfgDiffResponse:
-        """
-        Diff a loaded configuration against the source config store
-
-        Args:
-            source: name of the config source to diff against, generally running|startup -- device
-                diffs will generally not care about this argument, but the built in scrapli differ
-                will
-
-        Returns:
-            ScrapliCfgDiffResponse: scrapli cfg diff object
-
-        Raises:
-            N/A
-
-        """
         scrapli_responses = []
         device_diff = ""
         source_config = ""
@@ -316,17 +267,23 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
                 diff_result = self.conn.send_command(command=diff_command)
                 scrapli_responses.append(diff_result)
                 if diff_result.failed:
-                    raise DiffConfigError("failed generating diff for config session")
+                    msg = "failed generating diff for config session"
+                    self.logger.critical(msg)
+                    raise DiffConfigError(msg)
                 device_diff = diff_result.result
             else:
                 device_diff = ""
 
             source_config_result = self.get_config(source=source)
             source_config = source_config_result.result
+
             if source_config_result.scrapli_responses:
                 scrapli_responses.extend(source_config_result.scrapli_responses)
+
             if source_config_result.failed:
-                raise DiffConfigError("failed fetching source config for diff comparison")
+                msg = "failed fetching source config for diff comparison"
+                self.logger.critical(msg)
+                raise DiffConfigError(msg)
 
         except DiffConfigError:
             pass
@@ -415,6 +372,8 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
 
         self.cleanup_post_commit = cleanup_post_commit
 
+        self._get_version_command = 'show version | i "NXOS: version"'
+
     def _get_filesystem_space_available(self) -> int:
         """
         Get available space on filesystem
@@ -490,20 +449,6 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
         )
 
     def get_config(self, source: str = "running") -> ScrapliCfgResponse:
-        """
-        Get device configuration
-
-        Args:
-            source: name of the config source, generally running|startup
-
-        Returns:
-            ScrapliCfgResponse: response object containing string of the target config source as the
-                `result` attribute
-
-        Raises:
-            N/A
-
-        """
         response = self._pre_get_config(source=source)
 
         config_result = self.conn.send_command(command=self._get_config_command(source=source))
@@ -526,7 +471,8 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
             config: string of the configuration to load
             replace: replace the configuration or not, if false configuration will be loaded as a
                 merge operation
-            kwargs: additional kwargs that the implementing classes may need for their platform
+            kwargs: additional kwargs that the implementing classes may need for their platform,
+                see above for nxos supported kwargs
 
         Returns:
             ScrapliCfgResponse: response object
@@ -552,19 +498,6 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
         )
 
     def abort_config(self) -> ScrapliCfgResponse:
-        """
-        Abort a configuration -- discards any loaded config
-
-        Args:
-            N/A
-
-        Returns:
-            ScrapliCfgResponse: response object
-
-        Raises:
-            N/A
-
-        """
         response = self._pre_abort_config(
             session_or_config_file=bool(self.candidate_config_filename)
         )
@@ -575,19 +508,6 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
         return self._post_abort_config(response=response, scrapli_responses=[abort_result])
 
     def commit_config(self, source: str = "running") -> ScrapliCfgResponse:
-        """
-        Commit a loaded configuration
-
-        Args:
-            source: name of the config source to commit against, generally running|startup
-
-        Returns:
-            ScrapliCfgResponse: response object
-
-        Raises:
-            N/A
-
-        """
         scrapli_responses = []
         response = self._pre_commit_config(
             source=source, session_or_config_file=bool(self.candidate_config_filename)
@@ -604,6 +524,9 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
 
         scrapli_responses.append(commit_result)
 
+        save_config_result = self.conn.send_command(command="copy running-config startup-config")
+        scrapli_responses.append(save_config_result)
+
         if self.cleanup_post_commit:
             cleanup_result = self._delete_candidate_config()
             scrapli_responses.append(cleanup_result)
@@ -616,21 +539,6 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
         )
 
     def diff_config(self, source: str = "running") -> ScrapliCfgDiffResponse:
-        """
-        Diff a loaded configuration against the source config store
-
-        Args:
-            source: name of the config source to diff against, generally running|startup -- device
-                diffs will generally not care about this argument, but the built in scrapli differ
-                will
-
-        Returns:
-            ScrapliCfgDiffResponse: scrapli cfg diff object
-
-        Raises:
-            N/A
-
-        """
         scrapli_responses = []
         device_diff = ""
         source_config = ""
@@ -646,17 +554,23 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
                 diff_result = self.conn.send_command(command=diff_command)
                 scrapli_responses.append(diff_result)
                 if diff_result.failed:
-                    raise DiffConfigError("failed generating diff for config session")
+                    msg = "failed generating diff for config session"
+                    self.logger.critical(msg)
+                    raise DiffConfigError(msg)
                 device_diff = diff_result.result
             else:
                 device_diff = ""
 
             source_config_result = self.get_config(source=source)
             source_config = source_config_result.result
+
             if source_config_result.scrapli_responses:
                 scrapli_responses.extend(source_config_result.scrapli_responses)
+
             if source_config_result.failed:
-                raise DiffConfigError("failed fetching source config for diff comparison")
+                msg = "failed fetching source config for diff comparison"
+                self.logger.critical(msg)
+                raise DiffConfigError(msg)
 
         except DiffConfigError:
             pass
@@ -751,7 +665,8 @@ Args:
     config: string of the configuration to load
     replace: replace the configuration or not, if false configuration will be loaded as a
         merge operation
-    kwargs: additional kwargs that the implementing classes may need for their platform
+    kwargs: additional kwargs that the implementing classes may need for their platform,
+        see above for nxos supported kwargs
 
 Returns:
     ScrapliCfgResponse: response object

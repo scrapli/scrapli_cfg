@@ -151,7 +151,7 @@ class ScrapliCfgResponse:
             None
 
         Raises:
-            ScrapliCommandFailure: if command/config failed
+            raise_for_status_exception: exception raised is dependent on the type of response object
 
         """
         if self.failed:
@@ -304,7 +304,7 @@ class ScrapliCfgResponse:
             None
 
         Raises:
-            ScrapliCommandFailure: if command/config failed
+            raise_for_status_exception: exception raised is dependent on the type of response object
 
         """
         if self.failed:
@@ -333,7 +333,7 @@ Returns:
     None
 
 Raises:
-    ScrapliCommandFailure: if command/config failed
+    raise_for_status_exception: exception raised is dependent on the type of response object
 ```
 
 

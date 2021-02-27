@@ -29,16 +29,22 @@ scrapli_cfg.platform.core.arista_eos.base
     <pre>
         <code class="python">
 """scrapli_cfg.platform.core.arista_eos.base"""
+import json
 import re
 from datetime import datetime
 from logging import LoggerAdapter
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
+from scrapli.driver import AsyncNetworkDriver, NetworkDriver
+from scrapli.response import Response
+from scrapli_cfg.exceptions import ScrapliCfgException
 from scrapli_cfg.platform.core.arista_eos.patterns import (
     BANNER_PATTERN,
     END_PATTERN,
     GLOBAL_COMMENT_LINE_PATTERN,
+    VERSION_PATTERN,
 )
+from scrapli_cfg.response import ScrapliCfgResponse
 
 CONFIG_SOURCES = [
     "running",
@@ -47,15 +53,62 @@ CONFIG_SOURCES = [
 
 
 class ScrapliCfgEOSBase:
+    conn: Union[NetworkDriver, AsyncNetworkDriver]
     logger: LoggerAdapter
     config_sources: List[str]
     config_session_name: str
     candidate_config: str
 
     @staticmethod
+    def _parse_version(device_output: str) -> str:
+        """
+        Parse version string out of device output
+
+        Args:
+            device_output: output from show version command
+
+        Returns:
+            str: device version string
+
+        Raises:
+            N/A
+
+        """
+        version_string_search = re.search(pattern=VERSION_PATTERN, string=device_output)
+
+        if not version_string_search:
+            return ""
+
+        version_string = version_string_search.group(0) or ""
+        return version_string
+
+    @staticmethod
+    def _parse_config_sessions(device_output: str) -> List[str]:
+        """
+        Parse config session names out of device output
+
+        Args:
+            device_output: output from show version command
+
+        Returns:
+            list[str]: config session names
+
+        Raises:
+            N/A
+
+        """
+        try:
+            config_session_dict = json.loads(device_output)
+        except json.JSONDecodeError:
+            return []
+
+        sessions = list(config_session_dict.get("sessions", {}))
+        return sessions
+
+    @staticmethod
     def _get_config_command(source: str) -> str:
         """
-        Handle pre "get_config" operations for parity between sync and async
+        Return command to use to get config based on the provided source
 
         Args:
             source: name of the config source, generally running|startup
@@ -64,7 +117,7 @@ class ScrapliCfgEOSBase:
             str: command to use to fetch the requested config
 
         Raises:
-            InvalidConfigTarget: if the requested config source is not valid
+            N/A
 
         """
         if source == "running":
@@ -104,7 +157,7 @@ class ScrapliCfgEOSBase:
 
     def _prepare_load_config_session_and_payload(self, config: str) -> Tuple[str, str, bool]:
         """
-        Handle pre "load_config" operations for parity between sync and async
+        Prepare the normal and eager payloads and decide if we need to register a config session
 
         Args:
             config: candidate config to load
@@ -152,7 +205,7 @@ class ScrapliCfgEOSBase:
 
     def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
         """
-        Handle post "diff_config" operations for parity between sync and async
+        Normalize candidate config and source config so that we can easily diff them
 
         Args:
             source_config: current config of the source config store
@@ -178,6 +231,59 @@ class ScrapliCfgEOSBase:
         candidate_config = "\n".join(line for line in candidate_config.splitlines() if line)
 
         return source_config, candidate_config
+
+    def _pre_clear_config_sessions(self) -> ScrapliCfgResponse:
+        """
+        Handle pre "clear_config_sessions" operations for parity between sync and async
+
+        Args:
+            N/A
+
+        Returns:
+            ScrapliCfgResponse: new response object to update w/ get results
+
+        Raises:
+            N/A
+
+        """
+        self.logger.info("clear_config_sessions requested")
+
+        response = ScrapliCfgResponse(
+            host=self.conn.host, raise_for_status_exception=ScrapliCfgException
+        )
+
+        return response
+
+    def _post_clear_config_sessions(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "clear_config_sessions" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from fetching the version
+
+        Returns:
+            ScrapliCfgResponse: response object containing string of the version as the `result`
+                attribute
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses)
+
+        if response.failed:
+            msg = "failed to clear device configuration session(s)"
+            self.logger.critical(msg)
+            response.result = msg
+        else:
+            response.result = "configuration session(s) cleared"
+
+        return response
         </code>
     </pre>
 </details>
@@ -198,15 +304,62 @@ class ScrapliCfgEOSBase:
     <pre>
         <code class="python">
 class ScrapliCfgEOSBase:
+    conn: Union[NetworkDriver, AsyncNetworkDriver]
     logger: LoggerAdapter
     config_sources: List[str]
     config_session_name: str
     candidate_config: str
 
     @staticmethod
+    def _parse_version(device_output: str) -> str:
+        """
+        Parse version string out of device output
+
+        Args:
+            device_output: output from show version command
+
+        Returns:
+            str: device version string
+
+        Raises:
+            N/A
+
+        """
+        version_string_search = re.search(pattern=VERSION_PATTERN, string=device_output)
+
+        if not version_string_search:
+            return ""
+
+        version_string = version_string_search.group(0) or ""
+        return version_string
+
+    @staticmethod
+    def _parse_config_sessions(device_output: str) -> List[str]:
+        """
+        Parse config session names out of device output
+
+        Args:
+            device_output: output from show version command
+
+        Returns:
+            list[str]: config session names
+
+        Raises:
+            N/A
+
+        """
+        try:
+            config_session_dict = json.loads(device_output)
+        except json.JSONDecodeError:
+            return []
+
+        sessions = list(config_session_dict.get("sessions", {}))
+        return sessions
+
+    @staticmethod
     def _get_config_command(source: str) -> str:
         """
-        Handle pre "get_config" operations for parity between sync and async
+        Return command to use to get config based on the provided source
 
         Args:
             source: name of the config source, generally running|startup
@@ -215,7 +368,7 @@ class ScrapliCfgEOSBase:
             str: command to use to fetch the requested config
 
         Raises:
-            InvalidConfigTarget: if the requested config source is not valid
+            N/A
 
         """
         if source == "running":
@@ -255,7 +408,7 @@ class ScrapliCfgEOSBase:
 
     def _prepare_load_config_session_and_payload(self, config: str) -> Tuple[str, str, bool]:
         """
-        Handle pre "load_config" operations for parity between sync and async
+        Prepare the normal and eager payloads and decide if we need to register a config session
 
         Args:
             config: candidate config to load
@@ -303,7 +456,7 @@ class ScrapliCfgEOSBase:
 
     def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
         """
-        Handle post "diff_config" operations for parity between sync and async
+        Normalize candidate config and source config so that we can easily diff them
 
         Args:
             source_config: current config of the source config store
@@ -329,6 +482,59 @@ class ScrapliCfgEOSBase:
         candidate_config = "\n".join(line for line in candidate_config.splitlines() if line)
 
         return source_config, candidate_config
+
+    def _pre_clear_config_sessions(self) -> ScrapliCfgResponse:
+        """
+        Handle pre "clear_config_sessions" operations for parity between sync and async
+
+        Args:
+            N/A
+
+        Returns:
+            ScrapliCfgResponse: new response object to update w/ get results
+
+        Raises:
+            N/A
+
+        """
+        self.logger.info("clear_config_sessions requested")
+
+        response = ScrapliCfgResponse(
+            host=self.conn.host, raise_for_status_exception=ScrapliCfgException
+        )
+
+        return response
+
+    def _post_clear_config_sessions(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "clear_config_sessions" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from fetching the version
+
+        Returns:
+            ScrapliCfgResponse: response object containing string of the version as the `result`
+                attribute
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses)
+
+        if response.failed:
+            msg = "failed to clear device configuration session(s)"
+            self.logger.critical(msg)
+            response.result = msg
+        else:
+            response.result = "configuration session(s) cleared"
+
+        return response
         </code>
     </pre>
 </details>
@@ -353,6 +559,12 @@ class ScrapliCfgEOSBase:
 
     
 `config_sources: List[str]`
+
+
+
+
+    
+`conn: Union[scrapli.driver.network.sync_driver.NetworkDriver, scrapli.driver.network.async_driver.AsyncNetworkDriver]`
 
 
 

@@ -44,6 +44,10 @@ class FailedToDetermineDeviceState(ScrapliCfgException):
     """For issues determining device state (i.e. what mode is file prompt in, etc.)"""
 
 
+class VersionError(ScrapliCfgException):
+    """For errors related to getting/parsing/invalid versions"""
+
+
 class ConfigError(ScrapliCfgException):
     """For configuration operation related errors"""
 
@@ -445,6 +449,7 @@ class ScrapliCfgException(ScrapliException):  # type: ignore
 - scrapli_cfg.exceptions.ConfigError
 - scrapli_cfg.exceptions.FailedToDetermineDeviceState
 - scrapli_cfg.exceptions.TemplateError
+- scrapli_cfg.exceptions.VersionError
 
 
 
@@ -463,6 +468,34 @@ For errors relating to configuration templates
         <code class="python">
 class TemplateError(ScrapliCfgException):
     """For errors relating to configuration templates"""
+        </code>
+    </pre>
+</details>
+
+
+#### Ancestors (in MRO)
+- scrapli_cfg.exceptions.ScrapliCfgException
+- scrapli.exceptions.ScrapliException
+- builtins.Exception
+- builtins.BaseException
+
+
+
+### VersionError
+
+
+```text
+For errors related to getting/parsing/invalid versions
+```
+
+<details class="source">
+    <summary>
+        <span>Expand source code</span>
+    </summary>
+    <pre>
+        <code class="python">
+class VersionError(ScrapliCfgException):
+    """For errors related to getting/parsing/invalid versions"""
         </code>
     </pre>
 </details>

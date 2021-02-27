@@ -39,6 +39,7 @@ from scrapli_cfg.platform.core.cisco_iosxe.patterns import (
     BYTES_FREE,
     FILE_PROMPT_MODE,
     OUTPUT_HEADER_PATTERN,
+    VERSION_PATTERN,
 )
 from scrapli_cfg.platform.core.cisco_iosxe.types import FilePromptMode
 
@@ -132,6 +133,29 @@ class ScrapliCfgIOSXEBase:
             return FilePromptMode.NOISY
         return FilePromptMode.QUIET
 
+    @staticmethod
+    def _parse_version(device_output: str) -> str:
+        """
+        Parse version string out of device output
+
+        Args:
+            device_output: output from show version command
+
+        Returns:
+            str: device version string
+
+        Raises:
+            N/A
+
+        """
+        version_string_search = re.search(pattern=VERSION_PATTERN, string=device_output)
+
+        if not version_string_search:
+            return ""
+
+        version_string = version_string_search.group(0) or ""
+        return version_string
+
     def _reset_config_session(self) -> None:
         """
         Reset config session info
@@ -156,7 +180,7 @@ class ScrapliCfgIOSXEBase:
     @staticmethod
     def _get_config_command(source: str) -> str:
         """
-        Handle pre "get_config" operations for parity between sync and async
+        Return command to use to get config based on the provided source
 
         Args:
             source: name of the config source, generally running|startup
@@ -165,7 +189,7 @@ class ScrapliCfgIOSXEBase:
             str: command to use to fetch the requested config
 
         Raises:
-            InvalidConfigTarget: if the requested config source is not valid
+            N/A
 
         """
         if source == "running":
@@ -174,13 +198,13 @@ class ScrapliCfgIOSXEBase:
 
     def _get_diff_command(self, source: str) -> str:
         """
-        Generate diff command based on source to diff and filesystem/candidate config name
+        Return command to use to get config diff based on the provided source
 
         Args:
-            source: config source to gen diff for
+            source: name of the config source, generally running|startup
 
         Returns:
-            str: command to use to diff the configuration
+            str: command to use to fetch the requested config
 
         Raises:
             N/A
@@ -248,7 +272,7 @@ class ScrapliCfgIOSXEBase:
 
     def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
         """
-        Handle post "diff_config" operations for parity between sync and async
+        Normalize candidate config and source config so that we can easily diff them
 
         Args:
             source_config: current config of the source config store
@@ -375,6 +399,29 @@ class ScrapliCfgIOSXEBase:
             return FilePromptMode.NOISY
         return FilePromptMode.QUIET
 
+    @staticmethod
+    def _parse_version(device_output: str) -> str:
+        """
+        Parse version string out of device output
+
+        Args:
+            device_output: output from show version command
+
+        Returns:
+            str: device version string
+
+        Raises:
+            N/A
+
+        """
+        version_string_search = re.search(pattern=VERSION_PATTERN, string=device_output)
+
+        if not version_string_search:
+            return ""
+
+        version_string = version_string_search.group(0) or ""
+        return version_string
+
     def _reset_config_session(self) -> None:
         """
         Reset config session info
@@ -399,7 +446,7 @@ class ScrapliCfgIOSXEBase:
     @staticmethod
     def _get_config_command(source: str) -> str:
         """
-        Handle pre "get_config" operations for parity between sync and async
+        Return command to use to get config based on the provided source
 
         Args:
             source: name of the config source, generally running|startup
@@ -408,7 +455,7 @@ class ScrapliCfgIOSXEBase:
             str: command to use to fetch the requested config
 
         Raises:
-            InvalidConfigTarget: if the requested config source is not valid
+            N/A
 
         """
         if source == "running":
@@ -417,13 +464,13 @@ class ScrapliCfgIOSXEBase:
 
     def _get_diff_command(self, source: str) -> str:
         """
-        Generate diff command based on source to diff and filesystem/candidate config name
+        Return command to use to get config diff based on the provided source
 
         Args:
-            source: config source to gen diff for
+            source: name of the config source, generally running|startup
 
         Returns:
-            str: command to use to diff the configuration
+            str: command to use to fetch the requested config
 
         Raises:
             N/A
@@ -491,7 +538,7 @@ class ScrapliCfgIOSXEBase:
 
     def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
         """
-        Handle post "diff_config" operations for parity between sync and async
+        Normalize candidate config and source config so that we can easily diff them
 
         Args:
             source_config: current config of the source config store

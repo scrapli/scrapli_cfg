@@ -31,6 +31,7 @@ scrapli_cfg.platform.core.cisco_iosxr.patterns
 """scrapli_cfg.platform.core.cisco_iosxr.patterns"""
 import re
 
+VERSION_PATTERN = re.compile(pattern=r"\d+\.\d+\.\d+", flags=re.I)
 BANNER_PATTERN = re.compile(
     pattern=r"^banner\s(?:(exec|incoming|login|motd|prompt-timeout|slip-ppp)\s)"
     r"(?P<delim>.{1}).*\?P=delim",

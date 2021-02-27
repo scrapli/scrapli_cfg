@@ -44,6 +44,7 @@ from scrapli_cfg.platform.core.cisco_nxos.patterns import (
     BYTES_FREE,
     CHECKPOINT_LINE,
     OUTPUT_HEADER_PATTERN,
+    VERSION_PATTERN,
 )
 from scrapli_cfg.response import ScrapliCfgResponse
 
@@ -114,6 +115,29 @@ class ScrapliCfgNXOSBase:
             self.logger.critical(msg)
             raise InsufficientSpaceAvailable(msg)
 
+    @staticmethod
+    def _parse_version(device_output: str) -> str:
+        """
+        Parse version string out of device output
+
+        Args:
+            device_output: output from show version command
+
+        Returns:
+            str: device version string
+
+        Raises:
+            N/A
+
+        """
+        version_string_search = re.search(pattern=VERSION_PATTERN, string=device_output)
+
+        if not version_string_search:
+            return ""
+
+        version_string = version_string_search.group(0) or ""
+        return version_string
+
     def _reset_config_session(self) -> None:
         """
         Reset config session info
@@ -138,7 +162,7 @@ class ScrapliCfgNXOSBase:
     @staticmethod
     def _get_config_command(source: str) -> str:
         """
-        Handle pre "get_config" operations for parity between sync and async
+        Return command to use to get config based on the provided source
 
         Args:
             source: name of the config source, generally running|startup
@@ -147,7 +171,7 @@ class ScrapliCfgNXOSBase:
             str: command to use to fetch the requested config
 
         Raises:
-            InvalidConfigTarget: if the requested config source is not valid
+            N/A
 
         """
         if source == "running":
@@ -234,7 +258,7 @@ class ScrapliCfgNXOSBase:
 
     def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
         """
-        Handle post "diff_config" operations for parity between sync and async
+        Normalize candidate config and source config so that we can easily diff them
 
         Args:
             source_config: current config of the source config store
@@ -365,6 +389,29 @@ class ScrapliCfgNXOSBase:
             self.logger.critical(msg)
             raise InsufficientSpaceAvailable(msg)
 
+    @staticmethod
+    def _parse_version(device_output: str) -> str:
+        """
+        Parse version string out of device output
+
+        Args:
+            device_output: output from show version command
+
+        Returns:
+            str: device version string
+
+        Raises:
+            N/A
+
+        """
+        version_string_search = re.search(pattern=VERSION_PATTERN, string=device_output)
+
+        if not version_string_search:
+            return ""
+
+        version_string = version_string_search.group(0) or ""
+        return version_string
+
     def _reset_config_session(self) -> None:
         """
         Reset config session info
@@ -389,7 +436,7 @@ class ScrapliCfgNXOSBase:
     @staticmethod
     def _get_config_command(source: str) -> str:
         """
-        Handle pre "get_config" operations for parity between sync and async
+        Return command to use to get config based on the provided source
 
         Args:
             source: name of the config source, generally running|startup
@@ -398,7 +445,7 @@ class ScrapliCfgNXOSBase:
             str: command to use to fetch the requested config
 
         Raises:
-            InvalidConfigTarget: if the requested config source is not valid
+            N/A
 
         """
         if source == "running":
@@ -485,7 +532,7 @@ class ScrapliCfgNXOSBase:
 
     def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
         """
-        Handle post "diff_config" operations for parity between sync and async
+        Normalize candidate config and source config so that we can easily diff them
 
         Args:
             source_config: current config of the source config store
