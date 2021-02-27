@@ -1,11 +1,11 @@
 ---
 site_name: Scrapli CFG
-site_url: https://github.com/scrapli/scrapli-cfg
+site_url: https://github.com/scrapli/scrapli_cfg
 site_description: "Scrapli CFG: Configuration management with scrapli"
 site_author: Carl Montanari
 
-repo_name: scrapli/scrapli-cfg
-repo_url: https://github.com/scrapli/scrapli-cfg
+repo_name: scrapli/scrapli_cfg
+repo_url: https://github.com/scrapli/scrapli_cfg
 edit_uri: ''
 
 theme:
@@ -17,7 +17,7 @@ theme:
       repo: fontawesome/brands/github-alt
 
 nav:
-  - Scrapli: index.md
+  - Scrapli Cfg: index.md
   - User Guide:
       - Quick Start Guide: user_guide/quickstart.md
       - Project Details: user_guide/project_details.md
