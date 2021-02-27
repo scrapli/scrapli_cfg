@@ -5,12 +5,12 @@ from scrapli.driver import AsyncNetworkDriver
 from scrapli.response import Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, FailedToDetermineDeviceState
-from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfg
+from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_nxos.base_platform import CONFIG_SOURCES, ScrapliCfgNXOSBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-async def async_nxos_on_open(cls: AsyncScrapliCfg) -> None:
+async def async_nxos_on_open(cls: AsyncScrapliCfgPlatform) -> None:
     """
     Scrapli CFG NXOS On open
 
@@ -29,7 +29,7 @@ async def async_nxos_on_open(cls: AsyncScrapliCfg) -> None:
     await cls.conn.send_config(config="no logging monitor")
 
 
-class AsyncScrapliCfgNXOS(AsyncScrapliCfg, ScrapliCfgNXOSBase):
+class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
     def __init__(
         self,
         conn: AsyncNetworkDriver,

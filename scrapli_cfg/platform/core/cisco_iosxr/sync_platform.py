@@ -4,12 +4,12 @@ from typing import Any, Callable, List, Optional
 from scrapli.driver import NetworkDriver
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, LoadConfigError
-from scrapli_cfg.platform.base.sync_platform import ScrapliCfg
+from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_iosxr.base_platform import CONFIG_SOURCES, ScrapliCfgIOSXRBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-def iosxr_on_open(cls: ScrapliCfg) -> None:
+def iosxr_on_open(cls: ScrapliCfgPlatform) -> None:
     """
     Scrapli CFG IOSXR On open
 
@@ -28,7 +28,7 @@ def iosxr_on_open(cls: ScrapliCfg) -> None:
     cls.conn.send_configs(configs=["no logging console", "commit"])
 
 
-class ScrapliCfgIOSXR(ScrapliCfg, ScrapliCfgIOSXRBase):
+class ScrapliCfgIOSXR(ScrapliCfgPlatform, ScrapliCfgIOSXRBase):
     def __init__(
         self,
         conn: NetworkDriver,

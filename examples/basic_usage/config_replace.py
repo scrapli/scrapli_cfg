@@ -1,6 +1,6 @@
-"""scrapli_cfg.examples.basic_usage.iosxe_config_replace"""
+"""scrapli_cfg.examples.basic_usage.config_replace"""
 from scrapli import Scrapli
-from scrapli_cfg.platform.core.cisco_iosxe import ScrapliCfgIOSXE
+from scrapli_cfg import ScrapliCfg
 
 DEVICE = {
     "host": "172.18.0.11",
@@ -21,8 +21,10 @@ def main():
     # open the "normal" scrapli connection
     conn = Scrapli(**DEVICE)
 
-    # create the scrapli cfg object, passing in the scrapli connection
-    cfg_conn = ScrapliCfgIOSXE(conn=conn)
+    # create the scrapli cfg object, passing in the scrapli connection, we are also using the
+    # scrapli_cfg factory, so we can just pass the platform to this class as well -- alternatively
+    # we could use the `ScrapliCfgIOSXE` class for iosxe devices
+    cfg_conn = ScrapliCfg(platform="cisco_iosxe", conn=conn)
 
     # open the scrapli cfg object (opens the underlying scrapli object)
     cfg_conn.open()

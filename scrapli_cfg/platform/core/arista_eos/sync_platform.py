@@ -5,12 +5,12 @@ from scrapli.driver import NetworkDriver
 from scrapli.response import Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, LoadConfigError, ScrapliCfgException
-from scrapli_cfg.platform.base.sync_platform import ScrapliCfg
+from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
 from scrapli_cfg.platform.core.arista_eos.base_platform import CONFIG_SOURCES, ScrapliCfgEOSBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-def eos_on_open(cls: ScrapliCfg) -> None:
+def eos_on_open(cls: ScrapliCfgPlatform) -> None:
     """
     Scrapli CFG EOS On open
 
@@ -29,7 +29,7 @@ def eos_on_open(cls: ScrapliCfg) -> None:
     cls.conn.send_config(config="no logging console")
 
 
-class ScrapliCfgEOS(ScrapliCfg, ScrapliCfgEOSBase):
+class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
     def __init__(
         self,
         conn: NetworkDriver,

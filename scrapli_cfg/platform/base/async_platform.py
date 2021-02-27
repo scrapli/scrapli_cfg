@@ -9,7 +9,7 @@ from scrapli_cfg.platform.base.base_platform import ScrapliCfgBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-class AsyncScrapliCfg(ABC, ScrapliCfgBase):
+class AsyncScrapliCfgPlatform(ABC, ScrapliCfgBase):
     def __init__(
         self, conn: AsyncNetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
     ) -> None:
@@ -82,7 +82,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         if self.conn.isalive():
             await self.conn.close()
 
-    async def __aenter__(self) -> "AsyncScrapliCfg":
+    async def __aenter__(self) -> "AsyncScrapliCfgPlatform":
         """
         Enter method for async context manager
 

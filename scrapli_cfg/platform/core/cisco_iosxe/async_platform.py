@@ -5,13 +5,13 @@ from scrapli.driver import AsyncNetworkDriver
 from scrapli.response import Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, FailedToDetermineDeviceState
-from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfg
+from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_iosxe.base_platform import CONFIG_SOURCES, ScrapliCfgIOSXEBase
 from scrapli_cfg.platform.core.cisco_iosxe.types import FilePromptMode
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-async def async_iosxe_on_open(cls: AsyncScrapliCfg) -> None:
+async def async_iosxe_on_open(cls: AsyncScrapliCfgPlatform) -> None:
     """
     Scrapli CFG IOSXE On open
 
@@ -30,7 +30,7 @@ async def async_iosxe_on_open(cls: AsyncScrapliCfg) -> None:
     await cls.conn.send_config(config="no logging monitor")
 
 
-class AsyncScrapliCfgIOSXE(AsyncScrapliCfg, ScrapliCfgIOSXEBase):
+class AsyncScrapliCfgIOSXE(AsyncScrapliCfgPlatform, ScrapliCfgIOSXEBase):
     def __init__(
         self,
         conn: AsyncNetworkDriver,

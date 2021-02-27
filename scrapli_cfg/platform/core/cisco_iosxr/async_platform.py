@@ -4,12 +4,12 @@ from typing import Any, Callable, List, Optional
 from scrapli.driver import AsyncNetworkDriver
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, LoadConfigError
-from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfg
+from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_iosxr.base_platform import CONFIG_SOURCES, ScrapliCfgIOSXRBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-async def async_iosxr_on_open(cls: AsyncScrapliCfg) -> None:
+async def async_iosxr_on_open(cls: AsyncScrapliCfgPlatform) -> None:
     """
     Scrapli CFG IOSXR On open
 
@@ -28,7 +28,7 @@ async def async_iosxr_on_open(cls: AsyncScrapliCfg) -> None:
     await cls.conn.send_configs(configs=["no logging console", "commit"])
 
 
-class AsyncScrapliCfgIOSXR(AsyncScrapliCfg, ScrapliCfgIOSXRBase):
+class AsyncScrapliCfgIOSXR(AsyncScrapliCfgPlatform, ScrapliCfgIOSXRBase):
     def __init__(
         self,
         conn: AsyncNetworkDriver,
