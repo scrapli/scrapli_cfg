@@ -7,6 +7,7 @@ from scrapli_cfg.platform.core.cisco_iosxr.patterns import (
     BANNER_PATTERN,
     END_PATTERN,
     OUTPUT_HEADER_PATTERN,
+    VERSION_PATTERN,
 )
 
 CONFIG_SOURCES = [
@@ -20,6 +21,29 @@ class ScrapliCfgIOSXRBase:
     _config_privilege_level: str
     _replace: bool
     candidate_config: str
+
+    @staticmethod
+    def _parse_version(device_output: str) -> str:
+        """
+        Parse version string out of device output
+
+        Args:
+            device_output: output from show version command
+
+        Returns:
+            str: device version string
+
+        Raises:
+            N/A
+
+        """
+        version_string_search = re.search(pattern=VERSION_PATTERN, string=device_output)
+
+        if not version_string_search:
+            return ""
+
+        version_string = version_string_search.group(0) or ""
+        return version_string
 
     @staticmethod
     def _prepare_config_payloads(config: str) -> Tuple[str, str]:

@@ -14,6 +14,10 @@ class FailedToDetermineDeviceState(ScrapliCfgException):
     """For issues determining device state (i.e. what mode is file prompt in, etc.)"""
 
 
+class VersionError(ScrapliCfgException):
+    """For errors related to getting/parsing/invalid versions"""
+
+
 class ConfigError(ScrapliCfgException):
     """For configuration operation related errors"""
 

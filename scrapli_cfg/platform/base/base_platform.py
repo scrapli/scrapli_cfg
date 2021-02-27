@@ -14,6 +14,7 @@ from scrapli_cfg.exceptions import (
     InvalidConfigTarget,
     LoadConfigError,
     TemplateError,
+    VersionError,
 )
 from scrapli_cfg.response import ScrapliCfgResponse
 
@@ -21,13 +22,17 @@ from scrapli_cfg.response import ScrapliCfgResponse
 class ScrapliCfgBase:
     conn: Union[NetworkDriver, AsyncNetworkDriver]
 
-    def __init__(self, config_sources: List[str]) -> None:
+    def __init__(self, config_sources: List[str], ignore_version: bool = False) -> None:
         self.logger = get_instance_logger(
             instance_name="scrapli_cfg.platform", host=self.conn.host, port=self.conn.port
         )
 
         self.config_sources = config_sources
         self.candidate_config = ""
+
+        self._ignore_version = ignore_version
+        self._get_version_command = ""
+        self._version_string = ""
 
     def _render_substituted_config(
         self, config_template: str, substitutes: List[Tuple[str, Pattern[str]]], source_config: str
@@ -93,6 +98,80 @@ class ScrapliCfgBase:
         self.logger.debug("rendering substituted config complete")
 
         return rendered_config
+
+    def _validate_and_set_version(self, version_response: ScrapliCfgResponse) -> None:
+        """
+        Ensure version was fetched successfully and set internal version attribute
+
+        Args:
+            version_response: scrapli cfg response from get version operation
+
+        Returns:
+            None
+
+        Raises:
+            VersionError: if fetching version failed or failed to parse version
+
+        """
+        if version_response.failed:
+            msg = "getting version from device failed"
+            self.logger.critical(msg)
+            raise VersionError(msg)
+        if not version_response.result:
+            msg = "failed parsing version string from device output"
+            self.logger.critical(msg)
+            raise VersionError(msg)
+        self._version_string = version_response.result
+
+    def _pre_get_version(self) -> ScrapliCfgResponse:
+        """
+        Handle pre "get_version" operations for parity between sync and async
+
+        Args:
+            N/A
+
+        Returns:
+            ScrapliCfgResponse: new response object to update w/ get results
+
+        Raises:
+            N/A
+
+        """
+        self.logger.info("get_version requested")
+
+        response = ScrapliCfgResponse(host=self.conn.host, raise_for_status_exception=VersionError)
+
+        return response
+
+    def _post_get_version(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+        result: str,
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "get_version" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from fetching the version
+            result: final version string of the device
+
+        Returns:
+            ScrapliCfgResponse: response object containing string of the version as the `result`
+                attribute
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses, result=result)
+
+        if response.failed:
+            msg = "failed to get version from device"
+            self.logger.critical(msg)
+
+        return response
 
     def _pre_get_config(self, source: str) -> ScrapliCfgResponse:
         """

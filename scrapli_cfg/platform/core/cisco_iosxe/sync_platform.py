@@ -56,6 +56,8 @@ class ScrapliCfgIOSXE(ScrapliCfg, ScrapliCfgIOSXEBase):
 
         self.cleanup_post_commit = cleanup_post_commit
 
+        self._get_version_command = "show version | i Version"
+
     def _get_filesystem_space_available(self) -> int:
         """
         Abort a configuration -- discards any loaded config
@@ -282,6 +284,9 @@ class ScrapliCfgIOSXE(ScrapliCfg, ScrapliCfgIOSXEBase):
 
         scrapli_responses.append(commit_result)
 
+        save_config_result = self.conn.send_command(command="copy running-config startup-config")
+        scrapli_responses.append(save_config_result)
+
         if self.cleanup_post_commit:
             cleanup_result = self._delete_candidate_config()
             scrapli_responses.append(cleanup_result)
@@ -321,14 +326,22 @@ class ScrapliCfgIOSXE(ScrapliCfg, ScrapliCfgIOSXEBase):
             diff_result = self.conn.send_command(command=self._get_diff_command(source=source))
             scrapli_responses.append(diff_response)
             if diff_result.failed:
-                raise DiffConfigError("failed generating diff for config session")
+                msg = "failed generating diff for config session"
+                self.logger.critical(msg)
+                raise DiffConfigError(msg)
+
+            device_diff = diff_result.result
 
             source_config_result = self.get_config(source=source)
             source_config = source_config_result.result
+
             if source_config_result.scrapli_responses:
                 scrapli_responses.extend(source_config_result.scrapli_responses)
+
             if source_config_result.failed:
-                raise DiffConfigError("failed fetching source config for diff comparison")
+                msg = "failed fetching source config for diff comparison"
+                self.logger.critical(msg)
+                raise DiffConfigError(msg)
 
         except DiffConfigError:
             pass

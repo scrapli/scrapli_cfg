@@ -9,6 +9,7 @@ from scrapli_cfg.platform.core.cisco_iosxe.patterns import (
     BYTES_FREE,
     FILE_PROMPT_MODE,
     OUTPUT_HEADER_PATTERN,
+    VERSION_PATTERN,
 )
 from scrapli_cfg.platform.core.cisco_iosxe.types import FilePromptMode
 
@@ -101,6 +102,29 @@ class ScrapliCfgIOSXEBase:
         if prompt_mode == "noisy":
             return FilePromptMode.NOISY
         return FilePromptMode.QUIET
+
+    @staticmethod
+    def _parse_version(device_output: str) -> str:
+        """
+        Parse version string out of device output
+
+        Args:
+            device_output: output from show version command
+
+        Returns:
+            str: device version string
+
+        Raises:
+            N/A
+
+        """
+        version_string_search = re.search(pattern=VERSION_PATTERN, string=device_output)
+
+        if not version_string_search:
+            return ""
+
+        version_string = version_string_search.group(0) or ""
+        return version_string
 
     def _reset_config_session(self) -> None:
         """

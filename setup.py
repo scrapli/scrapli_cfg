@@ -22,7 +22,10 @@ setuptools.setup(
     keywords="ssh telnet netconf automation network cisco iosxr iosxe nxos arista eos juniper "
     "junos",
     url="https://github.com/scrapli/scrapli_cfg",
-    project_urls={"Changelog": "https://github.com/scrapli/scrapli_cfg/blob/master/CHANGELOG.md"},
+    project_urls={
+        "Changelog": "https://scrapli.github.io/scrapli_cfg/changelog",
+        "Docs": "https://scrapli.github.io/scrapli_cfg/",
+    },
     license="MIT",
     packages=setuptools.find_packages(),
     install_requires=INSTALL_REQUIRES,

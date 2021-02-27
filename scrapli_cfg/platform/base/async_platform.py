@@ -55,6 +55,11 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         if not self.conn.isalive():
             await self.conn.open()
 
+        if self._ignore_version is False:
+            self.logger.debug("ignore_version is False, fetching device version")
+            version_response = await self.get_version()
+            self._validate_and_set_version(version_response=version_response)
+
         self.logger.debug("executing scrapli_cfg on open method")
         await self.on_open(self)
 
@@ -116,6 +121,31 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
 
         """
         await self.close()
+
+    async def get_version(self) -> ScrapliCfgResponse:
+        """
+        Get device version string
+
+        Args:
+            N/A
+
+        Returns:
+            ScrapliCfgResponse: response object where result is the string of the primary version
+                (as in the "main" os version) of the device
+
+        Raises:
+            N/A
+
+        """
+        response = self._pre_get_version()
+
+        version_result = await self.conn.send_command(command=self._get_version_command)
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),  # type: ignore  # noqa
+        )
 
     @abstractmethod
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:

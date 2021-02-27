@@ -55,6 +55,11 @@ class ScrapliCfg(ABC, ScrapliCfgBase):
         if not self.conn.isalive():
             self.conn.open()
 
+        if self._ignore_version is False:
+            self.logger.debug("ignore_version is False, fetching device version")
+            version_response = self.get_version()
+            self._validate_and_set_version(version_response=version_response)
+
         self.logger.debug("executing scrapli_cfg on open method")
         self.on_open(self)
 
@@ -116,6 +121,35 @@ class ScrapliCfg(ABC, ScrapliCfgBase):
 
         """
         self.close()
+
+    def get_version(self) -> ScrapliCfgResponse:
+        """
+        Get device version string
+
+        Args:
+            N/A
+
+        Returns:
+            ScrapliCfgResponse: response object where result is the string of the primary version
+                (as in the "main" os version) of the device
+
+        Raises:
+            N/A
+
+        """
+        response = self._pre_get_version()
+
+        version_result = self.conn.send_command(command=self._get_version_command)
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            # due to the class hierarchy (and perhaps bad design/decisions?!) implementing a
+            # _parse_version method as an abstractmethod in the platform/base/base_platform class
+            # wont work because of the way the mro will line up, so we will ignore this, but each
+            # platform *must* implement this method (in their respective base platform class)
+            result=self._parse_version(device_output=version_result.result),  # type: ignore  # noqa
+        )
 
     @abstractmethod
     def get_config(self, source: str = "running") -> ScrapliCfgResponse:

@@ -48,6 +48,8 @@ class AsyncScrapliCfgIOSXR(AsyncScrapliCfg, ScrapliCfgIOSXRBase):
         self._in_configuration_session = False
         self._config_privilege_level = "configuration"
 
+        self._get_version_command = "show version | i Version"
+
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:
         """
         Get device configuration
@@ -116,7 +118,9 @@ class AsyncScrapliCfgIOSXR(AsyncScrapliCfg, ScrapliCfgIOSXRBase):
             )
             scrapli_responses.append(config_result)
             if config_result.failed:
-                raise LoadConfigError("failed to load the candidate config into the config session")
+                msg = "failed to load the candidate config into the config session"
+                self.logger.critical(msg)
+                raise LoadConfigError(msg)
 
             # eager cuz banners and such; perhaps if no banner/macro we can disable eager though....
             if eager_config:
@@ -125,9 +129,9 @@ class AsyncScrapliCfgIOSXR(AsyncScrapliCfg, ScrapliCfgIOSXRBase):
                 )
                 scrapli_responses.append(eager_config_result)
                 if eager_config_result.failed:
-                    raise LoadConfigError(
-                        "failed to load the candidate config into the config session"
-                    )
+                    msg = "failed to load the candidate config into the config session"
+                    self.logger.critical(msg)
+                    raise LoadConfigError(msg)
 
         except LoadConfigError:
             pass
@@ -211,14 +215,22 @@ class AsyncScrapliCfgIOSXR(AsyncScrapliCfg, ScrapliCfgIOSXRBase):
             )
             scrapli_responses.append(diff_response)
             if diff_result.failed:
-                raise DiffConfigError("failed generating diff for config session")
+                msg = "failed generating diff for config session"
+                self.logger.critical(msg)
+                raise DiffConfigError(msg)
+
+            device_diff = diff_result.result
 
             source_config_result = await self.get_config(source=source)
             source_config = source_config_result.result
+
             if source_config_result.scrapli_responses:
                 scrapli_responses.extend(source_config_result.scrapli_responses)
+
             if source_config_result.failed:
-                raise DiffConfigError("failed fetching source config for diff comparison")
+                msg = "failed fetching source config for diff comparison"
+                self.logger.critical(msg)
+                raise DiffConfigError(msg)
 
         except DiffConfigError:
             pass
