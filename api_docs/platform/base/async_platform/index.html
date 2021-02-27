@@ -434,11 +434,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#asyncscraplicfg" class="md-nav__link">
-    AsyncScrapliCfg
+  <a href="#asyncscraplicfgplatform" class="md-nav__link">
+    AsyncScrapliCfgPlatform
   </a>
   
-    <nav class="md-nav" aria-label="AsyncScrapliCfg">
+    <nav class="md-nav" aria-label="AsyncScrapliCfgPlatform">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1252,11 +1252,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#asyncscraplicfg" class="md-nav__link">
-    AsyncScrapliCfg
+  <a href="#asyncscraplicfgplatform" class="md-nav__link">
+    AsyncScrapliCfgPlatform
   </a>
   
-    <nav class="md-nav" aria-label="AsyncScrapliCfg">
+    <nav class="md-nav" aria-label="AsyncScrapliCfgPlatform">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1404,7 +1404,7 @@ from scrapli_cfg.platform.base.base_platform import ScrapliCfgBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-class AsyncScrapliCfg(ABC, ScrapliCfgBase):
+class AsyncScrapliCfgPlatform(ABC, ScrapliCfgBase):
     def __init__(
         self, conn: AsyncNetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
     ) -> None:
@@ -1477,7 +1477,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         if self.conn.isalive():
             await self.conn.close()
 
-    async def __aenter__(self) -> "AsyncScrapliCfg":
+    async def __aenter__(self) -> "AsyncScrapliCfgPlatform":
         """
         Enter method for async context manager
 
@@ -1672,7 +1672,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
 </details>
 
 <h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
-<h3 id="asyncscraplicfg">AsyncScrapliCfg<a class="headerlink" href="#asyncscraplicfg" title="Permanent link">&para;</a></h3>
+<h3 id="asyncscraplicfgplatform">AsyncScrapliCfgPlatform<a class="headerlink" href="#asyncscraplicfgplatform" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>Helper class that provides a standard way to create an ABC using
 inheritance.
 
@@ -1696,7 +1696,7 @@ Raises:
     </summary>
     <pre>
         <code class="python">
-class AsyncScrapliCfg(ABC, ScrapliCfgBase):
+class AsyncScrapliCfgPlatform(ABC, ScrapliCfgBase):
     def __init__(
         self, conn: AsyncNetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
     ) -> None:
@@ -1769,7 +1769,7 @@ class AsyncScrapliCfg(ABC, ScrapliCfgBase):
         if self.conn.isalive():
             await self.conn.close()
 
-    async def __aenter__(self) -> "AsyncScrapliCfg":
+    async def __aenter__(self) -> "AsyncScrapliCfgPlatform":
         """
         Enter method for async context manager
 

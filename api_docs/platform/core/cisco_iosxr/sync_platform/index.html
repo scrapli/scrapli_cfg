@@ -1315,12 +1315,12 @@ from typing import Any, Callable, List, Optional
 from scrapli.driver import NetworkDriver
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, LoadConfigError
-from scrapli_cfg.platform.base.sync_platform import ScrapliCfg
+from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_iosxr.base_platform import CONFIG_SOURCES, ScrapliCfgIOSXRBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-def iosxr_on_open(cls: ScrapliCfg) -> None:
+def iosxr_on_open(cls: ScrapliCfgPlatform) -> None:
     """
     Scrapli CFG IOSXR On open
 
@@ -1339,7 +1339,7 @@ def iosxr_on_open(cls: ScrapliCfg) -> None:
     cls.conn.send_configs(configs=["no logging console", "commit"])
 
 
-class ScrapliCfgIOSXR(ScrapliCfg, ScrapliCfgIOSXRBase):
+class ScrapliCfgIOSXR(ScrapliCfgPlatform, ScrapliCfgIOSXRBase):
     def __init__(
         self,
         conn: NetworkDriver,
@@ -1507,7 +1507,7 @@ class ScrapliCfgIOSXR(ScrapliCfg, ScrapliCfgIOSXRBase):
 
 <h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
 <h4 id="iosxr_on_open">iosxr_on_open<a class="headerlink" href="#iosxr_on_open" title="Permanent link">&para;</a></h4>
-<p><code>iosxr_on_open(cls: scrapli_cfg.platform.base.sync_platform.ScrapliCfg) ‑&gt; NoneType</code></p>
+<p><code>iosxr_on_open(cls: scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform) ‑&gt; NoneType</code></p>
 <div class="codehilite"><pre><span></span><code>Scrapli CFG IOSXR On open
 
 Disable console logging, perhaps more things in the future!
@@ -1547,7 +1547,7 @@ Raises:
     </summary>
     <pre>
         <code class="python">
-class ScrapliCfgIOSXR(ScrapliCfg, ScrapliCfgIOSXRBase):
+class ScrapliCfgIOSXR(ScrapliCfgPlatform, ScrapliCfgIOSXRBase):
     def __init__(
         self,
         conn: NetworkDriver,
@@ -1715,7 +1715,7 @@ class ScrapliCfgIOSXR(ScrapliCfg, ScrapliCfgIOSXRBase):
 
 <h4 id="ancestors-in-mro">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro" title="Permanent link">&para;</a></h4>
 <ul>
-<li>scrapli_cfg.platform.base.sync_platform.ScrapliCfg</li>
+<li>scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform</li>
 <li>abc.ABC</li>
 <li>scrapli_cfg.platform.base.base_platform.ScrapliCfgBase</li>
 <li>scrapli_cfg.platform.core.cisco_iosxr.base_platform.ScrapliCfgIOSXRBase</li>

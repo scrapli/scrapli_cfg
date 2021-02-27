@@ -1330,12 +1330,12 @@ from scrapli.driver import AsyncNetworkDriver
 from scrapli.response import Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, FailedToDetermineDeviceState
-from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfg
+from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_nxos.base_platform import CONFIG_SOURCES, ScrapliCfgNXOSBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-async def async_nxos_on_open(cls: AsyncScrapliCfg) -> None:
+async def async_nxos_on_open(cls: AsyncScrapliCfgPlatform) -> None:
     """
     Scrapli CFG NXOS On open
 
@@ -1354,7 +1354,7 @@ async def async_nxos_on_open(cls: AsyncScrapliCfg) -> None:
     await cls.conn.send_config(config="no logging monitor")
 
 
-class AsyncScrapliCfgNXOS(AsyncScrapliCfg, ScrapliCfgNXOSBase):
+class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
     def __init__(
         self,
         conn: AsyncNetworkDriver,
@@ -1606,7 +1606,7 @@ class AsyncScrapliCfgNXOS(AsyncScrapliCfg, ScrapliCfgNXOSBase):
 
 <h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
 <h4 id="async_nxos_on_open">async_nxos_on_open<a class="headerlink" href="#async_nxos_on_open" title="Permanent link">&para;</a></h4>
-<p><code>async_nxos_on_open(cls: scrapli_cfg.platform.base.async_platform.AsyncScrapliCfg) ‑&gt; NoneType</code></p>
+<p><code>async_nxos_on_open(cls: scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform) ‑&gt; NoneType</code></p>
 <div class="codehilite"><pre><span></span><code>Scrapli CFG NXOS On open
 
 Disable console logging, perhaps more things in the future!
@@ -1646,7 +1646,7 @@ Raises:
     </summary>
     <pre>
         <code class="python">
-class AsyncScrapliCfgNXOS(AsyncScrapliCfg, ScrapliCfgNXOSBase):
+class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
     def __init__(
         self,
         conn: AsyncNetworkDriver,
@@ -1898,7 +1898,7 @@ class AsyncScrapliCfgNXOS(AsyncScrapliCfg, ScrapliCfgNXOSBase):
 
 <h4 id="ancestors-in-mro">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro" title="Permanent link">&para;</a></h4>
 <ul>
-<li>scrapli_cfg.platform.base.async_platform.AsyncScrapliCfg</li>
+<li>scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform</li>
 <li>abc.ABC</li>
 <li>scrapli_cfg.platform.base.base_platform.ScrapliCfgBase</li>
 <li>scrapli_cfg.platform.core.cisco_nxos.base_platform.ScrapliCfgNXOSBase</li>

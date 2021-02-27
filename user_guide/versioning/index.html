@@ -67,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#versioning" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -270,6 +275,8 @@
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
@@ -1070,15 +1077,43 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Versioning</h1>
-                
-                
+                <h1 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h1>
+<p>Just like scrapli, scrapli_cfg uses the <a href="https://calver.org">CalVer</a> versioning standard. All release versions
+ follow the format <code>YYYY.MM.DD</code>, however PyPi will shorten/standardize this to remove leading zeros.</p>
+<p>The reason for choosing CalVer is simply to make it very clear how old a given release of scrapli is. While there are
+ clearly some potential challenges around indicating when a "breaking" change occurs due to there not being the
+  concept of a "major" version, this is hopefully not too big a deal for scrapli, and thus far the "core" API has
+   been very stable -- there are only so many things you can/need to do over SSH after all!</p>
+<p>Please also note that the <a href="/changelog">CHANGELOG</a> contains notes about each version (and is updated in develop branch 
+while updates are happening). Releases will be made semi-yearly; if you need a feature between releases, there will 
+be periodic pre-releases cut so that folks can easily pip install the prerelease versions for testing and getting 
+any new features/fixes.</p>
+<p>A final note regarding versioning: scrapli updates are released as often as necessary/there are things to update
+. This means you should ALWAYS PIN YOUR REQUIREMENTS when using scrapli!! As stated, the "core" API has been very
+ stable, but things will change over time -- always pin your requirements, and keep an eye on the changelog/api docs
+  -- you can "watch" this repository to ensure you are notified of any releases.</p>
                 
               
               

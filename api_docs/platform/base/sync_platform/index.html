@@ -446,11 +446,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scraplicfg" class="md-nav__link">
-    ScrapliCfg
+  <a href="#scraplicfgplatform" class="md-nav__link">
+    ScrapliCfgPlatform
   </a>
   
-    <nav class="md-nav" aria-label="ScrapliCfg">
+    <nav class="md-nav" aria-label="ScrapliCfgPlatform">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1252,11 +1252,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scraplicfg" class="md-nav__link">
-    ScrapliCfg
+  <a href="#scraplicfgplatform" class="md-nav__link">
+    ScrapliCfgPlatform
   </a>
   
-    <nav class="md-nav" aria-label="ScrapliCfg">
+    <nav class="md-nav" aria-label="ScrapliCfgPlatform">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1404,7 +1404,7 @@ from scrapli_cfg.platform.base.base_platform import ScrapliCfgBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-class ScrapliCfg(ABC, ScrapliCfgBase):
+class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
     def __init__(
         self, conn: NetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
     ) -> None:
@@ -1477,7 +1477,7 @@ class ScrapliCfg(ABC, ScrapliCfgBase):
         if self.conn.isalive():
             self.conn.close()
 
-    def __enter__(self) -> "ScrapliCfg":
+    def __enter__(self) -> "ScrapliCfgPlatform":
         """
         Enter method for context manager
 
@@ -1674,7 +1674,7 @@ class ScrapliCfg(ABC, ScrapliCfgBase):
 </details>
 
 <h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
-<h3 id="scraplicfg">ScrapliCfg<a class="headerlink" href="#scraplicfg" title="Permanent link">&para;</a></h3>
+<h3 id="scraplicfgplatform">ScrapliCfgPlatform<a class="headerlink" href="#scraplicfgplatform" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>Helper class that provides a standard way to create an ABC using
 inheritance.
 
@@ -1698,7 +1698,7 @@ Raises:
     </summary>
     <pre>
         <code class="python">
-class ScrapliCfg(ABC, ScrapliCfgBase):
+class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
     def __init__(
         self, conn: NetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
     ) -> None:
@@ -1771,7 +1771,7 @@ class ScrapliCfg(ABC, ScrapliCfgBase):
         if self.conn.isalive():
             self.conn.close()
 
-    def __enter__(self) -> "ScrapliCfg":
+    def __enter__(self) -> "ScrapliCfgPlatform":
         """
         Enter method for context manager
 

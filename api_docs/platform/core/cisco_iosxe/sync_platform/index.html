@@ -1316,13 +1316,13 @@ from scrapli.driver import NetworkDriver
 from scrapli.response import Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, FailedToDetermineDeviceState
-from scrapli_cfg.platform.base.sync_platform import ScrapliCfg
+from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_iosxe.base_platform import CONFIG_SOURCES, ScrapliCfgIOSXEBase
 from scrapli_cfg.platform.core.cisco_iosxe.types import FilePromptMode
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-def iosxe_on_open(cls: ScrapliCfg) -> None:
+def iosxe_on_open(cls: ScrapliCfgPlatform) -> None:
     """
     Scrapli CFG IOSXE On open
 
@@ -1341,7 +1341,7 @@ def iosxe_on_open(cls: ScrapliCfg) -> None:
     cls.conn.send_config(config="no logging monitor")
 
 
-class ScrapliCfgIOSXE(ScrapliCfg, ScrapliCfgIOSXEBase):
+class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
     def __init__(
         self,
         conn: NetworkDriver,
@@ -1620,7 +1620,7 @@ class ScrapliCfgIOSXE(ScrapliCfg, ScrapliCfgIOSXEBase):
 
 <h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
 <h4 id="iosxe_on_open">iosxe_on_open<a class="headerlink" href="#iosxe_on_open" title="Permanent link">&para;</a></h4>
-<p><code>iosxe_on_open(cls: scrapli_cfg.platform.base.sync_platform.ScrapliCfg) ‑&gt; NoneType</code></p>
+<p><code>iosxe_on_open(cls: scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform) ‑&gt; NoneType</code></p>
 <div class="codehilite"><pre><span></span><code>Scrapli CFG IOSXE On open
 
 Disable console logging, perhaps more things in the future!
@@ -1660,7 +1660,7 @@ Raises:
     </summary>
     <pre>
         <code class="python">
-class ScrapliCfgIOSXE(ScrapliCfg, ScrapliCfgIOSXEBase):
+class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
     def __init__(
         self,
         conn: NetworkDriver,
@@ -1939,7 +1939,7 @@ class ScrapliCfgIOSXE(ScrapliCfg, ScrapliCfgIOSXEBase):
 
 <h4 id="ancestors-in-mro">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro" title="Permanent link">&para;</a></h4>
 <ul>
-<li>scrapli_cfg.platform.base.sync_platform.ScrapliCfg</li>
+<li>scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform</li>
 <li>abc.ABC</li>
 <li>scrapli_cfg.platform.base.base_platform.ScrapliCfgBase</li>
 <li>scrapli_cfg.platform.core.cisco_iosxe.base_platform.ScrapliCfgIOSXEBase</li>

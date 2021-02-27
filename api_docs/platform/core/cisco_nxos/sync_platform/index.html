@@ -1330,12 +1330,12 @@ from scrapli.driver import NetworkDriver
 from scrapli.response import Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, FailedToDetermineDeviceState
-from scrapli_cfg.platform.base.sync_platform import ScrapliCfg
+from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
 from scrapli_cfg.platform.core.cisco_nxos.base_platform import CONFIG_SOURCES, ScrapliCfgNXOSBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-def nxos_on_open(cls: ScrapliCfg) -> None:
+def nxos_on_open(cls: ScrapliCfgPlatform) -> None:
     """
     Scrapli CFG NXOS On open
 
@@ -1354,7 +1354,7 @@ def nxos_on_open(cls: ScrapliCfg) -> None:
     cls.conn.send_config(config="no logging monitor")
 
 
-class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
+class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
     def __init__(
         self,
         conn: NetworkDriver,
@@ -1600,7 +1600,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
 
 <h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
 <h4 id="nxos_on_open">nxos_on_open<a class="headerlink" href="#nxos_on_open" title="Permanent link">&para;</a></h4>
-<p><code>nxos_on_open(cls: scrapli_cfg.platform.base.sync_platform.ScrapliCfg) ‑&gt; NoneType</code></p>
+<p><code>nxos_on_open(cls: scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform) ‑&gt; NoneType</code></p>
 <div class="codehilite"><pre><span></span><code>Scrapli CFG NXOS On open
 
 Disable console logging, perhaps more things in the future!
@@ -1627,7 +1627,7 @@ inheritance.
     </summary>
     <pre>
         <code class="python">
-class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
+class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
     def __init__(
         self,
         conn: NetworkDriver,
@@ -1874,7 +1874,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfg):
 <h4 id="ancestors-in-mro">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro" title="Permanent link">&para;</a></h4>
 <ul>
 <li>scrapli_cfg.platform.core.cisco_nxos.base_platform.ScrapliCfgNXOSBase</li>
-<li>scrapli_cfg.platform.base.sync_platform.ScrapliCfg</li>
+<li>scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform</li>
 <li>abc.ABC</li>
 <li>scrapli_cfg.platform.base.base_platform.ScrapliCfgBase</li>
 </ul>
