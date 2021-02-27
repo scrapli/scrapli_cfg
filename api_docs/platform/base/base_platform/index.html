@@ -1,0 +1,2207 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Scrapli CFG: Configuration management with scrapli">
+      
+      
+      
+        <meta name="author" content="Carl Montanari">
+      
+      
+        <link rel="canonical" href="https://github.com/scrapli/scrapli-cfg/api_docs/platform/base/base_platform/">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+    
+    
+      
+        <title>Base platform - Scrapli CFG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.1655a90d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="teal">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-scrapli_cfgplatformbasebase_platform" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://github.com/scrapli/scrapli-cfg" title="Scrapli CFG" class="md-header__button md-logo" aria-label="Scrapli CFG">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Scrapli CFG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Base platform
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/scrapli/scrapli-cfg" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    scrapli/scrapli-cfg
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/scrapli/scrapli-cfg" title="Scrapli CFG" class="md-nav__button md-logo" aria-label="Scrapli CFG">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Scrapli CFG
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/scrapli/scrapli-cfg" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    scrapli/scrapli-cfg
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Scrapli
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        User Guide
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          User Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_guide/quickstart/" class="md-nav__link">
+        Quick Start Guide
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_guide/project_details/" class="md-nav__link">
+        Project Details
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_guide/versioning/" class="md-nav__link">
+        Versioning
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_guide/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_guide/basic_usage/" class="md-nav__link">
+        Basic Usage
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        API Docs
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API Docs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          API Docs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        Platforms
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Platforms" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_1" type="checkbox" id="__nav_3_1_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1_1">
+        Base
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Base" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Base
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async_platform/" class="md-nav__link">
+        Base Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async_platform/" class="md-nav__link">
+        Async Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sync_platform/" class="md-nav__link">
+        Sync Platform
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_2" type="checkbox" id="__nav_3_1_2" >
+      
+      <label class="md-nav__link" for="__nav_3_1_2">
+        Core
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Core" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Core
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_2_1" type="checkbox" id="__nav_3_1_2_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1_2_1">
+        Arista EOS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Arista EOS" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_1_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Arista EOS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/arista_eos/async_platform/" class="md-nav__link">
+        Base Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/arista_eos/async_platform/" class="md-nav__link">
+        Async Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/arista_eos/sync_platform/" class="md-nav__link">
+        Sync Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/arista_eos/patterns/" class="md-nav__link">
+        Patterns
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_2_2" type="checkbox" id="__nav_3_1_2_2" >
+      
+      <label class="md-nav__link" for="__nav_3_1_2_2">
+        Cisco IOSXE
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cisco IOSXE" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_1_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cisco IOSXE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_iosxe/async_platform/" class="md-nav__link">
+        Base Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_iosxe/async_platform/" class="md-nav__link">
+        Async Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_iosxe/sync_platform/" class="md-nav__link">
+        Sync Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_iosxe/patterns/" class="md-nav__link">
+        Patterns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_iosxe/types/" class="md-nav__link">
+        Types
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_2_3" type="checkbox" id="__nav_3_1_2_3" >
+      
+      <label class="md-nav__link" for="__nav_3_1_2_3">
+        Cisco IOSXR
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cisco IOSXR" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_1_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cisco IOSXR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_iosxr/async_platform/" class="md-nav__link">
+        Base Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_iosxr/async_platform/" class="md-nav__link">
+        Async Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_iosxr/sync_platform/" class="md-nav__link">
+        Sync Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_iosxr/patterns/" class="md-nav__link">
+        Patterns
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_2_4" type="checkbox" id="__nav_3_1_2_4" >
+      
+      <label class="md-nav__link" for="__nav_3_1_2_4">
+        Cisco NXOS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cisco NXOS" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_1_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Cisco NXOS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_nxos/async_platform/" class="md-nav__link">
+        Base Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_nxos/async_platform/" class="md-nav__link">
+        Async Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_nxos/sync_platform/" class="md-nav__link">
+        Sync Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cisco_nxos/patterns/" class="md-nav__link">
+        Patterns
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_2_5" type="checkbox" id="__nav_3_1_2_5" >
+      
+      <label class="md-nav__link" for="__nav_3_1_2_5">
+        Juniper JUNOS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Juniper JUNOS" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_1_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Juniper JUNOS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/juniper_junos/async_platform.md" class="md-nav__link">
+        Base Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/juniper_junos/async_platform.md" class="md-nav__link">
+        Async Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/juniper_junos/sync_platform.md" class="md-nav__link">
+        Sync Platform
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/juniper_junos/patterns.md" class="md-nav__link">
+        Patterns
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diff/" class="md-nav__link">
+        Diff
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../factory/" class="md-nav__link">
+        Factory
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../response/" class="md-nav__link">
+        Response
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        More Scrapli
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="More Scrapli" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          More Scrapli
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../more_scrapli/scrapli/" class="md-nav__link">
+        Scrapli
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../more_scrapli/scrapli_netconf/" class="md-nav__link">
+        Scrapli Netconf
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../more_scrapli/scrapli_community/" class="md-nav__link">
+        Scrapli Community
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../more_scrapli/nornir_scrapli/" class="md-nav__link">
+        Nornir Scrapli
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../more_scrapli/scrapli_stubs/" class="md-nav__link">
+        Scrapli Stubs
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Other
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Other" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Other
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/contributing/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/code_of_conduct/" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scraplicfgbase" class="md-nav__link">
+    ScrapliCfgBase
+  </a>
+  
+    <nav class="md-nav" aria-label="ScrapliCfgBase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descendants" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin></p>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+
+<h1 id="module-scrapli_cfgplatformbasebase_platform">Module scrapli_cfg.platform.base.base_platform<a class="headerlink" href="#module-scrapli_cfgplatformbasebase_platform" title="Permanent link">&para;</a></h1>
+<p>scrapli_cfg.platforms.base_platform</p>
+<details class="source">
+    <summary>
+        <span>Expand source code</span>
+    </summary>
+    <pre>
+        <code class="python">
+"""scrapli_cfg.platforms.base_platform"""
+import re
+from typing import List, Pattern, Tuple, Union
+
+from scrapli.driver import AsyncNetworkDriver, NetworkDriver
+from scrapli.logging import get_instance_logger
+from scrapli.response import Response
+from scrapli_cfg.diff import ScrapliCfgDiffResponse
+from scrapli_cfg.exceptions import (
+    AbortConfigError,
+    CommitConfigError,
+    DiffConfigError,
+    GetConfigError,
+    InvalidConfigTarget,
+    LoadConfigError,
+    TemplateError,
+    VersionError,
+)
+from scrapli_cfg.response import ScrapliCfgResponse
+
+
+class ScrapliCfgBase:
+    conn: Union[NetworkDriver, AsyncNetworkDriver]
+
+    def __init__(self, config_sources: List[str], ignore_version: bool = False) -> None:
+        self.logger = get_instance_logger(
+            instance_name="scrapli_cfg.platform", host=self.conn.host, port=self.conn.port
+        )
+
+        self.config_sources = config_sources
+        self.candidate_config = ""
+
+        self._ignore_version = ignore_version
+        self._get_version_command = ""
+        self._version_string = ""
+
+    def _render_substituted_config(
+        self, config_template: str, substitutes: List[Tuple[str, Pattern[str]]], source_config: str
+    ) -> str:
+        """
+        Render a substituted configuration file
+
+        Renders a configuration based on a user template, substitutes, and a target config from the
+        device.
+
+        Args:
+            config_template: config file to use as the base for substitutions -- should contain
+                jinja2-like variables that will be replaced with data fetched from the source config
+                by the substitutes patterns
+            substitutes: tuple of name, pattern -- where name matches the jinja2-like variable in
+                the config_template file, and pattern is a compiled regular expression pattern to be
+                used to fetch that section from the source config
+            source_config: current source config to use in substitution process
+
+        Returns:
+            None
+
+        Raises:
+            TemplateError: if no substitute sections are provided
+            TemplateError: if one or more of the substitute sections is missing in the template
+            TemplateError: if a substitute pattern is not found in the config template
+
+        """
+        self.logger.debug("rendering substituted config")
+
+        if not substitutes:
+            msg = "no substitutes provided..."
+            self.logger.critical(msg)
+            raise TemplateError(msg)
+
+        if not all(f"{{{{ {name} }}}}" in config_template for name, _ in substitutes):
+            msg = "missing one or more of the provided substitutions from the config template"
+            self.logger.critical(msg)
+            raise TemplateError(msg)
+
+        replace_sections = [
+            (name, re.search(pattern=pattern, string=source_config))
+            for name, pattern in substitutes
+        ]
+
+        rendered_config = ""
+        for name, replace_section in replace_sections:
+            if not replace_section:
+                msg = (
+                    f"substitution pattern {name} was unable to find a match in the target config"
+                    " source"
+                )
+                self.logger.critical(msg)
+                raise TemplateError(msg)
+
+            replace_group = replace_section.group()
+            rendered_config = config_template.replace(f"{{{{ {name} }}}}", replace_group)
+
+        # remove any totally empty lines (from bad regex, or just device spitting out lines w/
+        # nothing on it
+        rendered_config = "\n".join(line for line in rendered_config.splitlines() if line)
+
+        self.logger.debug("rendering substituted config complete")
+
+        return rendered_config
+
+    def _validate_and_set_version(self, version_response: ScrapliCfgResponse) -> None:
+        """
+        Ensure version was fetched successfully and set internal version attribute
+
+        Args:
+            version_response: scrapli cfg response from get version operation
+
+        Returns:
+            None
+
+        Raises:
+            VersionError: if fetching version failed or failed to parse version
+
+        """
+        if version_response.failed:
+            msg = "getting version from device failed"
+            self.logger.critical(msg)
+            raise VersionError(msg)
+        if not version_response.result:
+            msg = "failed parsing version string from device output"
+            self.logger.critical(msg)
+            raise VersionError(msg)
+        self._version_string = version_response.result
+
+    def _pre_get_version(self) -> ScrapliCfgResponse:
+        """
+        Handle pre "get_version" operations for parity between sync and async
+
+        Args:
+            N/A
+
+        Returns:
+            ScrapliCfgResponse: new response object to update w/ get results
+
+        Raises:
+            N/A
+
+        """
+        self.logger.info("get_version requested")
+
+        response = ScrapliCfgResponse(host=self.conn.host, raise_for_status_exception=VersionError)
+
+        return response
+
+    def _post_get_version(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+        result: str,
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "get_version" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from fetching the version
+            result: final version string of the device
+
+        Returns:
+            ScrapliCfgResponse: response object containing string of the version as the `result`
+                attribute
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses, result=result)
+
+        if response.failed:
+            msg = "failed to get version from device"
+            self.logger.critical(msg)
+
+        return response
+
+    def _pre_get_config(self, source: str) -> ScrapliCfgResponse:
+        """
+        Handle pre "get_config" operations for parity between sync and async
+
+        Args:
+            source: name of the config source, generally running|startup
+
+        Returns:
+            ScrapliCfgResponse: new response object to update w/ get results
+
+        Raises:
+            InvalidConfigTarget: if the requested config source is not valid
+
+        """
+        self.logger.info(f"get_config for config source '{source}' requested")
+
+        if source not in self.config_sources:
+            msg = (
+                f"provided config source '{source}' not valid, must be one of {self.config_sources}"
+            )
+            self.logger.critical(msg)
+            raise InvalidConfigTarget(msg)
+
+        response = ScrapliCfgResponse(
+            host=self.conn.host, raise_for_status_exception=GetConfigError
+        )
+
+        return response
+
+    def _post_get_config(
+        self,
+        response: ScrapliCfgResponse,
+        source: str,
+        scrapli_responses: List[Response],
+        result: str,
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "get_config" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            source: name of the config source, generally running|startup
+            scrapli_responses: list of scrapli response objects from fetching the config
+            result: final string of the "get_config" result
+
+        Returns:
+            ScrapliCfgResponse: response object containing string of the target config source as the
+                `result` attribute
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses, result=result)
+
+        if response.failed:
+            msg = f"failed to get {source} config"
+            self.logger.critical(msg)
+
+        return response
+
+    def _pre_load_config(self, config: str) -> ScrapliCfgResponse:
+        """
+        Handle pre "load_config" operations for parity between sync and async
+
+        Args:
+            config: candidate config to load
+
+        Returns:
+            ScrapliCfgResponse: new response object for load operation
+
+        Raises:
+            N/A
+
+        """
+        self.logger.info("load_config requested")
+
+        self.candidate_config = config
+
+        response = ScrapliCfgResponse(
+            host=self.conn.host, raise_for_status_exception=LoadConfigError
+        )
+
+        return response
+
+    def _post_load_config(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "get_config" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from fetching the config
+
+        Returns:
+            ScrapliCfgResponse: response object
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses)
+
+        if response.failed:
+            msg = "failed to load candidate config"
+            self.logger.critical(msg)
+
+        return response
+
+    def _pre_abort_config(self, session_or_config_file: bool) -> ScrapliCfgResponse:
+        """
+        Handle pre "abort_config" operations for parity between sync and async
+
+        Args:
+            session_or_config_file: bool indicating if a session or candidate config file has been
+                loaded -- in other words, is there anything to abort right now
+
+        Returns:
+            ScrapliCfgResponse: response object for abort operation
+
+        Raises:
+            AbortConfigError: if no config session or config file exists then we have no config to
+                abort!
+
+        """
+        self.logger.info("abort_config requested")
+
+        if session_or_config_file is False:
+            msg = (
+                "no configuration session or candidate configuration file exists, you must load a "
+                "config in order to abort it!"
+            )
+            self.logger.critical(msg)
+            raise AbortConfigError(msg)
+
+        response = ScrapliCfgResponse(
+            host=self.conn.host, raise_for_status_exception=AbortConfigError
+        )
+
+        return response
+
+    def _post_abort_config(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "abort_config" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from aborting the config
+
+        Returns:
+            ScrapliCfgResponse: response object
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses)
+
+        if response.failed:
+            msg = "failed to abort config"
+            self.logger.critical(msg)
+
+        return response
+
+    def _pre_commit_config(self, source: str, session_or_config_file: bool) -> ScrapliCfgResponse:
+        """
+        Handle pre "commit_config" operations for parity between sync and async
+
+        Args:
+            source: name of the config source, generally running|startup
+            session_or_config_file: bool indicating if a session or candidate config file has been
+                loaded -- in other words, is there anything to commit right now
+
+        Returns:
+            ScrapliCfgResponse: new response object to update w/ commit results
+
+        Raises:
+            InvalidConfigTarget: if the requested config source is not valid
+            CommitConfigError: if no config session/file exists to commit
+
+        """
+        self.logger.info(f"get_config for config source '{source}' requested")
+
+        if source not in self.config_sources:
+            msg = (
+                f"provided config source '{source}' not valid, must be one of {self.config_sources}"
+            )
+            self.logger.critical(msg)
+            raise InvalidConfigTarget(msg)
+
+        if session_or_config_file is False:
+            msg = (
+                "no configuration session or candidate configuration file exists, you must load a "
+                "config in order to commit it!"
+            )
+            self.logger.critical(msg)
+            raise CommitConfigError(msg)
+
+        response = ScrapliCfgResponse(
+            host=self.conn.host, raise_for_status_exception=CommitConfigError
+        )
+
+        return response
+
+    def _post_commit_config(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "commit_config" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from committing the config
+
+        Returns:
+            ScrapliCfgResponse: response object
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses)
+
+        if response.failed:
+            msg = "failed to commit config"
+            self.logger.critical(msg)
+
+        return response
+
+    def _pre_diff_config(self, source: str, session_or_config_file: bool) -> ScrapliCfgDiffResponse:
+        """
+        Handle pre "diff_config" operations for parity between sync and async
+
+        Args:
+            source: config source to diff against
+            session_or_config_file: bool of config_session_name or candidate_config_filename
+
+        Returns:
+            ScrapliCfgDiffResponse: diff object for diff operation
+
+        Raises:
+            InvalidConfigTarget: if trying to diff against an invalid config target
+            DiffConfigError: if no config session or config file exists then we have no config to
+                diff!
+
+        """
+        self.logger.info("diff_config requested")
+
+        if source not in self.config_sources:
+            msg = (
+                f"provided config source '{source}' not valid, must be one of {self.config_sources}"
+            )
+            self.logger.critical(msg)
+            raise InvalidConfigTarget(msg)
+
+        if session_or_config_file is False:
+            msg = (
+                "no configuration session or candidate configuration file exists, you must load a "
+                "config in order to diff it!"
+            )
+            self.logger.critical(msg)
+            raise DiffConfigError(msg)
+
+        diff_response = ScrapliCfgDiffResponse(host=self.conn.host, source=source)
+
+        return diff_response
+
+    def _post_diff_config(
+        self,
+        diff_response: ScrapliCfgDiffResponse,
+        scrapli_responses: List[Response],
+        source_config: str,
+        candidate_config: str,
+        device_diff: str,
+    ) -> ScrapliCfgDiffResponse:
+        """
+        Handle post "diff_config" operations for parity between sync and async
+
+        Args:
+            diff_response: response object to update
+            scrapli_responses: list of scrapli response objects from committing the config
+            source_config: previous source config from the device
+            candidate_config: user provided configuration
+            device_diff: diff generated from the device itself
+
+        Returns:
+            ScrapliCfgDiffResponse: diff object for diff operation
+
+        Raises:
+            N/A
+
+        """
+        diff_response.record_response(scrapli_responses=scrapli_responses)
+        diff_response.record_diff_response(
+            source_config=source_config, candidate_config=candidate_config, device_diff=device_diff
+        )
+
+        if diff_response.failed:
+            msg = "failed to diff config"
+            self.logger.critical(msg)
+
+        return diff_response
+        </code>
+    </pre>
+</details>
+
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<h3 id="scraplicfgbase">ScrapliCfgBase<a class="headerlink" href="#scraplicfgbase" title="Permanent link">&para;</a></h3>
+<details class="source">
+    <summary>
+        <span>Expand source code</span>
+    </summary>
+    <pre>
+        <code class="python">
+class ScrapliCfgBase:
+    conn: Union[NetworkDriver, AsyncNetworkDriver]
+
+    def __init__(self, config_sources: List[str], ignore_version: bool = False) -> None:
+        self.logger = get_instance_logger(
+            instance_name="scrapli_cfg.platform", host=self.conn.host, port=self.conn.port
+        )
+
+        self.config_sources = config_sources
+        self.candidate_config = ""
+
+        self._ignore_version = ignore_version
+        self._get_version_command = ""
+        self._version_string = ""
+
+    def _render_substituted_config(
+        self, config_template: str, substitutes: List[Tuple[str, Pattern[str]]], source_config: str
+    ) -> str:
+        """
+        Render a substituted configuration file
+
+        Renders a configuration based on a user template, substitutes, and a target config from the
+        device.
+
+        Args:
+            config_template: config file to use as the base for substitutions -- should contain
+                jinja2-like variables that will be replaced with data fetched from the source config
+                by the substitutes patterns
+            substitutes: tuple of name, pattern -- where name matches the jinja2-like variable in
+                the config_template file, and pattern is a compiled regular expression pattern to be
+                used to fetch that section from the source config
+            source_config: current source config to use in substitution process
+
+        Returns:
+            None
+
+        Raises:
+            TemplateError: if no substitute sections are provided
+            TemplateError: if one or more of the substitute sections is missing in the template
+            TemplateError: if a substitute pattern is not found in the config template
+
+        """
+        self.logger.debug("rendering substituted config")
+
+        if not substitutes:
+            msg = "no substitutes provided..."
+            self.logger.critical(msg)
+            raise TemplateError(msg)
+
+        if not all(f"{{{{ {name} }}}}" in config_template for name, _ in substitutes):
+            msg = "missing one or more of the provided substitutions from the config template"
+            self.logger.critical(msg)
+            raise TemplateError(msg)
+
+        replace_sections = [
+            (name, re.search(pattern=pattern, string=source_config))
+            for name, pattern in substitutes
+        ]
+
+        rendered_config = ""
+        for name, replace_section in replace_sections:
+            if not replace_section:
+                msg = (
+                    f"substitution pattern {name} was unable to find a match in the target config"
+                    " source"
+                )
+                self.logger.critical(msg)
+                raise TemplateError(msg)
+
+            replace_group = replace_section.group()
+            rendered_config = config_template.replace(f"{{{{ {name} }}}}", replace_group)
+
+        # remove any totally empty lines (from bad regex, or just device spitting out lines w/
+        # nothing on it
+        rendered_config = "\n".join(line for line in rendered_config.splitlines() if line)
+
+        self.logger.debug("rendering substituted config complete")
+
+        return rendered_config
+
+    def _validate_and_set_version(self, version_response: ScrapliCfgResponse) -> None:
+        """
+        Ensure version was fetched successfully and set internal version attribute
+
+        Args:
+            version_response: scrapli cfg response from get version operation
+
+        Returns:
+            None
+
+        Raises:
+            VersionError: if fetching version failed or failed to parse version
+
+        """
+        if version_response.failed:
+            msg = "getting version from device failed"
+            self.logger.critical(msg)
+            raise VersionError(msg)
+        if not version_response.result:
+            msg = "failed parsing version string from device output"
+            self.logger.critical(msg)
+            raise VersionError(msg)
+        self._version_string = version_response.result
+
+    def _pre_get_version(self) -> ScrapliCfgResponse:
+        """
+        Handle pre "get_version" operations for parity between sync and async
+
+        Args:
+            N/A
+
+        Returns:
+            ScrapliCfgResponse: new response object to update w/ get results
+
+        Raises:
+            N/A
+
+        """
+        self.logger.info("get_version requested")
+
+        response = ScrapliCfgResponse(host=self.conn.host, raise_for_status_exception=VersionError)
+
+        return response
+
+    def _post_get_version(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+        result: str,
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "get_version" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from fetching the version
+            result: final version string of the device
+
+        Returns:
+            ScrapliCfgResponse: response object containing string of the version as the `result`
+                attribute
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses, result=result)
+
+        if response.failed:
+            msg = "failed to get version from device"
+            self.logger.critical(msg)
+
+        return response
+
+    def _pre_get_config(self, source: str) -> ScrapliCfgResponse:
+        """
+        Handle pre "get_config" operations for parity between sync and async
+
+        Args:
+            source: name of the config source, generally running|startup
+
+        Returns:
+            ScrapliCfgResponse: new response object to update w/ get results
+
+        Raises:
+            InvalidConfigTarget: if the requested config source is not valid
+
+        """
+        self.logger.info(f"get_config for config source '{source}' requested")
+
+        if source not in self.config_sources:
+            msg = (
+                f"provided config source '{source}' not valid, must be one of {self.config_sources}"
+            )
+            self.logger.critical(msg)
+            raise InvalidConfigTarget(msg)
+
+        response = ScrapliCfgResponse(
+            host=self.conn.host, raise_for_status_exception=GetConfigError
+        )
+
+        return response
+
+    def _post_get_config(
+        self,
+        response: ScrapliCfgResponse,
+        source: str,
+        scrapli_responses: List[Response],
+        result: str,
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "get_config" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            source: name of the config source, generally running|startup
+            scrapli_responses: list of scrapli response objects from fetching the config
+            result: final string of the "get_config" result
+
+        Returns:
+            ScrapliCfgResponse: response object containing string of the target config source as the
+                `result` attribute
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses, result=result)
+
+        if response.failed:
+            msg = f"failed to get {source} config"
+            self.logger.critical(msg)
+
+        return response
+
+    def _pre_load_config(self, config: str) -> ScrapliCfgResponse:
+        """
+        Handle pre "load_config" operations for parity between sync and async
+
+        Args:
+            config: candidate config to load
+
+        Returns:
+            ScrapliCfgResponse: new response object for load operation
+
+        Raises:
+            N/A
+
+        """
+        self.logger.info("load_config requested")
+
+        self.candidate_config = config
+
+        response = ScrapliCfgResponse(
+            host=self.conn.host, raise_for_status_exception=LoadConfigError
+        )
+
+        return response
+
+    def _post_load_config(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "get_config" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from fetching the config
+
+        Returns:
+            ScrapliCfgResponse: response object
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses)
+
+        if response.failed:
+            msg = "failed to load candidate config"
+            self.logger.critical(msg)
+
+        return response
+
+    def _pre_abort_config(self, session_or_config_file: bool) -> ScrapliCfgResponse:
+        """
+        Handle pre "abort_config" operations for parity between sync and async
+
+        Args:
+            session_or_config_file: bool indicating if a session or candidate config file has been
+                loaded -- in other words, is there anything to abort right now
+
+        Returns:
+            ScrapliCfgResponse: response object for abort operation
+
+        Raises:
+            AbortConfigError: if no config session or config file exists then we have no config to
+                abort!
+
+        """
+        self.logger.info("abort_config requested")
+
+        if session_or_config_file is False:
+            msg = (
+                "no configuration session or candidate configuration file exists, you must load a "
+                "config in order to abort it!"
+            )
+            self.logger.critical(msg)
+            raise AbortConfigError(msg)
+
+        response = ScrapliCfgResponse(
+            host=self.conn.host, raise_for_status_exception=AbortConfigError
+        )
+
+        return response
+
+    def _post_abort_config(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "abort_config" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from aborting the config
+
+        Returns:
+            ScrapliCfgResponse: response object
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses)
+
+        if response.failed:
+            msg = "failed to abort config"
+            self.logger.critical(msg)
+
+        return response
+
+    def _pre_commit_config(self, source: str, session_or_config_file: bool) -> ScrapliCfgResponse:
+        """
+        Handle pre "commit_config" operations for parity between sync and async
+
+        Args:
+            source: name of the config source, generally running|startup
+            session_or_config_file: bool indicating if a session or candidate config file has been
+                loaded -- in other words, is there anything to commit right now
+
+        Returns:
+            ScrapliCfgResponse: new response object to update w/ commit results
+
+        Raises:
+            InvalidConfigTarget: if the requested config source is not valid
+            CommitConfigError: if no config session/file exists to commit
+
+        """
+        self.logger.info(f"get_config for config source '{source}' requested")
+
+        if source not in self.config_sources:
+            msg = (
+                f"provided config source '{source}' not valid, must be one of {self.config_sources}"
+            )
+            self.logger.critical(msg)
+            raise InvalidConfigTarget(msg)
+
+        if session_or_config_file is False:
+            msg = (
+                "no configuration session or candidate configuration file exists, you must load a "
+                "config in order to commit it!"
+            )
+            self.logger.critical(msg)
+            raise CommitConfigError(msg)
+
+        response = ScrapliCfgResponse(
+            host=self.conn.host, raise_for_status_exception=CommitConfigError
+        )
+
+        return response
+
+    def _post_commit_config(
+        self,
+        response: ScrapliCfgResponse,
+        scrapli_responses: List[Response],
+    ) -> ScrapliCfgResponse:
+        """
+        Handle post "commit_config" operations for parity between sync and async
+
+        Args:
+            response: response object to update
+            scrapli_responses: list of scrapli response objects from committing the config
+
+        Returns:
+            ScrapliCfgResponse: response object
+
+        Raises:
+            N/A
+
+        """
+        response.record_response(scrapli_responses=scrapli_responses)
+
+        if response.failed:
+            msg = "failed to commit config"
+            self.logger.critical(msg)
+
+        return response
+
+    def _pre_diff_config(self, source: str, session_or_config_file: bool) -> ScrapliCfgDiffResponse:
+        """
+        Handle pre "diff_config" operations for parity between sync and async
+
+        Args:
+            source: config source to diff against
+            session_or_config_file: bool of config_session_name or candidate_config_filename
+
+        Returns:
+            ScrapliCfgDiffResponse: diff object for diff operation
+
+        Raises:
+            InvalidConfigTarget: if trying to diff against an invalid config target
+            DiffConfigError: if no config session or config file exists then we have no config to
+                diff!
+
+        """
+        self.logger.info("diff_config requested")
+
+        if source not in self.config_sources:
+            msg = (
+                f"provided config source '{source}' not valid, must be one of {self.config_sources}"
+            )
+            self.logger.critical(msg)
+            raise InvalidConfigTarget(msg)
+
+        if session_or_config_file is False:
+            msg = (
+                "no configuration session or candidate configuration file exists, you must load a "
+                "config in order to diff it!"
+            )
+            self.logger.critical(msg)
+            raise DiffConfigError(msg)
+
+        diff_response = ScrapliCfgDiffResponse(host=self.conn.host, source=source)
+
+        return diff_response
+
+    def _post_diff_config(
+        self,
+        diff_response: ScrapliCfgDiffResponse,
+        scrapli_responses: List[Response],
+        source_config: str,
+        candidate_config: str,
+        device_diff: str,
+    ) -> ScrapliCfgDiffResponse:
+        """
+        Handle post "diff_config" operations for parity between sync and async
+
+        Args:
+            diff_response: response object to update
+            scrapli_responses: list of scrapli response objects from committing the config
+            source_config: previous source config from the device
+            candidate_config: user provided configuration
+            device_diff: diff generated from the device itself
+
+        Returns:
+            ScrapliCfgDiffResponse: diff object for diff operation
+
+        Raises:
+            N/A
+
+        """
+        diff_response.record_response(scrapli_responses=scrapli_responses)
+        diff_response.record_diff_response(
+            source_config=source_config, candidate_config=candidate_config, device_diff=device_diff
+        )
+
+        if diff_response.failed:
+            msg = "failed to diff config"
+            self.logger.critical(msg)
+
+        return diff_response
+        </code>
+    </pre>
+</details>
+
+<h4 id="descendants">Descendants<a class="headerlink" href="#descendants" title="Permanent link">&para;</a></h4>
+<ul>
+<li>scrapli_cfg.platform.base.async_platform.AsyncScrapliCfg</li>
+<li>scrapli_cfg.platform.base.sync_platform.ScrapliCfg</li>
+</ul>
+<h4 id="class-variables">Class variables<a class="headerlink" href="#class-variables" title="Permanent link">&para;</a></h4>
+<p><code>conn: Union[scrapli.driver.network.sync_driver.NetworkDriver, scrapli.driver.network.async_driver.AsyncNetworkDriver]</code></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/carlmontanari/" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/carlrmontanari" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/carl-montanari-47888931/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://montanari.io" target="_blank" rel="noopener" title="montanari.io" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      
+    
+  </body>
+</html>
