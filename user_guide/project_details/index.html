@@ -1285,6 +1285,10 @@ scrapli_cfg is capable of. The primary differences between scrapli_cfg and NAPAL
 <li>scrapli_cfg has no Python dependencies other than scrapli -- this means there are no vendor libraries necessary, 
    no eznc, no pyeapi, and no pyiosxr. Fewer dependencies isn't a <em>huge</em> deal, but it does mean that the scrapli 
    community is fully "in control" of all requirements which is pretty nice!</li>
+<li>scrapli_cfg, just like "normal" scrapli provides supports both synchronous and asynchronous code with the same API</li>
+<li>scrapli_cfg, provides a <code>render_substituted_config</code> method that helps you easily merge templated configurations 
+   with real device configuration -- so you can do "full config replace" without having to template out every last 
+   line of config!</li>
 </ol>
 <h2 id="supported-platforms">Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permanent link">&para;</a></h2>
 <p>Just like scrapli "core", scrapli_cfg covers the "core" NAPALM platforms -- Cisco IOS-XE, IOS-XR, NX-OS, 
