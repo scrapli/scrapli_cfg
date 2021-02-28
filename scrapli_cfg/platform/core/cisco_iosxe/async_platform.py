@@ -280,7 +280,7 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfgPlatform, ScrapliCfgIOSXEBase):
             diff_result = await self.conn.send_command(
                 command=self._get_diff_command(source=source)
             )
-            scrapli_responses.append(diff_response)
+            scrapli_responses.append(diff_result)
             if diff_result.failed:
                 msg = "failed generating diff for config session"
                 self.logger.critical(msg)

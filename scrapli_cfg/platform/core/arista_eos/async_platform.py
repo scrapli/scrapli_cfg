@@ -166,12 +166,12 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
             register_config_session,
         ) = self._prepare_load_config_session_and_payload(config=config)
 
-        try:
-            if register_config_session:
-                # only need to register a session if we havent -- we will reset session to an empty
-                # string after any commits/aborts so we know if we are doing "new" operations
-                self.conn.register_configuration_session(session_name=self.config_session_name)
+        if register_config_session:
+            # only need to register a session if we havent -- we will reset session to an empty
+            # string after any commits/aborts so we know if we are doing "new" operations
+            self.conn.register_configuration_session(session_name=self.config_session_name)
 
+        try:
             if replace:
                 # default the config session - we only need to do this if we are doing a REPLACE
                 rollback_clean_config_result = await self.conn.send_config(

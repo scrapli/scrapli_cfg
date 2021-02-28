@@ -1,0 +1,168 @@
+connection_profile:
+  host: localhost
+  port: 23023
+  auth_username: vrnetlab
+  auth_password: true
+  auth_private_key: ''
+  auth_private_key_passphrase: false
+  auth_bypass: false
+  transport: asynctelnet
+  auth_secondary: false
+interactions:
+  - channel_output: "\nUser Access Verification\n\nUsername: "
+    expected_channel_input: vrnetlab
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "vrnetlab\nPassword: "
+    expected_channel_input: REDACTED
+    expected_channel_input_redacted: true
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\n\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: terminal length 0
+    expected_channel_input_redacted: false
+  - channel_output: terminal length 0
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nSun Feb 28 21:25:17.108 UTC\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: terminal width 512
+    expected_channel_input_redacted: false
+  - channel_output: terminal width 512
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nSun Feb 28 21:25:17.186 UTC\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: show version | i Version
+    expected_channel_input_redacted: false
+  - channel_output: show version | i Version
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nSun Feb 28 21:25:17.279 UTC\nCisco IOS XR Software, Version\
+      \ 6.5.3\n Version      : 6.5.3\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: configure terminal
+    expected_channel_input_redacted: false
+  - channel_output: configure terminal
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nSun Feb 28 21:25:17.390 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: no logging console
+    expected_channel_input_redacted: false
+  - channel_output: no logging console
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: commit
+    expected_channel_input_redacted: false
+  - channel_output: commit
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nSun Feb 28 21:25:18.119 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: end
+    expected_channel_input_redacted: false
+  - channel_output: end
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: show running-config
+    expected_channel_input_redacted: false
+  - channel_output: show running-config
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nSun Feb 28 21:25:18.362 UTC\nBuilding configuration...\n!!\
+      \ IOS XR Configuration version = 6.5.3\n!! Last configuration change at Thu\
+      \ Feb 11 19:22:50 2021 by vrnetlab\n!\ntelnet vrf default ipv4 server max-servers\
+      \ 10\nusername vrnetlab\n group root-lr\n group cisco-support\n secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0\n\
+      !\ncall-home\n service active\n contact smart-licensing\n profile CiscoTAC-1\n\
+      \  active\n  destination transport-method http\n !\n!\ninterface MgmtEth0/RP0/CPU0/0\n\
+      \ ipv4 address 10.0.0.15 255.255.255.0\n!\ninterface GigabitEthernet0/0/0/0\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/1\n shutdown\n!\ninterface GigabitEthernet0/0/0/2\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/3\n shutdown\n!\ninterface GigabitEthernet0/0/0/4\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/5\n shutdown\n!\ninterface GigabitEthernet0/0/0/6\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/7\n shutdown\n!\ninterface GigabitEthernet0/0/0/8\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/9\n shutdown\n!\ninterface GigabitEthernet0/0/0/10\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/11\n shutdown\n!\ninterface GigabitEthernet0/0/0/12\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/13\n shutdown\n!\ninterface GigabitEthernet0/0/0/14\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/15\n shutdown\n!\ninterface GigabitEthernet0/0/0/16\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/17\n shutdown\n!\ninterface GigabitEthernet0/0/0/18\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/19\n shutdown\n!\ninterface GigabitEthernet0/0/0/20\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/21\n shutdown\n!\ninterface GigabitEthernet0/0/0/22\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/23\n shutdown\n!\ninterface GigabitEthernet0/0/0/24\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/25\n shutdown\n!\ninterface GigabitEthernet0/0/0/26\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/27\n shutdown\n!\ninterface GigabitEthernet0/0/0/28\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/29\n shutdown\n!\ninterface GigabitEthernet0/0/0/30\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/31\n shutdown\n!\ninterface GigabitEthernet0/0/0/32\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/33\n shutdown\n!\ninterface GigabitEthernet0/0/0/34\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/35\n shutdown\n!\ninterface GigabitEthernet0/0/0/36\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/37\n shutdown\n!\ninterface GigabitEthernet0/0/0/38\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/39\n shutdown\n!\ninterface GigabitEthernet0/0/0/40\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/41\n shutdown\n!\ninterface GigabitEthernet0/0/0/42\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/43\n shutdown\n!\ninterface GigabitEthernet0/0/0/44\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/45\n shutdown\n!\ninterface GigabitEthernet0/0/0/46\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/47\n shutdown\n!\ninterface GigabitEthernet0/0/0/48\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/49\n shutdown\n!\ninterface GigabitEthernet0/0/0/50\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/51\n shutdown\n!\ninterface GigabitEthernet0/0/0/52\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/53\n shutdown\n!\ninterface GigabitEthernet0/0/0/54\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/55\n shutdown\n!\ninterface GigabitEthernet0/0/0/56\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/57\n shutdown\n!\ninterface GigabitEthernet0/0/0/58\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/59\n shutdown\n!\ninterface GigabitEthernet0/0/0/60\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/61\n shutdown\n!\ninterface GigabitEthernet0/0/0/62\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/63\n shutdown\n!\ninterface GigabitEthernet0/0/0/64\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/65\n shutdown\n!\ninterface GigabitEthernet0/0/0/66\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/67\n shutdown\n!\ninterface GigabitEthernet0/0/0/68\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/69\n shutdown\n!\ninterface GigabitEthernet0/0/0/70\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/71\n shutdown\n!\ninterface GigabitEthernet0/0/0/72\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/73\n shutdown\n!\ninterface GigabitEthernet0/0/0/74\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/75\n shutdown\n!\ninterface GigabitEthernet0/0/0/76\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/77\n shutdown\n!\ninterface GigabitEthernet0/0/0/78\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/79\n shutdown\n!\ninterface GigabitEthernet0/0/0/80\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/81\n shutdown\n!\ninterface GigabitEthernet0/0/0/82\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/83\n shutdown\n!\ninterface GigabitEthernet0/0/0/84\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/85\n shutdown\n!\ninterface GigabitEthernet0/0/0/86\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/87\n shutdown\n!\ninterface GigabitEthernet0/0/0/88\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/89\n shutdown\n!\ninterface GigabitEthernet0/0/0/90\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/91\n shutdown\n!\ninterface GigabitEthernet0/0/0/92\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/93\n shutdown\n!\ninterface GigabitEthernet0/0/0/94\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/95\n shutdown\n!\ninterface GigabitEthernet0/0/0/96\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/97\n shutdown\n!\ninterface GigabitEthernet0/0/0/98\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/99\n shutdown\n!\ninterface GigabitEthernet0/0/0/100\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/101\n shutdown\n!\ninterface GigabitEthernet0/0/0/102\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/103\n shutdown\n!\ninterface GigabitEthernet0/0/0/104\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/105\n shutdown\n!\ninterface GigabitEthernet0/0/0/106\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/107\n shutdown\n!\ninterface GigabitEthernet0/0/0/108\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/109\n shutdown\n!\ninterface GigabitEthernet0/0/0/110\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/111\n shutdown\n!\ninterface GigabitEthernet0/0/0/112\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/113\n shutdown\n!\ninterface GigabitEthernet0/0/0/114\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/115\n shutdown\n!\ninterface GigabitEthernet0/0/0/116\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/117\n shutdown\n!\ninterface GigabitEthernet0/0/0/118\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/119\n shutdown\n!\ninterface GigabitEthernet0/0/0/120\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/121\n shutdown\n!\ninterface GigabitEthernet0/0/0/122\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/123\n shutdown\n!\ninterface GigabitEthernet0/0/0/124\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/125\n shutdown\n!\ninterface GigabitEthernet0/0/0/126\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/127\n shutdown\n!\nxml agent tty\n\
+      !\nnetconf-yang agent\n ssh\n!\nssh server v2\nssh server netconf vrf default\n\
+      end\n\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: exit
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false

@@ -1,0 +1,125 @@
+connection_profile:
+  host: localhost
+  port: 21023
+  auth_username: vrnetlab
+  auth_password: true
+  auth_private_key: ''
+  auth_private_key_passphrase: false
+  auth_bypass: false
+  transport: asynctelnet
+  auth_secondary: false
+interactions:
+  - channel_output: "\n\nUser Access Verification\n\nUsername: "
+    expected_channel_input: vrnetlab
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "vrnetlab\nPassword: "
+    expected_channel_input: REDACTED
+    expected_channel_input_redacted: true
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: terminal length 0
+    expected_channel_input_redacted: false
+  - channel_output: terminal length 0
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: terminal width 512
+    expected_channel_input_redacted: false
+  - channel_output: terminal width 512
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: show version | i Version
+    expected_channel_input_redacted: false
+  - channel_output: show version | i Version
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nCisco IOS XE Software, Version 16.12.03\nCisco IOS Software\
+      \ [Gibraltar], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+      \ 16.12.3, RELEASE SOFTWARE (fc5)\nlicensed under the GNU General Public License\
+      \ (\"GPL\") Version 2.0.  The\nsoftware code licensed under GPL Version 2.0\
+      \ is free software that comes\nGPL code under the terms of GPL Version 2.0.\
+      \  For more details, see the\ncsr1000v#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: configure terminal
+    expected_channel_input_redacted: false
+  - channel_output: configure terminal
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nEnter configuration commands, one per line.  End with CNTL/Z.\n\
+      csr1000v(config)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(config)#"
+    expected_channel_input: no logging monitor
+    expected_channel_input_redacted: false
+  - channel_output: no logging monitor
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(config)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(config)#"
+    expected_channel_input: end
+    expected_channel_input_redacted: false
+  - channel_output: end
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: 'dir flash: | i bytes'
+    expected_channel_input_redacted: false
+  - channel_output: 'dir flash: | i bytes'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n6286540800 bytes total (5486075904 bytes free)\ncsr1000v#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: tclsh
+    expected_channel_input_redacted: false
+  - channel_output: tclsh
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(tcl)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(tcl)#"
+    expected_channel_input: puts [open "flash:__SCRAPLI_CFG_SESSION_NAME__" w+] {
+    expected_channel_input_redacted: false
+  - channel_output: puts [open "flash:__SCRAPLI_CFG_SESSION_NAME__" w+] {
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface loopback1
+    expected_channel_input_redacted: false
+  - channel_output: interface loopback1
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: description tacocat
+    expected_channel_input_redacted: false
+  - channel_output: description tacocat
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '}'
+    expected_channel_input_redacted: false
+  - channel_output: '}'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(tcl)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false

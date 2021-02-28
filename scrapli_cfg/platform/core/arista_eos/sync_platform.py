@@ -247,7 +247,7 @@ class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
             diff_result = self.conn.send_config(
                 config="show session-config diffs", privilege_level=self.config_session_name
             )
-            scrapli_responses.append(diff_response)
+            scrapli_responses.append(diff_result)
             if diff_result.failed:
                 msg = "failed generating diff for config session"
                 self.logger.critical(msg)

@@ -20,9 +20,9 @@ from ..conftest import EXPECTED_CONFIGS
 VROUTER_MODE = bool(os.environ.get("SCRAPLI_VROUTER", False))
 USERNAME = "vrnetlab"
 PASSWORD = "VR-netlab9"
-TIMEOUT_SOCKET = 10
-TIMEOUT_TRANSPORT = 10
-TIMEOUT_OPS = 10
+TIMEOUT_SOCKET = 60
+TIMEOUT_TRANSPORT = 60
+TIMEOUT_OPS = 60
 TELNET_TRANSPORTS = (
     "telnet",
     "asynctelnet",
@@ -159,6 +159,18 @@ async def async_conn(device_type, async_transport):
         timeout_transport=TIMEOUT_TRANSPORT,
         timeout_ops=TIMEOUT_OPS,
     )
-    yield async_conn
-    if async_conn.isalive():
-        await async_conn.close()
+    return async_conn, device_type
+
+
+@pytest.mark.asyncio
+@pytest.fixture(scope="function")
+async def async_cfg_conn(async_conn):
+    scrapli_conn, device_type = async_conn
+    async_cfg_conn = AsyncScrapliCfg(conn=scrapli_conn, platform=device_type)
+
+    async_cfg_conn._expected_config = EXPECTED_CONFIGS[device_type]
+    async_cfg_conn._config_cleaner = getattr(helper, f"{device_type}_clean_response")
+
+    yield async_cfg_conn
+    if async_cfg_conn.conn.isalive():
+        await async_cfg_conn.close()
