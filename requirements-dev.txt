@@ -10,8 +10,7 @@ pycodestyle==2.6.0
 pydocstyle==5.1.1
 pylint==2.7.1
 darglint==1.7.0
-scrapli_replay==2021.07.30a1
-pdoc3==0.9.2 ; sys_platform != "win32"
+scrapli_replay==2021.07.30a2
 -e git+https://github.com/scrapli/scrapli_stubs@master#egg=scrapli_stubs
 -r requirements.txt
 -r requirements-ssh2.txt
