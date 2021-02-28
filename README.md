@@ -1,7 +1,6 @@
 [![Supported Versions](https://img.shields.io/pypi/pyversions/scrapli_cfg.svg)](https://pypi.org/project/scrapli_cfg)
-[![PyPI version](https://badge.fury.io/py/scrapli_cfg.svg)](https://badge.fury.io/py/scrapli_cfg)
+[![PyPI version](https://badge.fury.io/py/scrapli-cfg.svg)](https://badge.fury.io/py/scrapli-cfg)
 [![Weekly Build](https://github.com/scrapli/scrapli_cfg/workflows/Weekly%20Build/badge.svg)](https://github.com/scrapli/scrapli_cfg/actions?query=workflow%3A%22Weekly+Build%22)
-[![Coverage](https://codecov.io/gh/scrapli/scrapli_cfg/branch/master/graph/badge.svg)](https://codecov.io/gh/scrapli/scrapli_cfg)
 [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 

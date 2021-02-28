@@ -19,11 +19,16 @@ scrapli_cfg is capable of. The primary differences between scrapli_cfg and NAPAL
    "get_version" getters. This means there will not be anything like "get_interfaces" in scrapli_cfg. 
 2. scrapli_cfg has no dependency on any APIs being available -- configurations are all handled via Telnet or SSH. 
    This may sound "bad" because the cli is so "bad", but it means that there are no requirements for additional 
-   ports to be opened or services to be enabled (i.e. eAPI or NETCONF), it even means (with a bit of work) you could 
-   use scrapli_cfg to fully manage device configuration over console connections.
+   ports to be opened or services to be enabled (i.e. eAPI or NETCONF), it even means (with a bit of work to handle 
+   initially logging into a terminal server and getting to the right port) you could use scrapli_cfg to fully manage 
+   device configuration over terminal server connections.
 3. scrapli_cfg has no Python dependencies other than scrapli -- this means there are no vendor libraries necessary, 
    no eznc, no pyeapi, and no pyiosxr. Fewer dependencies isn't a *huge* deal, but it does mean that the scrapli 
    community is fully "in control" of all requirements which is pretty nice!
+4. scrapli_cfg, just like "normal" scrapli provides supports both synchronous and asynchronous code with the same API
+5. scrapli_cfg, provides a `render_substituted_config` method that helps you easily merge templated configurations 
+   with real device configuration -- so you can do "full config replace" without having to template out every last 
+   line of config!
 
 
 ## Supported Platforms
