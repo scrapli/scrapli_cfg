@@ -22,3 +22,15 @@ def test_load_config_merge_diff_and_abort(cfg_conn):
     abort_config = cfg_conn.abort_config()
     assert abort_config.failed is False
     # dont bother with checking the diff itself, we'll do that in unit tests much more thoroughly
+
+
+@pytest.mark.scrapli_replay
+def test_load_config_merge_diff_and_commit(cfg_conn):
+    cfg_conn.open()
+    load_config = cfg_conn.load_config(config=cfg_conn._expected_config, replace=True)
+    assert load_config.failed is False
+    diff_config = cfg_conn.diff_config()
+    assert diff_config.failed is False
+    commit_config = cfg_conn.commit_config()
+    assert commit_config.failed is False
+    # dont bother with checking the diff itself, we'll do that in unit tests much more thoroughly

@@ -12,7 +12,7 @@ interactions:
   - channel_output: ''
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "Last login: Sun Feb 28 23:11:15 2021 from 10.0.0.2\n\n\n\e[5nlocalhost>"
+  - channel_output: "Last login: Tue Mar  2 20:15:49 2021 from 10.0.0.2\n\n\n\e[5nlocalhost>"
     expected_channel_input: enable
     expected_channel_input_redacted: false
   - channel_output: enable

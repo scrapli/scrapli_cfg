@@ -192,8 +192,8 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfgPlatform, ScrapliCfgIOSXEBase):
         config_result = await self.conn.send_config(config=config, privilege_level="tclsh")
 
         # reset the return char to the "normal" one and drop into whatever is the "default" priv
-        self.conn.comms_return_char = original_return_char
         await self.conn.acquire_priv(desired_priv=self.conn.default_desired_privilege_level)
+        self.conn.comms_return_char = original_return_char
 
         return self._post_load_config(
             response=response,

@@ -18,19 +18,19 @@ interactions:
   - channel_output: "\nRP/0/RP0/CPU0:ios#terminal length 0"
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nSun Feb 28 21:25:13.232 UTC\nRP/0/RP0/CPU0:ios#"
+  - channel_output: "\nTue Mar  2 20:15:41.876 UTC\nRP/0/RP0/CPU0:ios#"
     expected_channel_input: terminal width 512
     expected_channel_input_redacted: false
   - channel_output: terminal width 512
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nSun Feb 28 21:25:13.330 UTC\nRP/0/RP0/CPU0:ios#"
+  - channel_output: "\nTue Mar  2 20:15:41.956 UTC\nRP/0/RP0/CPU0:ios#"
     expected_channel_input: show version | i Version
     expected_channel_input_redacted: false
   - channel_output: show version | i Version
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nSun Feb 28 21:25:13.423 UTC\nCisco IOS XR Software, Version\
+  - channel_output: "\nTue Mar  2 20:15:42.068 UTC\nCisco IOS XR Software, Version\
       \ 6.5.3\n Version      : 6.5.3\nRP/0/RP0/CPU0:ios#"
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
@@ -40,7 +40,7 @@ interactions:
   - channel_output: configure terminal
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nSun Feb 28 21:25:13.538 UTC\nRP/0/RP0/CPU0:ios(config)#"
+  - channel_output: "\nTue Mar  2 20:15:42.202 UTC\nRP/0/RP0/CPU0:ios(config)#"
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
@@ -55,7 +55,7 @@ interactions:
   - channel_output: commit
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nSun Feb 28 21:25:14.261 UTC\nRP/0/RP0/CPU0:ios(config)#"
+  - channel_output: "\nTue Mar  2 20:15:43.034 UTC\nRP/0/RP0/CPU0:ios(config)#"
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
@@ -73,7 +73,7 @@ interactions:
   - channel_output: show running-config
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nSun Feb 28 21:25:14.452 UTC\nBuilding configuration...\n!!\
+  - channel_output: "\nTue Mar  2 20:15:43.263 UTC\nBuilding configuration...\n!!\
       \ IOS XR Configuration version = 6.5.3\n!! Last configuration change at Thu\
       \ Feb 11 19:22:50 2021 by vrnetlab\n!\ntelnet vrf default ipv4 server max-servers\
       \ 10\nusername vrnetlab\n group root-lr\n group cisco-support\n secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0\n\

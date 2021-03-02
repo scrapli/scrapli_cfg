@@ -88,7 +88,7 @@ interactions:
   - channel_output: "dir bootflash: | i 'bytes free'"
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\n 1950683136 bytes free\nswitch# "
+  - channel_output: "\n 1950679040 bytes free\nswitch# "
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\nswitch# "
@@ -156,7 +156,7 @@ interactions:
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\n\n!Command: show running-config\n!Running configuration last\
-      \ done at: Sun Feb 28 23:19:08 2021\n!Time: Sun Feb 28 23:19:10 2021\n\nversion\
+      \ done at: Tue Mar  2 20:16:08 2021\n!Time: Tue Mar  2 20:16:11 2021\n\nversion\
       \ 9.2(4) Bios:version  \nvdc switch id 1\n  limit-resource vlan minimum 16 maximum\
       \ 4094\n  limit-resource vrf minimum 2 maximum 4096\n  limit-resource port-channel\
       \ minimum 0 maximum 511\n  limit-resource u4route-mem minimum 128 maximum 128\n\

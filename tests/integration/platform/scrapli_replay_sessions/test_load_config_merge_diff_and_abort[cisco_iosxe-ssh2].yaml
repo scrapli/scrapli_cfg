@@ -72,7 +72,7 @@ interactions:
   - channel_output: 'dir flash: | i bytes'
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\n6286540800 bytes total (5486080000 bytes free)\ncsr1000v#"
+  - channel_output: "\n6286540800 bytes total (5485830144 bytes free)\ncsr1000v#"
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\ncsr1000v#"
@@ -109,16 +109,16 @@ interactions:
     expected_channel_input: "\r"
     expected_channel_input_redacted: false
   - channel_output: "\ncsr1000v(tcl)#"
-    expected_channel_input: "\n"
+    expected_channel_input: "\r"
     expected_channel_input_redacted: false
   - channel_output: "\ncsr1000v(tcl)#"
     expected_channel_input: tclquit
     expected_channel_input_redacted: false
   - channel_output: tclquit
-    expected_channel_input: "\n"
+    expected_channel_input: "\r"
     expected_channel_input_redacted: false
   - channel_output: "\ncsr1000v#"
-    expected_channel_input: "\n"
+    expected_channel_input: "\r"
     expected_channel_input_redacted: false
   - channel_output: "\ncsr1000v#"
     expected_channel_input: show archive config incremental-diffs flash:__SCRAPLI_CFG_SESSION_NAME__
@@ -135,8 +135,8 @@ interactions:
   - channel_output: show running-config
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 7040 bytes\n\
-      !\n! Last configuration change at 23:15:17 UTC Sun Feb 28 2021 by vrnetlab\n\
+  - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 7039 bytes\n\
+      !\n! Last configuration change at 20:04:20 UTC Tue Mar 2 2021 by vrnetlab\n\
       !\nversion 16.12\nservice timestamps debug datetime msec\nservice timestamps\
       \ log datetime msec\nservice call-home\nplatform qfp utilization monitor load\
       \ 80\nplatform punt-keepalive disable-kernel-core\nplatform console serial\n\

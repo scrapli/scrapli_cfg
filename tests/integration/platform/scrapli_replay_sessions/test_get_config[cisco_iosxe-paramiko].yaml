@@ -72,8 +72,8 @@ interactions:
   - channel_output: show running-config
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 7040 bytes\n\
-      !\n! Last configuration change at 20:51:24 UTC Sun Feb 28 2021 by vrnetlab\n\
+  - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 7039 bytes\n\
+      !\n! Last configuration change at 20:04:18 UTC Tue Mar 2 2021 by vrnetlab\n\
       !\nversion 16.12\nservice timestamps debug datetime msec\nservice timestamps\
       \ log datetime msec\nservice call-home\nplatform qfp utilization monitor load\
       \ 80\nplatform punt-keepalive disable-kernel-core\nplatform console serial\n\

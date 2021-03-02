@@ -1,33 +1,21 @@
 connection_profile:
   host: localhost
-  port: 21023
+  port: 21022
   auth_username: vrnetlab
   auth_password: true
   auth_private_key: ''
   auth_private_key_passphrase: false
   auth_bypass: false
-  transport: asynctelnet
+  transport: asyncssh
   auth_secondary: false
 interactions:
-  - channel_output: "\n\nUser Access Verification\n\nUsername: "
-    expected_channel_input: vrnetlab
-    expected_channel_input_redacted: false
   - channel_output: ''
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "vrnetlab\nPassword: "
-    expected_channel_input: REDACTED
-    expected_channel_input_redacted: true
-  - channel_output: ''
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\ncsr1000v#"
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\ncsr1000v#"
+  - channel_output: "\n\n\ncsr1000v#"
     expected_channel_input: terminal length 0
     expected_channel_input_redacted: false
-  - channel_output: terminal length 0
+  - channel_output: "\ncsr1000v#terminal length 0"
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\ncsr1000v#"
@@ -84,8 +72,8 @@ interactions:
   - channel_output: show running-config
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 7040 bytes\n\
-      !\n! Last configuration change at 21:24:35 UTC Sun Feb 28 2021 by vrnetlab\n\
+  - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 7039 bytes\n\
+      !\n! Last configuration change at 20:04:25 UTC Tue Mar 2 2021 by vrnetlab\n\
       !\nversion 16.12\nservice timestamps debug datetime msec\nservice timestamps\
       \ log datetime msec\nservice call-home\nplatform qfp utilization monitor load\
       \ 80\nplatform punt-keepalive disable-kernel-core\nplatform console serial\n\

@@ -16,7 +16,7 @@ interactions:
   - channel_output: ''
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\n\n\ncsr1000v#"
+  - channel_output: "\n\n\n\ncsr1000v#"
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\ncsr1000v#"
@@ -79,8 +79,8 @@ interactions:
   - channel_output: show running-config
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 7040 bytes\n\
-      !\n! Last configuration change at 20:46:15 UTC Sun Feb 28 2021 by vrnetlab\n\
+  - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 7039 bytes\n\
+      !\n! Last configuration change at 20:04:17 UTC Tue Mar 2 2021 by vrnetlab\n\
       !\nversion 16.12\nservice timestamps debug datetime msec\nservice timestamps\
       \ log datetime msec\nservice call-home\nplatform qfp utilization monitor load\
       \ 80\nplatform punt-keepalive disable-kernel-core\nplatform console serial\n\

@@ -18,9 +18,12 @@ interactions:
   - channel_output: 'Password: '
     expected_channel_input: REDACTED
     expected_channel_input_redacted: true
-  - channel_output: "\n\n\n\n\n\n\nBad terminal type: \"network\". Will assume vt100.\n\
-      Cisco NX-OS Software\nCopyright (c) 2002-2019, Cisco Systems, Inc. All rights\
-      \ reserved.\nNexus 9000v software (\"Nexus 9000v Software\") and related documentation,\n\
+  - channel_output: "\n\n"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nBad terminal type: \"network\". Will assume vt100.\nCisco NX-OS\
+      \ Software\nCopyright (c) 2002-2019, Cisco Systems, Inc. All rights reserved.\n\
+      Nexus 9000v software (\"Nexus 9000v Software\") and related documentation,\n\
       files or other reference materials (\"Documentation\") are\nthe proprietary\
       \ property and confidential information of Cisco\nSystems, Inc. (\"Cisco\")\
       \ and are protected, without limitation,\npursuant to United States and International\
@@ -39,17 +42,14 @@ interactions:
       *  the Nexus 9000v Software or Documentation to any third party for any   *\n\
       *  purposes is expressly prohibited except as otherwise authorized by     *\n\
       *  Cisco in writing.                                                      *\n\
-      ***************************************************************************\n"
+      ***************************************************************************\n\
+      switch# "
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\nswitch# "
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nswitch# \n"
     expected_channel_input: terminal length 0
     expected_channel_input_redacted: false
-  - channel_output: "switch# \nswitch# \nswitch# \nswitch# \nswitch# \nswitch# terminal\
-      \ length 0"
+  - channel_output: "\nswitch# terminal length 0"
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\nswitch# "
@@ -102,7 +102,7 @@ interactions:
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\n\n!Command: show running-config\n!Running configuration last\
-      \ done at: Sun Feb 28 20:55:06 2021\n!Time: Sun Feb 28 20:55:07 2021\n\nversion\
+      \ done at: Tue Mar  2 20:13:08 2021\n!Time: Tue Mar  2 20:13:09 2021\n\nversion\
       \ 9.2(4) Bios:version  \nvdc switch id 1\n  limit-resource vlan minimum 16 maximum\
       \ 4094\n  limit-resource vrf minimum 2 maximum 4096\n  limit-resource port-channel\
       \ minimum 0 maximum 511\n  limit-resource u4route-mem minimum 128 maximum 128\n\

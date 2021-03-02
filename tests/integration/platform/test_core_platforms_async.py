@@ -3,7 +3,7 @@ import pytest
 
 @pytest.mark.asyncio
 @pytest.mark.scrapli_replay
-async def test_async_get_config(async_cfg_conn):
+async def test_get_config(async_cfg_conn):
     await async_cfg_conn.open()
     config = await async_cfg_conn.get_config()
     assert config.failed is False

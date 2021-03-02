@@ -28,7 +28,7 @@ interactions:
   - channel_output: ''
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: "\nLast login: Sun Feb 28 20:31:53 from 10.0.0.2\nlocalhost>"
+  - channel_output: "\nLast login: Tue Mar  2 19:14:34 from 10.0.0.2\nlocalhost>"
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\nlocalhost>"
