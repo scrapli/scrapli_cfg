@@ -1,6 +1,7 @@
 """scrapli_cfg.platform.core.cisco_iosxe.base"""
 import re
 from datetime import datetime
+from enum import Enum
 from logging import LoggerAdapter
 from typing import Tuple
 
@@ -11,12 +12,19 @@ from scrapli_cfg.platform.core.cisco_iosxe.patterns import (
     OUTPUT_HEADER_PATTERN,
     VERSION_PATTERN,
 )
-from scrapli_cfg.platform.core.cisco_iosxe.types import FilePromptMode
 
 CONFIG_SOURCES = [
     "running",
     "startup",
 ]
+
+
+class FilePromptMode(Enum):
+    """Enum representing file prompt modes"""
+
+    NOISY = "noisy"
+    ALERT = "alert"
+    QUIET = "quiet"
 
 
 class ScrapliCfgIOSXEBase:
@@ -125,6 +133,27 @@ class ScrapliCfgIOSXEBase:
 
         version_string = version_string_search.group(0) or ""
         return version_string
+
+    @staticmethod
+    def clean_config(config: str) -> str:
+        """
+        Clean a configuration file; make it "loadable"
+
+        Args:
+            config: configuration string to "clean"; cleaning removes lines that would prevent using
+                the provided configuration as a "load_config" source from working -- i.e. removes
+                the leading "Building Configuration" line
+
+        Returns:
+            str: cleaned configuration string
+
+        Raises:
+            N/A
+
+        """
+        config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
+        config = "\n".join(line for line in config.splitlines() if line)
+        return config
 
     def _reset_config_session(self) -> None:
         """
@@ -258,11 +287,7 @@ class ScrapliCfgIOSXEBase:
 
         # remove any of the leading timestamp/building config/config size/last change lines in
         # both the source and candidate configs so they dont need to be compared
-        source_config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=source_config, repl="")
-        source_config = "\n".join(line for line in source_config.splitlines() if line)
-        candidate_config = re.sub(
-            pattern=OUTPUT_HEADER_PATTERN, string=self.candidate_config, repl=""
-        )
-        candidate_config = "\n".join(line for line in candidate_config.splitlines() if line)
+        source_config = self.clean_config(config=source_config)
+        candidate_config = self.clean_config(config=self.candidate_config)
 
         return source_config, candidate_config

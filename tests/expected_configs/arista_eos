@@ -108,10 +108,10 @@ logging level ZTP informational
 !
 spanning-tree mode mstp
 !
-enable CRYPTO_REPLACED
+enable secret sha512 $6$P1M9SV2bLTmQJpwW$KVoaaIa7i34uTFp7JRRp.hqL55nr7jSJJiDA.9CHTCW7q4GDIwyceMMSp6TavgYiAokjobyBYCO70L7FxpZon1
 no aaa root
 !
-username vrnetlab role network-admin CRYPTO_REPLACED
+username vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.
 !
 interface Ethernet1
    speed forced 10000full

@@ -1,0 +1,2722 @@
+connection_profile:
+  host: localhost
+  port: 23022
+  auth_username: vrnetlab
+  auth_password: true
+  auth_private_key: ''
+  auth_private_key_passphrase: false
+  auth_bypass: false
+  transport: system
+  auth_secondary: true
+interactions:
+  - channel_output: "Warning: Permanently added '[localhost]:23022' (RSA) to the list\
+      \ of known hosts.\nPassword: "
+    expected_channel_input: REDACTED
+    expected_channel_input_redacted: true
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\n\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: terminal length 0
+    expected_channel_input_redacted: false
+  - channel_output: terminal length 0
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nThu Mar  4 01:17:00.650 UTC\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: terminal width 512
+    expected_channel_input_redacted: false
+  - channel_output: terminal width 512
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nThu Mar  4 01:17:00.731 UTC\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: show version | i Version
+    expected_channel_input_redacted: false
+  - channel_output: show version | i Version
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nThu Mar  4 01:17:00.863 UTC\nCisco IOS XR Software, Version\
+      \ 6.5.3\n Version      : 6.5.3\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: configure terminal
+    expected_channel_input_redacted: false
+  - channel_output: configure terminal
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nThu Mar  4 01:17:00.997 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: no logging console
+    expected_channel_input_redacted: false
+  - channel_output: no logging console
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: commit
+    expected_channel_input_redacted: false
+  - channel_output: commit
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nThu Mar  4 01:17:01.740 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: telnet vrf default ipv4 server max-servers 10
+    expected_channel_input_redacted: false
+  - channel_output: telnet vrf default ipv4 server max-servers 10
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: username vrnetlab
+    expected_channel_input_redacted: false
+  - channel_output: username vrnetlab
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-un)#"
+    expected_channel_input: ' group root-lr'
+    expected_channel_input_redacted: false
+  - channel_output: ' group root-lr'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-un)#"
+    expected_channel_input: ' group cisco-support'
+    expected_channel_input_redacted: false
+  - channel_output: ' group cisco-support'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-un)#"
+    expected_channel_input: ' secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0'
+    expected_channel_input_redacted: false
+  - channel_output: ' secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-un)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-un)#"
+    expected_channel_input: call-home
+    expected_channel_input_redacted: false
+  - channel_output: call-home
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-call-home)#"
+    expected_channel_input: ' service active'
+    expected_channel_input_redacted: false
+  - channel_output: ' service active'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-call-home)#"
+    expected_channel_input: ' contact smart-licensing'
+    expected_channel_input_redacted: false
+  - channel_output: ' contact smart-licensing'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-call-home)#"
+    expected_channel_input: ' profile CiscoTAC-1'
+    expected_channel_input_redacted: false
+  - channel_output: ' profile CiscoTAC-1'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-call-home-profile)#"
+    expected_channel_input: '  active'
+    expected_channel_input_redacted: false
+  - channel_output: '  active'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-call-home-profile)#"
+    expected_channel_input: '  destination transport-method http'
+    expected_channel_input_redacted: false
+  - channel_output: '  destination transport-method http'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-call-home-profile)#"
+    expected_channel_input: ' !'
+    expected_channel_input_redacted: false
+  - channel_output: ' !'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-call-home-profile)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-call-home-profile)#"
+    expected_channel_input: interface MgmtEth0/RP0/CPU0/0
+    expected_channel_input_redacted: false
+  - channel_output: interface MgmtEth0/RP0/CPU0/0
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' ipv4 address 10.0.0.15 255.255.255.0'
+    expected_channel_input_redacted: false
+  - channel_output: ' ipv4 address 10.0.0.15 255.255.255.0'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/0
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/0
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/1
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/1
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/2
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/2
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/3
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/3
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/4
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/4
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/5
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/5
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/6
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/6
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/7
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/7
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/8
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/8
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/9
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/9
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/10
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/10
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/11
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/11
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/12
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/12
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/13
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/13
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/14
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/14
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/15
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/15
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/16
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/16
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/17
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/17
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/18
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/18
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/19
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/19
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/20
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/20
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/21
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/21
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/22
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/22
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/23
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/23
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/24
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/24
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/25
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/25
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/26
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/26
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/27
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/27
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/28
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/28
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/29
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/29
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/30
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/30
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/31
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/31
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/32
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/32
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/33
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/33
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/34
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/34
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/35
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/35
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/36
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/36
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/37
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/37
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/38
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/38
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/39
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/39
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/40
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/40
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/41
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/41
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/42
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/42
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/43
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/43
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/44
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/44
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/45
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/45
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/46
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/46
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/47
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/47
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/48
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/48
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/49
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/49
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/50
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/50
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/51
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/51
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/52
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/52
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/53
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/53
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/54
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/54
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/55
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/55
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/56
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/56
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/57
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/57
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/58
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/58
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/59
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/59
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/60
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/60
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/61
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/61
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/62
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/62
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/63
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/63
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/64
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/64
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/65
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/65
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/66
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/66
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/67
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/67
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/68
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/68
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/69
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/69
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/70
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/70
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/71
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/71
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/72
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/72
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/73
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/73
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/74
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/74
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/75
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/75
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/76
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/76
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/77
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/77
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/78
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/78
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/79
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/79
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/80
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/80
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/81
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/81
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/82
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/82
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/83
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/83
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/84
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/84
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/85
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/85
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/86
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/86
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/87
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/87
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/88
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/88
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/89
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/89
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/90
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/90
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/91
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/91
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/92
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/92
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/93
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/93
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/94
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/94
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/95
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/95
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/96
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/96
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/97
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/97
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/98
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/98
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/99
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/99
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/100
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/100
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/101
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/101
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/102
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/102
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/103
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/103
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/104
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/104
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/105
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/105
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/106
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/106
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/107
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/107
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/108
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/108
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/109
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/109
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/110
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/110
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/111
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/111
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/112
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/112
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/113
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/113
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/114
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/114
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/115
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/115
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/116
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/116
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/117
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/117
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/118
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/118
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/119
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/119
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/120
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/120
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/121
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/121
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/122
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/122
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/123
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/123
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/124
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/124
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/125
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/125
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/126
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/126
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: interface GigabitEthernet0/0/0/127
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet0/0/0/127
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-if)#"
+    expected_channel_input: xml agent tty
+    expected_channel_input_redacted: false
+  - channel_output: xml agent tty
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-xml-tty)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-xml-tty)#"
+    expected_channel_input: netconf-yang agent
+    expected_channel_input_redacted: false
+  - channel_output: netconf-yang agent
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-ncy-agent)#"
+    expected_channel_input: ' ssh'
+    expected_channel_input_redacted: false
+  - channel_output: ' ssh'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-ncy-agent)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config-ncy-agent)#"
+    expected_channel_input: ssh server v2
+    expected_channel_input_redacted: false
+  - channel_output: ssh server v2
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: ssh server netconf vrf default
+    expected_channel_input_redacted: false
+  - channel_output: ssh server netconf vrf default
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: show configuration changes diff
+    expected_channel_input_redacted: false
+  - channel_output: show configuration changes diff
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nThu Mar  4 01:17:07.799 UTC\nBuilding configuration...\n!!\
+      \ IOS XR Configuration version = 6.5.3\n+  interface MgmtEth0/RP0/CPU0/0\n+\
+      \  !\n+  interface GigabitEthernet0/0/0/0\n+  !\n+  interface GigabitEthernet0/0/0/1\n\
+      +  !\n+  interface GigabitEthernet0/0/0/2\n+  !\n+  interface GigabitEthernet0/0/0/3\n\
+      +  !\n+  interface GigabitEthernet0/0/0/4\n+  !\n+  interface GigabitEthernet0/0/0/5\n\
+      +  !\n+  interface GigabitEthernet0/0/0/6\n+  !\n+  interface GigabitEthernet0/0/0/7\n\
+      +  !\n+  interface GigabitEthernet0/0/0/8\n+  !\n+  interface GigabitEthernet0/0/0/9\n\
+      +  !\n+  interface GigabitEthernet0/0/0/10\n+  !\n+  interface GigabitEthernet0/0/0/11\n\
+      +  !\n+  interface GigabitEthernet0/0/0/12\n+  !\n+  interface GigabitEthernet0/0/0/13\n\
+      +  !\n+  interface GigabitEthernet0/0/0/14\n+  !\n+  interface GigabitEthernet0/0/0/15\n\
+      +  !\n+  interface GigabitEthernet0/0/0/16\n+  !\n+  interface GigabitEthernet0/0/0/17\n\
+      +  !\n+  interface GigabitEthernet0/0/0/18\n+  !\n+  interface GigabitEthernet0/0/0/19\n\
+      +  !\n+  interface GigabitEthernet0/0/0/20\n+  !\n+  interface GigabitEthernet0/0/0/21\n\
+      +  !\n+  interface GigabitEthernet0/0/0/22\n+  !\n+  interface GigabitEthernet0/0/0/23\n\
+      +  !\n+  interface GigabitEthernet0/0/0/24\n+  !\n+  interface GigabitEthernet0/0/0/25\n\
+      +  !\n+  interface GigabitEthernet0/0/0/26\n+  !\n+  interface GigabitEthernet0/0/0/27\n\
+      +  !\n+  interface GigabitEthernet0/0/0/28\n+  !\n+  interface GigabitEthernet0/0/0/29\n\
+      +  !\n+  interface GigabitEthernet0/0/0/30\n+  !\n+  interface GigabitEthernet0/0/0/31\n\
+      +  !\n+  interface GigabitEthernet0/0/0/32\n+  !\n+  interface GigabitEthernet0/0/0/33\n\
+      +  !\n+  interface GigabitEthernet0/0/0/34\n+  !\n+  interface GigabitEthernet0/0/0/35\n\
+      +  !\n+  interface GigabitEthernet0/0/0/36\n+  !\n+  interface GigabitEthernet0/0/0/37\n\
+      +  !\n+  interface GigabitEthernet0/0/0/38\n+  !\n+  interface GigabitEthernet0/0/0/39\n\
+      +  !\n+  interface GigabitEthernet0/0/0/40\n+  !\n+  interface GigabitEthernet0/0/0/41\n\
+      +  !\n+  interface GigabitEthernet0/0/0/42\n+  !\n+  interface GigabitEthernet0/0/0/43\n\
+      +  !\n+  interface GigabitEthernet0/0/0/44\n+  !\n+  interface GigabitEthernet0/0/0/45\n\
+      +  !\n+  interface GigabitEthernet0/0/0/46\n+  !\n+  interface GigabitEthernet0/0/0/47\n\
+      +  !\n+  interface GigabitEthernet0/0/0/48\n+  !\n+  interface GigabitEthernet0/0/0/49\n\
+      +  !\n+  interface GigabitEthernet0/0/0/50\n+  !\n+  interface GigabitEthernet0/0/0/51\n\
+      +  !\n+  interface GigabitEthernet0/0/0/52\n+  !\n+  interface GigabitEthernet0/0/0/53\n\
+      +  !\n+  interface GigabitEthernet0/0/0/54\n+  !\n+  interface GigabitEthernet0/0/0/55\n\
+      +  !\n+  interface GigabitEthernet0/0/0/56\n+  !\n+  interface GigabitEthernet0/0/0/57\n\
+      +  !\n+  interface GigabitEthernet0/0/0/58\n+  !\n+  interface GigabitEthernet0/0/0/59\n\
+      +  !\n+  interface GigabitEthernet0/0/0/60\n+  !\n+  interface GigabitEthernet0/0/0/61\n\
+      +  !\n+  interface GigabitEthernet0/0/0/62\n+  !\n+  interface GigabitEthernet0/0/0/63\n\
+      +  !\n+  interface GigabitEthernet0/0/0/64\n+  !\n+  interface GigabitEthernet0/0/0/65\n\
+      +  !\n+  interface GigabitEthernet0/0/0/66\n+  !\n+  interface GigabitEthernet0/0/0/67\n\
+      +  !\n+  interface GigabitEthernet0/0/0/68\n+  !\n+  interface GigabitEthernet0/0/0/69\n\
+      +  !\n+  interface GigabitEthernet0/0/0/70\n+  !\n+  interface GigabitEthernet0/0/0/71\n\
+      +  !\n+  interface GigabitEthernet0/0/0/72\n+  !\n+  interface GigabitEthernet0/0/0/73\n\
+      +  !\n+  interface GigabitEthernet0/0/0/74\n+  !\n+  interface GigabitEthernet0/0/0/75\n\
+      +  !\n+  interface GigabitEthernet0/0/0/76\n+  !\n+  interface GigabitEthernet0/0/0/77\n\
+      +  !\n+  interface GigabitEthernet0/0/0/78\n+  !\n+  interface GigabitEthernet0/0/0/79\n\
+      +  !\n+  interface GigabitEthernet0/0/0/80\n+  !\n+  interface GigabitEthernet0/0/0/81\n\
+      +  !\n+  interface GigabitEthernet0/0/0/82\n+  !\n+  interface GigabitEthernet0/0/0/83\n\
+      +  !\n+  interface GigabitEthernet0/0/0/84\n+  !\n+  interface GigabitEthernet0/0/0/85\n\
+      +  !\n+  interface GigabitEthernet0/0/0/86\n+  !\n+  interface GigabitEthernet0/0/0/87\n\
+      +  !\n+  interface GigabitEthernet0/0/0/88\n+  !\n+  interface GigabitEthernet0/0/0/89\n\
+      +  !\n+  interface GigabitEthernet0/0/0/90\n+  !\n+  interface GigabitEthernet0/0/0/91\n\
+      +  !\n+  interface GigabitEthernet0/0/0/92\n+  !\n+  interface GigabitEthernet0/0/0/93\n\
+      +  !\n+  interface GigabitEthernet0/0/0/94\n+  !\n+  interface GigabitEthernet0/0/0/95\n\
+      +  !\n+  interface GigabitEthernet0/0/0/96\n+  !\n+  interface GigabitEthernet0/0/0/97\n\
+      +  !\n+  interface GigabitEthernet0/0/0/98\n+  !\n+  interface GigabitEthernet0/0/0/99\n\
+      +  !\n+  interface GigabitEthernet0/0/0/100\n+  !\n+  interface GigabitEthernet0/0/0/101\n\
+      +  !\n+  interface GigabitEthernet0/0/0/102\n+  !\n+  interface GigabitEthernet0/0/0/103\n\
+      +  !\n+  interface GigabitEthernet0/0/0/104\n+  !\n+  interface GigabitEthernet0/0/0/105\n\
+      +  !\n+  interface GigabitEthernet0/0/0/106\n+  !\n+  interface GigabitEthernet0/0/0/107\n\
+      +  !\n+  interface GigabitEthernet0/0/0/108\n+  !\n+  interface GigabitEthernet0/0/0/109\n\
+      +  !\n+  interface GigabitEthernet0/0/0/110\n+  !\n+  interface GigabitEthernet0/0/0/111\n\
+      +  !\n+  interface GigabitEthernet0/0/0/112\n+  !\n+  interface GigabitEthernet0/0/0/113\n\
+      +  !\n+  interface GigabitEthernet0/0/0/114\n+  !\n+  interface GigabitEthernet0/0/0/115\n\
+      +  !\n+  interface GigabitEthernet0/0/0/116\n+  !\n+  interface GigabitEthernet0/0/0/117\n\
+      +  !\n+  interface GigabitEthernet0/0/0/118\n+  !\n+  interface GigabitEthernet0/0/0/119\n\
+      +  !\n+  interface GigabitEthernet0/0/0/120\n+  !\n+  interface GigabitEthernet0/0/0/121\n\
+      +  !\n+  interface GigabitEthernet0/0/0/122\n+  !\n+  interface GigabitEthernet0/0/0/123\n\
+      +  !\n+  interface GigabitEthernet0/0/0/124\n+  !\n+  interface GigabitEthernet0/0/0/125\n\
+      +  !\n+  interface GigabitEthernet0/0/0/126\n+  !\n+  interface GigabitEthernet0/0/0/127\n\
+      +  !\nend\n\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: show running-config
+    expected_channel_input_redacted: false
+  - channel_output: show running-config
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nThu Mar  4 01:17:08.456 UTC\nBuilding configuration...\n!!\
+      \ IOS XR Configuration version = 6.5.3\n!! Last configuration change at Thu\
+      \ Mar  4 01:15:38 2021 by vrnetlab\n!\ntelnet vrf default ipv4 server max-servers\
+      \ 10\nusername vrnetlab\n group root-lr\n group cisco-support\n secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0\n\
+      !\ncall-home\n service active\n contact smart-licensing\n profile CiscoTAC-1\n\
+      \  active\n  destination transport-method http\n !\n!\ninterface MgmtEth0/RP0/CPU0/0\n\
+      \ ipv4 address 10.0.0.15 255.255.255.0\n!\ninterface GigabitEthernet0/0/0/0\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/1\n shutdown\n!\ninterface GigabitEthernet0/0/0/2\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/3\n shutdown\n!\ninterface GigabitEthernet0/0/0/4\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/5\n shutdown\n!\ninterface GigabitEthernet0/0/0/6\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/7\n shutdown\n!\ninterface GigabitEthernet0/0/0/8\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/9\n shutdown\n!\ninterface GigabitEthernet0/0/0/10\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/11\n shutdown\n!\ninterface GigabitEthernet0/0/0/12\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/13\n shutdown\n!\ninterface GigabitEthernet0/0/0/14\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/15\n shutdown\n!\ninterface GigabitEthernet0/0/0/16\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/17\n shutdown\n!\ninterface GigabitEthernet0/0/0/18\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/19\n shutdown\n!\ninterface GigabitEthernet0/0/0/20\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/21\n shutdown\n!\ninterface GigabitEthernet0/0/0/22\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/23\n shutdown\n!\ninterface GigabitEthernet0/0/0/24\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/25\n shutdown\n!\ninterface GigabitEthernet0/0/0/26\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/27\n shutdown\n!\ninterface GigabitEthernet0/0/0/28\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/29\n shutdown\n!\ninterface GigabitEthernet0/0/0/30\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/31\n shutdown\n!\ninterface GigabitEthernet0/0/0/32\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/33\n shutdown\n!\ninterface GigabitEthernet0/0/0/34\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/35\n shutdown\n!\ninterface GigabitEthernet0/0/0/36\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/37\n shutdown\n!\ninterface GigabitEthernet0/0/0/38\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/39\n shutdown\n!\ninterface GigabitEthernet0/0/0/40\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/41\n shutdown\n!\ninterface GigabitEthernet0/0/0/42\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/43\n shutdown\n!\ninterface GigabitEthernet0/0/0/44\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/45\n shutdown\n!\ninterface GigabitEthernet0/0/0/46\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/47\n shutdown\n!\ninterface GigabitEthernet0/0/0/48\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/49\n shutdown\n!\ninterface GigabitEthernet0/0/0/50\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/51\n shutdown\n!\ninterface GigabitEthernet0/0/0/52\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/53\n shutdown\n!\ninterface GigabitEthernet0/0/0/54\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/55\n shutdown\n!\ninterface GigabitEthernet0/0/0/56\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/57\n shutdown\n!\ninterface GigabitEthernet0/0/0/58\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/59\n shutdown\n!\ninterface GigabitEthernet0/0/0/60\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/61\n shutdown\n!\ninterface GigabitEthernet0/0/0/62\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/63\n shutdown\n!\ninterface GigabitEthernet0/0/0/64\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/65\n shutdown\n!\ninterface GigabitEthernet0/0/0/66\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/67\n shutdown\n!\ninterface GigabitEthernet0/0/0/68\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/69\n shutdown\n!\ninterface GigabitEthernet0/0/0/70\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/71\n shutdown\n!\ninterface GigabitEthernet0/0/0/72\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/73\n shutdown\n!\ninterface GigabitEthernet0/0/0/74\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/75\n shutdown\n!\ninterface GigabitEthernet0/0/0/76\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/77\n shutdown\n!\ninterface GigabitEthernet0/0/0/78\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/79\n shutdown\n!\ninterface GigabitEthernet0/0/0/80\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/81\n shutdown\n!\ninterface GigabitEthernet0/0/0/82\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/83\n shutdown\n!\ninterface GigabitEthernet0/0/0/84\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/85\n shutdown\n!\ninterface GigabitEthernet0/0/0/86\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/87\n shutdown\n!\ninterface GigabitEthernet0/0/0/88\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/89\n shutdown\n!\ninterface GigabitEthernet0/0/0/90\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/91\n shutdown\n!\ninterface GigabitEthernet0/0/0/92\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/93\n shutdown\n!\ninterface GigabitEthernet0/0/0/94\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/95\n shutdown\n!\ninterface GigabitEthernet0/0/0/96\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/97\n shutdown\n!\ninterface GigabitEthernet0/0/0/98\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/99\n shutdown\n!\ninterface GigabitEthernet0/0/0/100\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/101\n shutdown\n!\ninterface GigabitEthernet0/0/0/102\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/103\n shutdown\n!\ninterface GigabitEthernet0/0/0/104\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/105\n shutdown\n!\ninterface GigabitEthernet0/0/0/106\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/107\n shutdown\n!\ninterface GigabitEthernet0/0/0/108\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/109\n shutdown\n!\ninterface GigabitEthernet0/0/0/110\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/111\n shutdown\n!\ninterface GigabitEthernet0/0/0/112\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/113\n shutdown\n!\ninterface GigabitEthernet0/0/0/114\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/115\n shutdown\n!\ninterface GigabitEthernet0/0/0/116\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/117\n shutdown\n!\ninterface GigabitEthernet0/0/0/118\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/119\n shutdown\n!\ninterface GigabitEthernet0/0/0/120\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/121\n shutdown\n!\ninterface GigabitEthernet0/0/0/122\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/123\n shutdown\n!\ninterface GigabitEthernet0/0/0/124\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/125\n shutdown\n!\ninterface GigabitEthernet0/0/0/126\n\
+      \ shutdown\n!\ninterface GigabitEthernet0/0/0/127\n shutdown\n!\nxml agent tty\n\
+      !\nnetconf-yang agent\n ssh\n!\nssh server v2\nssh server netconf vrf default\n\
+      end\n\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: commit
+    expected_channel_input_redacted: false
+  - channel_output: commit
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nThu Mar  4 01:17:09.047 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
+    expected_channel_input: end
+    expected_channel_input_redacted: false
+  - channel_output: end
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nRP/0/RP0/CPU0:ios#"
+    expected_channel_input: exit
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false

@@ -15,7 +15,7 @@ DEVICE = {
 def main():
     """Demo basic selective config replace functionality"""
 
-    # load up a config to use for the candidate config; this config is a bit differnet though! take
+    # load up a config to use for the candidate config; this config is a bit different though! take
     # a look and you'll see that there are no ethernet interfaces! how can we do a config replace
     # if we have no configuration on any of our ethernet ports?!?! Easy! We can just drop a flag
     # in the configuration that looks an awful lot like a jinja2 variable, in this case:

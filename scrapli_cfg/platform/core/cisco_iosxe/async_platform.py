@@ -6,8 +6,11 @@ from scrapli.response import Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, FailedToDetermineDeviceState
 from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
-from scrapli_cfg.platform.core.cisco_iosxe.base_platform import CONFIG_SOURCES, ScrapliCfgIOSXEBase
-from scrapli_cfg.platform.core.cisco_iosxe.types import FilePromptMode
+from scrapli_cfg.platform.core.cisco_iosxe.base_platform import (
+    CONFIG_SOURCES,
+    FilePromptMode,
+    ScrapliCfgIOSXEBase,
+)
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
@@ -55,8 +58,6 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfgPlatform, ScrapliCfgIOSXEBase):
         self.candidate_config_filename = ""
 
         self.cleanup_post_commit = cleanup_post_commit
-
-        self._get_version_command = "show version | i Version"
 
     async def _get_filesystem_space_available(self) -> int:
         """
@@ -136,6 +137,17 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfgPlatform, ScrapliCfgIOSXEBase):
         delete_result = await self.conn.send_interactive(interact_events=delete_events)
         return delete_result
 
+    async def get_version(self) -> ScrapliCfgResponse:
+        response = self._pre_get_version()
+
+        version_result = await self.conn.send_command(command="show version | i Version")
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),
+        )
+
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:
         response = self._pre_get_config(source=source)
 
@@ -210,11 +222,105 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfgPlatform, ScrapliCfgIOSXEBase):
 
         return self._post_abort_config(response=response, scrapli_responses=[abort_result])
 
+    async def save_config(self, file_prompt_mode: Optional[FilePromptMode] = None) -> Response:
+        """
+        Save the config -- "copy run start"!
+
+        Args:
+             file_prompt_mode: optionally provide the file prompt mode, if its None we will fetch it
+                 to decide if we need to use interactive mode or not
+
+        Returns:
+            Response: scrapli response object
+
+        Raises:
+            N/A
+
+        """
+        if file_prompt_mode is None:
+            file_prompt_mode = await self._determine_file_prompt_mode()
+
+        if file_prompt_mode == FilePromptMode.ALERT:
+            save_events = [
+                (
+                    "copy running-config startup-config",
+                    "Destination filename",
+                ),
+                ("", ""),
+            ]
+        elif file_prompt_mode == FilePromptMode.NOISY:
+            save_events = [
+                (
+                    "copy running-config startup-config",
+                    "Source filename",
+                ),
+                (
+                    "",
+                    "Destination filename",
+                ),
+                ("", ""),
+            ]
+        else:
+            save_events = [("copy running-config startup-config", "")]
+
+        save_result = await self.conn.send_interactive(interact_events=save_events)
+        return save_result
+
+    async def _commit_config_merge(
+        self, file_prompt_mode: Optional[FilePromptMode] = None
+    ) -> Response:
+        """
+        Commit the configuration in merge mode
+
+        Args:
+             file_prompt_mode: optionally provide the file prompt mode, if its None we will fetch it
+                 to decide if we need to use interactive mode or not
+
+        Returns:
+            Response: scrapli response object
+
+        Raises:
+            N/A
+
+        """
+        if file_prompt_mode is None:
+            file_prompt_mode = await self._determine_file_prompt_mode()
+
+        if file_prompt_mode == FilePromptMode.ALERT:
+            merge_events = [
+                (
+                    f"copy {self.filesystem}{self.candidate_config_filename} running-config",
+                    "Destination filename",
+                ),
+                ("", ""),
+            ]
+        elif file_prompt_mode == FilePromptMode.NOISY:
+            merge_events = [
+                (
+                    f"copy {self.filesystem}{self.candidate_config_filename} running-config",
+                    "Source filename",
+                ),
+                (
+                    "",
+                    "Destination filename",
+                ),
+                ("", ""),
+            ]
+        else:
+            merge_events = [
+                (f"copy {self.filesystem}{self.candidate_config_filename} running-config", "")
+            ]
+
+        commit_result = await self.conn.send_interactive(interact_events=merge_events)
+        return commit_result
+
     async def commit_config(self, source: str = "running") -> ScrapliCfgResponse:
         scrapli_responses = []
         response = self._pre_commit_config(
             source=source, session_or_config_file=bool(self.candidate_config_filename)
         )
+
+        file_prompt_mode = await self._determine_file_prompt_mode()
 
         if self._replace is True:
             replace_command = (
@@ -222,38 +328,11 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfgPlatform, ScrapliCfgIOSXEBase):
             )
             commit_result = await self.conn.send_command(command=replace_command)
         else:
-            file_prompt_mode = await self._determine_file_prompt_mode()
-            if file_prompt_mode == FilePromptMode.ALERT:
-                merge_events = [
-                    (
-                        f"copy {self.filesystem}{self.candidate_config_filename} running-config",
-                        "Destination filename",
-                    ),
-                    ("", ""),
-                ]
-            elif file_prompt_mode == FilePromptMode.NOISY:
-                merge_events = [
-                    (
-                        f"copy {self.filesystem}{self.candidate_config_filename} running-config",
-                        "Source filename",
-                    ),
-                    (
-                        "",
-                        "Destination filename",
-                    ),
-                    ("", ""),
-                ]
-            else:
-                merge_events = [
-                    (f"copy {self.filesystem}{self.candidate_config_filename} running-config", "")
-                ]
-            commit_result = await self.conn.send_interactive(interact_events=merge_events)
+            commit_result = await self._commit_config_merge(file_prompt_mode=file_prompt_mode)
 
         scrapli_responses.append(commit_result)
 
-        save_config_result = await self.conn.send_command(
-            command="copy running-config startup-config"
-        )
+        save_config_result = await self.save_config(file_prompt_mode=file_prompt_mode)
         scrapli_responses.append(save_config_result)
 
         if self.cleanup_post_commit:

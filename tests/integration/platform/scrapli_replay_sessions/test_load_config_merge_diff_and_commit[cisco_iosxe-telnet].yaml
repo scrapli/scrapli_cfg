@@ -1,0 +1,1818 @@
+connection_profile:
+  host: localhost
+  port: 21023
+  auth_username: vrnetlab
+  auth_password: true
+  auth_private_key: ''
+  auth_private_key_passphrase: false
+  auth_bypass: false
+  transport: telnet
+  auth_secondary: true
+interactions:
+  - channel_output: "\n\nUser Access Verification\n\nUsername: "
+    expected_channel_input: vrnetlab
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "vrnetlab\nPassword: "
+    expected_channel_input: REDACTED
+    expected_channel_input_redacted: true
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: terminal length 0
+    expected_channel_input_redacted: false
+  - channel_output: terminal length 0
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: terminal width 512
+    expected_channel_input_redacted: false
+  - channel_output: terminal width 512
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: show version | i Version
+    expected_channel_input_redacted: false
+  - channel_output: show version | i Version
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nCisco IOS XE Software, Version 16.12.03\nCisco IOS Software\
+      \ [Gibraltar], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+      \ 16.12.3, RELEASE SOFTWARE (fc5)\nlicensed under the GNU General Public License\
+      \ (\"GPL\") Version 2.0.  The\nsoftware code licensed under GPL Version 2.0\
+      \ is free software that comes\nGPL code under the terms of GPL Version 2.0.\
+      \  For more details, see the\ncsr1000v#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: configure terminal
+    expected_channel_input_redacted: false
+  - channel_output: configure terminal
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nEnter configuration commands, one per line.  End with CNTL/Z.\n\
+      csr1000v(config)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(config)#"
+    expected_channel_input: no logging monitor
+    expected_channel_input_redacted: false
+  - channel_output: no logging monitor
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(config)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(config)#"
+    expected_channel_input: end
+    expected_channel_input_redacted: false
+  - channel_output: end
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: 'dir flash: | i bytes'
+    expected_channel_input_redacted: false
+  - channel_output: 'dir flash: | i bytes'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n6286540800 bytes total (5485789184 bytes free)\ncsr1000v#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: tclsh
+    expected_channel_input_redacted: false
+  - channel_output: tclsh
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(tcl)#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(tcl)#"
+    expected_channel_input: puts [open "flash:__SCRAPLI_CFG_SESSION_NAME__" w+] {
+    expected_channel_input_redacted: false
+  - channel_output: puts [open "flash:__SCRAPLI_CFG_SESSION_NAME__" w+] {
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: version 16.12
+    expected_channel_input_redacted: false
+  - channel_output: version 16.12
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: service timestamps debug datetime msec
+    expected_channel_input_redacted: false
+  - channel_output: service timestamps debug datetime msec
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: service timestamps log datetime msec
+    expected_channel_input_redacted: false
+  - channel_output: service timestamps log datetime msec
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: service call-home
+    expected_channel_input_redacted: false
+  - channel_output: service call-home
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: platform qfp utilization monitor load 80
+    expected_channel_input_redacted: false
+  - channel_output: platform qfp utilization monitor load 80
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: platform punt-keepalive disable-kernel-core
+    expected_channel_input_redacted: false
+  - channel_output: platform punt-keepalive disable-kernel-core
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: platform console serial
+    expected_channel_input_redacted: false
+  - channel_output: platform console serial
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: hostname csr1000v
+    expected_channel_input_redacted: false
+  - channel_output: hostname csr1000v
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: boot-start-marker
+    expected_channel_input_redacted: false
+  - channel_output: boot-start-marker
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: boot-end-marker
+    expected_channel_input_redacted: false
+  - channel_output: boot-end-marker
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: no logging monitor
+    expected_channel_input_redacted: false
+  - channel_output: no logging monitor
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: enable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ
+    expected_channel_input_redacted: false
+  - channel_output: enable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: no aaa new-model
+    expected_channel_input_redacted: false
+  - channel_output: no aaa new-model
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: call-home
+    expected_channel_input_redacted: false
+  - channel_output: call-home
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' ! If contact email address in call-home is configured
+      as sch-smart-licensing@cisco.com'
+    expected_channel_input_redacted: false
+  - channel_output: ' ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' ! the email address configured in Cisco Smart License
+      Portal will be used as contact email address to send SCH notifications.'
+    expected_channel_input_redacted: false
+  - channel_output: ' ! the email address configured in Cisco Smart License Portal
+      will be used as contact email address to send SCH notifications.'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' contact-email-addr sch-smart-licensing@cisco.com'
+    expected_channel_input_redacted: false
+  - channel_output: ' contact-email-addr sch-smart-licensing@cisco.com'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' profile "CiscoTAC-1"'
+    expected_channel_input_redacted: false
+  - channel_output: ' profile "CiscoTAC-1"'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  active'
+    expected_channel_input_redacted: false
+  - channel_output: '  active'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  destination transport-method http'
+    expected_channel_input_redacted: false
+  - channel_output: '  destination transport-method http'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  no destination transport-method email'
+    expected_channel_input_redacted: false
+  - channel_output: '  no destination transport-method email'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ip domain name example.com
+    expected_channel_input_redacted: false
+  - channel_output: ip domain name example.com
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: login on-success log
+    expected_channel_input_redacted: false
+  - channel_output: login on-success log
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: subscriber templating
+    expected_channel_input_redacted: false
+  - channel_output: subscriber templating
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: multilink bundle-name authenticated
+    expected_channel_input_redacted: false
+  - channel_output: multilink bundle-name authenticated
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: crypto pki trustpoint SLA-TrustPoint
+    expected_channel_input_redacted: false
+  - channel_output: crypto pki trustpoint SLA-TrustPoint
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' enrollment pkcs12'
+    expected_channel_input_redacted: false
+  - channel_output: ' enrollment pkcs12'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' revocation-check crl'
+    expected_channel_input_redacted: false
+  - channel_output: ' revocation-check crl'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: crypto pki certificate chain SLA-TrustPoint
+    expected_channel_input_redacted: false
+  - channel_output: crypto pki certificate chain SLA-TrustPoint
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' certificate ca 01'
+    expected_channel_input_redacted: false
+  - channel_output: ' certificate ca 01'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  30820321 30820209 A0030201 02020101 300D0609 2A864886
+      F70D0101 0B050030'
+    expected_channel_input_redacted: false
+  - channel_output: '  30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101
+      0B050030'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  32310E30 0C060355 040A1305 43697363 6F312030 1E060355
+      04031317 43697363'
+    expected_channel_input_redacted: false
+  - channel_output: '  32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317
+      43697363'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31
+      33303533 30313934'
+    expected_channel_input_redacted: false
+  - channel_output: '  6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533
+      30313934'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  3834375A 170D3338 30353330 31393438 34375A30 32310E30
+      0C060355 040A1305'
+    expected_channel_input_redacted: false
+  - channel_output: '  3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355
+      040A1305'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  43697363 6F312030 1E060355 04031317 43697363 6F204C69
+      63656E73 696E6720'
+    expected_channel_input_redacted: false
+  - channel_output: '  43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73
+      696E6720'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101
+      05000382 010F0030'
+    expected_channel_input_redacted: false
+  - channel_output: '  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382
+      010F0030'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6
+      17222EA1 F1EFF64D'
+    expected_channel_input_redacted: false
+  - channel_output: '  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1
+      F1EFF64D'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A
+      9CAE6388 8A38E520'
+    expected_channel_input_redacted: false
+  - channel_output: '  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388
+      8A38E520'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3
+      700A8BF7 D8F256EE'
+    expected_channel_input_redacted: false
+  - channel_output: '  1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7
+      D8F256EE'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7
+      104FDC5F EA2956AC'
+    expected_channel_input_redacted: false
+  - channel_output: '  4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F
+      EA2956AC'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3
+      C0BD23CF 58BD7188'
+    expected_channel_input_redacted: false
+  - channel_output: '  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF
+      58BD7188'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F
+      539BA42B 42C68BB7'
+    expected_channel_input_redacted: false
+  - channel_output: '  68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B
+      42C68BB7'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4
+      5D5D5FB8 8F27D191'
+    expected_channel_input_redacted: false
+  - channel_output: '  C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8
+      8F27D191'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B
+      DF5F4368 95135E44'
+    expected_channel_input_redacted: false
+  - channel_output: '  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368
+      95135E44'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F
+      0101FF04 04030201'
+    expected_channel_input_redacted: false
+  - channel_output: '  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04
+      04030201'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D
+      0E041604 1449DC85'
+    expected_channel_input_redacted: false
+  - channel_output: '  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604
+      1449DC85'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648
+      86F70D01 010B0500'
+    expected_channel_input_redacted: false
+  - channel_output: '  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01
+      010B0500'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0
+      49631C78 240DA905'
+    expected_channel_input_redacted: false
+  - channel_output: '  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78
+      240DA905'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB
+      9093D3B1 6C9E3D8B'
+    expected_channel_input_redacted: false
+  - channel_output: '  604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1
+      6C9E3D8B'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646
+      5575B146 8DFC66A8'
+    expected_channel_input_redacted: false
+  - channel_output: '  D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146
+      8DFC66A8'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC
+      11BA9CD2 55A9232C'
+    expected_channel_input_redacted: false
+  - channel_output: '  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2
+      55A9232C'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86
+      C71E3B49 1765308B'
+    expected_channel_input_redacted: false
+  - channel_output: '  7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49
+      1765308B'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229
+      C37C1E69 39F08678'
+    expected_channel_input_redacted: false
+  - channel_output: '  5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69
+      39F08678'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A
+      B623CDBD 230E3AFB'
+    expected_channel_input_redacted: false
+  - channel_output: '  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD
+      230E3AFB'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE
+      0275156F 719BB2F0'
+    expected_channel_input_redacted: false
+  - channel_output: '  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F
+      719BB2F0'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  D697DF7F 28'
+    expected_channel_input_redacted: false
+  - channel_output: '  D697DF7F 28'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: "  \tquit"
+    expected_channel_input_redacted: false
+  - channel_output: "  \tquit"
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: license udi pid CSR1000V sn 9MVVU09YZFH
+    expected_channel_input_redacted: false
+  - channel_output: license udi pid CSR1000V sn 9MVVU09YZFH
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: diagnostic bootup level minimal
+    expected_channel_input_redacted: false
+  - channel_output: diagnostic bootup level minimal
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: archive
+    expected_channel_input_redacted: false
+  - channel_output: archive
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' log config'
+    expected_channel_input_redacted: false
+  - channel_output: ' log config'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  logging enable'
+    expected_channel_input_redacted: false
+  - channel_output: '  logging enable'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' path bootflash:'
+    expected_channel_input_redacted: false
+  - channel_output: ' path bootflash:'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: memory free low-watermark processor 72329
+    expected_channel_input_redacted: false
+  - channel_output: memory free low-watermark processor 72329
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: spanning-tree extend system-id
+    expected_channel_input_redacted: false
+  - channel_output: spanning-tree extend system-id
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: username vrnetlab privilege 15 password 0 VR-netlab9
+    expected_channel_input_redacted: false
+  - channel_output: username vrnetlab privilege 15 password 0 VR-netlab9
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: redundancy
+    expected_channel_input_redacted: false
+  - channel_output: redundancy
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface GigabitEthernet1
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet1
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' ip address 10.0.0.15 255.255.255.0'
+    expected_channel_input_redacted: false
+  - channel_output: ' ip address 10.0.0.15 255.255.255.0'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' negotiation auto'
+    expected_channel_input_redacted: false
+  - channel_output: ' negotiation auto'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop enabled'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop enabled'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop sysid'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop sysid'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface GigabitEthernet2
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet2
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no ip address'
+    expected_channel_input_redacted: false
+  - channel_output: ' no ip address'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' negotiation auto'
+    expected_channel_input_redacted: false
+  - channel_output: ' negotiation auto'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop enabled'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop enabled'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop sysid'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop sysid'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface GigabitEthernet3
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet3
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no ip address'
+    expected_channel_input_redacted: false
+  - channel_output: ' no ip address'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' negotiation auto'
+    expected_channel_input_redacted: false
+  - channel_output: ' negotiation auto'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop enabled'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop enabled'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop sysid'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop sysid'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface GigabitEthernet4
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet4
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no ip address'
+    expected_channel_input_redacted: false
+  - channel_output: ' no ip address'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' negotiation auto'
+    expected_channel_input_redacted: false
+  - channel_output: ' negotiation auto'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop enabled'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop enabled'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop sysid'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop sysid'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface GigabitEthernet5
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet5
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no ip address'
+    expected_channel_input_redacted: false
+  - channel_output: ' no ip address'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' negotiation auto'
+    expected_channel_input_redacted: false
+  - channel_output: ' negotiation auto'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop enabled'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop enabled'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop sysid'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop sysid'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface GigabitEthernet6
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet6
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no ip address'
+    expected_channel_input_redacted: false
+  - channel_output: ' no ip address'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' negotiation auto'
+    expected_channel_input_redacted: false
+  - channel_output: ' negotiation auto'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop enabled'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop enabled'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop sysid'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop sysid'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface GigabitEthernet7
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet7
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no ip address'
+    expected_channel_input_redacted: false
+  - channel_output: ' no ip address'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' negotiation auto'
+    expected_channel_input_redacted: false
+  - channel_output: ' negotiation auto'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop enabled'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop enabled'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop sysid'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop sysid'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface GigabitEthernet8
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet8
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no ip address'
+    expected_channel_input_redacted: false
+  - channel_output: ' no ip address'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' negotiation auto'
+    expected_channel_input_redacted: false
+  - channel_output: ' negotiation auto'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop enabled'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop enabled'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop sysid'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop sysid'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface GigabitEthernet9
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet9
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no ip address'
+    expected_channel_input_redacted: false
+  - channel_output: ' no ip address'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' negotiation auto'
+    expected_channel_input_redacted: false
+  - channel_output: ' negotiation auto'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop enabled'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop enabled'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop sysid'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop sysid'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: interface GigabitEthernet10
+    expected_channel_input_redacted: false
+  - channel_output: interface GigabitEthernet10
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no ip address'
+    expected_channel_input_redacted: false
+  - channel_output: ' no ip address'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' shutdown'
+    expected_channel_input_redacted: false
+  - channel_output: ' shutdown'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' negotiation auto'
+    expected_channel_input_redacted: false
+  - channel_output: ' negotiation auto'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop enabled'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop enabled'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' no mop sysid'
+    expected_channel_input_redacted: false
+  - channel_output: ' no mop sysid'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: virtual-service csr_mgmt
+    expected_channel_input_redacted: false
+  - channel_output: virtual-service csr_mgmt
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ip forward-protocol nd
+    expected_channel_input_redacted: false
+  - channel_output: ip forward-protocol nd
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: no ip http server
+    expected_channel_input_redacted: false
+  - channel_output: no ip http server
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: no ip http secure-server
+    expected_channel_input_redacted: false
+  - channel_output: no ip http secure-server
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ip ssh pubkey-chain
+    expected_channel_input_redacted: false
+  - channel_output: ip ssh pubkey-chain
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '  username vrnetlab'
+    expected_channel_input_redacted: false
+  - channel_output: '  username vrnetlab'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '   key-hash ssh-rsa 5CC74A68B18B026A1709FB09D1F44E2F'
+    expected_channel_input_redacted: false
+  - channel_output: '   key-hash ssh-rsa 5CC74A68B18B026A1709FB09D1F44E2F'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ip scp server enable
+    expected_channel_input_redacted: false
+  - channel_output: ip scp server enable
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: control-plane
+    expected_channel_input_redacted: false
+  - channel_output: control-plane
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: line con 0
+    expected_channel_input_redacted: false
+  - channel_output: line con 0
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' stopbits 1'
+    expected_channel_input_redacted: false
+  - channel_output: ' stopbits 1'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: line vty 0 4
+    expected_channel_input_redacted: false
+  - channel_output: line vty 0 4
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' login local'
+    expected_channel_input_redacted: false
+  - channel_output: ' login local'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' transport input all'
+    expected_channel_input_redacted: false
+  - channel_output: ' transport input all'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: line vty 5 15
+    expected_channel_input_redacted: false
+  - channel_output: line vty 5 15
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' login local'
+    expected_channel_input_redacted: false
+  - channel_output: ' login local'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: ' transport input all'
+    expected_channel_input_redacted: false
+  - channel_output: ' transport input all'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: netconf ssh
+    expected_channel_input_redacted: false
+  - channel_output: netconf ssh
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '!'
+    expected_channel_input_redacted: false
+  - channel_output: '!'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: netconf-yang
+    expected_channel_input_redacted: false
+  - channel_output: netconf-yang
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: end
+    expected_channel_input_redacted: false
+  - channel_output: end
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\n+>"
+    expected_channel_input: '}'
+    expected_channel_input_redacted: false
+  - channel_output: '}'
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(tcl)#"
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v(tcl)#"
+    expected_channel_input: tclquit
+    expected_channel_input_redacted: false
+  - channel_output: tclquit
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: "\r"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: show archive config differences system:running-config
+      flash:__SCRAPLI_CFG_SESSION_NAME__
+    expected_channel_input_redacted: false
+  - channel_output: show archive config differences system:running-config flash:__SCRAPLI_CFG_SESSION_NAME__
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n!Contextual Config Diffs:\n!No changes were found\n\ncsr1000v#"
+    expected_channel_input: show running-config
+    expected_channel_input_redacted: false
+  - channel_output: show running-config
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 4844 bytes\n\
+      !\n! Last configuration change at 23:59:37 UTC Wed Mar 3 2021 by vrnetlab\n\
+      !\nversion 16.12\nservice timestamps debug datetime msec\nservice timestamps\
+      \ log datetime msec\nservice call-home\nplatform qfp utilization monitor load\
+      \ 80\nplatform punt-keepalive disable-kernel-core\nplatform console serial\n\
+      !\nhostname csr1000v\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging\
+      \ monitor\nenable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ\n\
+      !\nno aaa new-model\ncall-home\n ! If contact email address in call-home is\
+      \ configured as sch-smart-licensing@cisco.com\n ! the email address configured\
+      \ in Cisco Smart License Portal will be used as contact email address to send\
+      \ SCH notifications.\n contact-email-addr sch-smart-licensing@cisco.com\n profile\
+      \ \"CiscoTAC-1\"\n  active\n  destination transport-method http\n  no destination\
+      \ transport-method email\n!\n!\n!\n!\n!\n!\n!\nip domain name example.com\n\
+      !\n!\n!\nlogin on-success log\n!\n!\n!\n!\n!\n!\n!\nsubscriber templating\n\
+      ! \n! \n! \n! \n!\n!\nmultilink bundle-name authenticated\n!\n!\n!\n!\n!\n!\n\
+      !\n!\n!\n!\n!\n!\n!\n!\n!\ncrypto pki trustpoint SLA-TrustPoint\n enrollment\
+      \ pkcs12\n revocation-check crl\n!\n!\ncrypto pki certificate chain SLA-TrustPoint\n\
+      \ certificate ca 01\n  30820321 30820209 A0030201 02020101 300D0609 2A864886\
+      \ F70D0101 0B050030 \n  32310E30 0C060355 040A1305 43697363 6F312030 1E060355\
+      \ 04031317 43697363 \n  6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31\
+      \ 33303533 30313934 \n  3834375A 170D3338 30353330 31393438 34375A30 32310E30\
+      \ 0C060355 040A1305 \n  43697363 6F312030 1E060355 04031317 43697363 6F204C69\
+      \ 63656E73 696E6720 \n  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101\
+      \ 05000382 010F0030 \n  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6\
+      \ 17222EA1 F1EFF64D \n  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A\
+      \ 9CAE6388 8A38E520 \n  1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3\
+      \ 700A8BF7 D8F256EE \n  4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7\
+      \ 104FDC5F EA2956AC \n  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3\
+      \ C0BD23CF 58BD7188 \n  68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F\
+      \ 539BA42B 42C68BB7 \n  C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4\
+      \ 5D5D5FB8 8F27D191 \n  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B\
+      \ DF5F4368 95135E44 \n  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F\
+      \ 0101FF04 04030201 \n  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D\
+      \ 0E041604 1449DC85 \n  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648\
+      \ 86F70D01 010B0500 \n  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0\
+      \ 49631C78 240DA905 \n  604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB\
+      \ 9093D3B1 6C9E3D8B \n  D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646\
+      \ 5575B146 8DFC66A8 \n  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC\
+      \ 11BA9CD2 55A9232C \n  7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86\
+      \ C71E3B49 1765308B \n  5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229\
+      \ C37C1E69 39F08678 \n  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A\
+      \ B623CDBD 230E3AFB \n  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE\
+      \ 0275156F 719BB2F0 \n  D697DF7F 28\n  \tquit\n!\nlicense udi pid CSR1000V sn\
+      \ 9MVVU09YZFH\ndiagnostic bootup level minimal\narchive\n log config\n  logging\
+      \ enable\n path bootflash:\nmemory free low-watermark processor 72329\n!\n!\n\
+      spanning-tree extend system-id\n!\nusername vrnetlab privilege 15 password 0\
+      \ VR-netlab9\n!\nredundancy\n!\n!\n!\n!\n!\n!\n! \n!\n!\n!\n!\n!\n!\n!\n!\n\
+      !\n!\n!\n!\n! \n! \n!\n!\ninterface GigabitEthernet1\n ip address 10.0.0.15\
+      \ 255.255.255.0\n negotiation auto\n no mop enabled\n no mop sysid\n!\ninterface\
+      \ GigabitEthernet2\n no ip address\n shutdown\n negotiation auto\n no mop enabled\n\
+      \ no mop sysid\n!\ninterface GigabitEthernet3\n no ip address\n shutdown\n negotiation\
+      \ auto\n no mop enabled\n no mop sysid\n!\ninterface GigabitEthernet4\n no ip\
+      \ address\n shutdown\n negotiation auto\n no mop enabled\n no mop sysid\n!\n\
+      interface GigabitEthernet5\n no ip address\n shutdown\n negotiation auto\n no\
+      \ mop enabled\n no mop sysid\n!\ninterface GigabitEthernet6\n no ip address\n\
+      \ shutdown\n negotiation auto\n no mop enabled\n no mop sysid\n!\ninterface\
+      \ GigabitEthernet7\n no ip address\n shutdown\n negotiation auto\n no mop enabled\n\
+      \ no mop sysid\n!\ninterface GigabitEthernet8\n no ip address\n shutdown\n negotiation\
+      \ auto\n no mop enabled\n no mop sysid\n!\ninterface GigabitEthernet9\n no ip\
+      \ address\n shutdown\n negotiation auto\n no mop enabled\n no mop sysid\n!\n\
+      interface GigabitEthernet10\n no ip address\n shutdown\n negotiation auto\n\
+      \ no mop enabled\n no mop sysid\n!\n!\nvirtual-service csr_mgmt\n!\nip forward-protocol\
+      \ nd\nno ip http server\nno ip http secure-server\n!\nip ssh pubkey-chain\n\
+      \  username vrnetlab\n   key-hash ssh-rsa 5CC74A68B18B026A1709FB09D1F44E2F \n\
+      ip scp server enable\n!\n!\n!\n!\n!\n!\n!\ncontrol-plane\n!\n!\n!\n!\n!\n!\n\
+      line con 0\n stopbits 1\nline vty 0 4\n login local\n transport input all\n\
+      line vty 5 15\n login local\n transport input all\n!\nnetconf ssh\n!\n!\n!\n\
+      !\n!\nnetconf-yang\nend\n\ncsr1000v#"
+    expected_channel_input: show run | i file prompt
+    expected_channel_input_redacted: false
+  - channel_output: show run | i file prompt
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: configure replace flash:__SCRAPLI_CFG_SESSION_NAME__ force
+    expected_channel_input_redacted: false
+  - channel_output: configure replace flash:__SCRAPLI_CFG_SESSION_NAME__ force
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nTotal number of passes: 0\nRollback Done\n\ncsr1000v#"
+    expected_channel_input: copy running-config startup-config
+    expected_channel_input_redacted: false
+  - channel_output: copy running-config startup-config
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nDestination filename [startup-config]? "
+    expected_channel_input: ''
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nBuilding configuration...\n[OK]\ncsr1000v#"
+    expected_channel_input: show run | i file prompt
+    expected_channel_input_redacted: false
+  - channel_output: show run | i file prompt
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: delete flash:__SCRAPLI_CFG_SESSION_NAME__
+    expected_channel_input_redacted: false
+  - channel_output: delete flash:__SCRAPLI_CFG_SESSION_NAME__
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nDelete filename [__SCRAPLI_CFG_SESSION_NAME__]? "
+    expected_channel_input: ''
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nDelete bootflash:/__SCRAPLI_CFG_SESSION_NAME__? [confirm]"
+    expected_channel_input: ''
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\ncsr1000v#"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\ncsr1000v#"
+    expected_channel_input: exit
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false

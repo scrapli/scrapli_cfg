@@ -122,6 +122,7 @@ class AsyncScrapliCfgPlatform(ABC, ScrapliCfgBase):
         """
         await self.close()
 
+    @abstractmethod
     async def get_version(self) -> ScrapliCfgResponse:
         """
         Get device version string
@@ -137,15 +138,6 @@ class AsyncScrapliCfgPlatform(ABC, ScrapliCfgBase):
             N/A
 
         """
-        response = self._pre_get_version()
-
-        version_result = await self.conn.send_command(command=self._get_version_command)
-
-        return self._post_get_version(
-            response=response,
-            scrapli_responses=[version_result],
-            result=self._parse_version(device_output=version_result.result),  # type: ignore  # noqa
-        )
 
     @abstractmethod
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:

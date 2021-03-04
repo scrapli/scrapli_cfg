@@ -1,13 +1,13 @@
-TIME_STAMP_REPLACED
+Thu Mar  4 01:14:46.184 UTC
 Building configuration...
 !! IOS XR Configuration version = 6.5.3
-!! Last configuration change at TIME_STAMP_REPLACED
+!! Last configuration change at Thu Feb 11 19:22:50 2021 by vrnetlab
 !
 telnet vrf default ipv4 server max-servers 10
 username vrnetlab
  group root-lr
  group cisco-support
-CRYPTO_REPLACED
+ secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0
 !
 call-home
  service active

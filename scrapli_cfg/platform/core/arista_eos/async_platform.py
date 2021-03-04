@@ -45,7 +45,6 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
         super().__init__(conn=conn, config_sources=config_sources, on_open=on_open)
 
         self.config_session_name = ""
-        self._get_version_command = "show version | i Software image version"
 
     async def _clear_config_session(self, session_name: str) -> Response:
         """
@@ -119,6 +118,19 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
 
         return self._post_clear_config_sessions(
             response=response, scrapli_responses=scrapli_responses
+        )
+
+    async def get_version(self) -> ScrapliCfgResponse:
+        response = self._pre_get_version()
+
+        version_result = await self.conn.send_command(
+            command="show version | i Software image version"
+        )
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),
         )
 
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:
