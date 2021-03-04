@@ -32,7 +32,9 @@ async def test_load_config_merge_diff_and_abort(async_cfg_conn):
 @pytest.mark.scrapli_replay
 async def test_load_config_merge_diff_and_commit(async_cfg_conn):
     await async_cfg_conn.open()
-    load_config = await async_cfg_conn.load_config(config=async_cfg_conn._expected_config, replace=True)
+    load_config = await async_cfg_conn.load_config(
+        config=async_cfg_conn._expected_config, replace=True
+    )
     assert load_config.failed is False
     diff_config = await async_cfg_conn.diff_config()
     assert diff_config.failed is False
