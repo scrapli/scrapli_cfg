@@ -1221,10 +1221,13 @@ class ScrapliCfgIOSXRBase:
 
         # find all sections that need to be "eagerly" sent
         eager_config = re.findall(pattern=BANNER_PATTERN, string=config)
-        for eager_section in eager_config:
-            config = config.replace(eager_section, "!")
 
-        joined_eager_config = "\n".join(eager_config)
+        for eager_section in eager_config:
+            # afaik cant backreference a non capturing group so we have an extra group per match
+            # that we ignore here (element 1)
+            config = config.replace(eager_section[0], "!")
+
+        joined_eager_config = "\n".join(captured_section[0] for captured_section in eager_config)
 
         return config, joined_eager_config
 
@@ -1391,10 +1394,13 @@ class ScrapliCfgIOSXRBase:
 
         # find all sections that need to be "eagerly" sent
         eager_config = re.findall(pattern=BANNER_PATTERN, string=config)
-        for eager_section in eager_config:
-            config = config.replace(eager_section, "!")
 
-        joined_eager_config = "\n".join(eager_config)
+        for eager_section in eager_config:
+            # afaik cant backreference a non capturing group so we have an extra group per match
+            # that we ignore here (element 1)
+            config = config.replace(eager_section[0], "!")
+
+        joined_eager_config = "\n".join(captured_section[0] for captured_section in eager_config)
 
         return config, joined_eager_config
 

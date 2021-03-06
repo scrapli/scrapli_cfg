@@ -1300,7 +1300,7 @@
 <p>When using scrapli_cfg, you will need to ensure that you are building a scrapli_cfg object specific to the target 
 device. You can create your connection object directly from the appropriate scrapli_cfg class, i.e., 
 <code>ScrapliCfgIOSXE</code>, or you can use the "factory" function to appropriately dispatch the class type based on a provided 
-<code>platform</code> string argument. A simple example of creating a scrapli_cfg object by both methods is below:</p>
+<code>conn</code> object (scrapli connection object). A simple example of creating a scrapli_cfg object by both methods is below:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg.platform.core.cisco_iosxe</span> <span class="kn">import</span> <span class="n">ScrapliCfgIOSXE</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg</span> <span class="kn">import</span> <span class="n">ScrapliCfg</span>
@@ -1314,7 +1314,7 @@ device. You can create your connection object directly from the appropriate scra
 <span class="p">}</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
 <span class="n">cfg_conn_from_specific_platform_class</span> <span class="o">=</span> <span class="n">ScrapliCfgIOSXE</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">cfg_conn_from_factory</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s2">&quot;cisco_iosxe&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">cfg_conn_from_factory</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 </code></pre></div>
 
 <p>The available platform names are:</p>
@@ -1329,13 +1329,11 @@ device. You can create your connection object directly from the appropriate scra
 <p>scrapli_cfg doesn't have a lot of options/arguments that you need to worry about! The most important argument is the 
 <code>conn</code> argument -- which is expecting a scrapli connection that is built from the <code>NetworkDriver</code>. This connection 
 must be from one of the "core" scrapli platforms (EOS, IOSXE, IOSXR, NXOS, JunOS).</p>
-<p>There are no additional required arguments for creating a scrapli_cfg object (unless using the factory, then you 
-need to pass a "platform" argument as well), though each platform may have other optional arguments as necessary -- 
-check the docs/class for those.</p>
+<p>There are no additional arguments for creating a scrapli_cfg object, though each platform may have other 
+optional arguments as necessary -- check the docs/class for those.</p>
 <h2 id="scrapli_cfg-methods">scrapli_cfg Methods<a class="headerlink" href="#scrapli_cfg-methods" title="Permanent link">&para;</a></h2>
 <p>scrapli_cfg methods are mostly intended at managing device configuration, though there are a few extra methods in 
-there as well. The following sections provide a brief description and example of how to use all of the main public 
-methods.</p>
+there as well. The following sections provide a brief description and example of how to use the main public methods.</p>
 <p>Note that nearly all public methods in scrapli_cfg will return a <code>ScrapliCfgResponse</code> object that will contain a 
 <code>result</code> attribute of the result of the given task, as well as the underlying scrapli <code>Response</code> object, and the 
 usual scrapli attributes like start/finish/elapsed time, a <code>failed</code> attribute, and a <code>raise_for_status</code> method.</p>
@@ -1358,7 +1356,7 @@ needs in order to manage the configurations. </p>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s2">&quot;cisco_iosxe&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
 <span class="n">version_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">version_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
@@ -1380,7 +1378,7 @@ like to get -- generally this will be either "startup" or "running".</p>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s2">&quot;cisco_iosxe&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
 <span class="n">cfg_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;startup&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cfg_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
@@ -1404,7 +1402,7 @@ as <code>get_config</code>, just resulting in fetching a checkpoint file. Some d
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_nxos&quot;</span>
 <span class="p">}</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s2">&quot;cisco_nxos&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
 <span class="n">chkpoint_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_checkpoint</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">chkpoint_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
@@ -1431,7 +1429,7 @@ as a full <em>replace</em> candidate.</p>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s2">&quot;cisco_iosxe&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
 <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
@@ -1456,7 +1454,7 @@ candidate config/delete config sessions used to load the config.</p>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s2">&quot;cisco_iosxe&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
 <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
@@ -1480,7 +1478,7 @@ candidate config/delete config sessions used to load the config.</p>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s2">&quot;cisco_iosxe&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
 <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
@@ -1513,7 +1511,7 @@ the diff will always show the "full" configuration diff (with colorful output th
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s2">&quot;cisco_iosxe&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
 <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
@@ -1550,7 +1548,7 @@ designed to help you with.</p>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;arista_eos&quot;</span>
 <span class="p">}</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s2">&quot;arista_eos&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
 <span class="n">rendered_config</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">render_substituted_config</span><span class="p">(</span>
     <span class="n">config_template</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">substitutes</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;ethernet_interfaces&quot;</span><span class="p">,</span> <span class="n">ETHERNET_INTERFACES</span><span class="p">)]</span>

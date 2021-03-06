@@ -1124,8 +1124,8 @@ import re
 
 VERSION_PATTERN = re.compile(pattern=r"\d+\.\d+\.\d+", flags=re.I)
 BANNER_PATTERN = re.compile(
-    pattern=r"^banner\s(?:(exec|incoming|login|motd|prompt-timeout|slip-ppp)\s)"
-    r"(?P<delim>.{1}).*\?P=delim",
+    pattern=r"(^banner\s(?:exec|incoming|login|motd|prompt-timeout|slip-ppp)\s"
+    r"(?P<delim>.{1}).*(?P=delim)$)",
     flags=re.I | re.M | re.S,
 )
 

@@ -1092,6 +1092,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#filepromptmode" class="md-nav__link">
+    FilePromptMode
+  </a>
+  
+    <nav class="md-nav" aria-label="FilePromptMode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#scraplicfgiosxebase" class="md-nav__link">
     ScrapliCfgIOSXEBase
   </a>
@@ -1107,8 +1134,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#class-variables" class="md-nav__link">
+  <a href="#class-variables_1" class="md-nav__link">
     Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clean_config" class="md-nav__link">
+    clean_config
   </a>
   
 </li>
@@ -1153,6 +1194,7 @@
 """scrapli_cfg.platform.core.cisco_iosxe.base"""
 import re
 from datetime import datetime
+from enum import Enum
 from logging import LoggerAdapter
 from typing import Tuple
 
@@ -1163,12 +1205,19 @@ from scrapli_cfg.platform.core.cisco_iosxe.patterns import (
     OUTPUT_HEADER_PATTERN,
     VERSION_PATTERN,
 )
-from scrapli_cfg.platform.core.cisco_iosxe.types import FilePromptMode
 
 CONFIG_SOURCES = [
     "running",
     "startup",
 ]
+
+
+class FilePromptMode(Enum):
+    """Enum representing file prompt modes"""
+
+    NOISY = "noisy"
+    ALERT = "alert"
+    QUIET = "quiet"
 
 
 class ScrapliCfgIOSXEBase:
@@ -1221,7 +1270,7 @@ class ScrapliCfgIOSXEBase:
 
         """
         if filesystem_bytes_available < (
-            len(self.candidate_config) / self._filesystem_space_available_buffer_perc
+            len(self.candidate_config) / (self._filesystem_space_available_buffer_perc / 100)
         ) + len(self.candidate_config):
             # filesystem has less than candidate config file size + 10% (by default) space, bail out
             msg = (
@@ -1277,6 +1326,27 @@ class ScrapliCfgIOSXEBase:
 
         version_string = version_string_search.group(0) or ""
         return version_string
+
+    @staticmethod
+    def clean_config(config: str) -> str:
+        """
+        Clean a configuration file; make it "loadable"
+
+        Args:
+            config: configuration string to "clean"; cleaning removes lines that would prevent using
+                the provided configuration as a "load_config" source from working -- i.e. removes
+                the leading "Building Configuration" line
+
+        Returns:
+            str: cleaned configuration string
+
+        Raises:
+            N/A
+
+        """
+        config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
+        config = "\n".join(line for line in config.splitlines() if line)
+        return config
 
     def _reset_config_session(self) -> None:
         """
@@ -1410,12 +1480,8 @@ class ScrapliCfgIOSXEBase:
 
         # remove any of the leading timestamp/building config/config size/last change lines in
         # both the source and candidate configs so they dont need to be compared
-        source_config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=source_config, repl="")
-        source_config = "\n".join(line for line in source_config.splitlines() if line)
-        candidate_config = re.sub(
-            pattern=OUTPUT_HEADER_PATTERN, string=self.candidate_config, repl=""
-        )
-        candidate_config = "\n".join(line for line in candidate_config.splitlines() if line)
+        source_config = self.clean_config(config=source_config)
+        candidate_config = self.clean_config(config=self.candidate_config)
 
         return source_config, candidate_config
         </code>
@@ -1423,6 +1489,34 @@ class ScrapliCfgIOSXEBase:
 </details>
 
 <h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<h3 id="filepromptmode">FilePromptMode<a class="headerlink" href="#filepromptmode" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>Enum representing file prompt modes
+</code></pre></div>
+
+<details class="source">
+    <summary>
+        <span>Expand source code</span>
+    </summary>
+    <pre>
+        <code class="python">
+class FilePromptMode(Enum):
+    """Enum representing file prompt modes"""
+
+    NOISY = "noisy"
+    ALERT = "alert"
+    QUIET = "quiet"
+        </code>
+    </pre>
+</details>
+
+<h4 id="ancestors-in-mro">Ancestors (in MRO)<a class="headerlink" href="#ancestors-in-mro" title="Permanent link">&para;</a></h4>
+<ul>
+<li>enum.Enum</li>
+</ul>
+<h4 id="class-variables">Class variables<a class="headerlink" href="#class-variables" title="Permanent link">&para;</a></h4>
+<p><code>ALERT</code></p>
+<p><code>NOISY</code></p>
+<p><code>QUIET</code></p>
 <h3 id="scraplicfgiosxebase">ScrapliCfgIOSXEBase<a class="headerlink" href="#scraplicfgiosxebase" title="Permanent link">&para;</a></h3>
 <details class="source">
     <summary>
@@ -1480,7 +1574,7 @@ class ScrapliCfgIOSXEBase:
 
         """
         if filesystem_bytes_available < (
-            len(self.candidate_config) / self._filesystem_space_available_buffer_perc
+            len(self.candidate_config) / (self._filesystem_space_available_buffer_perc / 100)
         ) + len(self.candidate_config):
             # filesystem has less than candidate config file size + 10% (by default) space, bail out
             msg = (
@@ -1536,6 +1630,27 @@ class ScrapliCfgIOSXEBase:
 
         version_string = version_string_search.group(0) or ""
         return version_string
+
+    @staticmethod
+    def clean_config(config: str) -> str:
+        """
+        Clean a configuration file; make it "loadable"
+
+        Args:
+            config: configuration string to "clean"; cleaning removes lines that would prevent using
+                the provided configuration as a "load_config" source from working -- i.e. removes
+                the leading "Building Configuration" line
+
+        Returns:
+            str: cleaned configuration string
+
+        Raises:
+            N/A
+
+        """
+        config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
+        config = "\n".join(line for line in config.splitlines() if line)
+        return config
 
     def _reset_config_session(self) -> None:
         """
@@ -1669,12 +1784,8 @@ class ScrapliCfgIOSXEBase:
 
         # remove any of the leading timestamp/building config/config size/last change lines in
         # both the source and candidate configs so they dont need to be compared
-        source_config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=source_config, repl="")
-        source_config = "\n".join(line for line in source_config.splitlines() if line)
-        candidate_config = re.sub(
-            pattern=OUTPUT_HEADER_PATTERN, string=self.candidate_config, repl=""
-        )
-        candidate_config = "\n".join(line for line in candidate_config.splitlines() if line)
+        source_config = self.clean_config(config=source_config)
+        candidate_config = self.clean_config(config=self.candidate_config)
 
         return source_config, candidate_config
         </code>
@@ -1686,11 +1797,27 @@ class ScrapliCfgIOSXEBase:
 <li>scrapli_cfg.platform.core.cisco_iosxe.async_platform.AsyncScrapliCfgIOSXE</li>
 <li>scrapli_cfg.platform.core.cisco_iosxe.sync_platform.ScrapliCfgIOSXE</li>
 </ul>
-<h4 id="class-variables">Class variables<a class="headerlink" href="#class-variables" title="Permanent link">&para;</a></h4>
+<h4 id="class-variables_1">Class variables<a class="headerlink" href="#class-variables_1" title="Permanent link">&para;</a></h4>
 <p><code>candidate_config: str</code></p>
 <p><code>candidate_config_filename: str</code></p>
 <p><code>filesystem: str</code></p>
 <p><code>logger: logging.LoggerAdapter</code></p>
+<h4 id="static-methods">Static methods<a class="headerlink" href="#static-methods" title="Permanent link">&para;</a></h4>
+<h4 id="clean_config">clean_config<a class="headerlink" href="#clean_config" title="Permanent link">&para;</a></h4>
+<p><code>clean_config(config: str) ‑&gt; str</code></p>
+<div class="codehilite"><pre><span></span><code>Clean a configuration file; make it &quot;loadable&quot;
+
+Args:
+    config: configuration string to &quot;clean&quot;; cleaning removes lines that would prevent using
+        the provided configuration as a &quot;load_config&quot; source from working -- i.e. removes
+        the leading &quot;Building Configuration&quot; line
+
+Returns:
+    str: cleaned configuration string
+
+Raises:
+    N/A
+</code></pre></div>
                 
               
               

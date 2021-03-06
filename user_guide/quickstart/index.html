@@ -1194,7 +1194,7 @@ See <a href="/user_guide/installation">here</a> for advanced installation detail
     <span class="n">my_config</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="n">conn</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">],</span> <span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
 <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">diff</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">diff_config</span><span class="p">()</span>
