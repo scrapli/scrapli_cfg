@@ -20,8 +20,8 @@ from scrapli_cfg.platform.core.cisco_iosxr import AsyncScrapliCfgIOSXR, ScrapliC
 from scrapli_cfg.platform.core.cisco_nxos import AsyncScrapliCfgNXOS, ScrapliCfgNXOS
 
 if TYPE_CHECKING:
-    from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
-    from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
+    from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform  # pragma: no cover
+    from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform  # pragma: no cover
 
 ASYNC_CORE_PLATFORM_MAP = {
     AsyncEOSDriver: AsyncScrapliCfgEOS,

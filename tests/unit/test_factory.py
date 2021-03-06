@@ -1,3 +1,5 @@
+import pytest
+
 from scrapli.driver.core import (
     AsyncEOSDriver,
     AsyncIOSXEDriver,
@@ -9,6 +11,7 @@ from scrapli.driver.core import (
     NXOSDriver,
 )
 from scrapli_cfg import AsyncScrapliCfg, ScrapliCfg
+from scrapli_cfg.exceptions import ScrapliCfgException
 from scrapli_cfg.platform.core.arista_eos import AsyncScrapliCfgEOS, ScrapliCfgEOS
 from scrapli_cfg.platform.core.cisco_iosxe import AsyncScrapliCfgIOSXE, ScrapliCfgIOSXE
 from scrapli_cfg.platform.core.cisco_iosxr import AsyncScrapliCfgIOSXR, ScrapliCfgIOSXR
@@ -33,6 +36,16 @@ def test_sync_factory(sync_scrapli_conn):
     assert isinstance(scrapli_cfg_obj, SYNC_CORE_PLATFORM_MAP.get(type(sync_scrapli_conn)))
 
 
+def test_sync_factory_exception():
+    with pytest.raises(ScrapliCfgException):
+        ScrapliCfg(conn=True)
+
+
 def test_async_factory(async_scrapli_conn):
     scrapli_cfg_obj = AsyncScrapliCfg(conn=async_scrapli_conn)
     assert isinstance(scrapli_cfg_obj, ASYNC_CORE_PLATFORM_MAP.get(type(async_scrapli_conn)))
+
+
+def test_async_factory_exception():
+    with pytest.raises(ScrapliCfgException):
+        AsyncScrapliCfg(conn=True)
