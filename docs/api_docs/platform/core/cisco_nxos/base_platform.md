@@ -105,7 +105,7 @@ class ScrapliCfgNXOSBase:
 
         """
         if filesystem_bytes_available < (
-            len(self.candidate_config) / self._filesystem_space_available_buffer_perc
+            len(self.candidate_config) / (self._filesystem_space_available_buffer_perc / 100)
         ) + len(self.candidate_config):
             # filesystem has less than candidate config file size + 10% (by default) space, bail out
             msg = (
@@ -379,7 +379,7 @@ class ScrapliCfgNXOSBase:
 
         """
         if filesystem_bytes_available < (
-            len(self.candidate_config) / self._filesystem_space_available_buffer_perc
+            len(self.candidate_config) / (self._filesystem_space_available_buffer_perc / 100)
         ) + len(self.candidate_config):
             # filesystem has less than candidate config file size + 10% (by default) space, bail out
             msg = (

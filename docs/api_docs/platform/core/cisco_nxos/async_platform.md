@@ -85,8 +85,6 @@ class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
 
         self.cleanup_post_commit = cleanup_post_commit
 
-        self._get_version_command = 'show version | i "NXOS: version"'
-
     async def _get_filesystem_space_available(self) -> int:
         """
         Get available space on filesystem
@@ -159,6 +157,17 @@ class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
             source="running",
             scrapli_responses=checkpoint_results,
             result=checkpoint,
+        )
+
+    async def get_version(self) -> ScrapliCfgResponse:
+        response = self._pre_get_version()
+
+        version_result = await self.conn.send_command(command='show version | i "NXOS: version"')
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),
         )
 
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:
@@ -391,8 +400,6 @@ class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
 
         self.cleanup_post_commit = cleanup_post_commit
 
-        self._get_version_command = 'show version | i "NXOS: version"'
-
     async def _get_filesystem_space_available(self) -> int:
         """
         Get available space on filesystem
@@ -465,6 +472,17 @@ class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
             source="running",
             scrapli_responses=checkpoint_results,
             result=checkpoint,
+        )
+
+    async def get_version(self) -> ScrapliCfgResponse:
+        response = self._pre_get_version()
+
+        version_result = await self.conn.send_command(command='show version | i "NXOS: version"')
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),
         )
 
     async def get_config(self, source: str = "running") -> ScrapliCfgResponse:

@@ -31,6 +31,16 @@ scrapli_cfg.factory
 """scrapli_cfg.factory"""
 from typing import TYPE_CHECKING, Any, Callable, List, Optional
 
+from scrapli.driver.core import (
+    AsyncEOSDriver,
+    AsyncIOSXEDriver,
+    AsyncIOSXRDriver,
+    AsyncNXOSDriver,
+    EOSDriver,
+    IOSXEDriver,
+    IOSXRDriver,
+    NXOSDriver,
+)
 from scrapli.driver.network import AsyncNetworkDriver, NetworkDriver
 from scrapli_cfg.exceptions import ScrapliCfgException
 from scrapli_cfg.logging import logger
@@ -40,25 +50,24 @@ from scrapli_cfg.platform.core.cisco_iosxr import AsyncScrapliCfgIOSXR, ScrapliC
 from scrapli_cfg.platform.core.cisco_nxos import AsyncScrapliCfgNXOS, ScrapliCfgNXOS
 
 if TYPE_CHECKING:
-    from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
-    from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
+    from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform  # pragma: no cover
+    from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform  # pragma: no cover
 
 ASYNC_CORE_PLATFORM_MAP = {
-    "arista_eos": AsyncScrapliCfgEOS,
-    "cisco_iosxe": AsyncScrapliCfgIOSXE,
-    "cisco_iosxr": AsyncScrapliCfgIOSXR,
-    "cisco_nxos": AsyncScrapliCfgNXOS,
+    AsyncEOSDriver: AsyncScrapliCfgEOS,
+    AsyncIOSXEDriver: AsyncScrapliCfgIOSXE,
+    AsyncIOSXRDriver: AsyncScrapliCfgIOSXR,
+    AsyncNXOSDriver: AsyncScrapliCfgNXOS,
 }
 SYNC_CORE_PLATFORM_MAP = {
-    "arista_eos": ScrapliCfgEOS,
-    "cisco_iosxe": ScrapliCfgIOSXE,
-    "cisco_iosxr": ScrapliCfgIOSXR,
-    "cisco_nxos": ScrapliCfgNXOS,
+    EOSDriver: ScrapliCfgEOS,
+    IOSXEDriver: ScrapliCfgIOSXE,
+    IOSXRDriver: ScrapliCfgIOSXR,
+    NXOSDriver: ScrapliCfgNXOS,
 }
 
 
 def ScrapliCfg(
-    platform: str,
     conn: NetworkDriver,
     config_sources: Optional[List[str]] = None,
     on_open: Optional[Callable[..., Any]] = None,
@@ -73,7 +82,6 @@ def ScrapliCfg(
     this felt like a better move.
 
     Args:
-        platform: string name of platform -- i.e. cisco_iosxe, arista_eos
         conn: scrapli connection to use
         config_sources: list of config sources
         on_open: async callable to run at connection open
@@ -87,14 +95,13 @@ def ScrapliCfg(
         ScrapliCfgException: if platform is not a string
 
     """
-    logger.debug("Scrapli factory initialized")
+    logger.debug("ScrapliCfg factory initialized")
 
-    if not isinstance(platform, str):
-        raise ScrapliCfgException(f"Argument 'platform' must be 'str' got '{type(platform)}'")
-
-    platform_class = SYNC_CORE_PLATFORM_MAP.get(platform)
+    platform_class = SYNC_CORE_PLATFORM_MAP.get(type(conn))
     if not platform_class:
-        raise ScrapliCfgException(f"platform '{platform}' not a valid platform name")
+        raise ScrapliCfgException(
+            f"scrapli connection object type '{type(conn)}' not a supported scrapli-cfg type"
+        )
 
     final_platform: "ScrapliCfgPlatform" = platform_class(
         conn=conn, config_sources=config_sources, on_open=on_open, **kwargs
@@ -104,7 +111,6 @@ def ScrapliCfg(
 
 
 def AsyncScrapliCfg(
-    platform: str,
     conn: AsyncNetworkDriver,
     config_sources: Optional[List[str]] = None,
     on_open: Optional[Callable[..., Any]] = None,
@@ -119,7 +125,6 @@ def AsyncScrapliCfg(
     this felt like a better move.
 
     Args:
-        platform: string name of platform -- i.e. cisco_iosxe, arista_eos
         conn: scrapli connection to use
         config_sources: list of config sources
         on_open: async callable to run at connection open
@@ -133,14 +138,13 @@ def AsyncScrapliCfg(
         ScrapliCfgException: if platform is not a string
 
     """
-    logger.debug("Scrapli factory initialized")
+    logger.debug("AsyncScrapliCfg factory initialized")
 
-    if not isinstance(platform, str):
-        raise ScrapliCfgException(f"Argument 'platform' must be 'str' got '{type(platform)}'")
-
-    platform_class = ASYNC_CORE_PLATFORM_MAP.get(platform)
+    platform_class = ASYNC_CORE_PLATFORM_MAP.get(type(conn))
     if not platform_class:
-        raise ScrapliCfgException(f"platform '{platform}' not a valid platform name")
+        raise ScrapliCfgException(
+            f"scrapli connection object type '{type(conn)}' not a supported scrapli-cfg type"
+        )
 
     final_platform: "AsyncScrapliCfgPlatform" = platform_class(
         conn=conn, config_sources=config_sources, on_open=on_open, **kwargs
@@ -158,7 +162,7 @@ def AsyncScrapliCfg(
     
 
 #### AsyncScrapliCfg
-`AsyncScrapliCfg(platform: str, conn: scrapli.driver.network.async_driver.AsyncNetworkDriver, config_sources: Union[List[str], NoneType] = None, on_open: Union[Callable[..., Any], NoneType] = None, **kwargs: Any) ‑> AsyncScrapliCfgPlatform`
+`AsyncScrapliCfg(conn: scrapli.driver.network.async_driver.AsyncNetworkDriver, config_sources: Union[List[str], NoneType] = None, on_open: Union[Callable[..., Any], NoneType] = None, **kwargs: Any) ‑> AsyncScrapliCfgPlatform`
 
 ```text
 Scrapli Config Async Factory
@@ -169,7 +173,6 @@ version inherited from the base ScrapliCfgPlatform and did not implement the abs
 this felt like a better move.
 
 Args:
-    platform: string name of platform -- i.e. cisco_iosxe, arista_eos
     conn: scrapli connection to use
     config_sources: list of config sources
     on_open: async callable to run at connection open
@@ -189,7 +192,7 @@ Raises:
     
 
 #### ScrapliCfg
-`ScrapliCfg(platform: str, conn: scrapli.driver.network.sync_driver.NetworkDriver, config_sources: Union[List[str], NoneType] = None, on_open: Union[Callable[..., Any], NoneType] = None, **kwargs: Any) ‑> ScrapliCfgPlatform`
+`ScrapliCfg(conn: scrapli.driver.network.sync_driver.NetworkDriver, config_sources: Union[List[str], NoneType] = None, on_open: Union[Callable[..., Any], NoneType] = None, **kwargs: Any) ‑> ScrapliCfgPlatform`
 
 ```text
 Scrapli Config Sync Factory
@@ -200,7 +203,6 @@ version inherited from the base ScrapliCfgPlatform and did not implement the abs
 this felt like a better move.
 
 Args:
-    platform: string name of platform -- i.e. cisco_iosxe, arista_eos
     conn: scrapli connection to use
     config_sources: list of config sources
     on_open: async callable to run at connection open

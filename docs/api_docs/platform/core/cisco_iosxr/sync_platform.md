@@ -78,7 +78,16 @@ class ScrapliCfgIOSXR(ScrapliCfgPlatform, ScrapliCfgIOSXRBase):
         self._in_configuration_session = False
         self._config_privilege_level = "configuration"
 
-        self._get_version_command = "show version | i Version"
+    def get_version(self) -> ScrapliCfgResponse:
+        response = self._pre_get_version()
+
+        version_result = self.conn.send_command(command="show version | i Version")
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),
+        )
 
     def get_config(self, source: str = "running") -> ScrapliCfgResponse:
         response = self._pre_get_config(source=source)
@@ -187,7 +196,7 @@ class ScrapliCfgIOSXR(ScrapliCfgPlatform, ScrapliCfgIOSXRBase):
             diff_result = self.conn.send_config(
                 config=self._get_diff_command(), privilege_level=self._config_privilege_level
             )
-            scrapli_responses.append(diff_response)
+            scrapli_responses.append(diff_result)
             if diff_result.failed:
                 msg = "failed generating diff for config session"
                 self.logger.critical(msg)
@@ -300,7 +309,16 @@ class ScrapliCfgIOSXR(ScrapliCfgPlatform, ScrapliCfgIOSXRBase):
         self._in_configuration_session = False
         self._config_privilege_level = "configuration"
 
-        self._get_version_command = "show version | i Version"
+    def get_version(self) -> ScrapliCfgResponse:
+        response = self._pre_get_version()
+
+        version_result = self.conn.send_command(command="show version | i Version")
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),
+        )
 
     def get_config(self, source: str = "running") -> ScrapliCfgResponse:
         response = self._pre_get_config(source=source)
@@ -409,7 +427,7 @@ class ScrapliCfgIOSXR(ScrapliCfgPlatform, ScrapliCfgIOSXRBase):
             diff_result = self.conn.send_config(
                 config=self._get_diff_command(), privilege_level=self._config_privilege_level
             )
-            scrapli_responses.append(diff_response)
+            scrapli_responses.append(diff_result)
             if diff_result.failed:
                 msg = "failed generating diff for config session"
                 self.logger.critical(msg)

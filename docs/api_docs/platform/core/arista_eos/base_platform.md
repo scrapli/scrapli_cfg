@@ -151,7 +151,7 @@ class ScrapliCfgEOSBase:
         for eager_section in eager_config:
             config = config.replace(eager_section, "!")
 
-        joined_eager_config = "\n".join(eager_config)
+        joined_eager_config = "\n".join(captured_section for captured_section in eager_config)
 
         return config, joined_eager_config
 
@@ -402,7 +402,7 @@ class ScrapliCfgEOSBase:
         for eager_section in eager_config:
             config = config.replace(eager_section, "!")
 
-        joined_eager_config = "\n".join(eager_config)
+        joined_eager_config = "\n".join(captured_section for captured_section in eager_config)
 
         return config, joined_eager_config
 

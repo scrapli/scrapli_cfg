@@ -75,7 +75,6 @@ class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
         super().__init__(conn=conn, config_sources=config_sources, on_open=on_open)
 
         self.config_session_name = ""
-        self._get_version_command = "show version | i Software image version"
 
     def _clear_config_session(self, session_name: str) -> Response:
         """
@@ -149,6 +148,17 @@ class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
 
         return self._post_clear_config_sessions(
             response=response, scrapli_responses=scrapli_responses
+        )
+
+    def get_version(self) -> ScrapliCfgResponse:
+        response = self._pre_get_version()
+
+        version_result = self.conn.send_command(command="show version | i Software image version")
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),
         )
 
     def get_config(self, source: str = "running") -> ScrapliCfgResponse:
@@ -277,7 +287,7 @@ class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
             diff_result = self.conn.send_config(
                 config="show session-config diffs", privilege_level=self.config_session_name
             )
-            scrapli_responses.append(diff_response)
+            scrapli_responses.append(diff_result)
             if diff_result.failed:
                 msg = "failed generating diff for config session"
                 self.logger.critical(msg)
@@ -386,7 +396,6 @@ class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
         super().__init__(conn=conn, config_sources=config_sources, on_open=on_open)
 
         self.config_session_name = ""
-        self._get_version_command = "show version | i Software image version"
 
     def _clear_config_session(self, session_name: str) -> Response:
         """
@@ -460,6 +469,17 @@ class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
 
         return self._post_clear_config_sessions(
             response=response, scrapli_responses=scrapli_responses
+        )
+
+    def get_version(self) -> ScrapliCfgResponse:
+        response = self._pre_get_version()
+
+        version_result = self.conn.send_command(command="show version | i Software image version")
+
+        return self._post_get_version(
+            response=response,
+            scrapli_responses=[version_result],
+            result=self._parse_version(device_output=version_result.result),
         )
 
     def get_config(self, source: str = "running") -> ScrapliCfgResponse:
@@ -588,7 +608,7 @@ class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
             diff_result = self.conn.send_config(
                 config="show session-config diffs", privilege_level=self.config_session_name
             )
-            scrapli_responses.append(diff_response)
+            scrapli_responses.append(diff_result)
             if diff_result.failed:
                 msg = "failed generating diff for config session"
                 self.logger.critical(msg)
