@@ -83,13 +83,12 @@ class ScrapliCfgDiffResponse(ScrapliCfgResponse):
         self.additions = "".join([line[2:] for line in self._difflines if line[:2] == "+ "])
         self.subtractions = "".join([line[2:] for line in self._difflines if line[:2] == "- "])
 
-    @staticmethod
-    def _generate_colors(colorize: bool) -> Tuple[str, str, str, str]:
+    def _generate_colors(self) -> Tuple[str, str, str, str]:
         """
         Generate the necessary strings for colorizing or not output
 
         Args:
-            colorize: True/False colorize output
+            N/A
 
         Returns:
             tuple: tuple of strings for colorizing (or not) output
@@ -98,10 +97,10 @@ class ScrapliCfgDiffResponse(ScrapliCfgResponse):
             N/A
 
         """
-        yellow = YELLOW if colorize else "? "
-        red = RED if colorize else "- "
-        green = GREEN if colorize else "+ "
-        end = END_COLOR if colorize else ""
+        yellow = YELLOW if self.colorize else "? "
+        red = RED if self.colorize else "- "
+        green = GREEN if self.colorize else "+ "
+        end = END_COLOR if self.colorize else ""
         return yellow, red, green, end
 
     @property
@@ -122,7 +121,7 @@ class ScrapliCfgDiffResponse(ScrapliCfgResponse):
         if self._side_by_side_diff:
             return self._side_by_side_diff
 
-        yellow, red, green, end = self._generate_colors(colorize=self.colorize)
+        yellow, red, green, end = self._generate_colors()
 
         term_width = self.side_by_side_diff_width or shutil.get_terminal_size().columns
         half_term_width = int(term_width / 2)
@@ -171,7 +170,7 @@ class ScrapliCfgDiffResponse(ScrapliCfgResponse):
         if self._unified_diff:
             return self._unified_diff
 
-        yellow, red, green, end = self._generate_colors(colorize=self.colorize)
+        yellow, red, green, end = self._generate_colors()
 
         unified_diff = [
             yellow + line[2:] + end

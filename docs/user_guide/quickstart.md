@@ -29,7 +29,7 @@ with open("myconfig", "r") as f:
     my_config = f.read()
 
 conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(platform=conn["platform"], conn=conn)
+cfg_conn = ScrapliCfg(conn=conn)
 cfg_conn.open()
 cfg_conn.load_config(config=my_config, replace=True)
 diff = cfg_conn.diff_config()

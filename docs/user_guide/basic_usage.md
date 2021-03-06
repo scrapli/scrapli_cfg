@@ -6,7 +6,7 @@
 When using scrapli_cfg, you will need to ensure that you are building a scrapli_cfg object specific to the target 
 device. You can create your connection object directly from the appropriate scrapli_cfg class, i.e., 
 `ScrapliCfgIOSXE`, or you can use the "factory" function to appropriately dispatch the class type based on a provided 
-`platform` string argument. A simple example of creating a scrapli_cfg object by both methods is below:
+`conn` object (scrapli connection object). A simple example of creating a scrapli_cfg object by both methods is below:
 
 ```python
 
@@ -23,7 +23,7 @@ device = {
 }
 conn = Scrapli(**device)
 cfg_conn_from_specific_platform_class = ScrapliCfgIOSXE(conn=conn)
-cfg_conn_from_factory = ScrapliCfg(platform="cisco_iosxe", conn=conn)
+cfg_conn_from_factory = ScrapliCfg(conn=conn)
 ```
 
 The available platform names are:
@@ -41,16 +41,14 @@ scrapli_cfg doesn't have a lot of options/arguments that you need to worry about
 `conn` argument -- which is expecting a scrapli connection that is built from the `NetworkDriver`. This connection 
 must be from one of the "core" scrapli platforms (EOS, IOSXE, IOSXR, NXOS, JunOS).
 
-There are no additional required arguments for creating a scrapli_cfg object (unless using the factory, then you 
-need to pass a "platform" argument as well), though each platform may have other optional arguments as necessary -- 
-check the docs/class for those.
+There are no additional arguments for creating a scrapli_cfg object, though each platform may have other 
+optional arguments as necessary -- check the docs/class for those.
 
 
 ## scrapli_cfg Methods
 
 scrapli_cfg methods are mostly intended at managing device configuration, though there are a few extra methods in 
-there as well. The following sections provide a brief description and example of how to use all of the main public 
-methods.
+there as well. The following sections provide a brief description and example of how to use the main public methods.
 
 Note that nearly all public methods in scrapli_cfg will return a `ScrapliCfgResponse` object that will contain a 
 `result` attribute of the result of the given task, as well as the underlying scrapli `Response` object, and the 
@@ -81,7 +79,7 @@ device = {
    "platform": "cisco_iosxe"
 }
 conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(platform="cisco_iosxe", conn=conn)
+cfg_conn = ScrapliCfg(conn=conn)
 cfg_conn.open()
 version_result = cfg_conn.get_version()
 print(version_result.result)
@@ -109,7 +107,7 @@ device = {
    "platform": "cisco_iosxe"
 }
 conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(platform="cisco_iosxe", conn=conn)
+cfg_conn = ScrapliCfg(conn=conn)
 cfg_conn.open()
 cfg_result = cfg_conn.get_config(source="startup")
 print(cfg_result.result)
@@ -139,7 +137,7 @@ device = {
    "platform": "cisco_nxos"
 }
 conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(platform="cisco_nxos", conn=conn)
+cfg_conn = ScrapliCfg(conn=conn)
 cfg_conn.open()
 chkpoint_result = cfg_conn.get_checkpoint()
 print(chkpoint_result.result)
@@ -172,7 +170,7 @@ device = {
    "platform": "cisco_iosxe"
 }
 conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(platform="cisco_iosxe", conn=conn)
+cfg_conn = ScrapliCfg(conn=conn)
 cfg_conn.open()
 load_result = cfg_conn.load_config(config=my_config, replace=True)
 print(load_result)
@@ -204,7 +202,7 @@ device = {
    "platform": "cisco_iosxe"
 }
 conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(platform="cisco_iosxe", conn=conn)
+cfg_conn = ScrapliCfg(conn=conn)
 cfg_conn.open()
 load_result = cfg_conn.load_config(config=my_config, replace=True)
 print(load_result)
@@ -233,7 +231,7 @@ device = {
    "platform": "cisco_iosxe"
 }
 conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(platform="cisco_iosxe", conn=conn)
+cfg_conn = ScrapliCfg(conn=conn)
 cfg_conn.open()
 load_result = cfg_conn.load_config(config=my_config, replace=True)
 print(load_result)
@@ -273,7 +271,7 @@ device = {
    "platform": "cisco_iosxe"
 }
 conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(platform="cisco_iosxe", conn=conn)
+cfg_conn = ScrapliCfg(conn=conn)
 cfg_conn.open()
 load_result = cfg_conn.load_config(config=my_config, replace=True)
 print(load_result)
@@ -317,7 +315,7 @@ device = {
    "platform": "arista_eos"
 }
 conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(platform="arista_eos", conn=conn)
+cfg_conn = ScrapliCfg(conn=conn)
 cfg_conn.open()
 rendered_config = cfg_conn.render_substituted_config(
     config_template=my_config, substitutes=[("ethernet_interfaces", ETHERNET_INTERFACES)]

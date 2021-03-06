@@ -22,9 +22,9 @@ def main():
     conn = Scrapli(**DEVICE)
 
     # create the scrapli cfg object, passing in the scrapli connection, we are also using the
-    # scrapli_cfg factory, so we can just pass the platform to this class as well -- alternatively
-    # we could use the `ScrapliCfgIOSXE` class for iosxe devices
-    cfg_conn = ScrapliCfg(platform="cisco_iosxe", conn=conn)
+    # scrapli_cfg factory, so we can just pass the connection object and it will automatically find
+    # and return the IOSXE (in this case) scrapli-cfg object
+    cfg_conn = ScrapliCfg(conn=conn)
 
     # open the scrapli cfg object (opens the underlying scrapli object)
     cfg_conn.open()

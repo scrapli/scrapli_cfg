@@ -130,7 +130,7 @@ def conn(device_type, transport):
 @pytest.fixture(scope="function")
 def cfg_conn(conn):
     scrapli_conn, device_type = conn
-    cfg_conn = ScrapliCfg(conn=scrapli_conn, platform=device_type)
+    cfg_conn = ScrapliCfg(conn=scrapli_conn)
 
     cfg_conn._expected_config = EXPECTED_CONFIGS[device_type]
     cfg_conn._config_cleaner = getattr(helper, f"{device_type}_clean_response")
@@ -166,7 +166,7 @@ async def async_conn(device_type, async_transport):
 @pytest.fixture(scope="function")
 async def async_cfg_conn(async_conn):
     scrapli_conn, device_type = async_conn
-    async_cfg_conn = AsyncScrapliCfg(conn=scrapli_conn, platform=device_type)
+    async_cfg_conn = AsyncScrapliCfg(conn=scrapli_conn)
 
     async_cfg_conn._expected_config = EXPECTED_CONFIGS[device_type]
     async_cfg_conn._config_cleaner = getattr(helper, f"{device_type}_clean_response")
