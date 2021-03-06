@@ -1,6 +1,5 @@
 """scrapli_cfg.noxfile"""
 import re
-import os
 from pathlib import Path
 from typing import Dict, List
 
@@ -86,9 +85,7 @@ def integration_tests(session):
     session.install("-r", "requirements-dev.txt")
 
     # setting scrapli vrouter -> 1 so that the saved scrapli replay sessions are "correctly"
-    # pointing to the vrouter dev env (i.e. port 21022 instead of 22 for iosxe, etc.)
-    os.environ["SCRAPLI_VROUTER"] = "1"
-
+    # pointing to the vrouter dev env (i.e. port 21022 instead of 22 for iosxe, etc.
     session.run(
         "pytest",
         "--cov=scrapli_cfg",
@@ -98,6 +95,7 @@ def integration_tests(session):
         "term",
         "tests/integration",
         "-v",
+        env={"SCRAPLI_VROUTER": "1"}
     )
 
 
