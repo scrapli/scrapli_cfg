@@ -95,7 +95,7 @@ def integration_tests(session):
         "term",
         "tests/integration",
         "-v",
-        env={"SCRAPLI_VROUTER": "1"}
+        env={"SCRAPLI_VROUTER": "1"},
     )
 
 
@@ -137,8 +137,7 @@ def black(session):
     session.run("black", "--check", ".")
 
 
-# holding this back to 3.8 due to bug: https://github.com/PyCQA/pylint/issues/3882
-@nox.session(python=["3.8"])
+@nox.session(python=["3.9"])
 def pylama(session):
     """
     Nox run pylama

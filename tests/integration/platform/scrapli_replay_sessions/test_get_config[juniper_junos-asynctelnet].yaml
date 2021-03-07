@@ -1,0 +1,101 @@
+connection_profile:
+  host: localhost
+  port: 25023
+  auth_username: vrnetlab
+  auth_password: true
+  auth_private_key: ''
+  auth_private_key_passphrase: false
+  auth_bypass: false
+  transport: asynctelnet
+  auth_secondary: false
+interactions:
+  - channel_output: 'login: '
+    expected_channel_input: vrnetlab
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: 'Password:'
+    expected_channel_input: REDACTED
+    expected_channel_input_redacted: true
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\n--- JUNOS 17.3R2.10 built 2018-02-08 02:19:07 UTC\nvrnetlab> "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\nvrnetlab> "
+    expected_channel_input: set cli complete-on-space off
+    expected_channel_input_redacted: false
+  - channel_output: set cli complete-on-space off
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nDisabling complete-on-space\n\nvrnetlab> "
+    expected_channel_input: set cli screen-length 0
+    expected_channel_input_redacted: false
+  - channel_output: set cli screen-length 0
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nScreen length set to 0\n\nvrnetlab> "
+    expected_channel_input: set cli screen-width 511
+    expected_channel_input_redacted: false
+  - channel_output: set cli screen-width 511
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nScreen width set to 511\n\nvrnetlab> "
+    expected_channel_input: 'show version | grep junos:'
+    expected_channel_input_redacted: false
+  - channel_output: 'show version | grep junos:'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nJunos: 17.3R2.10\n\nvrnetlab> "
+    expected_channel_input: show configuration
+    expected_channel_input_redacted: false
+  - channel_output: show configuration
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \n## Last commit: 2021-03-07 19:15:24 UTC by vrnetlab\nversion\
+      \ 17.3R2.10;\nsystem {\n    root-authentication {\n        encrypted-password\
+      \ \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
+      ; ## SECRET-DATA\n    }\n    login {\n        user vrnetlab {\n            uid\
+      \ 2000;\n            class super-user;\n            authentication {\n     \
+      \           encrypted-password \"$6$1tKhsTEi$VjaGckqjhgSqaZf5rrWqlhDkI1xAsaTWxFRtVQQnpE4qaeIWFuQUZ3GulwPfBYq2RLSTTl/ZnyyZJrcBl.7lP0\"\
+      ; ## SECRET-DATA\n            }\n        }\n    }\n    services {\n        ssh\
+      \ {\n            protocol-version v2;\n        }\n        telnet;\n        netconf\
+      \ {\n            ssh;\n        }\n        web-management {\n            http\
+      \ {\n                interface fxp0.0;\n            }\n        }\n    }\n  \
+      \  syslog {\n        user * {\n            any emergency;\n        }\n     \
+      \   file messages {\n            any any;\n            authorization info;\n\
+      \        }\n        file interactive-commands {\n            interactive-commands\
+      \ any;\n        }\n    }\n    license {\n        autoupdate {\n            url\
+      \ https://ae1.juniper.net/junos/key_retrieval;\n        }\n    }\n}\nsecurity\
+      \ {\n    screen {\n        ids-option untrust-screen {\n            icmp {\n\
+      \                ping-death;\n            }\n            ip {\n            \
+      \    source-route-option;\n                tear-drop;\n            }\n     \
+      \       tcp {\n                syn-flood {\n                    alarm-threshold\
+      \ 1024;\n                    attack-threshold 200;\n                    source-threshold\
+      \ 1024;\n                    destination-threshold 2048;\n                 \
+      \   queue-size 2000; ## Warning: 'queue-size' is deprecated\n              \
+      \      timeout 20;\n                }\n                land;\n            }\n\
+      \        }\n    }\n    policies {\n        from-zone trust to-zone trust {\n\
+      \            policy default-permit {\n                match {\n            \
+      \        source-address any;\n                    destination-address any;\n\
+      \                    application any;\n                }\n                then\
+      \ {\n                    permit;\n                }\n            }\n       \
+      \ }\n        from-zone trust to-zone untrust {\n            policy default-permit\
+      \ {\n                match {\n                    source-address any;\n    \
+      \                destination-address any;\n                    application any;\n\
+      \                }\n                then {\n                    permit;\n  \
+      \              }\n            }\n        }\n    }\n    zones {\n        security-zone\
+      \ trust {\n            tcp-rst;\n        }\n        security-zone untrust {\n\
+      \            screen untrust-screen;\n        }\n    }\n}\ninterfaces {\n   \
+      \ fxp0 {\n        unit 0 {\n            family inet {\n                address\
+      \ 10.0.0.15/24;\n            }\n        }\n    }\n}\n\nvrnetlab> "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\nvrnetlab> "
+    expected_channel_input: exit
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false

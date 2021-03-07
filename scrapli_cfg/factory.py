@@ -5,10 +5,12 @@ from scrapli.driver.core import (
     AsyncEOSDriver,
     AsyncIOSXEDriver,
     AsyncIOSXRDriver,
+    AsyncJunosDriver,
     AsyncNXOSDriver,
     EOSDriver,
     IOSXEDriver,
     IOSXRDriver,
+    JunosDriver,
     NXOSDriver,
 )
 from scrapli.driver.network import AsyncNetworkDriver, NetworkDriver
@@ -18,6 +20,7 @@ from scrapli_cfg.platform.core.arista_eos import AsyncScrapliCfgEOS, ScrapliCfgE
 from scrapli_cfg.platform.core.cisco_iosxe import AsyncScrapliCfgIOSXE, ScrapliCfgIOSXE
 from scrapli_cfg.platform.core.cisco_iosxr import AsyncScrapliCfgIOSXR, ScrapliCfgIOSXR
 from scrapli_cfg.platform.core.cisco_nxos import AsyncScrapliCfgNXOS, ScrapliCfgNXOS
+from scrapli_cfg.platform.core.juniper_junos import AsyncScrapliCfgJunos, ScrapliCfgJunos
 
 if TYPE_CHECKING:
     from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform  # pragma: no cover
@@ -28,12 +31,14 @@ ASYNC_CORE_PLATFORM_MAP = {
     AsyncIOSXEDriver: AsyncScrapliCfgIOSXE,
     AsyncIOSXRDriver: AsyncScrapliCfgIOSXR,
     AsyncNXOSDriver: AsyncScrapliCfgNXOS,
+    AsyncJunosDriver: AsyncScrapliCfgJunos,
 }
 SYNC_CORE_PLATFORM_MAP = {
     EOSDriver: ScrapliCfgEOS,
     IOSXEDriver: ScrapliCfgIOSXE,
     IOSXRDriver: ScrapliCfgIOSXR,
     NXOSDriver: ScrapliCfgNXOS,
+    JunosDriver: ScrapliCfgJunos,
 }
 
 

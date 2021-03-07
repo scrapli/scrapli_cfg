@@ -8,6 +8,7 @@ from scrapli_cfg.platform.core.arista_eos.base_platform import ScrapliCfgEOSBase
 from scrapli_cfg.platform.core.cisco_iosxe.base_platform import ScrapliCfgIOSXEBase
 from scrapli_cfg.platform.core.cisco_iosxr.base_platform import ScrapliCfgIOSXRBase
 from scrapli_cfg.platform.core.cisco_nxos.base_platform import ScrapliCfgNXOSBase
+from scrapli_cfg.platform.core.juniper_junos.base_platform import ScrapliCfgJunosBase
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
@@ -76,6 +77,12 @@ def iosxr_base_cfg_object():
 @pytest.fixture(scope="function")
 def nxos_base_cfg_object():
     cfg_conn = ScrapliCfgNXOSBase()
+    return cfg_conn
+
+
+@pytest.fixture(scope="function")
+def junos_base_cfg_object():
+    cfg_conn = ScrapliCfgJunosBase()
     return cfg_conn
 
 

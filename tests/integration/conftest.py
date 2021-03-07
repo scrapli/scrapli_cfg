@@ -2,14 +2,16 @@ import os
 
 import pytest
 
-from scrapli.driver.core import (  # AsyncJunosDriver,; JunosDriver,
+from scrapli.driver.core import (
     AsyncEOSDriver,
     AsyncIOSXEDriver,
     AsyncIOSXRDriver,
+    AsyncJunosDriver,
     AsyncNXOSDriver,
     EOSDriver,
     IOSXEDriver,
     IOSXRDriver,
+    JunosDriver,
     NXOSDriver,
 )
 from scrapli_cfg import AsyncScrapliCfg, ScrapliCfg
@@ -69,28 +71,22 @@ DEVICES = {
         "port": 24022 if VROUTER_MODE else 22,
         "comms_ansi": True,
     },
-    # commenting out till junos support added
-    # "juniper_junos": {
-    #     "driver": JunosDriver,
-    #     "async_driver": AsyncJunosDriver,
-    #     "auth_username": USERNAME,
-    #     "auth_password": PASSWORD,
-    #     "auth_secondary": PASSWORD,
-    #     "auth_strict_key": False,
-    #     "host": "localhost" if VROUTER_MODE else "172.18.0.15",
-    #     "port": 25022 if VROUTER_MODE else 22,
-    # },
+    "juniper_junos": {
+        "driver": JunosDriver,
+        "async_driver": AsyncJunosDriver,
+        "auth_username": USERNAME,
+        "auth_password": PASSWORD,
+        "auth_secondary": PASSWORD,
+        "auth_strict_key": False,
+        "host": "localhost" if VROUTER_MODE else "172.18.0.15",
+        "port": 25022 if VROUTER_MODE else 22,
+    },
 }
 
 
 @pytest.fixture(
     scope="function",
-    params=[
-        "cisco_iosxe",
-        "cisco_nxos",
-        "cisco_iosxr",
-        "arista_eos",
-    ],  # "juniper_junos"],
+    params=["cisco_iosxe", "cisco_nxos", "cisco_iosxr", "arista_eos", "juniper_junos"],
 )
 def device_type(request):
     yield request.param
@@ -134,6 +130,16 @@ def cfg_conn(conn):
 
     cfg_conn._expected_config = EXPECTED_CONFIGS[device_type]
     cfg_conn._config_cleaner = getattr(helper, f"{device_type}_clean_response")
+    cfg_conn._load_config = "interface loopback1\ndescription tacocat"
+
+    if device_type == "juniper_junos":
+        cfg_conn._load_config = """interfaces {
+        fxp0 {
+            unit 0 {
+                description RACECAR;
+            }
+        }
+    }"""
 
     yield cfg_conn
     if cfg_conn.conn.isalive():
@@ -170,6 +176,16 @@ async def async_cfg_conn(async_conn):
 
     async_cfg_conn._expected_config = EXPECTED_CONFIGS[device_type]
     async_cfg_conn._config_cleaner = getattr(helper, f"{device_type}_clean_response")
+    async_cfg_conn._load_config = "interface loopback1\ndescription tacocat"
+
+    if device_type == "juniper_junos":
+        async_cfg_conn._load_config = """interfaces {
+    fxp0 {
+        unit 0 {
+            description RACECAR;
+        }
+    }
+}"""
 
     yield async_cfg_conn
     if async_cfg_conn.conn.isalive():

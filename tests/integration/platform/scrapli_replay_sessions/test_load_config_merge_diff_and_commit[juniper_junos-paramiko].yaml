@@ -1,0 +1,991 @@
+connection_profile:
+  host: localhost
+  port: 25022
+  auth_username: vrnetlab
+  auth_password: true
+  auth_private_key: ''
+  auth_private_key_passphrase: false
+  auth_bypass: false
+  transport: paramiko
+  auth_secondary: true
+interactions:
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n--- JUNOS 17.3R2.10 built 2018-02-08 02:19:07 UTC\nvrnetlab> "
+    expected_channel_input: set cli complete-on-space off
+    expected_channel_input_redacted: false
+  - channel_output: "\n\nvrnetlab> set cli complete-on-space off"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nDisabling complete-on-space\n\nvrnetlab> "
+    expected_channel_input: set cli screen-length 0
+    expected_channel_input_redacted: false
+  - channel_output: set cli screen-length 0
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nScreen length set to 0\n\nvrnetlab> "
+    expected_channel_input: set cli screen-width 511
+    expected_channel_input_redacted: false
+  - channel_output: set cli screen-width 511
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nScreen width set to 511\n\nvrnetlab> "
+    expected_channel_input: 'show version | grep junos:'
+    expected_channel_input_redacted: false
+  - channel_output: 'show version | grep junos:'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nJunos: 17.3R2.10\n\nvrnetlab> "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\nvrnetlab> "
+    expected_channel_input: start shell user root
+    expected_channel_input_redacted: false
+  - channel_output: start shell user root
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nPassword:"
+    expected_channel_input: REDACTED
+    expected_channel_input_redacted: true
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '## Last\
+      \ commit: 2021-03-07 19:15:24 UTC by vrnetlab'"
+    expected_channel_input_redacted: false
+  - channel_output: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '## Last commit:\
+      \ 2021-03-07 19:15:24 UTC by vrnetlab'"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ 'version
+      17.3R2.10;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ 'version 17.3R2.10;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ 'system {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ 'system {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    root-authentication
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    root-authentication
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '      \
+      \  encrypted-password \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
+      ; ## SECRET-DATA'"
+    expected_channel_input_redacted: false
+  - channel_output: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        encrypted-password\
+      \ \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
+      ; ## SECRET-DATA'"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    login
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    login {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        user
+      vrnetlab {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        user vrnetlab
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            uid
+      2000;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            uid
+      2000;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            class
+      super-user;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            class
+      super-user;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            authentication
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            authentication
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '      \
+      \          encrypted-password \"$6$1tKhsTEi$VjaGckqjhgSqaZf5rrWqlhDkI1xAsaTWxFRtVQQnpE4qaeIWFuQUZ3GulwPfBYq2RLSTTl/ZnyyZJrcBl.7lP0\"\
+      ; ## SECRET-DATA'"
+    expected_channel_input_redacted: false
+  - channel_output: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '              \
+      \  encrypted-password \"$6$1tKhsTEi$VjaGckqjhgSqaZf5rrWqlhDkI1xAsaTWxFRtVQQnpE4qaeIWFuQUZ3GulwPfBYq2RLSTTl/ZnyyZJrcBl.7lP0\"\
+      ; ## SECRET-DATA'"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    services
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    services {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        ssh
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        ssh {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            protocol-version
+      v2;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            protocol-version
+      v2;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        telnet;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        telnet;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        netconf
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        netconf
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            ssh;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            ssh;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        web-management
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        web-management
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            http
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            http
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                interface
+      fxp0.0;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                interface
+      fxp0.0;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    syslog
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    syslog {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        user
+      * {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        user * {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            any
+      emergency;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            any
+      emergency;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        file
+      messages {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        file messages
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            any
+      any;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            any
+      any;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            authorization
+      info;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            authorization
+      info;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        file
+      interactive-commands {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        file interactive-commands
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            interactive-commands
+      any;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            interactive-commands
+      any;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    license
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    license {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        autoupdate
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        autoupdate
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            url
+      https://ae1.juniper.net/junos/key_retrieval;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            url
+      https://ae1.juniper.net/junos/key_retrieval;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '}'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '}'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ 'security
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ 'security {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    screen
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    screen {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        ids-option
+      untrust-screen {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        ids-option
+      untrust-screen {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            icmp
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            icmp
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                ping-death;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                ping-death;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            ip
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            ip {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                source-route-option;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                source-route-option;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                tear-drop;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                tear-drop;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            tcp
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            tcp
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                syn-flood
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                syn-flood
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    alarm-threshold
+      1024;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    alarm-threshold
+      1024;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    attack-threshold
+      200;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    attack-threshold
+      200;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    source-threshold
+      1024;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    source-threshold
+      1024;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    destination-threshold
+      2048;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    destination-threshold
+      2048;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '      \
+      \              queue-size 2000; ## Warning: 'queue-size' is deprecated'"
+    expected_channel_input_redacted: false
+  - channel_output: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '              \
+      \      queue-size 2000; ## Warning: 'queue-size' is deprecated'"
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    timeout
+      20;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    timeout
+      20;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                land;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                land;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    policies
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    policies {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        from-zone
+      trust to-zone trust {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        from-zone
+      trust to-zone trust {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            policy
+      default-permit {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            policy
+      default-permit {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                match
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                match
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    source-address
+      any;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    source-address
+      any;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    destination-address
+      any;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    destination-address
+      any;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    application
+      any;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    application
+      any;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                then
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                then
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    permit;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    permit;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        from-zone
+      trust to-zone untrust {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        from-zone
+      trust to-zone untrust {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            policy
+      default-permit {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            policy
+      default-permit {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                match
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                match
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    source-address
+      any;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    source-address
+      any;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    destination-address
+      any;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    destination-address
+      any;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    application
+      any;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    application
+      any;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                then
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                then
+      {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    permit;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                    permit;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    zones
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    zones {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        security-zone
+      trust {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        security-zone
+      trust {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            tcp-rst;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            tcp-rst;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        security-zone
+      untrust {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        security-zone
+      untrust {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            screen
+      untrust-screen;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            screen
+      untrust-screen;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '}'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '}'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ 'interfaces
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ 'interfaces {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    fxp0
+      {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    fxp0 {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        unit
+      0 {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        unit 0 {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            family
+      inet {'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            family
+      inet {'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                address
+      10.0.0.15/24;'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '                address
+      10.0.0.15/24;'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    }'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '}'
+    expected_channel_input_redacted: false
+  - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '}'
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: exit
+    expected_channel_input_redacted: false
+  - channel_output: exit
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nexit\n\nvrnetlab> "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\nvrnetlab> "
+    expected_channel_input: configure
+    expected_channel_input_redacted: false
+  - channel_output: configure
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nEntering configuration mode\n\n[edit]\nvrnetlab# "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\n[edit]\nvrnetlab# "
+    expected_channel_input: load replace /config/__SCRAPLI_CFG_SESSION_NAME__
+    expected_channel_input_redacted: false
+  - channel_output: load replace /config/__SCRAPLI_CFG_SESSION_NAME__
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \n|\bload complete\n\n[edit]\nvrnetlab# "
+    expected_channel_input: show | compare
+    expected_channel_input_redacted: false
+  - channel_output: show | compare
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \n\n[edit]\nvrnetlab# "
+    expected_channel_input: run show configuration
+    expected_channel_input_redacted: false
+  - channel_output: run show configuration
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \n## Last commit: 2021-03-07 19:25:14 UTC by vrnetlab\nversion\
+      \ 17.3R2.10;\nsystem {\n    root-authentication {\n        encrypted-password\
+      \ \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
+      ; ## SECRET-DATA\n    }\n    login {\n        user vrnetlab {\n            uid\
+      \ 2000;\n            class super-user;\n            authentication {\n     \
+      \           encrypted-password \"$6$1tKhsTEi$VjaGckqjhgSqaZf5rrWqlhDkI1xAsaTWxFRtVQQnpE4qaeIWFuQUZ3GulwPfBYq2RLSTTl/ZnyyZJrcBl.7lP0\"\
+      ; ## SECRET-DATA\n            }\n        }\n    }\n    services {\n        ssh\
+      \ {\n            protocol-version v2;\n        }\n        telnet;\n        netconf\
+      \ {\n            ssh;\n        }\n        web-management {\n            http\
+      \ {\n                interface fxp0.0;\n            }\n        }\n    }\n  \
+      \  syslog {\n        user * {\n            any emergency;\n        }\n     \
+      \   file messages {\n            any any;\n            authorization info;\n\
+      \        }\n        file interactive-commands {\n            interactive-commands\
+      \ any;\n        }\n    }\n    license {\n        autoupdate {\n            url\
+      \ https://ae1.juniper.net/junos/key_retrieval;\n        }\n    }\n}\nsecurity\
+      \ {\n    screen {\n        ids-option untrust-screen {\n            icmp {\n\
+      \                ping-death;\n            }\n            ip {\n            \
+      \    source-route-option;\n                tear-drop;\n            }\n     \
+      \       tcp {\n                syn-flood {\n                    alarm-threshold\
+      \ 1024;\n                    attack-threshold 200;\n                    source-threshold\
+      \ 1024;\n                    destination-threshold 2048;\n                 \
+      \   queue-size 2000; ## Warning: 'queue-size' is deprecated\n              \
+      \      timeout 20;\n                }\n                land;\n            }\n\
+      \        }\n    }\n    policies {\n        from-zone trust to-zone trust {\n\
+      \            policy default-permit {\n                match {\n            \
+      \        source-address any;\n                    destination-address any;\n\
+      \                    application any;\n                }\n                then\
+      \ {\n                    permit;\n                }\n            }\n       \
+      \ }\n        from-zone trust to-zone untrust {\n            policy default-permit\
+      \ {\n                match {\n                    source-address any;\n    \
+      \                destination-address any;\n                    application any;\n\
+      \                }\n                then {\n                    permit;\n  \
+      \              }\n            }\n        }\n    }\n    zones {\n        security-zone\
+      \ trust {\n            tcp-rst;\n        }\n        security-zone untrust {\n\
+      \            screen untrust-screen;\n        }\n    }\n}\ninterfaces {\n   \
+      \ fxp0 {\n        unit 0 {\n            family inet {\n                address\
+      \ 10.0.0.15/24;\n            }\n        }\n    }\n}\n\n[edit]\nvrnetlab# "
+    expected_channel_input: commit
+    expected_channel_input_redacted: false
+  - channel_output: commit
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \ncommit complete\n\n[edit]\nvrnetlab# "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\n[edit]\nvrnetlab# "
+    expected_channel_input: exit configuration-mode
+    expected_channel_input_redacted: false
+  - channel_output: exit configuration-mode
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nExiting configuration mode\n\nvrnetlab> "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\nvrnetlab> "
+    expected_channel_input: start shell user root
+    expected_channel_input_redacted: false
+  - channel_output: start shell user root
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nPassword:"
+    expected_channel_input: REDACTED
+    expected_channel_input_redacted: true
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: rm /config/__SCRAPLI_CFG_SESSION_NAME__
+    expected_channel_input_redacted: false
+  - channel_output: rm /config/__SCRAPLI_CFG_SESSION_NAME__
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nroot@% "
+    expected_channel_input: exit
+    expected_channel_input_redacted: false
+  - channel_output: exit
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\nexit\n\nvrnetlab> "
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: "\n\nvrnetlab> "
+    expected_channel_input: exit
+    expected_channel_input_redacted: false
+  - channel_output: ''
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false

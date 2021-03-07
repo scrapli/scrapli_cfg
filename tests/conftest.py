@@ -8,5 +8,5 @@ EXPECTED_CONFIGS = {
     "cisco_iosxe": open(f"{EXPECTED_CONFIG_PATH}/cisco_iosxe").read(),
     "cisco_nxos": open(f"{EXPECTED_CONFIG_PATH}/cisco_nxos").read(),
     "cisco_iosxr": open(f"{EXPECTED_CONFIG_PATH}/cisco_iosxr").read(),
-    # "juniper_junos": open(f"{EXPECTED_CONFIG_PATH}/juniper_junos")
+    "juniper_junos": open(f"{EXPECTED_CONFIG_PATH}/juniper_junos").read(),
 }

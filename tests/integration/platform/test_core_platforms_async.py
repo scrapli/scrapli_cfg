@@ -18,7 +18,7 @@ async def test_get_config(async_cfg_conn):
 async def test_load_config_merge_diff_and_abort(async_cfg_conn):
     await async_cfg_conn.open()
     load_config = await async_cfg_conn.load_config(
-        config="interface loopback1\ndescription tacocat", replace=False
+        config=async_cfg_conn._load_config, replace=False
     )
     assert load_config.failed is False
     diff_config = await async_cfg_conn.diff_config()

@@ -32,7 +32,7 @@ The available platform names are:
 - `cisco_iosxe`
 - `cisco_iosxr`
 - `cisco_nxos`
-- `juniper_junos` (coming soon!)
+- `juniper_junos`
 
 
 ## Driver Arguments
