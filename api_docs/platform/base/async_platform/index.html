@@ -1665,7 +1665,21 @@ class AsyncScrapliCfgPlatform(ABC, ScrapliCfgBase):
 
 <h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
 <h3 id="asyncscraplicfgplatform">AsyncScrapliCfgPlatform<a class="headerlink" href="#asyncscraplicfgplatform" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>Helper class that provides a standard way to create an ABC using
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Helper class that provides a standard way to create an ABC using
 inheritance.
 
 Scrapli Config async base class
@@ -1681,7 +1695,7 @@ Returns:
 Raises:
     N/A
 </code></pre></div>
-
+</td></tr></table>
 <details class="source">
     <summary>
         <span>Expand source code</span>
@@ -1958,13 +1972,23 @@ class AsyncScrapliCfgPlatform(ABC, ScrapliCfgBase):
 <li>scrapli_cfg.platform.core.cisco_iosxe.async_platform.AsyncScrapliCfgIOSXE</li>
 <li>scrapli_cfg.platform.core.cisco_iosxr.async_platform.AsyncScrapliCfgIOSXR</li>
 <li>scrapli_cfg.platform.core.cisco_nxos.async_platform.AsyncScrapliCfgNXOS</li>
+<li>scrapli_cfg.platform.core.juniper_junos.async_platform.AsyncScrapliCfgJunos</li>
 </ul>
 <h4 id="class-variables">Class variables<a class="headerlink" href="#class-variables" title="Permanent link">&para;</a></h4>
 <p><code>conn: Union[scrapli.driver.network.sync_driver.NetworkDriver, scrapli.driver.network.async_driver.AsyncNetworkDriver]</code></p>
 <h4 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h4>
 <h5 id="abort_config">abort_config<a class="headerlink" href="#abort_config" title="Permanent link">&para;</a></h5>
 <p><code>abort_config(self) ‑&gt; scrapli_cfg.response.ScrapliCfgResponse</code></p>
-<div class="codehilite"><pre><span></span><code>Abort a configuration -- discards any loaded config
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Abort a configuration -- discards any loaded config
 
 Args:
     N/A
@@ -1975,10 +1999,19 @@ Returns:
 Raises:
     N/A
 </code></pre></div>
-
+</td></tr></table>
 <h5 id="close">close<a class="headerlink" href="#close" title="Permanent link">&para;</a></h5>
 <p><code>close(self) ‑&gt; NoneType</code></p>
-<div class="codehilite"><pre><span></span><code>Close the scrapli connection
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Close the scrapli connection
 
 Args:
     N/A
@@ -1989,10 +2022,19 @@ Returns:
 Raises:
     N/A
 </code></pre></div>
-
+</td></tr></table>
 <h5 id="commit_config">commit_config<a class="headerlink" href="#commit_config" title="Permanent link">&para;</a></h5>
 <p><code>commit_config(self, source: str = 'running') ‑&gt; scrapli_cfg.response.ScrapliCfgResponse</code></p>
-<div class="codehilite"><pre><span></span><code>Commit a loaded configuration
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Commit a loaded configuration
 
 Args:
     source: name of the config source to commit against, generally running|startup
@@ -2003,10 +2045,21 @@ Returns:
 Raises:
     N/A
 </code></pre></div>
-
+</td></tr></table>
 <h5 id="diff_config">diff_config<a class="headerlink" href="#diff_config" title="Permanent link">&para;</a></h5>
 <p><code>diff_config(self, source: str = 'running') ‑&gt; scrapli_cfg.diff.ScrapliCfgDiffResponse</code></p>
-<div class="codehilite"><pre><span></span><code>Diff a loaded configuration against the source config store
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Diff a loaded configuration against the source config store
 
 Args:
     source: name of the config source to diff against, generally running|startup -- device
@@ -2019,10 +2072,20 @@ Returns:
 Raises:
     N/A
 </code></pre></div>
-
+</td></tr></table>
 <h5 id="get_config">get_config<a class="headerlink" href="#get_config" title="Permanent link">&para;</a></h5>
 <p><code>get_config(self, source: str = 'running') ‑&gt; scrapli_cfg.response.ScrapliCfgResponse</code></p>
-<div class="codehilite"><pre><span></span><code>Get device configuration
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Get device configuration
 
 Args:
     source: name of the config source, generally running|startup
@@ -2034,10 +2097,20 @@ Returns:
 Raises:
     N/A
 </code></pre></div>
-
+</td></tr></table>
 <h5 id="get_version">get_version<a class="headerlink" href="#get_version" title="Permanent link">&para;</a></h5>
 <p><code>get_version(self) ‑&gt; scrapli_cfg.response.ScrapliCfgResponse</code></p>
-<div class="codehilite"><pre><span></span><code>Get device version string
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Get device version string
 
 Args:
     N/A
@@ -2049,10 +2122,23 @@ Returns:
 Raises:
     N/A
 </code></pre></div>
-
+</td></tr></table>
 <h5 id="load_config">load_config<a class="headerlink" href="#load_config" title="Permanent link">&para;</a></h5>
 <p><code>load_config(self, config: str, replace: bool = False, **kwargs: Any) ‑&gt; scrapli_cfg.response.ScrapliCfgResponse</code></p>
-<div class="codehilite"><pre><span></span><code>Load configuration to a device
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Load configuration to a device
 
 Args:
     config: string of the configuration to load
@@ -2067,10 +2153,22 @@ Returns:
 Raises:
     N/A
 </code></pre></div>
-
+</td></tr></table>
 <h5 id="open">open<a class="headerlink" href="#open" title="Permanent link">&para;</a></h5>
 <p><code>open(self) ‑&gt; NoneType</code></p>
-<div class="codehilite"><pre><span></span><code>Open the connection and prepare for config operations
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Open the connection and prepare for config operations
 
 Does &quot;normal&quot; scrapli open things, but also runs the _on_open method of scrapli config which
 generally does things like disable console logging
@@ -2084,10 +2182,28 @@ Returns:
 Raises:
     N/A
 </code></pre></div>
-
+</td></tr></table>
 <h5 id="render_substituted_config">render_substituted_config<a class="headerlink" href="#render_substituted_config" title="Permanent link">&para;</a></h5>
 <p><code>render_substituted_config(self, config_template: str, substitutes: List[Tuple[str, Pattern[str]]], source: str = 'running') ‑&gt; str</code></p>
-<div class="codehilite"><pre><span></span><code>Render a substituted configuration file
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Render a substituted configuration file
 
 Renders a configuration based on a user template, substitutes, and a target config from the
 device.
@@ -2107,6 +2223,7 @@ Returns:
 Raises:
     N/A
 </code></pre></div>
+</td></tr></table>
                 
               
               

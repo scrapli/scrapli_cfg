@@ -1301,7 +1301,20 @@
 device. You can create your connection object directly from the appropriate scrapli_cfg class, i.e., 
 <code>ScrapliCfgIOSXE</code>, or you can use the "factory" function to appropriately dispatch the class type based on a provided 
 <code>conn</code> object (scrapli connection object). A simple example of creating a scrapli_cfg object by both methods is below:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg.platform.core.cisco_iosxe</span> <span class="kn">import</span> <span class="n">ScrapliCfgIOSXE</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg</span> <span class="kn">import</span> <span class="n">ScrapliCfg</span>
 
@@ -1316,14 +1329,14 @@ device. You can create your connection object directly from the appropriate scra
 <span class="n">cfg_conn_from_specific_platform_class</span> <span class="o">=</span> <span class="n">ScrapliCfgIOSXE</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">cfg_conn_from_factory</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 </code></pre></div>
-
+</td></tr></table>
 <p>The available platform names are:</p>
 <ul>
 <li><code>arista_eos</code></li>
 <li><code>cisco_iosxe</code></li>
 <li><code>cisco_iosxr</code></li>
 <li><code>cisco_nxos</code></li>
-<li><code>juniper_junos</code> (coming soon!)</li>
+<li><code>juniper_junos</code></li>
 </ul>
 <h2 id="driver-arguments">Driver Arguments<a class="headerlink" href="#driver-arguments" title="Permanent link">&para;</a></h2>
 <p>scrapli_cfg doesn't have a lot of options/arguments that you need to worry about! The most important argument is the 
@@ -1345,7 +1358,21 @@ versions/platforms. That said, the <code>get_version</code> method was implement
 versions to (in the future) be used to validate the target device version supports all features that scrapli_cfg 
 needs in order to manage the configurations. </p>
 <p>A simple example of fetching and printing the device version:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg</span> <span class="kn">import</span> <span class="n">ScrapliCfg</span>
 
 <span class="n">device</span> <span class="o">=</span> <span class="p">{</span>
@@ -1361,13 +1388,27 @@ needs in order to manage the configurations. </p>
 <span class="n">version_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">version_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
-
+</td></tr></table>
 <h3 id="get-config">Get Config<a class="headerlink" href="#get-config" title="Permanent link">&para;</a></h3>
 <p>The <code>get_config</code> method does exactly what you would think it does, it fetches the device configuration as a string. 
 This method supports a <code>source</code> argument to which you can provide a string representing the source config you would 
 like to get -- generally this will be either "startup" or "running".</p>
 <p>A simple example of fetching and printing the device startup configuration:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg</span> <span class="kn">import</span> <span class="n">ScrapliCfg</span>
 
 <span class="n">device</span> <span class="o">=</span> <span class="p">{</span>
@@ -1383,7 +1424,7 @@ like to get -- generally this will be either "startup" or "running".</p>
 <span class="n">cfg_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;startup&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cfg_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
-
+</td></tr></table>
 <h3 id="get-checkpoint-nxos-only">Get Checkpoint (NXOS Only)<a class="headerlink" href="#get-checkpoint-nxos-only" title="Permanent link">&para;</a></h3>
 <p>NXOS can be a little... difficult with configuration replacement operations. It expects to be fed "checkpoint" files 
 instead of "normal" configuration text. In order to make life a bit easier the NXOS platform supports a 
@@ -1391,7 +1432,21 @@ instead of "normal" configuration text. In order to make life a bit easier the N
 as <code>get_config</code>, just resulting in fetching a checkpoint file. Some details about checkpoints can be found 
 <a href="https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/6-x/system_management/configuration/guide/b_Cisco_Nexus_9000_Series_NX-OS_System_Management_Configuration_Guide/sm_7rollback.html">here</a>.</p>
 <p>A simple example of fetching and printing a checkpoint file from an NXOS device:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg</span> <span class="kn">import</span> <span class="n">ScrapliCfg</span>
 
 <span class="n">device</span> <span class="o">=</span> <span class="p">{</span>
@@ -1407,7 +1462,7 @@ as <code>get_config</code>, just resulting in fetching a checkpoint file. Some d
 <span class="n">chkpoint_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_checkpoint</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">chkpoint_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
-
+</td></tr></table>
 <h3 id="load-config">Load Config<a class="headerlink" href="#load-config" title="Permanent link">&para;</a></h3>
 <p>Another, hopefully very obviously named method! <code>load_config</code> does what it sounds like. <code>load_config</code> accepts a 
 configuration to load (as a string; note that if you are doing config replace with NXOS you should use a checkpoint 
@@ -1415,7 +1470,24 @@ file!), optionally a bool indicating if the operation is a "replace" operation (
 operation), and lastly some optional keyword arguments that vary from platform to platform.</p>
 <p>If <code>replace</code> is <code>False</code> (default) then the config will be loaded as a <em>merge</em> candidate, otherwise it will be loaded 
 as a full <em>replace</em> candidate.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg</span> <span class="kn">import</span> <span class="n">ScrapliCfg</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1434,13 +1506,32 @@ as a full <em>replace</em> candidate.</p>
 <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
 </code></pre></div>
-
+</td></tr></table>
 <p>Note that <em>loading</em> a configuration does <em>not</em> apply the configuration! This simply will create a configuration 
 session or a file on the device (depending on the specific platform type) that can be used to merge/replace the config.</p>
 <h3 id="abort-config">Abort Config<a class="headerlink" href="#abort-config" title="Permanent link">&para;</a></h3>
 <p>If you've loaded a configuration but don't want to commit it, you can call <code>abort_config</code> which will delete the 
 candidate config/delete config sessions used to load the config.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg</span> <span class="kn">import</span> <span class="n">ScrapliCfg</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1461,10 +1552,29 @@ candidate config/delete config sessions used to load the config.</p>
 <span class="n">abort_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">abort_config</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">abort_result</span><span class="p">)</span>
 </code></pre></div>
-
+</td></tr></table>
 <h3 id="commit-config">Commit Config<a class="headerlink" href="#commit-config" title="Permanent link">&para;</a></h3>
 <p>If you've loaded a config and want to save/commit it you can do so with the <code>commit_config</code> method:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg</span> <span class="kn">import</span> <span class="n">ScrapliCfg</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1485,7 +1595,7 @@ candidate config/delete config sessions used to load the config.</p>
 <span class="n">commit_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">commit_config</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">commit_result</span><span class="p">)</span>
 </code></pre></div>
-
+</td></tr></table>
 <h3 id="diff-config">Diff Config<a class="headerlink" href="#diff-config" title="Permanent link">&para;</a></h3>
 <p>Perhaps the most interesting/handy method of all: <code>diff_config</code>! Just like the other methods, this method does 
 exactly what it sounds like it would. There is one important difference between this method and the others, however; 
@@ -1497,7 +1607,28 @@ builds some basic diffs of its own. The diffs that scrapli_cfg builds are fairly
 between the candidate config and the target config, but will have no context about merge vs replace operations, so 
 the diff will always show the "full" configuration diff (with colorful output though!). </p>
 <p>You can see each of the diffs like so:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg</span> <span class="kn">import</span> <span class="n">ScrapliCfg</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1520,7 +1651,7 @@ the diff will always show the "full" configuration diff (with colorful output th
 <span class="nb">print</span><span class="p">(</span><span class="n">diff_result</span><span class="o">.</span><span class="n">unified_diff</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">diff_result</span><span class="o">.</span><span class="n">side_by_side_diff</span><span class="p">)</span>
 </code></pre></div>
-
+</td></tr></table>
 <h3 id="render-substituted-config">Render Substituted Config<a class="headerlink" href="#render-substituted-config" title="Permanent link">&para;</a></h3>
 <p>The <code>render_substituted_config</code> method is used to (based on user provided regex) auto merge a candidate 
 configuration with sections of the current device configuration. This is meant to allow users an easy-ish way to 
@@ -1532,7 +1663,29 @@ different team manages that part of the config... whatever the case you want to 
 but leave that part of the config completely untouched. This is what the <code>render_substitued_config</code> method is 
 designed to help you with.</p>
 <p>Here is an example of using this method:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scrapli</span> <span class="kn">import</span> <span class="n">Scrapli</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg</span> <span class="kn">import</span> <span class="n">ScrapliCfg</span>
 <span class="kn">from</span> <span class="nn">scrapli_cfg.platform.core.arista_eos.patterns</span> <span class="kn">import</span> <span class="n">ETHERNET_INTERFACES</span>
 
@@ -1556,13 +1709,19 @@ designed to help you with.</p>
 <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
 </code></pre></div>
-
+</td></tr></table>
 <p>In the above example we have a fairly "normal" scrapli_cfg setup -- create a connection and open it. Once the 
 connection is opened we call the <code>render_substituted_config</code> and we pass a <code>config_template</code> and a list of 
 <code>substitutes</code> to it. The config template is what it sounds like -- a template (that looks like a jinja2 template). 
 In this case, this template has a variable <code>ethernet_interfaces</code> in the file where the ethernet interfaces <em>would</em> 
 go, so instead of something like this:</p>
-<div class="codehilite"><pre><span></span><code>username vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>username vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.
 !
 interface Ethernet 1
   description tacocat
@@ -1570,27 +1729,35 @@ interface Ethernet 1
 &lt;&lt; SNIP &gt;&gt;
 interface Management1
 </code></pre></div>
-
+</td></tr></table>
 <p>We have something like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="x">username vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.</span>
-<span class="x">!</span>
-<span class="cp">{{</span> <span class="nv">ethernet_interfaces</span> <span class="cp">}}</span><span class="x"></span>
-<span class="x">interface Management1</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>username vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.
+!
+{{ ethernet_interfaces }}
+interface Management1
 </code></pre></div>
-
+</td></tr></table>
 <p>The <code>substitutes</code> we passed into the <code>render_substituted_config</code> method is a list of tuples, where the first item in 
 the tuple is the variable we want to replace (<code>ethernet_interfaces</code> in this case) and the second value is a regular 
 expression that matches the section of the real running config that we want to put into this variable.</p>
 <p>Ultimately, using this example, if we had a "real" running configuration containing the following interface section 
 (just using one interface to keep things simple) that looked like this:</p>
-<div class="codehilite"><pre><span></span><code>username vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>username vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.
 !
 interface Ethernet 1
   description tacocat
 !
 interface Management1
 </code></pre></div>
-
+</td></tr></table>
 <p>Our rendered template would end up looking just like that. Again, the point of this method is to allow you to more 
 easily do configuration replaces without having to fully template out device configs. The obvious downside to this 
 method is that it may require fairly complicated regular expressions in order to properly slice and dice the real 

@@ -1202,26 +1202,28 @@
                 <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
 <h2 id="standard-installation">Standard Installation<a class="headerlink" href="#standard-installation" title="Permanent link">&para;</a></h2>
 <p>As outlined in the quick start, you should be able to pip install scrapli "normally":</p>
-<div class="codehilite"><pre><span></span><code>pip install scrapli-cfg
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip install scrapli-cfg
 </code></pre></div>
-
+</td></tr></table>
 <h2 id="installing-current-master-branch">Installing current master branch<a class="headerlink" href="#installing-current-master-branch" title="Permanent link">&para;</a></h2>
 <p>To install from the source repositories master branch:</p>
-<div class="codehilite"><pre><span></span><code>pip install git+https://github.com/scrapli/scrapli_cfg
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip install git+https://github.com/scrapli/scrapli_cfg
 </code></pre></div>
-
+</td></tr></table>
 <h2 id="installing-current-develop-branch">Installing current develop branch<a class="headerlink" href="#installing-current-develop-branch" title="Permanent link">&para;</a></h2>
 <p>To install from the source repositories develop branch:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="n">git</span><span class="o">+</span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">scrapli</span><span class="o">/</span><span class="n">scrapli_cfg</span><span class="p">.</span><span class="n">git</span><span class="nv">@develop</span><span class="n">#egg</span><span class="o">=</span><span class="n">scrapli_cfg</span><span class="w"></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip install -e git+https://github.com/scrapli/scrapli_cfg.git@develop#egg=scrapli_cfg
 </code></pre></div>
-
+</td></tr></table>
 <h2 id="installation-from-source">Installation from Source<a class="headerlink" href="#installation-from-source" title="Permanent link">&para;</a></h2>
 <p>To install from source:</p>
-<div class="codehilite"><pre><span></span><code>git clone https://github.com/scrapli/scrapli_cfg
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git clone https://github.com/scrapli/scrapli_cfg
 cd scrapli_cfg
 python setup.py install
 </code></pre></div>
-
+</td></tr></table>
 <h2 id="supported-platforms">Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permanent link">&para;</a></h2>
 <p>As for platforms to <em>run</em> scrapli on -- it has and will be tested on MacOS and Ubuntu regularly and should work on any
  POSIX system. Windows at one point was being tested very minimally via GitHub Actions builds, however this is no

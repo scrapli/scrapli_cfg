@@ -1204,10 +1204,12 @@ from scrapli.driver.core import (
     AsyncEOSDriver,
     AsyncIOSXEDriver,
     AsyncIOSXRDriver,
+    AsyncJunosDriver,
     AsyncNXOSDriver,
     EOSDriver,
     IOSXEDriver,
     IOSXRDriver,
+    JunosDriver,
     NXOSDriver,
 )
 from scrapli.driver.network import AsyncNetworkDriver, NetworkDriver
@@ -1217,6 +1219,7 @@ from scrapli_cfg.platform.core.arista_eos import AsyncScrapliCfgEOS, ScrapliCfgE
 from scrapli_cfg.platform.core.cisco_iosxe import AsyncScrapliCfgIOSXE, ScrapliCfgIOSXE
 from scrapli_cfg.platform.core.cisco_iosxr import AsyncScrapliCfgIOSXR, ScrapliCfgIOSXR
 from scrapli_cfg.platform.core.cisco_nxos import AsyncScrapliCfgNXOS, ScrapliCfgNXOS
+from scrapli_cfg.platform.core.juniper_junos import AsyncScrapliCfgJunos, ScrapliCfgJunos
 
 if TYPE_CHECKING:
     from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform  # pragma: no cover
@@ -1227,12 +1230,14 @@ ASYNC_CORE_PLATFORM_MAP = {
     AsyncIOSXEDriver: AsyncScrapliCfgIOSXE,
     AsyncIOSXRDriver: AsyncScrapliCfgIOSXR,
     AsyncNXOSDriver: AsyncScrapliCfgNXOS,
+    AsyncJunosDriver: AsyncScrapliCfgJunos,
 }
 SYNC_CORE_PLATFORM_MAP = {
     EOSDriver: ScrapliCfgEOS,
     IOSXEDriver: ScrapliCfgIOSXE,
     IOSXRDriver: ScrapliCfgIOSXR,
     NXOSDriver: ScrapliCfgNXOS,
+    JunosDriver: ScrapliCfgJunos,
 }
 
 
@@ -1327,7 +1332,25 @@ def AsyncScrapliCfg(
 <h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
 <h4 id="asyncscraplicfg">AsyncScrapliCfg<a class="headerlink" href="#asyncscraplicfg" title="Permanent link">&para;</a></h4>
 <p><code>AsyncScrapliCfg(conn: scrapli.driver.network.async_driver.AsyncNetworkDriver, config_sources: Union[List[str], NoneType] = None, on_open: Union[Callable[..., Any], NoneType] = None, **kwargs: Any) ‑&gt; AsyncScrapliCfgPlatform</code></p>
-<div class="codehilite"><pre><span></span><code>Scrapli Config Async Factory
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Scrapli Config Async Factory
 
 Return a async scrapli config object for the provided platform. Prefer to use factory classes
 just so that the naming convention (w/ upper case things) is &quot;right&quot;, but given that the class
@@ -1347,10 +1370,28 @@ Returns:
 Raises:
     ScrapliCfgException: if platform is not a string
 </code></pre></div>
-
+</td></tr></table>
 <h4 id="scraplicfg">ScrapliCfg<a class="headerlink" href="#scraplicfg" title="Permanent link">&para;</a></h4>
 <p><code>ScrapliCfg(conn: scrapli.driver.network.sync_driver.NetworkDriver, config_sources: Union[List[str], NoneType] = None, on_open: Union[Callable[..., Any], NoneType] = None, **kwargs: Any) ‑&gt; ScrapliCfgPlatform</code></p>
-<div class="codehilite"><pre><span></span><code>Scrapli Config Sync Factory
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Scrapli Config Sync Factory
 
 Return a sync scrapli config object for the provided platform. Prefer to use factory classes
 just so that the naming convention (w/ upper case things) is &quot;right&quot;, but given that the class
@@ -1370,6 +1411,7 @@ Returns:
 Raises:
     ScrapliCfgException: if platform is not a string
 </code></pre></div>
+</td></tr></table>
                 
               
               
