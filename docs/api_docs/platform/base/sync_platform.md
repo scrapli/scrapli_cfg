@@ -594,6 +594,7 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
 - scrapli_cfg.platform.core.cisco_iosxe.sync_platform.ScrapliCfgIOSXE
 - scrapli_cfg.platform.core.cisco_iosxr.sync_platform.ScrapliCfgIOSXR
 - scrapli_cfg.platform.core.cisco_nxos.sync_platform.ScrapliCfgNXOS
+- scrapli_cfg.platform.core.juniper_junos.sync_platform.ScrapliCfgJunos
 #### Class variables
 
     
