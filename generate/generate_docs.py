@@ -88,22 +88,22 @@ doc_map = {
         "path": "platform/core/cisco_nxos/patterns",
         "content": None,
     },
-    # "scrapli_cfg.platform.core.juniper_junos.async_platform": {
-    #     "path": "platform/core/juniper_junos/async_platform",
-    #     "content": None,
-    # },
-    # "scrapli_cfg.platform.core.juniper_junos.base_platform": {
-    #     "path": "platform/core/juniper_junos/base_platform",
-    #     "content": None,
-    # },
-    # "scrapli_cfg.platform.core.juniper_junos.sync_platform": {
-    #     "path": "platform/core/juniper_junos/sync_platform",
-    #     "content": None,
-    # },
-    # "scrapli_cfg.platform.core.juniper_junos.patterns": {
-    #     "path": "platform/core/juniper_junos/patterns",
-    #     "content": None,
-    # },
+    "scrapli_cfg.platform.core.juniper_junos.async_platform": {
+        "path": "platform/core/juniper_junos/async_platform",
+        "content": None,
+    },
+    "scrapli_cfg.platform.core.juniper_junos.base_platform": {
+        "path": "platform/core/juniper_junos/base_platform",
+        "content": None,
+    },
+    "scrapli_cfg.platform.core.juniper_junos.sync_platform": {
+        "path": "platform/core/juniper_junos/sync_platform",
+        "content": None,
+    },
+    "scrapli_cfg.platform.core.juniper_junos.patterns": {
+        "path": "platform/core/juniper_junos/patterns",
+        "content": None,
+    },
     "scrapli_cfg.diff": {"path": "diff", "content": None},
     "scrapli_cfg.exceptions": {"path": "exceptions", "content": None},
     "scrapli_cfg.factory": {"path": "factory", "content": None},
