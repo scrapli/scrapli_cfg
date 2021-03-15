@@ -3,13 +3,26 @@
 import setuptools
 
 __author__ = "Carl Montanari"
-__version__ = "2021.07.30a2"
+__version__ = "2021.07.30a3"
 
 with open("README.md", "r", encoding="utf-8") as f:
     README = f.read()
 
 with open("requirements.txt", "r") as f:
     INSTALL_REQUIRES = f.read().splitlines()
+
+EXTRAS_REQUIRE = {
+    "paramiko": [],
+    "ssh2": [],
+    "asyncssh": [],
+}
+
+for extra in EXTRAS_REQUIRE:
+    with open(f"requirements-{extra}.txt", "r") as f:
+        EXTRAS_REQUIRE[extra] = f.read().splitlines()
+
+full_requirements = [requirement for extra in EXTRAS_REQUIRE.values() for requirement in extra]
+EXTRAS_REQUIRE["full"] = full_requirements
 
 setuptools.setup(
     name="scrapli_cfg",
@@ -27,9 +40,11 @@ setuptools.setup(
         "Docs": "https://scrapli.github.io/scrapli_cfg/",
     },
     license="MIT",
-    packages=setuptools.find_packages(),
+    # include scrapli_cfg of course, but make sure to also include py.typed!
+    package_data={"scrapli_cfg": ["py.typed"]},
+    packages=["scrapli_cfg"],
     install_requires=INSTALL_REQUIRES,
-    extras_require={},
+    extras_require=EXTRAS_REQUIRE,
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Operating System :: POSIX :: Linux",
@@ -43,4 +58,7 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     python_requires=">=3.6",
+    # zip_safe False for mypy
+    # https://mypy.readthedocs.io/en/stable/installed_packages.html
+    zip_safe=False,
 )
