@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """scrapli_cfg - configuration management with scrapli"""
 import setuptools
+from pathlib import Path
 
 __author__ = "Carl Montanari"
 __version__ = "2021.07.30a3"
@@ -24,6 +25,12 @@ for extra in EXTRAS_REQUIRE:
 full_requirements = [requirement for extra in EXTRAS_REQUIRE.values() for requirement in extra]
 EXTRAS_REQUIRE["full"] = full_requirements
 
+
+def get_packages(package):
+    """Return root package and all sub-packages"""
+    return [str(path.parent) for path in Path(package).glob("**/__init__.py")]
+
+
 setuptools.setup(
     name="scrapli_cfg",
     version=__version__,
@@ -42,7 +49,7 @@ setuptools.setup(
     license="MIT",
     # include scrapli_cfg of course, but make sure to also include py.typed!
     package_data={"scrapli_cfg": ["py.typed"]},
-    packages=["scrapli_cfg"],
+    packages=get_packages("scrapli_cfg"),
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRAS_REQUIRE,
     classifiers=[
