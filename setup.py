@@ -5,7 +5,7 @@ from pathlib import Path
 import setuptools
 
 __author__ = "Carl Montanari"
-__version__ = "2021.07.30a3"
+__version__ = "2021.07.30a4"
 
 with open("README.md", "r", encoding="utf-8") as f:
     README = f.read()
