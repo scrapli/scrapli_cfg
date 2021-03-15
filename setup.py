@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 """scrapli_cfg - configuration management with scrapli"""
-import setuptools
 from pathlib import Path
+
+import setuptools
 
 __author__ = "Carl Montanari"
 __version__ = "2021.07.30a3"
