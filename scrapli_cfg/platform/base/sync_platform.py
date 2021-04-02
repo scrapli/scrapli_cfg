@@ -11,7 +11,11 @@ from scrapli_cfg.response import ScrapliCfgResponse
 
 class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
     def __init__(
-        self, conn: NetworkDriver, config_sources: List[str], on_open: Callable[..., Any]
+        self,
+        conn: NetworkDriver,
+        config_sources: List[str],
+        on_open: Callable[..., Any],
+        preserve_connection: bool,
     ) -> None:
         """
         Scrapli Config base class
@@ -20,6 +24,8 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
             conn: scrapli connection to use
             config_sources: list of config sources
             on_open: async callable to run at connection open
+            preserve_connection: if True underlying scrapli connection will *not* be closed when
+                the scrapli_cfg object is closed/exited
 
         Returns:
             None
@@ -30,6 +36,7 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
         """
         self.conn = conn
         self.on_open = on_open
+        self.preserve_connection = preserve_connection
 
         super().__init__(config_sources=config_sources)
 
@@ -79,7 +86,7 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
         """
         self.logger.info("closing scrapli connection")
 
-        if self.conn.isalive():
+        if self.preserve_connection is False and self.conn.isalive():
             self.conn.close()
 
     def __enter__(self) -> "ScrapliCfgPlatform":

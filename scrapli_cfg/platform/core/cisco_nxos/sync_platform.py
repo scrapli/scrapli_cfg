@@ -37,6 +37,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
         on_open: Optional[Callable[..., Any]] = None,
         filesystem: str = "bootflash:",
         cleanup_post_commit: bool = True,
+        preserve_connection: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
@@ -44,7 +45,12 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
         if on_open is None:
             on_open = nxos_on_open
 
-        super().__init__(conn=conn, config_sources=config_sources, on_open=on_open)
+        super().__init__(
+            conn=conn,
+            config_sources=config_sources,
+            on_open=on_open,
+            preserve_connection=preserve_connection,
+        )
 
         self.filesystem = filesystem
         self._filesystem_space_available_buffer_perc = 10

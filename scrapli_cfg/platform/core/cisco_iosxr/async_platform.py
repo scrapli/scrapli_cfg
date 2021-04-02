@@ -34,6 +34,7 @@ class AsyncScrapliCfgIOSXR(AsyncScrapliCfgPlatform, ScrapliCfgIOSXRBase):
         conn: AsyncNetworkDriver,
         config_sources: Optional[List[str]] = None,
         on_open: Optional[Callable[..., Any]] = None,
+        preserve_connection: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
@@ -41,7 +42,12 @@ class AsyncScrapliCfgIOSXR(AsyncScrapliCfgPlatform, ScrapliCfgIOSXRBase):
         if on_open is None:
             on_open = async_iosxr_on_open
 
-        super().__init__(conn=conn, config_sources=config_sources, on_open=on_open)
+        super().__init__(
+            conn=conn,
+            config_sources=config_sources,
+            on_open=on_open,
+            preserve_connection=preserve_connection,
+        )
 
         self._replace = False
 
