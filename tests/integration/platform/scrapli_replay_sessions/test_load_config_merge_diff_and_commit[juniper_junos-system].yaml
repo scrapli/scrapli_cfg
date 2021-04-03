@@ -20,12 +20,6 @@ interactions:
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: "\n\nvrnetlab> "
-    expected_channel_input: set cli complete-on-space off
-    expected_channel_input_redacted: false
-  - channel_output: set cli complete-on-space off
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: " \nDisabling complete-on-space\n\nvrnetlab> "
     expected_channel_input: set cli screen-length 0
     expected_channel_input_redacted: false
   - channel_output: set cli screen-length 0
@@ -38,6 +32,12 @@ interactions:
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
   - channel_output: " \nScreen width set to 511\n\nvrnetlab> "
+    expected_channel_input: set cli complete-on-space off
+    expected_channel_input_redacted: false
+  - channel_output: set cli complete-on-space off
+    expected_channel_input: "\n"
+    expected_channel_input_redacted: false
+  - channel_output: " \nDisabling complete-on-space\n\nvrnetlab> "
     expected_channel_input: 'show version | grep junos:'
     expected_channel_input_redacted: false
   - channel_output: 'show version | grep junos:'
@@ -903,7 +903,7 @@ interactions:
   - channel_output: run show configuration
     expected_channel_input: "\n"
     expected_channel_input_redacted: false
-  - channel_output: " \n## Last commit: 2021-03-07 19:15:24 UTC by vrnetlab\nversion\
+  - channel_output: " \n## Last commit: 2021-04-03 15:55:29 UTC by vrnetlab\nversion\
       \ 17.3R2.10;\nsystem {\n    root-authentication {\n        encrypted-password\
       \ \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
       ; ## SECRET-DATA\n    }\n    login {\n        user vrnetlab {\n            uid\
