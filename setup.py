@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-"""scrapli_cfg - configuration management with scrapli"""
+"""scrapli_cfg"""
 from pathlib import Path
 
 import setuptools
 
-__author__ = "Carl Montanari"
 __version__ = "2021.07.30a4"
+__author__ = "Carl Montanari"
 
 with open("README.md", "r", encoding="utf-8") as f:
     README = f.read()
@@ -37,21 +37,21 @@ setuptools.setup(
     version=__version__,
     author=__author__,
     author_email="carl.r.montanari@gmail.com",
-    description="Configuration management with scrapli",
+    description="Network device configuration management with scrapli",
     long_description=README,
     long_description_content_type="text/markdown",
     keywords="ssh telnet netconf automation network cisco iosxr iosxe nxos arista eos juniper "
     "junos",
     url="https://github.com/scrapli/scrapli_cfg",
     project_urls={
-        "Changelog": "https://scrapli.github.io/scrapli_cfg/changelog",
+        "Changelog": "https://scrapli.github.io/scrapli_cfg/changelog/",
         "Docs": "https://scrapli.github.io/scrapli_cfg/",
     },
     license="MIT",
-    # include scrapli_cfg of course, but make sure to also include py.typed!
     package_data={"scrapli_cfg": ["py.typed"]},
     packages=get_packages("scrapli_cfg"),
     install_requires=INSTALL_REQUIRES,
+    dependency_links=[],
     extras_require=EXTRAS_REQUIRE,
     classifiers=[
         "License :: OSI Approved :: MIT License",
