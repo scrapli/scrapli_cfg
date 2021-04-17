@@ -65,6 +65,7 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
         conn: AsyncNetworkDriver,
         config_sources: Optional[List[str]] = None,
         on_open: Optional[Callable[..., Any]] = None,
+        preserve_connection: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
@@ -72,7 +73,12 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
         if on_open is None:
             on_open = async_eos_on_open
 
-        super().__init__(conn=conn, config_sources=config_sources, on_open=on_open)
+        super().__init__(
+            conn=conn,
+            config_sources=config_sources,
+            on_open=on_open,
+            preserve_connection=preserve_connection,
+        )
 
         self.config_session_name = ""
 
@@ -374,6 +380,8 @@ Args:
     conn: scrapli connection to use
     config_sources: list of config sources
     on_open: async callable to run at connection open
+    preserve_connection: if True underlying scrapli connection will *not* be closed when
+        the scrapli_cfg object is closed/exited
 
 Returns:
     None
@@ -394,6 +402,7 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
         conn: AsyncNetworkDriver,
         config_sources: Optional[List[str]] = None,
         on_open: Optional[Callable[..., Any]] = None,
+        preserve_connection: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
@@ -401,7 +410,12 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
         if on_open is None:
             on_open = async_eos_on_open
 
-        super().__init__(conn=conn, config_sources=config_sources, on_open=on_open)
+        super().__init__(
+            conn=conn,
+            config_sources=config_sources,
+            on_open=on_open,
+            preserve_connection=preserve_connection,
+        )
 
         self.config_session_name = ""
 

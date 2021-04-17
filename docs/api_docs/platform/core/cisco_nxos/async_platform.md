@@ -67,6 +67,7 @@ class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
         on_open: Optional[Callable[..., Any]] = None,
         filesystem: str = "bootflash:",
         cleanup_post_commit: bool = True,
+        preserve_connection: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
@@ -74,7 +75,12 @@ class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
         if on_open is None:
             on_open = async_nxos_on_open
 
-        super().__init__(conn=conn, config_sources=config_sources, on_open=on_open)
+        super().__init__(
+            conn=conn,
+            config_sources=config_sources,
+            on_open=on_open,
+            preserve_connection=preserve_connection,
+        )
 
         self.filesystem = filesystem
         self._filesystem_space_available_buffer_perc = 10
@@ -360,6 +366,8 @@ Args:
     conn: scrapli connection to use
     config_sources: list of config sources
     on_open: async callable to run at connection open
+    preserve_connection: if True underlying scrapli connection will *not* be closed when
+        the scrapli_cfg object is closed/exited
 
 Returns:
     None
@@ -382,6 +390,7 @@ class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
         on_open: Optional[Callable[..., Any]] = None,
         filesystem: str = "bootflash:",
         cleanup_post_commit: bool = True,
+        preserve_connection: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
@@ -389,7 +398,12 @@ class AsyncScrapliCfgNXOS(AsyncScrapliCfgPlatform, ScrapliCfgNXOSBase):
         if on_open is None:
             on_open = async_nxos_on_open
 
-        super().__init__(conn=conn, config_sources=config_sources, on_open=on_open)
+        super().__init__(
+            conn=conn,
+            config_sources=config_sources,
+            on_open=on_open,
+            preserve_connection=preserve_connection,
+        )
 
         self.filesystem = filesystem
         self._filesystem_space_available_buffer_perc = 10
