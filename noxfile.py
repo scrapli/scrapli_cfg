@@ -78,6 +78,8 @@ def unit_tests(session):
     session.install("-r", "requirements-dev.txt")
     session.install(".")
     session.run(
+        "python",
+        "-m",
         "pytest",
         "--cov=scrapli_cfg",
         "--cov-report",
@@ -109,6 +111,8 @@ def integration_tests(session):
     # setting scrapli vrouter -> 1 so that the saved scrapli replay sessions are "correctly"
     # pointing to the vrouter dev env (i.e. port 21022 instead of 22 for iosxe, etc.)
     session.run(
+        "python",
+        "-m",
         "pytest",
         "--cov=scrapli_cfg",
         "--cov-report",
@@ -137,7 +141,7 @@ def isort(session):
 
     """
     session.install(f"isort{DEV_REQUIREMENTS['isort']}")
-    session.run("isort", "-c", ".")
+    session.run("python", "-m", "isort", "-c", ".")
 
 
 @nox.session(python=["3.9"])
@@ -156,7 +160,7 @@ def black(session):
 
     """
     session.install(f"black{DEV_REQUIREMENTS['black']}")
-    session.run("black", "--check", ".")
+    session.run("python", "-m", "black", "--check", ".")
 
 
 @nox.session(python=["3.9"])
@@ -175,7 +179,7 @@ def pylama(session):
 
     """
     session.install("-r", "requirements-dev.txt")
-    session.run("pylama", ".")
+    session.run("python", "-m", "pylama", ".")
 
 
 @nox.session(python=["3.9"])
@@ -194,7 +198,7 @@ def pydocstyle(session):
 
     """
     session.install(f"pydocstyle{DEV_REQUIREMENTS['pydocstyle']}")
-    session.run("pydocstyle", ".")
+    session.run("python", "-m", "pydocstyle", ".")
 
 
 @nox.session(python=["3.9"])
@@ -214,7 +218,7 @@ def mypy(session):
     """
     session.install(".")
     session.install(f"mypy{DEV_REQUIREMENTS['mypy']}")
-    session.run("mypy", "--strict", "scrapli_cfg/")
+    session.run("python", "-m", "mypy", "--strict", "scrapli_cfg/")
 
 
 @nox.session(python=["3.9"])
