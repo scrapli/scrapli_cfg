@@ -2,7 +2,7 @@
 from typing import Any, Callable, List, Optional
 
 from scrapli.driver import NetworkDriver
-from scrapli.response import Response
+from scrapli.response import MultiResponse, Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError
 from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
@@ -217,7 +217,9 @@ class ScrapliCfgJunos(ScrapliCfgPlatform, ScrapliCfgJunosBase):
             source_config_result = self.get_config(source=source)
             source_config = source_config_result.result
 
-            if source_config_result.scrapli_responses:
+            if isinstance(source_config_result.scrapli_responses, MultiResponse):
+                # in this case this will always be a multiresponse or nothing (failure) but mypy
+                # doesnt know that, hence the isinstance check
                 scrapli_responses.extend(source_config_result.scrapli_responses)
 
             if source_config_result.failed:

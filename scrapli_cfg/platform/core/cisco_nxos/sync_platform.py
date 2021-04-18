@@ -1,8 +1,8 @@
 """scrapli_cfg.platform.core.cisco_nxos.sync_platform"""
-from typing import Any, Callable, List, Optional
+from typing import Any, Callable, List, Optional, Union
 
-from scrapli.driver import NetworkDriver
-from scrapli.response import Response
+from scrapli.driver.core import NXOSDriver
+from scrapli.response import MultiResponse, Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, FailedToDetermineDeviceState
 from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
@@ -32,7 +32,7 @@ def nxos_on_open(cls: ScrapliCfgPlatform) -> None:
 class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
     def __init__(
         self,
-        conn: NetworkDriver,
+        conn: NXOSDriver,
         config_sources: Optional[List[str]] = None,
         on_open: Optional[Callable[..., Any]] = None,
         filesystem: str = "bootflash:",
@@ -83,7 +83,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
 
         return self._post_get_filesystem_space_available(output=filesystem_size_result.result)
 
-    def _delete_candidate_config(self) -> Response:
+    def _delete_candidate_config(self) -> MultiResponse:
         """
         Delete candidate config from the filesystem
 
@@ -91,7 +91,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
             N/A
 
         Returns:
-            Response: response from deleting the candidate config
+            MultiResponse: response from deleting the candidate config
 
         Raises:
             N/A
@@ -119,7 +119,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
             N/A
 
         """
-        response, checkpoint_commands = self._pre_get_checkpoint()
+        response, checkpoint_commands = self._pre_get_checkpoint(conn=self.conn)
 
         checkpoint_results = self.conn.send_commands(commands=checkpoint_commands)
 
@@ -131,7 +131,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
         return self._post_get_config(
             response=response,
             source="running",
-            scrapli_responses=checkpoint_results,
+            scrapli_responses=[checkpoint_results],
             result=checkpoint,
         )
 
@@ -206,7 +206,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
         return self._post_abort_config(response=response, scrapli_responses=[abort_result])
 
     def commit_config(self, source: str = "running") -> ScrapliCfgResponse:
-        scrapli_responses = []
+        scrapli_responses: List[Union[MultiResponse, Response]] = []
         response = self._pre_commit_config(
             source=source, session_or_config_file=bool(self.candidate_config_filename)
         )
@@ -231,7 +231,7 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
 
         self._reset_config_session()
 
-        return self._post_load_config(
+        return self._post_commit_config(
             response=response,
             scrapli_responses=scrapli_responses,
         )
@@ -262,7 +262,9 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
             source_config_result = self.get_config(source=source)
             source_config = source_config_result.result
 
-            if source_config_result.scrapli_responses:
+            if isinstance(source_config_result.scrapli_responses, MultiResponse):
+                # in this case this will always be a multiresponse or nothing (failure) but mypy
+                # doesnt know that, hence the isinstance check
                 scrapli_responses.extend(source_config_result.scrapli_responses)
 
             if source_config_result.failed:

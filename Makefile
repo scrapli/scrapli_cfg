@@ -21,9 +21,6 @@ cov:
 
 test_unit:
 	python -m pytest \
-	--cov=scrapli_cfg \
-	--cov-report html \
-	--cov-report term \
 	tests/unit/
 
 cov_unit:
@@ -32,6 +29,17 @@ cov_unit:
 	--cov-report html \
 	--cov-report term \
 	tests/unit/
+
+test_integration:
+	python -m pytest \
+	tests/integration/
+
+cov_integration:
+	python -m pytest \
+	--cov=scrapli_cfg \
+	--cov-report html \
+	--cov-report term \
+	tests/integration/
 
 .PHONY: docs
 docs:

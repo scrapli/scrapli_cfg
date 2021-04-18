@@ -2,9 +2,9 @@
 import re
 from datetime import datetime
 from logging import LoggerAdapter
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
-from scrapli.driver.network.sync_driver import NetworkDriver
+from scrapli.driver.network import AsyncNetworkDriver, NetworkDriver
 from scrapli_cfg.exceptions import (
     FailedToFetchSpaceAvailable,
     GetConfigError,
@@ -31,7 +31,6 @@ class ScrapliCfgNXOSBase:
     _replace: bool
     filesystem: str
     _filesystem_space_available_buffer_perc: int
-    conn: NetworkDriver
 
     def _post_get_filesystem_space_available(self, output: str) -> int:
         """
@@ -250,12 +249,15 @@ class ScrapliCfgNXOSBase:
 
         return source_config, candidate_config
 
-    def _pre_get_checkpoint(self) -> Tuple[ScrapliCfgResponse, List[str]]:
+    def _pre_get_checkpoint(
+        self, conn: Union[AsyncNetworkDriver, NetworkDriver]
+    ) -> Tuple[ScrapliCfgResponse, List[str]]:
         """
         Handle pre "get_checkpoint" operations for parity between sync and async
 
         Args:
-            N/A
+            conn: connection from the sync or async platform; passed in explicitly to maintain
+                typing sanity
 
         Returns:
             list: list of commands needed to generate checkpoint and show it
@@ -274,8 +276,6 @@ class ScrapliCfgNXOSBase:
             f"delete {self.filesystem}scrapli_cfg_tmp_{tmp_timestamp}",
         ]
 
-        response = ScrapliCfgResponse(
-            host=self.conn.host, raise_for_status_exception=GetConfigError
-        )
+        response = ScrapliCfgResponse(host=conn.host, raise_for_status_exception=GetConfigError)
 
         return response, checkpoint_commands

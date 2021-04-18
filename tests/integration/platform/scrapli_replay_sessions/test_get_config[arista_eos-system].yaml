@@ -1,196 +1,199 @@
-connection_profile:
-  host: localhost
-  port: 24022
-  auth_username: vrnetlab
-  auth_password: true
-  auth_private_key: ''
-  auth_private_key_passphrase: false
-  auth_bypass: false
-  transport: system
-  auth_secondary: true
-interactions:
-  - channel_output: "Warning: Permanently added '[localhost]:24022' (ECDSA) to the\
-      \ list of known hosts.\nNo startup-config was found.\nThe device is in Zero\
-      \ Touch Provisioning mode and is attempting to\ndownload the startup-config\
-      \ from a remote system. The device will not\nbe fully functional until either\
-      \ a valid startup-config is downloaded\nfrom a remote system or Zero Touch Provisioning\
-      \ is cancelled.\nTo cancel Zero Touch Provisioning, login as admin and type\n\
-      'zerotouch cancel' at the CLI. Alternatively, to disable Zero Touch\nProvisioning\
-      \ permanently, type 'zerotouch disable' at the CLI.\nNote: The device will reload\
-      \ when these commands are issued.\nPassword: "
-    expected_channel_input: REDACTED
-    expected_channel_input_redacted: true
-  - channel_output: ''
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nLast login: Tue Mar  2 19:14:31 2021 from 10.0.0.2\n\e[5nlocalhost>"
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost>"
-    expected_channel_input: enable
-    expected_channel_input_redacted: false
-  - channel_output: enable
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nPassword: "
-    expected_channel_input: REDACTED
-    expected_channel_input_redacted: true
-  - channel_output: ''
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost#"
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost#"
-    expected_channel_input: terminal length 0
-    expected_channel_input_redacted: false
-  - channel_output: terminal length 0
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nPagination disabled.\nlocalhost#"
-    expected_channel_input: terminal width 32767
-    expected_channel_input_redacted: false
-  - channel_output: terminal width 32767
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nWidth set to 32767 columns.\nlocalhost#"
-    expected_channel_input: show version | i Software image version
-    expected_channel_input_redacted: false
-  - channel_output: show version | i Software image version
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nSoftware image version: 4.22.1F\nlocalhost#"
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost#"
-    expected_channel_input: configure terminal
-    expected_channel_input_redacted: false
-  - channel_output: configure terminal
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost(config)#"
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost(config)#"
-    expected_channel_input: no logging console
-    expected_channel_input_redacted: false
-  - channel_output: no logging console
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost(config)#"
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost(config)#"
-    expected_channel_input: end
-    expected_channel_input_redacted: false
-  - channel_output: end
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost#"
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost#"
-    expected_channel_input: show running-config
-    expected_channel_input_redacted: false
-  - channel_output: show running-config
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\n! Command: show running-config\n! device: localhost (vEOS,\
-      \ EOS-4.22.1F)\n!\n! boot system flash:/vEOS-lab.swi\n!\nswitchport default\
-      \ mode routed\n!\ntransceiver qsfp default-mode 4x10G\n!\nno logging console\n\
-      !\nlogging level AAA errors\nlogging level ACCOUNTING errors\nlogging level\
-      \ ACL errors\nlogging level AGENT errors\nlogging level ALE errors\nlogging\
-      \ level ARP errors\nlogging level BFD errors\nlogging level BGP errors\nlogging\
-      \ level BMP errors\nlogging level CAPACITY errors\nlogging level CAPI errors\n\
-      logging level CLEAR errors\nlogging level CVX errors\nlogging level DATAPLANE\
-      \ errors\nlogging level DHCP errors\nlogging level DOT1X errors\nlogging level\
-      \ DSCP errors\nlogging level ENVMON errors\nlogging level ETH errors\nlogging\
-      \ level EVENTMON errors\nlogging level EXTENSION errors\nlogging level FHRP\
-      \ errors\nlogging level FLOW errors\nlogging level FORWARDING errors\nlogging\
-      \ level FRU errors\nlogging level FWK errors\nlogging level GMP errors\nlogging\
-      \ level HARDWARE errors\nlogging level HEALTH errors\nlogging level HTTPSERVICE\
-      \ errors\nlogging level IGMP errors\nlogging level IGMPSNOOPING errors\nlogging\
-      \ level INT errors\nlogging level INTF errors\nlogging level IP6ROUTING errors\n\
-      logging level IPRIB errors\nlogging level IRA errors\nlogging level ISIS errors\n\
-      logging level KERNELFIB errors\nlogging level LACP errors\nlogging level LAG\
-      \ errors\nlogging level LAUNCHER errors\nlogging level LDP errors\nlogging level\
-      \ LICENSE errors\nlogging level LINEPROTO errors\nlogging level LLDP errors\n\
-      logging level LOGMGR errors\nlogging level LOOPBACK errors\nlogging level LOOPPROTECT\
-      \ errors\nlogging level MAPREDUCEMONITOR errors\nlogging level MIRRORING errors\n\
-      logging level MKA errors\nlogging level MLAG errors\nlogging level MMODE errors\n\
-      logging level MROUTE errors\nlogging level MRP errors\nlogging level MSDP errors\n\
-      logging level MSRP errors\nlogging level MSSPOLICYMONITOR errors\nlogging level\
-      \ MVRP errors\nlogging level NAT errors\nlogging level OPENCONFIG errors\nlogging\
-      \ level OPENFLOW errors\nlogging level OSPF errors\nlogging level OSPF3 errors\n\
-      logging level PACKAGE errors\nlogging level PFC errors\nlogging level PIMBSR\
-      \ errors\nlogging level PORTSECURITY errors\nlogging level PTP errors\nlogging\
-      \ level PWRMGMT errors\nlogging level QOS errors\nlogging level QUEUEMONITOR\
-      \ errors\nlogging level REDUNDANCY errors\nlogging level RIB errors\nlogging\
-      \ level ROUTING errors\nlogging level SECURITY errors\nlogging level SERVERMONITOR\
-      \ errors\nlogging level SPANTREE errors\nlogging level SSO errors\nlogging level\
-      \ STAGEMGR errors\nlogging level SYS errors\nlogging level SYSDB errors\nlogging\
-      \ level TAPAGG errors\nlogging level TCP errors\nlogging level TRANSCEIVER errors\n\
-      logging level TUNNEL errors\nlogging level TUNNELINTF errors\nlogging level\
-      \ VMTRACERSESS errors\nlogging level VMWAREVI errors\nlogging level VMWAREVS\
-      \ errors\nlogging level VRF errors\nlogging level VRRP errors\nlogging level\
-      \ VXLAN errors\nlogging level XMPP errors\nlogging level ZTP informational\n\
-      !\nspanning-tree mode mstp\n!\nenable secret sha512 $6$P1M9SV2bLTmQJpwW$KVoaaIa7i34uTFp7JRRp.hqL55nr7jSJJiDA.9CHTCW7q4GDIwyceMMSp6TavgYiAokjobyBYCO70L7FxpZon1\n\
-      no aaa root\n!\nusername vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.\n\
-      !\ninterface Ethernet1\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet2\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet3\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet4\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet5\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet6\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet7\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet8\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet9\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet10\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet11\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet12\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet13\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet14\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet15\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet16\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet17\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet18\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Ethernet19\n   speed forced 10000full\n   no switchport\n   ipv6\
-      \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-      !\ninterface Management1\n   ip address 10.0.0.15/24\n   ipv6 enable\n   ipv6\
-      \ address auto-config\n   ipv6 nd ra rx accept default-route\n!\nno ip routing\n\
-      !\ncontrol-plane\n   no service-policy input copp-system-policy\n!\nbanner login\n\
-      No startup-config was found.\nThe device is in Zero Touch Provisioning mode\
-      \ and is attempting to\ndownload the startup-config from a remote system. The\
-      \ device will not\nbe fully functional until either a valid startup-config is\
-      \ downloaded\nfrom a remote system or Zero Touch Provisioning is cancelled.\n\
-      To cancel Zero Touch Provisioning, login as admin and type\n'zerotouch cancel'\
-      \ at the CLI. Alternatively, to disable Zero Touch\nProvisioning permanently,\
-      \ type 'zerotouch disable' at the CLI.\nNote: The device will reload when these\
-      \ commands are issued.\nEOF\n!\nmanagement api http-commands\n   protocol unix-socket\n\
-      \   no shutdown\n!\nmanagement telnet\n   no shutdown\n!\nend\nlocalhost#"
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
-  - channel_output: "\nlocalhost#"
-    expected_channel_input: exit
-    expected_channel_input_redacted: false
-  - channel_output: ''
-    expected_channel_input: "\n"
-    expected_channel_input_redacted: false
+localhost:24022:SystemTransport::0:
+  connection_profile:
+    host: localhost
+    port: 24022
+    auth_username: vrnetlab
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: system
+    auth_secondary: true
+  interactions:
+    - channel_output: "Warning: Permanently added '[localhost]:24022' (ECDSA) to the\
+        \ list of known hosts.\nNo startup-config was found.\nThe device is in Zero\
+        \ Touch Provisioning mode and is attempting to\ndownload the startup-config\
+        \ from a remote system. The device will not\nbe fully functional until either\
+        \ a valid startup-config is downloaded\nfrom a remote system or Zero Touch\
+        \ Provisioning is cancelled.\nTo cancel Zero Touch Provisioning, login as\
+        \ admin and type\n'zerotouch cancel' at the CLI. Alternatively, to disable\
+        \ Zero Touch\nProvisioning permanently, type 'zerotouch disable' at the CLI.\n\
+        Note: The device will reload when these commands are issued.\nPassword: "
+      expected_channel_input: REDACTED
+      expected_channel_input_redacted: true
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nLast login: Sun Apr 18 17:18:47 2021 from 10.0.0.2\n\e[5nlocalhost>"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost>"
+      expected_channel_input: enable
+      expected_channel_input_redacted: false
+    - channel_output: enable
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nPassword: "
+      expected_channel_input: REDACTED
+      expected_channel_input_redacted: true
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost#"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: terminal length 0
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nPagination disabled.\nlocalhost#"
+      expected_channel_input: terminal width 32767
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 32767
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nWidth set to 32767 columns.\nlocalhost#"
+      expected_channel_input: show version | i Software image version
+      expected_channel_input_redacted: false
+    - channel_output: show version | i Software image version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nSoftware image version: 4.22.1F\nlocalhost#"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost#"
+      expected_channel_input: configure terminal
+      expected_channel_input_redacted: false
+    - channel_output: configure terminal
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost(config)#"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost(config)#"
+      expected_channel_input: no logging console
+      expected_channel_input_redacted: false
+    - channel_output: no logging console
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost(config)#"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost(config)#"
+      expected_channel_input: end
+      expected_channel_input_redacted: false
+    - channel_output: end
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost#"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost#"
+      expected_channel_input: show running-config
+      expected_channel_input_redacted: false
+    - channel_output: show running-config
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\n! Command: show running-config\n! device: localhost (vEOS,\
+        \ EOS-4.22.1F)\n!\n! boot system flash:/vEOS-lab.swi\n!\nswitchport default\
+        \ mode routed\n!\ntransceiver qsfp default-mode 4x10G\n!\nno logging console\n\
+        !\nlogging level AAA errors\nlogging level ACCOUNTING errors\nlogging level\
+        \ ACL errors\nlogging level AGENT errors\nlogging level ALE errors\nlogging\
+        \ level ARP errors\nlogging level BFD errors\nlogging level BGP errors\nlogging\
+        \ level BMP errors\nlogging level CAPACITY errors\nlogging level CAPI errors\n\
+        logging level CLEAR errors\nlogging level CVX errors\nlogging level DATAPLANE\
+        \ errors\nlogging level DHCP errors\nlogging level DOT1X errors\nlogging level\
+        \ DSCP errors\nlogging level ENVMON errors\nlogging level ETH errors\nlogging\
+        \ level EVENTMON errors\nlogging level EXTENSION errors\nlogging level FHRP\
+        \ errors\nlogging level FLOW errors\nlogging level FORWARDING errors\nlogging\
+        \ level FRU errors\nlogging level FWK errors\nlogging level GMP errors\nlogging\
+        \ level HARDWARE errors\nlogging level HEALTH errors\nlogging level HTTPSERVICE\
+        \ errors\nlogging level IGMP errors\nlogging level IGMPSNOOPING errors\nlogging\
+        \ level INT errors\nlogging level INTF errors\nlogging level IP6ROUTING errors\n\
+        logging level IPRIB errors\nlogging level IRA errors\nlogging level ISIS errors\n\
+        logging level KERNELFIB errors\nlogging level LACP errors\nlogging level LAG\
+        \ errors\nlogging level LAUNCHER errors\nlogging level LDP errors\nlogging\
+        \ level LICENSE errors\nlogging level LINEPROTO errors\nlogging level LLDP\
+        \ errors\nlogging level LOGMGR errors\nlogging level LOOPBACK errors\nlogging\
+        \ level LOOPPROTECT errors\nlogging level MAPREDUCEMONITOR errors\nlogging\
+        \ level MIRRORING errors\nlogging level MKA errors\nlogging level MLAG errors\n\
+        logging level MMODE errors\nlogging level MROUTE errors\nlogging level MRP\
+        \ errors\nlogging level MSDP errors\nlogging level MSRP errors\nlogging level\
+        \ MSSPOLICYMONITOR errors\nlogging level MVRP errors\nlogging level NAT errors\n\
+        logging level OPENCONFIG errors\nlogging level OPENFLOW errors\nlogging level\
+        \ OSPF errors\nlogging level OSPF3 errors\nlogging level PACKAGE errors\n\
+        logging level PFC errors\nlogging level PIMBSR errors\nlogging level PORTSECURITY\
+        \ errors\nlogging level PTP errors\nlogging level PWRMGMT errors\nlogging\
+        \ level QOS errors\nlogging level QUEUEMONITOR errors\nlogging level REDUNDANCY\
+        \ errors\nlogging level RIB errors\nlogging level ROUTING errors\nlogging\
+        \ level SECURITY errors\nlogging level SERVERMONITOR errors\nlogging level\
+        \ SPANTREE errors\nlogging level SSO errors\nlogging level STAGEMGR errors\n\
+        logging level SYS errors\nlogging level SYSDB errors\nlogging level TAPAGG\
+        \ errors\nlogging level TCP errors\nlogging level TRANSCEIVER errors\nlogging\
+        \ level TUNNEL errors\nlogging level TUNNELINTF errors\nlogging level VMTRACERSESS\
+        \ errors\nlogging level VMWAREVI errors\nlogging level VMWAREVS errors\nlogging\
+        \ level VRF errors\nlogging level VRRP errors\nlogging level VXLAN errors\n\
+        logging level XMPP errors\nlogging level ZTP informational\n!\nspanning-tree\
+        \ mode mstp\n!\nenable secret sha512 $6$P1M9SV2bLTmQJpwW$KVoaaIa7i34uTFp7JRRp.hqL55nr7jSJJiDA.9CHTCW7q4GDIwyceMMSp6TavgYiAokjobyBYCO70L7FxpZon1\n\
+        no aaa root\n!\nusername vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.\n\
+        !\ninterface Ethernet1\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet2\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet3\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet4\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet5\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet6\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet7\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet8\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet9\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet10\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet11\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet12\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet13\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet14\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet15\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet16\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet17\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet18\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Ethernet19\n   speed forced 10000full\n   no switchport\n   ipv6\
+        \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
+        !\ninterface Management1\n   ip address 10.0.0.15/24\n   ipv6 enable\n   ipv6\
+        \ address auto-config\n   ipv6 nd ra rx accept default-route\n!\nno ip routing\n\
+        !\ncontrol-plane\n   no service-policy input copp-system-policy\n!\nbanner\
+        \ login\nNo startup-config was found.\nThe device is in Zero Touch Provisioning\
+        \ mode and is attempting to\ndownload the startup-config from a remote system.\
+        \ The device will not\nbe fully functional until either a valid startup-config\
+        \ is downloaded\nfrom a remote system or Zero Touch Provisioning is cancelled.\n\
+        To cancel Zero Touch Provisioning, login as admin and type\n'zerotouch cancel'\
+        \ at the CLI. Alternatively, to disable Zero Touch\nProvisioning permanently,\
+        \ type 'zerotouch disable' at the CLI.\nNote: The device will reload when\
+        \ these commands are issued.\nEOF\n!\nmanagement api http-commands\n   protocol\
+        \ unix-socket\n   no shutdown\n!\nmanagement telnet\n   no shutdown\n!\nend\n\
+        localhost#"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost#"
+      expected_channel_input: exit
+      expected_channel_input_redacted: false
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false

@@ -34,7 +34,7 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
             N/A
 
         """
-        self.conn = conn
+        self.conn: NetworkDriver = conn
         self.on_open = on_open
         self.preserve_connection = preserve_connection
 

@@ -1,8 +1,8 @@
 """scrapli_cfg.platform.core.arista_eos.sync"""
 from typing import Any, Callable, List, Optional
 
-from scrapli.driver import NetworkDriver
-from scrapli.response import Response
+from scrapli.driver.core import EOSDriver
+from scrapli.response import MultiResponse, Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, LoadConfigError, ScrapliCfgException
 from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
@@ -32,7 +32,7 @@ def eos_on_open(cls: ScrapliCfgPlatform) -> None:
 class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
     def __init__(
         self,
-        conn: NetworkDriver,
+        conn: EOSDriver,
         config_sources: Optional[List[str]] = None,
         on_open: Optional[Callable[..., Any]] = None,
         preserve_connection: bool = False,
@@ -49,6 +49,8 @@ class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
             on_open=on_open,
             preserve_connection=preserve_connection,
         )
+
+        self.conn: EOSDriver
 
         self.config_session_name = ""
 
@@ -248,7 +250,7 @@ class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
         )
         self._reset_config_session()
 
-        return self._post_commit_config(response=response, scrapli_responses=commit_results)
+        return self._post_commit_config(response=response, scrapli_responses=[commit_results])
 
     def diff_config(self, source: str = "running") -> ScrapliCfgDiffResponse:
         scrapli_responses = []
@@ -274,7 +276,9 @@ class ScrapliCfgEOS(ScrapliCfgPlatform, ScrapliCfgEOSBase):
             source_config_result = self.get_config(source=source)
             source_config = source_config_result.result
 
-            if source_config_result.scrapli_responses:
+            if isinstance(source_config_result.scrapli_responses, MultiResponse):
+                # in this case this will always be a multiresponse or nothing (failure) but mypy
+                # doesnt know that, hence the isinstance check
                 scrapli_responses.extend(source_config_result.scrapli_responses)
 
             if source_config_result.failed:

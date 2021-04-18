@@ -192,7 +192,9 @@ def test_pre_get_checkpoint(nxos_base_cfg_object, dummy_logger, sync_scrapli_con
     nxos_base_cfg_object.conn = sync_scrapli_conn
     nxos_base_cfg_object.filesystem = "bootflash:"
 
-    response, actual_commands = nxos_base_cfg_object._pre_get_checkpoint()
+    response, actual_commands = nxos_base_cfg_object._pre_get_checkpoint(
+        conn=nxos_base_cfg_object.conn
+    )
 
     assert isinstance(response, ScrapliCfgResponse)
     assert actual_commands[0] == "terminal dont-ask"

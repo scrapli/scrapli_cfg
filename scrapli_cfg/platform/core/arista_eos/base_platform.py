@@ -3,7 +3,7 @@ import json
 import re
 from datetime import datetime
 from logging import LoggerAdapter
-from typing import List, Tuple, Union
+from typing import Iterable, List, Tuple, Union
 
 from scrapli.driver import AsyncNetworkDriver, NetworkDriver
 from scrapli.response import Response
@@ -227,7 +227,7 @@ class ScrapliCfgEOSBase:
     def _post_clear_config_sessions(
         self,
         response: ScrapliCfgResponse,
-        scrapli_responses: List[Response],
+        scrapli_responses: Iterable[Response],
     ) -> ScrapliCfgResponse:
         """
         Handle post "clear_config_sessions" operations for parity between sync and async

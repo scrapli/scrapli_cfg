@@ -1,6 +1,6 @@
 Changelog
 =========
 
-## 2021.XX.XX
+## (in development) 2021.07.30
 
-TODO
+- Initial release!

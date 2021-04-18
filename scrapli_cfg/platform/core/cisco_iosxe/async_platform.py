@@ -376,7 +376,7 @@ class AsyncScrapliCfgIOSXE(AsyncScrapliCfgPlatform, ScrapliCfgIOSXEBase):
             source_config_result = await self.get_config(source=source)
             source_config = source_config_result.result
 
-            if source_config_result.scrapli_responses:
+            if isinstance(source_config_result.scrapli_responses, list):
                 scrapli_responses.extend(source_config_result.scrapli_responses)
 
             if source_config_result.failed:

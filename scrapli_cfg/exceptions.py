@@ -2,7 +2,7 @@
 from scrapli.exceptions import ScrapliException
 
 
-class ScrapliCfgException(ScrapliException):  # type: ignore
+class ScrapliCfgException(ScrapliException):
     """Base scrapli_cfg exception"""
 
 

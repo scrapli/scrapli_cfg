@@ -1,6 +1,6 @@
 """scrapli_cfg.response"""
 from datetime import datetime
-from typing import List, Optional, Type, Union
+from typing import Iterable, List, Optional, Type, Union
 
 from scrapli.response import MultiResponse, Response
 from scrapli_cfg.exceptions import ScrapliCfgException
@@ -30,7 +30,10 @@ class ScrapliCfgResponse:
         self.finish_time: Optional[datetime] = None
         self.elapsed_time: Optional[float] = None
 
-        self.scrapli_responses: Optional[List[Union[Response, MultiResponse]]] = None
+        # scrapli_responses is a "flattened" list of responses from all operations that were
+        # performed; meaning that if we used any plural operations like send_commands we'll flatten
+        # the MultiResponse bits into a list of singular response objects and store them here
+        self.scrapli_responses: List[Response] = []
         self.result: str = ""
 
         self.raise_for_status_exception = raise_for_status_exception
@@ -85,13 +88,13 @@ class ScrapliCfgResponse:
         return f"ScrapliCfgResponse <Success: {str(not self.failed)}>"
 
     def record_response(
-        self, scrapli_responses: List[Union[Response, MultiResponse]], result: str = ""
+        self, scrapli_responses: Iterable[Union[Response, MultiResponse]], result: str = ""
     ) -> None:
         """
         Record channel_input results and elapsed time of channel input/reading output
 
         Args:
-            scrapli_responses: list of scrapli response objects
+            scrapli_responses: list of scrapli response/multiresponse objects
             result: string to assign to final result for the scrapli cfg response object
 
         Returns:
@@ -104,7 +107,13 @@ class ScrapliCfgResponse:
         self.finish_time = datetime.now()
         self.elapsed_time = (self.finish_time - self.start_time).total_seconds()
 
-        self.scrapli_responses = scrapli_responses
+        for response in scrapli_responses:
+            if isinstance(response, Response):
+                self.scrapli_responses.append(response)
+            elif isinstance(response, MultiResponse):
+                for sub_response in response:
+                    self.scrapli_responses.append(sub_response)
+
         self.result = result
 
         if not any(response.failed for response in self.scrapli_responses):
