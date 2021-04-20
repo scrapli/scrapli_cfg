@@ -1,4 +1,4 @@
-localhost:22022:SystemTransport::0:
+localhost:22022:ParamikoTransport::0:
   connection_profile:
     host: localhost
     port: 22022
@@ -7,13 +7,9 @@ localhost:22022:SystemTransport::0:
     auth_private_key: ''
     auth_private_key_passphrase: false
     auth_bypass: false
-    transport: system
+    transport: paramiko
     auth_secondary: true
   interactions:
-    - channel_output: "Warning: Permanently added '[localhost]:22022' (RSA) to the\
-        \ list of known hosts.\nUser Access Verification\nPassword: "
-      expected_channel_input: REDACTED
-      expected_channel_input_redacted: true
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
@@ -40,12 +36,9 @@ localhost:22022:SystemTransport::0:
         \ by     *\n*  Cisco in writing.                                         \
         \             *\n***************************************************************************\n\
         switch# "
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nswitch# "
       expected_channel_input: terminal length 0
       expected_channel_input_redacted: false
-    - channel_output: terminal length 0
+    - channel_output: "\nswitch# terminal length 0"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nswitch# "
@@ -97,7 +90,7 @@ localhost:22022:SystemTransport::0:
     - channel_output: "dir bootflash: | i 'bytes free'"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n 1950662656 bytes free\nswitch# "
+    - channel_output: "\n 1950658560 bytes free\nswitch# "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nswitch# "
@@ -3776,7 +3769,7 @@ localhost:22022:SystemTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\n\n!Command: show running-config\n!Running configuration last\
-        \ done at: Sun Apr 18 17:33:22 2021\n!Time: Sun Apr 18 17:33:34 2021\n\nversion\
+        \ done at: Tue Apr 20 18:56:16 2021\n!Time: Tue Apr 20 18:56:27 2021\n\nversion\
         \ 9.2(4) Bios:version  \nvdc switch id 1\n  limit-resource vlan minimum 16\
         \ maximum 4094\n  limit-resource vrf minimum 2 maximum 4096\n  limit-resource\
         \ port-channel minimum 0 maximum 511\n  limit-resource u4route-mem minimum\

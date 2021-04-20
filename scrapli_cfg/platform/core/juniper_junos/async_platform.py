@@ -149,7 +149,7 @@ class AsyncScrapliCfgJunos(AsyncScrapliCfgPlatform, ScrapliCfgJunosBase):
         config_result = await self.conn.send_config(config=config, privilege_level="root_shell")
 
         if self._replace is True:
-            load_config = f"load replace {self.filesystem}{self.candidate_config_filename}"
+            load_config = f"load override {self.filesystem}{self.candidate_config_filename}"
         else:
             if self._set is True:
                 load_config = f"load set {self.filesystem}{self.candidate_config_filename}"

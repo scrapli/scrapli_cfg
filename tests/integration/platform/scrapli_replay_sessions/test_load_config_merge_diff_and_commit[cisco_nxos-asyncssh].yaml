@@ -35,10 +35,10 @@ localhost:22022:AsyncsshTransport::0:
         \ any   *\n*  purposes is expressly prohibited except as otherwise authorized\
         \ by     *\n*  Cisco in writing.                                         \
         \             *\n***************************************************************************\n\
-        switch# \n"
+        switch# \nswitch# "
       expected_channel_input: terminal length 0
       expected_channel_input_redacted: false
-    - channel_output: switch# terminal length 0
+    - channel_output: terminal length 0
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nswitch# "
@@ -90,7 +90,7 @@ localhost:22022:AsyncsshTransport::0:
     - channel_output: "dir bootflash: | i 'bytes free'"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n 1950662656 bytes free\nswitch# "
+    - channel_output: "\n 1950658560 bytes free\nswitch# "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nswitch# "
@@ -3769,7 +3769,7 @@ localhost:22022:AsyncsshTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\n\n!Command: show running-config\n!Running configuration last\
-        \ done at: Sun Apr 18 17:38:38 2021\n!Time: Sun Apr 18 17:38:53 2021\n\nversion\
+        \ done at: Tue Apr 20 18:58:13 2021\n!Time: Tue Apr 20 18:58:29 2021\n\nversion\
         \ 9.2(4) Bios:version  \nvdc switch id 1\n  limit-resource vlan minimum 16\
         \ maximum 4094\n  limit-resource vrf minimum 2 maximum 4096\n  limit-resource\
         \ port-channel minimum 0 maximum 511\n  limit-resource u4route-mem minimum\

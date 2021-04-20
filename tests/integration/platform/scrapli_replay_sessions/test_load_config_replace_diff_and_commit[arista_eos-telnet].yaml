@@ -1,30 +1,35 @@
-localhost:24022:SystemTransport::0:
+localhost:24023:TelnetTransport::0:
   connection_profile:
     host: localhost
-    port: 24022
+    port: 24023
     auth_username: vrnetlab
     auth_password: true
     auth_private_key: ''
     auth_private_key_passphrase: false
     auth_bypass: false
-    transport: system
+    transport: telnet
     auth_secondary: true
   interactions:
-    - channel_output: "Warning: Permanently added '[localhost]:24022' (ECDSA) to the\
-        \ list of known hosts.\nNo startup-config was found.\nThe device is in Zero\
-        \ Touch Provisioning mode and is attempting to\ndownload the startup-config\
-        \ from a remote system. The device will not\nbe fully functional until either\
-        \ a valid startup-config is downloaded\nfrom a remote system or Zero Touch\
-        \ Provisioning is cancelled.\nTo cancel Zero Touch Provisioning, login as\
-        \ admin and type\n'zerotouch cancel' at the CLI. Alternatively, to disable\
-        \ Zero Touch\nProvisioning permanently, type 'zerotouch disable' at the CLI.\n\
-        Note: The device will reload when these commands are issued.\nPassword: "
+    - channel_output: "No startup-config was found.\nThe device is in Zero Touch Provisioning\
+        \ mode and is attempting to\ndownload the startup-config from a remote system.\
+        \ The device will not\nbe fully functional until either a valid startup-config\
+        \ is downloaded\nfrom a remote system or Zero Touch Provisioning is cancelled.\n\
+        To cancel Zero Touch Provisioning, login as admin and type\n'zerotouch cancel'\
+        \ at the CLI. Alternatively, to disable Zero Touch\nProvisioning permanently,\
+        \ type 'zerotouch disable' at the CLI.\nNote: The device will reload when\
+        \ these commands are issued.\nUsername: "
+      expected_channel_input: vrnetlab
+      expected_channel_input_redacted: false
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: 'Password: '
       expected_channel_input: REDACTED
       expected_channel_input_redacted: true
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nLast login: Sun Apr 18 17:21:20 2021 from 10.0.0.2\n\e[5nlocalhost>"
+    - channel_output: "\nLast login: Tue Apr 20 17:09:21 from 10.0.0.2\nlocalhost>"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nlocalhost>"
@@ -1728,16 +1733,15 @@ localhost:24022:SystemTransport::0:
     - channel_output: ''
       expected_channel_input: No startup-config was found.
       expected_channel_input_redacted: false
-    - channel_output: "\nEnter TEXT message. Type 'EOF' on its own line to end.\n\
-        No startup-config was found."
+    - channel_output: "\nNo startup-config was found.Enter TEXT message. Ty"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: The device is in Zero Touch Provisioning mode and is
         attempting to
       expected_channel_input_redacted: false
-    - channel_output: "\nThe device is in Zero Touch Provisioning mode and is attempting\
-        \ to"
+    - channel_output: "pe 'EOF' on its own line to end.\n\nThe device is in Zero Touch\
+        \ Provisioning mode and is attempting toNo startup-config was found.\n"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
@@ -1752,21 +1756,25 @@ localhost:24022:SystemTransport::0:
       expected_channel_input: be fully functional until either a valid startup-config
         is downloaded
       expected_channel_input_redacted: false
-    - channel_output: "\nbe fully functional until either a valid startup-config is\
-        \ downloaded"
+    - channel_output: "The device is in Zero Touch Provisioning mode and is attempting\
+        \ to\n\nbe fully functional until either a valid startup-config is downloadeddownload\
+        \ t"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: from a remote system or Zero Touch Provisioning is cancelled.
       expected_channel_input_redacted: false
-    - channel_output: "\nfrom a remote system or Zero Touch Provisioning is cancelled."
+    - channel_output: "he startup-config from a remote system. The device will not\n\
+        \nfrom a remote system or Zero Touch Provisioning is cancelled."
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: To cancel Zero Touch Provisioning, login as admin and
         type
       expected_channel_input_redacted: false
-    - channel_output: "\nTo cancel Zero Touch Provisioning, login as admin and type"
+    - channel_output: "be fully functional until either a valid startup-config is\
+        \ downloaded\nfrom a remote system or Zero Touch Provisioning is cancelled.\n\
+        To cancel Zero Touch Provisioning, login as admin and type"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
@@ -1781,8 +1789,8 @@ localhost:24022:SystemTransport::0:
       expected_channel_input: Provisioning permanently, type 'zerotouch disable' at
         the CLI.
       expected_channel_input_redacted: false
-    - channel_output: "\nProvisioning permanently, type 'zerotouch disable' at the\
-        \ CLI."
+    - channel_output: "'zerotouch cancel' at the CLI. Alternatively, to disable Zero\
+        \ Touch\nProvisioning permanently, type 'zerotouch disable' at the CLI."
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
@@ -1798,14 +1806,7 @@ localhost:24022:SystemTransport::0:
     - channel_output: "\nEOF"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nThe device is in Zero Touch Provisioning mode and is attempting\
-        \ to\ndownload the startup-config from a remote system. The device will not\n\
-        be fully functional until either a valid startup-config is downloaded\nfrom\
-        \ a remote system or Zero Touch Provisioning is cancelled.\nTo cancel Zero\
-        \ Touch Provisioning, login as admin and type\n'zerotouch cancel' at the CLI.\
-        \ Alternatively, to disable Zero Touch\nProvisioning permanently, type 'zerotouch\
-        \ disable' at the CLI.\nNote: The device will reload when these commands are\
-        \ issued.\nEOF\nlocalhost(config-s-scrapl)#"
+    - channel_output: "\nEOF\nlocalhost(config-s-scrapl)#"
       expected_channel_input: show session-config diffs
       expected_channel_input_redacted: false
     - channel_output: show session-config diffs

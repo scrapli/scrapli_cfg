@@ -1,37 +1,49 @@
-localhost:23022:ParamikoTransport::0:
+localhost:23023:TelnetTransport::0:
   connection_profile:
     host: localhost
-    port: 23022
+    port: 23023
     auth_username: vrnetlab
     auth_password: true
     auth_private_key: ''
     auth_private_key_passphrase: false
     auth_bypass: false
-    transport: paramiko
+    transport: telnet
     auth_secondary: true
   interactions:
+    - channel_output: "\nUser Access Verification\n\nUsername: "
+      expected_channel_input: vrnetlab
+      expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n\nRP/0/RP0/CPU0:ios#"
-      expected_channel_input: terminal length 0
-      expected_channel_input_redacted: false
-    - channel_output: "\nRP/0/RP0/CPU0:ios#terminal length 0"
+    - channel_output: "vrnetlab\nPassword: "
+      expected_channel_input: REDACTED
+      expected_channel_input_redacted: true
+    - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:05.232 UTC\nRP/0/RP0/CPU0:ios#"
+    - channel_output: "\n\n\nRP/0/RP0/CPU0:ios#"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nRP/0/RP0/CPU0:ios#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: terminal length 0
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nTue Apr 20 19:25:26.631 UTC\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: terminal width 512
       expected_channel_input_redacted: false
     - channel_output: terminal width 512
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:05.315 UTC\nRP/0/RP0/CPU0:ios#"
+    - channel_output: "\nTue Apr 20 19:25:26.726 UTC\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: show version | i Version
       expected_channel_input_redacted: false
     - channel_output: show version | i Version
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:05.410 UTC\nCisco IOS XR Software, Version\
+    - channel_output: "\nTue Apr 20 19:25:26.862 UTC\nCisco IOS XR Software, Version\
         \ 6.5.3\n Version      : 6.5.3\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
@@ -41,7 +53,7 @@ localhost:23022:ParamikoTransport::0:
     - channel_output: configure terminal
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:05.521 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    - channel_output: "\nTue Apr 20 19:25:27.004 UTC\nRP/0/RP0/CPU0:ios(config)#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
@@ -56,7 +68,7 @@ localhost:23022:ParamikoTransport::0:
     - channel_output: commit
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:06.334 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    - channel_output: "\nTue Apr 20 19:25:28.022 UTC\nRP/0/RP0/CPU0:ios(config)#"
       expected_channel_input: '!'
       expected_channel_input_redacted: false
     - channel_output: '!'
@@ -2546,7 +2558,7 @@ localhost:23022:ParamikoTransport::0:
     - channel_output: show configuration changes diff
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:12.228 UTC\nBuilding configuration...\n\
+    - channel_output: "\nTue Apr 20 19:25:33.143 UTC\nBuilding configuration...\n\
         !! IOS XR Configuration version = 6.5.3\n+  interface MgmtEth0/RP0/CPU0/0\n\
         +  !\n+  interface GigabitEthernet0/0/0/0\n+  !\n+  interface GigabitEthernet0/0/0/1\n\
         +  !\n+  interface GigabitEthernet0/0/0/2\n+  !\n+  interface GigabitEthernet0/0/0/3\n\
@@ -2618,9 +2630,9 @@ localhost:23022:ParamikoTransport::0:
     - channel_output: show running-config
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:13.005 UTC\nBuilding configuration...\n\
-        !! IOS XR Configuration version = 6.5.3\n!! Last configuration change at Sun\
-        \ Apr 18 17:27:01 2021 by vrnetlab\n!\ntelnet vrf default ipv4 server max-servers\
+    - channel_output: "\nTue Apr 20 19:25:33.923 UTC\nBuilding configuration...\n\
+        !! IOS XR Configuration version = 6.5.3\n!! Last configuration change at Tue\
+        \ Apr 20 19:15:45 2021 by vrnetlab\n!\ntelnet vrf default ipv4 server max-servers\
         \ 10\nusername vrnetlab\n group root-lr\n group cisco-support\n secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0\n\
         !\ncall-home\n service active\n contact smart-licensing\n profile CiscoTAC-1\n\
         \  active\n  destination transport-method http\n !\n!\ninterface MgmtEth0/RP0/CPU0/0\n\
@@ -2710,12 +2722,20 @@ localhost:23022:ParamikoTransport::0:
         \ GigabitEthernet0/0/0/126\n shutdown\n!\ninterface GigabitEthernet0/0/0/127\n\
         \ shutdown\n!\nxml agent tty\n!\nnetconf-yang agent\n ssh\n!\nssh server v2\n\
         ssh server netconf vrf default\nend\n\nRP/0/RP0/CPU0:ios(config)#"
-      expected_channel_input: commit
+      expected_channel_input: commit replace
       expected_channel_input_redacted: false
-    - channel_output: commit
+    - channel_output: commit replace
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:13.592 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    - channel_output: "\nTue Apr 20 19:25:34.584 UTC\n\nThis commit will replace or\
+        \ remove the entire running configuration. This\noperation can be service\
+        \ affecting.\nDo you wish to proceed? [no]: "
+      expected_channel_input: yes
+      expected_channel_input_redacted: false
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "yes\nRP/0/RP0/CPU0:ios(config)#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"

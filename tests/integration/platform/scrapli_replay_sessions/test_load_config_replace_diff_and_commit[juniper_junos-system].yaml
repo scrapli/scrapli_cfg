@@ -891,9 +891,9 @@ localhost:25022:SystemTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\n\n[edit]\nvrnetlab# "
-      expected_channel_input: load replace /config/__SCRAPLI_CFG_SESSION_NAME__
+      expected_channel_input: load override /config/__SCRAPLI_CFG_SESSION_NAME__
       expected_channel_input_redacted: false
-    - channel_output: load replace /config/__SCRAPLI_CFG_SESSION_NAME__
+    - channel_output: load override /config/__SCRAPLI_CFG_SESSION_NAME__
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: " \n|\bload complete\n\n[edit]\nvrnetlab# "
@@ -908,7 +908,7 @@ localhost:25022:SystemTransport::0:
     - channel_output: run show configuration
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \n## Last commit: 2021-04-18 16:19:32 UTC by vrnetlab\nversion\
+    - channel_output: " \n## Last commit: 2021-04-20 17:48:32 UTC by vrnetlab\nversion\
         \ 17.3R2.10;\nsystem {\n    root-authentication {\n        encrypted-password\
         \ \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
         ; ## SECRET-DATA\n    }\n    login {\n        user vrnetlab {\n          \

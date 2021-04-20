@@ -1,8 +1,8 @@
 """scrapli_cfg.platform.core.cisco_iosxr.async_platform"""
-from typing import Any, Callable, List, Optional
+from typing import Any, Callable, List, Optional, Union
 
 from scrapli.driver import AsyncNetworkDriver
-from scrapli.response import MultiResponse
+from scrapli.response import MultiResponse, Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, LoadConfigError
 from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
@@ -153,11 +153,20 @@ class AsyncScrapliCfgIOSXR(AsyncScrapliCfgPlatform, ScrapliCfgIOSXRBase):
         return self._post_abort_config(response=response, scrapli_responses=[])
 
     async def commit_config(self, source: str = "running") -> ScrapliCfgResponse:
+        scrapli_responses: List[Union[MultiResponse, Response]] = []
         response = self._pre_commit_config(
             source=source, session_or_config_file=self._in_configuration_session
         )
 
-        commit_result = await self.conn.send_config(config="commit")
+        if self._replace is True:
+            commit_events = [("commit replace", "proceed?"), ("yes", "")]
+            commit_result = await self.conn.send_interactive(
+                interact_events=commit_events, privilege_level=self._config_privilege_level
+            )
+        else:
+            commit_result = await self.conn.send_config(config="commit")
+
+        scrapli_responses.append(commit_result)
         self._reset_config_session()
 
         return self._post_commit_config(response=response, scrapli_responses=[commit_result])

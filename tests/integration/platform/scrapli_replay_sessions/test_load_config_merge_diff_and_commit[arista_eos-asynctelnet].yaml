@@ -29,7 +29,7 @@ localhost:24023:AsynctelnetTransport::0:
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nLast login: Sun Apr 18 17:22:05 from 10.0.0.2\nlocalhost>"
+    - channel_output: "\nLast login: Tue Apr 20 18:53:18 from 10.0.0.2\nlocalhost>"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nlocalhost>"

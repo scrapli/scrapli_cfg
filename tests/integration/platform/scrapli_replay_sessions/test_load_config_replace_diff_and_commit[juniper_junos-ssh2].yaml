@@ -1,4 +1,4 @@
-localhost:25022:ParamikoTransport::0:
+localhost:25022:Ssh2Transport::0:
   connection_profile:
     host: localhost
     port: 25022
@@ -7,7 +7,7 @@ localhost:25022:ParamikoTransport::0:
     auth_private_key: ''
     auth_private_key_passphrase: false
     auth_bypass: false
-    transport: paramiko
+    transport: ssh2
     auth_secondary: true
   interactions:
     - channel_output: ''
@@ -16,14 +16,13 @@ localhost:25022:ParamikoTransport::0:
     - channel_output: "\n--- JUNOS 17.3R2.10 built 2018-02-08 02:19:07 UTC\nvrnetlab> "
       expected_channel_input: set cli screen-length 0
       expected_channel_input_redacted: false
-    - channel_output: "\nset cli screen-length 0\n"
+    - channel_output: "\n\nvrnetlab> set cli screen-length 0"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: 'vrnetlab> '
+    - channel_output: " \nScreen length set to 0\n\nvrnetlab> "
       expected_channel_input: set cli screen-width 511
       expected_channel_input_redacted: false
-    - channel_output: "set cli screen-length 0 \nScreen length set to 0\n\nvrnetlab>\
-        \ set cli screen-width 511"
+    - channel_output: set cli screen-width 511
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: " \nScreen width set to 511\n\nvrnetlab> "
@@ -885,9 +884,9 @@ localhost:25022:ParamikoTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\n\n[edit]\nvrnetlab# "
-      expected_channel_input: load replace /config/__SCRAPLI_CFG_SESSION_NAME__
+      expected_channel_input: load override /config/__SCRAPLI_CFG_SESSION_NAME__
       expected_channel_input_redacted: false
-    - channel_output: load replace /config/__SCRAPLI_CFG_SESSION_NAME__
+    - channel_output: load override /config/__SCRAPLI_CFG_SESSION_NAME__
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: " \n|\bload complete\n\n[edit]\nvrnetlab# "
@@ -902,7 +901,7 @@ localhost:25022:ParamikoTransport::0:
     - channel_output: run show configuration
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \n## Last commit: 2021-04-18 17:28:55 UTC by vrnetlab\nversion\
+    - channel_output: " \n## Last commit: 2021-04-20 18:45:08 UTC by vrnetlab\nversion\
         \ 17.3R2.10;\nsystem {\n    root-authentication {\n        encrypted-password\
         \ \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
         ; ## SECRET-DATA\n    }\n    login {\n        user vrnetlab {\n          \

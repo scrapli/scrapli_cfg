@@ -1,4 +1,4 @@
-localhost:24022:Ssh2Transport::0:
+localhost:24022:SystemTransport::0:
   connection_profile:
     host: localhost
     port: 24022
@@ -7,19 +7,33 @@ localhost:24022:Ssh2Transport::0:
     auth_private_key: ''
     auth_private_key_passphrase: false
     auth_bypass: false
-    transport: ssh2
+    transport: system
     auth_secondary: true
   interactions:
+    - channel_output: "Warning: Permanently added '[localhost]:24022' (ECDSA) to the\
+        \ list of known hosts.\nNo startup-config was found.\nThe device is in Zero\
+        \ Touch Provisioning mode and is attempting to\ndownload the startup-config\
+        \ from a remote system. The device will not\nbe fully functional until either\
+        \ a valid startup-config is downloaded\nfrom a remote system or Zero Touch\
+        \ Provisioning is cancelled.\nTo cancel Zero Touch Provisioning, login as\
+        \ admin and type\n'zerotouch cancel' at the CLI. Alternatively, to disable\
+        \ Zero Touch\nProvisioning permanently, type 'zerotouch disable' at the CLI.\n\
+        Note: The device will reload when these commands are issued.\nPassword: "
+      expected_channel_input: REDACTED
+      expected_channel_input_redacted: true
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nLast login: Sun Apr 18 17:21:24 2021 from 10.0.0.2\n\nlocalhost>\n"
+    - channel_output: "\nLast login: Tue Apr 20 17:09:24 2021 from 10.0.0.2\n\e[5nlocalhost>"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nlocalhost>"
       expected_channel_input: enable
       expected_channel_input_redacted: false
     - channel_output: enable
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost>enable\nPassword: "
+    - channel_output: "\nPassword: "
       expected_channel_input: REDACTED
       expected_channel_input_redacted: true
     - channel_output: ''
@@ -1714,8 +1728,7 @@ localhost:24022:Ssh2Transport::0:
     - channel_output: ''
       expected_channel_input: No startup-config was found.
       expected_channel_input_redacted: false
-    - channel_output: "\nEnter TEXT message. Type 'EOF' on its own line to end.\n\
-        No startup-config was found."
+    - channel_output: "\nNo startup-config was found."
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
@@ -1730,29 +1743,34 @@ localhost:24022:Ssh2Transport::0:
       expected_channel_input: download the startup-config from a remote system. The
         device will not
       expected_channel_input_redacted: false
-    - channel_output: "\ndownload the startup-config from a remote system. The device\
-        \ will not"
+    - channel_output: "Enter TEXT message. Type 'EOF' on its own line to end.\ndownload\
+        \ the startup-config from a remote system. The device will not"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: be fully functional until either a valid startup-config
         is downloaded
       expected_channel_input_redacted: false
-    - channel_output: "download the startup-config from a remote system. The device\
-        \ will not\nbe fully functional until either a valid startup-config is downloaded"
+    - channel_output: "\n\nbe fully functional until either a valid startup-config\
+        \ is downloaded"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: from a remote system or Zero Touch Provisioning is cancelled.
       expected_channel_input_redacted: false
-    - channel_output: "\nfrom a remote system or Zero Touch Provisioning is cancelled."
+    - channel_output: "\nfrom a remote system or Zero Touch Provisioning is cancelled.No\
+        \ startup-config was found.\nT"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: To cancel Zero Touch Provisioning, login as admin and
         type
       expected_channel_input_redacted: false
-    - channel_output: "\nTo cancel Zero Touch Provisioning, login as admin and type"
+    - channel_output: "he device is in Zero Touch Provisioning mode and is attempting\
+        \ to\ndownload the startup-config from a remote system. The device will not\n\
+        be fully functional until either a valid startup-config is downloaded\nfrom\
+        \ a remote system or Zero Touch Provisioning is cancelled.\nTo cancel Zero\
+        \ Touch Provisioning, login as admin and type"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
@@ -1781,11 +1799,12 @@ localhost:24022:Ssh2Transport::0:
     - channel_output: ''
       expected_channel_input: EOF
       expected_channel_input_redacted: false
-    - channel_output: "Note: The device will reload when these commands are issued.\n\
-        EOF"
+    - channel_output: "\nEOF"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
+    - channel_output: "\n'zerotouch cancel' at the CLI. Alternatively, to disable\
+        \ Zero Touch\nProvisioning permanently, type 'zerotouch disable' at the CLI.\n\
+        Note: The device will reload when these commands are issued.\nEOF\nlocalhost(config-s-scrapl)#"
       expected_channel_input: show session-config diffs
       expected_channel_input_redacted: false
     - channel_output: show session-config diffs

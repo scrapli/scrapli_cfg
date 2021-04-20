@@ -25,7 +25,7 @@ def test_load_config_merge_diff_and_abort(cfg_conn):
 
 
 @pytest.mark.scrapli_replay
-def test_load_config_merge_diff_and_commit(cfg_conn):
+def test_load_config_replace_diff_and_commit(cfg_conn):
     cfg_conn.open()
     load_config = cfg_conn.load_config(config=cfg_conn._expected_config, replace=True)
     assert load_config.failed is False
