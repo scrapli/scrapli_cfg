@@ -32,7 +32,7 @@ scrapli_cfg.exceptions
 from scrapli.exceptions import ScrapliException
 
 
-class ScrapliCfgException(ScrapliException):  # type: ignore
+class ScrapliCfgException(ScrapliException):
     """Base scrapli_cfg exception"""
 
 
@@ -433,7 +433,7 @@ Base scrapli_cfg exception
     </summary>
     <pre>
         <code class="python">
-class ScrapliCfgException(ScrapliException):  # type: ignore
+class ScrapliCfgException(ScrapliException):
     """Base scrapli_cfg exception"""
         </code>
     </pre>

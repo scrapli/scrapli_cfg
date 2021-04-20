@@ -34,7 +34,7 @@ from typing import List, Pattern, Tuple, Union
 
 from scrapli.driver import AsyncNetworkDriver, NetworkDriver
 from scrapli.logging import get_instance_logger
-from scrapli.response import Response
+from scrapli.response import MultiResponse, Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import (
     AbortConfigError,
@@ -236,7 +236,7 @@ class ScrapliCfgBase:
         self,
         response: ScrapliCfgResponse,
         source: str,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
         result: str,
     ) -> ScrapliCfgResponse:
         """
@@ -350,7 +350,7 @@ class ScrapliCfgBase:
     def _post_abort_config(
         self,
         response: ScrapliCfgResponse,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
     ) -> ScrapliCfgResponse:
         """
         Handle post "abort_config" operations for parity between sync and async
@@ -417,7 +417,7 @@ class ScrapliCfgBase:
     def _post_commit_config(
         self,
         response: ScrapliCfgResponse,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
     ) -> ScrapliCfgResponse:
         """
         Handle post "commit_config" operations for parity between sync and async
@@ -720,7 +720,7 @@ class ScrapliCfgBase:
         self,
         response: ScrapliCfgResponse,
         source: str,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
         result: str,
     ) -> ScrapliCfgResponse:
         """
@@ -834,7 +834,7 @@ class ScrapliCfgBase:
     def _post_abort_config(
         self,
         response: ScrapliCfgResponse,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
     ) -> ScrapliCfgResponse:
         """
         Handle post "abort_config" operations for parity between sync and async
@@ -901,7 +901,7 @@ class ScrapliCfgBase:
     def _post_commit_config(
         self,
         response: ScrapliCfgResponse,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
     ) -> ScrapliCfgResponse:
         """
         Handle post "commit_config" operations for parity between sync and async

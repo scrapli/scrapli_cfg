@@ -167,7 +167,7 @@ def AsyncScrapliCfg(
     
 
 #### AsyncScrapliCfg
-`AsyncScrapliCfg(conn: scrapli.driver.network.async_driver.AsyncNetworkDriver, config_sources: Union[List[str], NoneType] = None, on_open: Union[Callable[..., Any], NoneType] = None, **kwargs: Any) ‑> AsyncScrapliCfgPlatform`
+`AsyncScrapliCfg(conn: scrapli.driver.network.async_driver.AsyncNetworkDriver, config_sources: Optional[List[str]] = None, on_open: Optional[Callable[..., Any]] = None, **kwargs: Any) ‑> AsyncScrapliCfgPlatform`
 
 ```text
 Scrapli Config Async Factory
@@ -197,7 +197,7 @@ Raises:
     
 
 #### ScrapliCfg
-`ScrapliCfg(conn: scrapli.driver.network.sync_driver.NetworkDriver, config_sources: Union[List[str], NoneType] = None, on_open: Union[Callable[..., Any], NoneType] = None, **kwargs: Any) ‑> ScrapliCfgPlatform`
+`ScrapliCfg(conn: scrapli.driver.network.sync_driver.NetworkDriver, config_sources: Optional[List[str]] = None, on_open: Optional[Callable[..., Any]] = None, **kwargs: Any) ‑> ScrapliCfgPlatform`
 
 ```text
 Scrapli Config Sync Factory

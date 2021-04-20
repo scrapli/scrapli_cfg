@@ -1,6 +1,6 @@
 ---
-site_name: Scrapli CFG
-site_description: "Scrapli CFG: Configuration management with scrapli"
+site_name: Scrapli Cfg
+site_description: Network device configuration management with scrapli
 site_author: Carl Montanari
 
 repo_name: scrapli/scrapli_cfg
@@ -66,8 +66,8 @@ nav:
     - Scrapli: more_scrapli/scrapli.md
     - Scrapli Netconf: more_scrapli/scrapli_netconf.md
     - Scrapli Community: more_scrapli/scrapli_community.md
+    - Scrapli Replay: more_scrapli/scrapli_replay.md
     - Nornir Scrapli: more_scrapli/nornir_scrapli.md
-    - Scrapli Stubs: more_scrapli/scrapli_stubs.md
   - Other:
     - Contributing: about/contributing.md
     - Code of Conduct: about/code_of_conduct.md

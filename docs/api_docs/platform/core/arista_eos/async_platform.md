@@ -31,8 +31,8 @@ scrapli_cfg.platform.core.arista_eos.async_platform
 """scrapli_cfg.platform.core.arista_eos.async_platform"""
 from typing import Any, Callable, List, Optional
 
-from scrapli.driver import AsyncNetworkDriver
-from scrapli.response import Response
+from scrapli.driver.core import AsyncEOSDriver
+from scrapli.response import MultiResponse, Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import DiffConfigError, LoadConfigError, ScrapliCfgException
 from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
@@ -62,7 +62,7 @@ async def async_eos_on_open(cls: AsyncScrapliCfgPlatform) -> None:
 class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
     def __init__(
         self,
-        conn: AsyncNetworkDriver,
+        conn: AsyncEOSDriver,
         config_sources: Optional[List[str]] = None,
         on_open: Optional[Callable[..., Any]] = None,
         preserve_connection: bool = False,
@@ -79,6 +79,8 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
             on_open=on_open,
             preserve_connection=preserve_connection,
         )
+
+        self.conn: AsyncEOSDriver
 
         self.config_session_name = ""
 
@@ -286,7 +288,7 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
         )
         self._reset_config_session()
 
-        return self._post_commit_config(response=response, scrapli_responses=commit_results)
+        return self._post_commit_config(response=response, scrapli_responses=[commit_results])
 
     async def diff_config(self, source: str = "running") -> ScrapliCfgDiffResponse:
         scrapli_responses = []
@@ -312,7 +314,9 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
             source_config_result = await self.get_config(source=source)
             source_config = source_config_result.result
 
-            if source_config_result.scrapli_responses:
+            if isinstance(source_config_result.scrapli_responses, MultiResponse):
+                # in this case this will always be a multiresponse or nothing (failure) but mypy
+                # doesnt know that, hence the isinstance check
                 scrapli_responses.extend(source_config_result.scrapli_responses)
 
             if source_config_result.failed:
@@ -399,7 +403,7 @@ Raises:
 class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
     def __init__(
         self,
-        conn: AsyncNetworkDriver,
+        conn: AsyncEOSDriver,
         config_sources: Optional[List[str]] = None,
         on_open: Optional[Callable[..., Any]] = None,
         preserve_connection: bool = False,
@@ -416,6 +420,8 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
             on_open=on_open,
             preserve_connection=preserve_connection,
         )
+
+        self.conn: AsyncEOSDriver
 
         self.config_session_name = ""
 
@@ -623,7 +629,7 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
         )
         self._reset_config_session()
 
-        return self._post_commit_config(response=response, scrapli_responses=commit_results)
+        return self._post_commit_config(response=response, scrapli_responses=[commit_results])
 
     async def diff_config(self, source: str = "running") -> ScrapliCfgDiffResponse:
         scrapli_responses = []
@@ -649,7 +655,9 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
             source_config_result = await self.get_config(source=source)
             source_config = source_config_result.result
 
-            if source_config_result.scrapli_responses:
+            if isinstance(source_config_result.scrapli_responses, MultiResponse):
+                # in this case this will always be a multiresponse or nothing (failure) but mypy
+                # doesnt know that, hence the isinstance check
                 scrapli_responses.extend(source_config_result.scrapli_responses)
 
             if source_config_result.failed:
