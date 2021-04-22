@@ -86,7 +86,7 @@ localhost:21023:AsynctelnetTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 4845\
-        \ bytes\n!\n! Last configuration change at 17:23:54 UTC Sun Apr 18 2021 by\
+        \ bytes\n!\n! Last configuration change at 15:11:34 UTC Thu Apr 22 2021 by\
         \ vrnetlab\n!\nversion 16.12\nservice timestamps debug datetime msec\nservice\
         \ timestamps log datetime msec\nservice call-home\nplatform qfp utilization\
         \ monitor load 80\nplatform punt-keepalive disable-kernel-core\nplatform console\

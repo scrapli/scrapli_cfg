@@ -13,7 +13,7 @@ localhost:21022:Ssh2Transport::0:
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n\n\ncsr1000v#"
+    - channel_output: "\n\ncsr1000v#"
       expected_channel_input: terminal length 0
       expected_channel_input_redacted: false
     - channel_output: "\ncsr1000v#terminal length 0"
@@ -73,7 +73,7 @@ localhost:21022:Ssh2Transport::0:
     - channel_output: 'dir flash: | i bytes'
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n6286540800 bytes total (5485580288 bytes free)\ncsr1000v#"
+    - channel_output: "\n6286540800 bytes total (5484302336 bytes free)\ncsr1000v#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\ncsr1000v#"
@@ -1683,7 +1683,7 @@ localhost:21022:Ssh2Transport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 4845\
-        \ bytes\n!\n! Last configuration change at 18:49:40 UTC Tue Apr 20 2021 by\
+        \ bytes\n!\n! Last configuration change at 15:11:08 UTC Thu Apr 22 2021 by\
         \ vrnetlab\n!\nversion 16.12\nservice timestamps debug datetime msec\nservice\
         \ timestamps log datetime msec\nservice call-home\nplatform qfp utilization\
         \ monitor load 80\nplatform punt-keepalive disable-kernel-core\nplatform console\
@@ -1764,6 +1764,12 @@ localhost:21022:Ssh2Transport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nTotal number of passes: 0\nRollback Done\n\ncsr1000v#"
+      expected_channel_input: show run | i file prompt
+      expected_channel_input_redacted: false
+    - channel_output: show run | i file prompt
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\ncsr1000v#"
       expected_channel_input: copy running-config startup-config
       expected_channel_input_redacted: false
     - channel_output: copy running-config startup-config
