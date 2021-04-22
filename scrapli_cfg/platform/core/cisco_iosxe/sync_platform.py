@@ -227,13 +227,12 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
 
         return self._post_abort_config(response=response, scrapli_responses=[abort_result])
 
-    def save_config(self, file_prompt_mode: Optional[FilePromptMode] = None) -> Response:
+    def save_config(self) -> Response:
         """
         Save the config -- "copy run start"!
 
         Args:
-             file_prompt_mode: optionally provide the file prompt mode, if its None we will fetch it
-                 to decide if we need to use interactive mode or not
+             N/A
 
         Returns:
             Response: scrapli response object
@@ -242,8 +241,8 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
             N/A
 
         """
-        if file_prompt_mode is None:
-            file_prompt_mode = self._determine_file_prompt_mode()
+        # we always re-check file prompt mode because it could have changed!
+        file_prompt_mode = self._determine_file_prompt_mode()
 
         if file_prompt_mode == FilePromptMode.ALERT:
             save_events = [
@@ -335,7 +334,7 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
 
         scrapli_responses.append(commit_result)
 
-        save_config_result = self.save_config(file_prompt_mode=file_prompt_mode)
+        save_config_result = self.save_config()
         scrapli_responses.append(save_config_result)
 
         if self.cleanup_post_commit:
