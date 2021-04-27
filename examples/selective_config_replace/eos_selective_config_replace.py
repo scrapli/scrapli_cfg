@@ -4,9 +4,12 @@ from scrapli_cfg.platform.core.arista_eos import ScrapliCfgEOS
 from scrapli_cfg.platform.core.arista_eos.patterns import ETHERNET_INTERFACES
 
 DEVICE = {
-    "host": "172.18.0.12",
+    # "host": "172.18.0.14",
+    "host": "localhost",
+    "port": 24022,
     "auth_username": "vrnetlab",
     "auth_password": "VR-netlab9",
+    "auth_secondary": "VR-netlab9",
     "auth_strict_key": False,
     "platform": "arista_eos",
 }
@@ -25,8 +28,9 @@ def main():
         my_config = f.read()
 
     conn = Scrapli(**DEVICE)
+    conn.open()
     cfg_conn = ScrapliCfgEOS(conn=conn)
-    cfg_conn.open()
+    cfg_conn.prepare()
 
     # the scrapli cfg `render_substituted_config` method accepts a template config, and a list of
     # "substitutes" -- these substitutes are a tuple of the "tag" that needs to be replaced with

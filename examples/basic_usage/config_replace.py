@@ -3,7 +3,9 @@ from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 
 DEVICE = {
-    "host": "172.18.0.11",
+    # "host": "172.18.0.11",
+    "host": "localhost",
+    "port": 21022,
     "auth_username": "vrnetlab",
     "auth_password": "VR-netlab9",
     "auth_strict_key": False,
@@ -20,14 +22,15 @@ def main():
 
     # open the "normal" scrapli connection
     conn = Scrapli(**DEVICE)
+    conn.open()
 
     # create the scrapli cfg object, passing in the scrapli connection, we are also using the
     # scrapli_cfg factory, so we can just pass the connection object and it will automatically find
     # and return the IOSXE (in this case) scrapli-cfg object
     cfg_conn = ScrapliCfg(conn=conn)
 
-    # open the scrapli cfg object (opens the underlying scrapli object)
-    cfg_conn.open()
+    # prepare the scrapli cfg object
+    cfg_conn.prepare()
 
     # load up the new candidate config, set replace to True
     cfg_conn.load_config(config=my_config, replace=True)

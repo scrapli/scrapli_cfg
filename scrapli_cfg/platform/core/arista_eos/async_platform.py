@@ -10,44 +10,23 @@ from scrapli_cfg.platform.core.arista_eos.base_platform import CONFIG_SOURCES, S
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-async def async_eos_on_open(cls: AsyncScrapliCfgPlatform) -> None:
-    """
-    Scrapli CFG EOS On open
-
-    Disable console logging, perhaps more things in the future!
-
-    Args:
-        cls: ScrapliCfg object
-
-    Returns:
-        None
-
-    Raises:
-        N/A
-
-    """
-    await cls.conn.send_config(config="no logging console")
-
-
 class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
     def __init__(
         self,
         conn: AsyncEOSDriver,
+        *,
         config_sources: Optional[List[str]] = None,
-        on_open: Optional[Callable[..., Any]] = None,
-        preserve_connection: bool = False,
+        on_prepare: Optional[Callable[..., Any]] = None,
+        dedicated_connection: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
 
-        if on_open is None:
-            on_open = async_eos_on_open
-
         super().__init__(
             conn=conn,
             config_sources=config_sources,
-            on_open=on_open,
-            preserve_connection=preserve_connection,
+            on_prepare=on_prepare,
+            dedicated_connection=dedicated_connection,
         )
 
         self.conn: AsyncEOSDriver

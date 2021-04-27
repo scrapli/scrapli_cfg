@@ -13,6 +13,7 @@ from scrapli_cfg.exceptions import (
     GetConfigError,
     InvalidConfigTarget,
     LoadConfigError,
+    PrepareNotCalled,
     TemplateError,
     VersionError,
 )
@@ -22,7 +23,9 @@ from scrapli_cfg.response import ScrapliCfgResponse
 class ScrapliCfgBase:
     conn: Union[NetworkDriver, AsyncNetworkDriver]
 
-    def __init__(self, config_sources: List[str], ignore_version: bool = False) -> None:
+    def __init__(
+        self, config_sources: List[str], ignore_version: bool = False, strict_prepare: bool = True
+    ) -> None:
         self.logger = get_instance_logger(
             instance_name="scrapli_cfg.platform", host=self.conn.host, port=self.conn.port
         )
@@ -33,6 +36,9 @@ class ScrapliCfgBase:
         self._ignore_version = ignore_version
         self._get_version_command = ""
         self._version_string = ""
+
+        self.strict_prepare = strict_prepare
+        self._prepared = False
 
     def _render_substituted_config(
         self, config_template: str, substitutes: List[Tuple[str, Pattern[str]]], source_config: str
@@ -114,7 +120,7 @@ class ScrapliCfgBase:
 
         """
         if version_response.failed:
-            msg = "getting version from device failed"
+            msg = "failed getting version from device"
             self.logger.critical(msg)
             raise VersionError(msg)
         if not version_response.result:
@@ -184,10 +190,14 @@ class ScrapliCfgBase:
             ScrapliCfgResponse: new response object to update w/ get results
 
         Raises:
+            PrepareNotCalled: if prepare method has not been called and `strict_prepare` is True
             InvalidConfigTarget: if the requested config source is not valid
 
         """
         self.logger.info(f"get_config for config source '{source}' requested")
+
+        if self.strict_prepare is True and self._prepared is False:
+            raise PrepareNotCalled
 
         if source not in self.config_sources:
             msg = (
@@ -242,6 +252,7 @@ class ScrapliCfgBase:
             config: candidate config to load
 
         Returns:
+            PrepareNotCalled: if prepare method has not been called and `strict_prepare` is True
             ScrapliCfgResponse: new response object for load operation
 
         Raises:
@@ -249,6 +260,9 @@ class ScrapliCfgBase:
 
         """
         self.logger.info("load_config requested")
+
+        if self.strict_prepare is True and self._prepared is False:
+            raise PrepareNotCalled
 
         self.candidate_config = config
 
@@ -294,6 +308,7 @@ class ScrapliCfgBase:
                 loaded -- in other words, is there anything to abort right now
 
         Returns:
+            PrepareNotCalled: if prepare method has not been called and `strict_prepare` is True
             ScrapliCfgResponse: response object for abort operation
 
         Raises:
@@ -302,6 +317,9 @@ class ScrapliCfgBase:
 
         """
         self.logger.info("abort_config requested")
+
+        if self.strict_prepare is True and self._prepared is False:
+            raise PrepareNotCalled
 
         if session_or_config_file is False:
             msg = (
@@ -357,11 +375,15 @@ class ScrapliCfgBase:
             ScrapliCfgResponse: new response object to update w/ commit results
 
         Raises:
+            PrepareNotCalled: if prepare method has not been called and `strict_prepare` is True
             InvalidConfigTarget: if the requested config source is not valid
             CommitConfigError: if no config session/file exists to commit
 
         """
         self.logger.info(f"get_config for config source '{source}' requested")
+
+        if self.strict_prepare is True and self._prepared is False:
+            raise PrepareNotCalled
 
         if source not in self.config_sources:
             msg = (
@@ -423,12 +445,16 @@ class ScrapliCfgBase:
             ScrapliCfgDiffResponse: diff object for diff operation
 
         Raises:
+            PrepareNotCalled: if prepare method has not been called and `strict_prepare` is True
             InvalidConfigTarget: if trying to diff against an invalid config target
             DiffConfigError: if no config session or config file exists then we have no config to
                 diff!
 
         """
         self.logger.info("diff_config requested")
+
+        if self.strict_prepare is True and self._prepared is False:
+            raise PrepareNotCalled
 
         if source not in self.config_sources:
             msg = (

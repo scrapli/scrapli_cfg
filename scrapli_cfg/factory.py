@@ -44,8 +44,10 @@ SYNC_CORE_PLATFORM_MAP = {
 
 def ScrapliCfg(
     conn: NetworkDriver,
+    *,
     config_sources: Optional[List[str]] = None,
-    on_open: Optional[Callable[..., Any]] = None,
+    on_prepare: Optional[Callable[..., Any]] = None,
+    dedicated_connection: bool = False,
     **kwargs: Any,
 ) -> "ScrapliCfgPlatform":
     """
@@ -59,7 +61,12 @@ def ScrapliCfg(
     Args:
         conn: scrapli connection to use
         config_sources: list of config sources
-        on_open: async callable to run at connection open
+        on_prepare: optional callable to run at connection `prepare`
+        dedicated_connection: if `False` (default value) scrapli cfg will not open or close the
+            underlying scrapli connection and will raise an exception if the scrapli connection
+            is not open. If `True` will automatically open and close the scrapli connection when
+            using with a context manager, `prepare` will open the scrapli connection (if not
+            already open), and `close` will close the scrapli connection.
         kwargs: keyword args to pass to the scrapli_cfg object (for things like iosxe 'filesystem'
             argument)
 
@@ -79,7 +86,11 @@ def ScrapliCfg(
         )
 
     final_platform: "ScrapliCfgPlatform" = platform_class(
-        conn=conn, config_sources=config_sources, on_open=on_open, **kwargs
+        conn=conn,
+        config_sources=config_sources,
+        on_prepare=on_prepare,
+        dedicated_connection=dedicated_connection,
+        **kwargs,
     )
 
     return final_platform
@@ -87,8 +98,10 @@ def ScrapliCfg(
 
 def AsyncScrapliCfg(
     conn: AsyncNetworkDriver,
+    *,
     config_sources: Optional[List[str]] = None,
-    on_open: Optional[Callable[..., Any]] = None,
+    on_prepare: Optional[Callable[..., Any]] = None,
+    dedicated_connection: bool = False,
     **kwargs: Any,
 ) -> "AsyncScrapliCfgPlatform":
     """
@@ -102,7 +115,12 @@ def AsyncScrapliCfg(
     Args:
         conn: scrapli connection to use
         config_sources: list of config sources
-        on_open: async callable to run at connection open
+        on_prepare: optional callable to run at connection `prepare`
+        dedicated_connection: if `False` (default value) scrapli cfg will not open or close the
+            underlying scrapli connection and will raise an exception if the scrapli connection
+            is not open. If `True` will automatically open and close the scrapli connection when
+            using with a context manager, `prepare` will open the scrapli connection (if not
+            already open), and `close` will close the scrapli connection.
         kwargs: keyword args to pass to the scrapli_cfg object (for things like iosxe 'filesystem'
             argument)
 
@@ -122,7 +140,11 @@ def AsyncScrapliCfg(
         )
 
     final_platform: "AsyncScrapliCfgPlatform" = platform_class(
-        conn=conn, config_sources=config_sources, on_open=on_open, **kwargs
+        conn=conn,
+        config_sources=config_sources,
+        on_prepare=on_prepare,
+        dedicated_connection=dedicated_connection,
+        **kwargs,
     )
 
     return final_platform
