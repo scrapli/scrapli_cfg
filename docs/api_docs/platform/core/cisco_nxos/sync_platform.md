@@ -40,46 +40,27 @@ from scrapli_cfg.platform.core.cisco_nxos.base_platform import CONFIG_SOURCES, S
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-def nxos_on_open(cls: ScrapliCfgPlatform) -> None:
-    """
-    Scrapli CFG NXOS On open
-
-    Disable console logging, perhaps more things in the future!
-
-    Args:
-        cls: ScrapliCfg object
-
-    Returns:
-        None
-
-    Raises:
-        N/A
-
-    """
-    cls.conn.send_config(config="no logging monitor")
-
-
 class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
     def __init__(
         self,
         conn: NXOSDriver,
+        *,
         config_sources: Optional[List[str]] = None,
-        on_open: Optional[Callable[..., Any]] = None,
+        on_prepare: Optional[Callable[..., Any]] = None,
         filesystem: str = "bootflash:",
         cleanup_post_commit: bool = True,
-        preserve_connection: bool = False,
+        dedicated_connection: bool = False,
+        ignore_version: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
 
-        if on_open is None:
-            on_open = nxos_on_open
-
         super().__init__(
             conn=conn,
             config_sources=config_sources,
-            on_open=on_open,
-            preserve_connection=preserve_connection,
+            on_prepare=on_prepare,
+            dedicated_connection=dedicated_connection,
+            ignore_version=ignore_version,
         )
 
         self.filesystem = filesystem
@@ -322,30 +303,6 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
 
 
 
-## Functions
-
-    
-
-#### nxos_on_open
-`nxos_on_open(cls: scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform) ‑> NoneType`
-
-```text
-Scrapli CFG NXOS On open
-
-Disable console logging, perhaps more things in the future!
-
-Args:
-    cls: ScrapliCfg object
-
-Returns:
-    None
-
-Raises:
-    N/A
-```
-
-
-
 
 ## Classes
 
@@ -367,23 +324,23 @@ class ScrapliCfgNXOS(ScrapliCfgNXOSBase, ScrapliCfgPlatform):
     def __init__(
         self,
         conn: NXOSDriver,
+        *,
         config_sources: Optional[List[str]] = None,
-        on_open: Optional[Callable[..., Any]] = None,
+        on_prepare: Optional[Callable[..., Any]] = None,
         filesystem: str = "bootflash:",
         cleanup_post_commit: bool = True,
-        preserve_connection: bool = False,
+        dedicated_connection: bool = False,
+        ignore_version: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
 
-        if on_open is None:
-            on_open = nxos_on_open
-
         super().__init__(
             conn=conn,
             config_sources=config_sources,
-            on_open=on_open,
-            preserve_connection=preserve_connection,
+            on_prepare=on_prepare,
+            dedicated_connection=dedicated_connection,
+            ignore_version=ignore_version,
         )
 
         self.filesystem = filesystem
