@@ -66,43 +66,12 @@ localhost:22023:AsynctelnetTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\n NXOS: version 9.2(4)\nswitch# "
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nswitch# "
-      expected_channel_input: configure terminal
-      expected_channel_input_redacted: false
-    - channel_output: configure terminal
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nEnter configuration commands, one per line. End with CNTL/Z.\n\
-        switch(config)# "
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nswitch(config)# "
-      expected_channel_input: no logging monitor
-      expected_channel_input_redacted: false
-    - channel_output: no logging monitor
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nswitch(config)# "
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nswitch(config)# "
-      expected_channel_input: end
-      expected_channel_input_redacted: false
-    - channel_output: end
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nswitch# "
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nswitch# "
       expected_channel_input: "dir bootflash: | i 'bytes free'"
       expected_channel_input_redacted: false
     - channel_output: "dir bootflash: | i 'bytes free'"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n 1950658560 bytes free\nswitch# "
+    - channel_output: "\n 1950605312 bytes free\nswitch# "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nswitch# "
@@ -121,7 +90,7 @@ localhost:22023:AsynctelnetTransport::0:
     - channel_output: set fl [open "/bootflash/__SCRAPLI_CFG_SESSION_NAME__" wb+]
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nfile37\nswitch-tcl# "
+    - channel_output: "\nfile33\nswitch-tcl# "
       expected_channel_input: 'puts -nonewline $fl {!Command: show running-config'
       expected_channel_input_redacted: false
     - channel_output: 'puts -nonewline $fl {!Command: show running-config'
@@ -3726,30 +3695,6 @@ localhost:22023:AsynctelnetTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nswitch-tcl# "
-      expected_channel_input: puts -nonewline $fl {
-      expected_channel_input_redacted: false
-    - channel_output: puts -nonewline $fl {
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\n> "
-      expected_channel_input: '}'
-      expected_channel_input_redacted: false
-    - channel_output: '}'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nswitch-tcl# "
-      expected_channel_input: puts -nonewline $fl {no logging monitor
-      expected_channel_input_redacted: false
-    - channel_output: puts -nonewline $fl {no logging monitor
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\n> "
-      expected_channel_input: '}'
-      expected_channel_input_redacted: false
-    - channel_output: '}'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nswitch-tcl# "
       expected_channel_input: close $fl
       expected_channel_input_redacted: false
     - channel_output: close $fl
@@ -3781,7 +3726,7 @@ localhost:22023:AsynctelnetTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\n\n!Command: show running-config\n!Running configuration last\
-        \ done at: Tue Apr 20 18:59:21 2021\n!Time: Tue Apr 20 18:59:35 2021\n\nversion\
+        \ done at: Tue Apr 27 16:04:25 2021\n!Time: Tue Apr 27 20:01:05 2021\n\nversion\
         \ 9.2(4) Bios:version  \nvdc switch id 1\n  limit-resource vlan minimum 16\
         \ maximum 4094\n  limit-resource vrf minimum 2 maximum 4096\n  limit-resource\
         \ port-channel minimum 0 maximum 511\n  limit-resource u4route-mem minimum\
@@ -3843,7 +3788,7 @@ localhost:22023:AsynctelnetTransport::0:
         \ninterface Ethernet1/125\n\ninterface Ethernet1/126\n\ninterface Ethernet1/127\n\
         \ninterface Ethernet1/128\n\ninterface mgmt0\n  vrf member management\n  ip\
         \ address 10.0.0.15/24\nline console\nline vty\nboot nxos bootflash:/nxos.9.2.4.bin\
-        \ \n\nno logging monitor\n\n\nswitch# "
+        \ \n\n\n\nswitch# "
       expected_channel_input: rollback running-config file bootflash:__SCRAPLI_CFG_SESSION_NAME__
       expected_channel_input_redacted: false
     - channel_output: rollback running-config file bootflash:__SCRAPLI_CFG_SESSION_NAME__

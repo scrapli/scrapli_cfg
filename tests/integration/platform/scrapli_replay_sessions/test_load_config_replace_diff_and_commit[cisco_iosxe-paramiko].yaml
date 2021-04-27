@@ -37,43 +37,12 @@ localhost:21022:ParamikoTransport::0:
         \ (\"GPL\") Version 2.0.  The\nsoftware code licensed under GPL Version 2.0\
         \ is free software that comes\nGPL code under the terms of GPL Version 2.0.\
         \  For more details, see the\ncsr1000v#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v#"
-      expected_channel_input: configure terminal
-      expected_channel_input_redacted: false
-    - channel_output: configure terminal
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nEnter configuration commands, one per line.  End with CNTL/Z.\n\
-        csr1000v(config)#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v(config)#"
-      expected_channel_input: no logging monitor
-      expected_channel_input_redacted: false
-    - channel_output: no logging monitor
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v(config)#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v(config)#"
-      expected_channel_input: end
-      expected_channel_input_redacted: false
-    - channel_output: end
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v#"
       expected_channel_input: 'dir flash: | i bytes'
       expected_channel_input_redacted: false
     - channel_output: 'dir flash: | i bytes'
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n6286540800 bytes total (5484302336 bytes free)\ncsr1000v#"
+    - channel_output: "\n6286540800 bytes total (5484552192 bytes free)\ncsr1000v#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\ncsr1000v#"
@@ -174,12 +143,6 @@ localhost:21022:ParamikoTransport::0:
       expected_channel_input: '!'
       expected_channel_input_redacted: false
     - channel_output: '!'
-      expected_channel_input: "\r"
-      expected_channel_input_redacted: false
-    - channel_output: "\n+>"
-      expected_channel_input: no logging monitor
-      expected_channel_input_redacted: false
-    - channel_output: no logging monitor
       expected_channel_input: "\r"
       expected_channel_input_redacted: false
     - channel_output: "\n+>"
@@ -1682,13 +1645,13 @@ localhost:21022:ParamikoTransport::0:
     - channel_output: show running-config
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 4845\
-        \ bytes\n!\n! Last configuration change at 15:11:15 UTC Thu Apr 22 2021 by\
+    - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 4826\
+        \ bytes\n!\n! Last configuration change at 19:49:38 UTC Tue Apr 27 2021 by\
         \ vrnetlab\n!\nversion 16.12\nservice timestamps debug datetime msec\nservice\
         \ timestamps log datetime msec\nservice call-home\nplatform qfp utilization\
         \ monitor load 80\nplatform punt-keepalive disable-kernel-core\nplatform console\
         \ serial\n!\nhostname csr1000v\n!\nboot-start-marker\nboot-end-marker\n!\n\
-        !\nno logging monitor\nenable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ\n\
+        !\nenable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ\n\
         !\nno aaa new-model\ncall-home\n ! If contact email address in call-home is\
         \ configured as sch-smart-licensing@cisco.com\n ! the email address configured\
         \ in Cisco Smart License Portal will be used as contact email address to send\

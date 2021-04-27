@@ -48,6 +48,7 @@ def ScrapliCfg(
     config_sources: Optional[List[str]] = None,
     on_prepare: Optional[Callable[..., Any]] = None,
     dedicated_connection: bool = False,
+    ignore_version: bool = False,
     **kwargs: Any,
 ) -> "ScrapliCfgPlatform":
     """
@@ -67,6 +68,12 @@ def ScrapliCfg(
             is not open. If `True` will automatically open and close the scrapli connection when
             using with a context manager, `prepare` will open the scrapli connection (if not
             already open), and `close` will close the scrapli connection.
+        ignore_version: ignore checking device version support; currently this just means that
+            scrapli-cfg will not fetch the device version during the prepare phase, however this
+            will (hopefully) be used in the future to limit what methods can be used against a
+            target device. For example, for EOS devices we need > 4.14 to load configs; so if a
+            device is encountered at 4.13 the version check would raise an exception rather than
+            just failing in a potentially awkward fashion.
         kwargs: keyword args to pass to the scrapli_cfg object (for things like iosxe 'filesystem'
             argument)
 
@@ -90,6 +97,7 @@ def ScrapliCfg(
         config_sources=config_sources,
         on_prepare=on_prepare,
         dedicated_connection=dedicated_connection,
+        ignore_version=ignore_version,
         **kwargs,
     )
 
@@ -102,6 +110,7 @@ def AsyncScrapliCfg(
     config_sources: Optional[List[str]] = None,
     on_prepare: Optional[Callable[..., Any]] = None,
     dedicated_connection: bool = False,
+    ignore_version: bool = False,
     **kwargs: Any,
 ) -> "AsyncScrapliCfgPlatform":
     """
@@ -121,6 +130,12 @@ def AsyncScrapliCfg(
             is not open. If `True` will automatically open and close the scrapli connection when
             using with a context manager, `prepare` will open the scrapli connection (if not
             already open), and `close` will close the scrapli connection.
+        ignore_version: ignore checking device version support; currently this just means that
+            scrapli-cfg will not fetch the device version during the prepare phase, however this
+            will (hopefully) be used in the future to limit what methods can be used against a
+            target device. For example, for EOS devices we need > 4.14 to load configs; so if a
+            device is encountered at 4.13 the version check would raise an exception rather than
+            just failing in a potentially awkward fashion.
         kwargs: keyword args to pass to the scrapli_cfg object (for things like iosxe 'filesystem'
             argument)
 
@@ -144,6 +159,7 @@ def AsyncScrapliCfg(
         config_sources=config_sources,
         on_prepare=on_prepare,
         dedicated_connection=dedicated_connection,
+        ignore_version=ignore_version,
         **kwargs,
     )
 

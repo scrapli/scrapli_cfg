@@ -75,4 +75,4 @@ relies on the tclsh.
 
 ### Juniper JunOS
 
-JunOS is not supported... *yet*... this section will updated when support is added!
+scrapli_cfg should work on JunOS too -- though JunOS has likely received the least amount of testing at this point.

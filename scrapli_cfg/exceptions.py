@@ -1,6 +1,4 @@
 """scrapli_cfg.exceptions"""
-from typing import Optional
-
 from scrapli.exceptions import ScrapliException
 
 
@@ -10,32 +8,6 @@ class ScrapliCfgException(ScrapliException):
 
 class PrepareNotCalled(ScrapliCfgException):
     """Raised when the `prepare` method has not been called and strict_prepare is `True`"""
-
-    def __init__(
-        self,
-        message: Optional[str] = None,
-    ) -> None:
-        """
-        Scrapli Cfg prepare not called exception
-
-        Args:
-            message: optional message
-
-        Returns:
-            None
-
-        Raises:
-            N/A
-
-        """
-        if not message:
-            self.message = (
-                "strict_prepare is True and you are attempting to call a method that requires "
-                "prepare to have been called, do you need to call 'prepare()'?"
-            )
-        else:
-            self.message = message
-        super().__init__(self.message)
 
 
 class TemplateError(ScrapliCfgException):

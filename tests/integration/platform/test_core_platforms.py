@@ -3,7 +3,7 @@ import pytest
 
 @pytest.mark.scrapli_replay
 def test_get_config(cfg_conn):
-    cfg_conn.open()
+    cfg_conn.prepare()
     config = cfg_conn.get_config()
     assert config.failed is False
     # expected config is loaded from disk and set as an attribute in the fixture to make life easy
@@ -14,7 +14,7 @@ def test_get_config(cfg_conn):
 
 @pytest.mark.scrapli_replay
 def test_load_config_merge_diff_and_abort(cfg_conn):
-    cfg_conn.open()
+    cfg_conn.prepare()
     load_config = cfg_conn.load_config(config=cfg_conn._load_config, replace=False)
     assert load_config.failed is False
     diff_config = cfg_conn.diff_config()
@@ -26,7 +26,7 @@ def test_load_config_merge_diff_and_abort(cfg_conn):
 
 @pytest.mark.scrapli_replay
 def test_load_config_replace_diff_and_commit(cfg_conn):
-    cfg_conn.open()
+    cfg_conn.prepare()
     load_config = cfg_conn.load_config(config=cfg_conn._expected_config, replace=True)
     assert load_config.failed is False
     diff_config = cfg_conn.diff_config()

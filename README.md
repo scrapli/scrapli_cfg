@@ -78,6 +78,6 @@ with Scrapli(**device) as conn:
   diff = cfg_conn.diff_config()
   print(diff.side_by_side_diff)
   cfg_conn.commit_config()
-  cfg_conn.close()
+  cfg_conn.cleanup()
 
 ```

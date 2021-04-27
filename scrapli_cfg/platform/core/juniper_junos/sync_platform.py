@@ -24,6 +24,7 @@ class ScrapliCfgJunos(ScrapliCfgPlatform, ScrapliCfgJunosBase):
         filesystem: str = "/config/",
         cleanup_post_commit: bool = True,
         dedicated_connection: bool = False,
+        ignore_version: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
@@ -33,6 +34,7 @@ class ScrapliCfgJunos(ScrapliCfgPlatform, ScrapliCfgJunosBase):
             config_sources=config_sources,
             on_prepare=on_prepare,
             dedicated_connection=dedicated_connection,
+            ignore_version=ignore_version,
         )
 
         self.filesystem = filesystem

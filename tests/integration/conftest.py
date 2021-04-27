@@ -126,7 +126,7 @@ def conn(device_type, transport):
 @pytest.fixture(scope="function")
 def cfg_conn(conn):
     scrapli_conn, device_type = conn
-    cfg_conn = ScrapliCfg(conn=scrapli_conn)
+    cfg_conn = ScrapliCfg(conn=scrapli_conn, dedicated_connection=True)
 
     cfg_conn._expected_config = EXPECTED_CONFIGS[device_type]
     cfg_conn._config_cleaner = getattr(helper, f"{device_type}_clean_response")
@@ -143,7 +143,7 @@ def cfg_conn(conn):
 
     yield cfg_conn
     if cfg_conn.conn.isalive():
-        cfg_conn.close()
+        cfg_conn.cleanup()
 
 
 # scoping to function is probably dumb but dont have to screw around with which event loop is what this way
@@ -172,7 +172,7 @@ async def async_conn(device_type, async_transport):
 @pytest.fixture(scope="function")
 async def async_cfg_conn(async_conn):
     scrapli_conn, device_type = async_conn
-    async_cfg_conn = AsyncScrapliCfg(conn=scrapli_conn)
+    async_cfg_conn = AsyncScrapliCfg(conn=scrapli_conn, dedicated_connection=True)
 
     async_cfg_conn._expected_config = EXPECTED_CONFIGS[device_type]
     async_cfg_conn._config_cleaner = getattr(helper, f"{device_type}_clean_response")
@@ -189,4 +189,4 @@ async def async_cfg_conn(async_conn):
 
     yield async_cfg_conn
     if async_cfg_conn.conn.isalive():
-        await async_cfg_conn.close()
+        await async_cfg_conn.cleanup()

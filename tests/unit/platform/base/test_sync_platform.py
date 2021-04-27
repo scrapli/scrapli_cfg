@@ -5,7 +5,7 @@ def test_open(sync_cfg_object, monkeypatch):
     open_called = False
     get_version_called = False
     validate_and_set_version_called = False
-    on_open_called = False
+    on_prepare_called = False
 
     # just going to mock things so we know that when open is called these functions get executed,
     # this test isn't for testing those other functions, we'll do that elsewhere
@@ -22,9 +22,9 @@ def test_open(sync_cfg_object, monkeypatch):
         nonlocal validate_and_set_version_called
         validate_and_set_version_called = True
 
-    def _on_open(cls):
-        nonlocal on_open_called
-        on_open_called = True
+    def _on_prepare(cls):
+        nonlocal on_prepare_called
+        on_prepare_called = True
 
     monkeypatch.setattr("scrapli.driver.base.sync_driver.Driver.open", _open)
     monkeypatch.setattr(
@@ -36,13 +36,14 @@ def test_open(sync_cfg_object, monkeypatch):
         _validate_and_set_version,
     )
 
-    sync_cfg_object.on_open = _on_open
-    sync_cfg_object.open()
+    sync_cfg_object.dedicated_connection = True
+    sync_cfg_object.on_prepare = _on_prepare
+    sync_cfg_object.prepare()
 
     assert open_called is True
     assert get_version_called is True
     assert validate_and_set_version_called is True
-    assert on_open_called is True
+    assert on_prepare_called is True
 
 
 def test_close(sync_cfg_object, monkeypatch):
@@ -59,7 +60,8 @@ def test_close(sync_cfg_object, monkeypatch):
     # lie and pretend its alive so we actually run close
     monkeypatch.setattr("scrapli.driver.base.sync_driver.Driver.isalive", lambda cls: True)
 
-    sync_cfg_object.close()
+    sync_cfg_object.dedicated_connection = True
+    sync_cfg_object.cleanup()
 
     assert close_called is True
 
@@ -69,16 +71,20 @@ def test_context_manager(monkeypatch, sync_cfg_object):
     open_called = False
     close_called = False
 
-    def _open(cls):
+    def _prepare(cls):
         nonlocal open_called
         open_called = True
 
-    def _close(cls):
+    def _cleanup(cls):
         nonlocal close_called
         close_called = True
 
-    monkeypatch.setattr("scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform.open", _open)
-    monkeypatch.setattr("scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform.close", _close)
+    monkeypatch.setattr(
+        "scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform.prepare", _prepare
+    )
+    monkeypatch.setattr(
+        "scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform.cleanup", _cleanup
+    )
 
     with sync_cfg_object:
         pass

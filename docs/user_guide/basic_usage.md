@@ -37,9 +37,29 @@ The available platform names are:
 
 ## Driver Arguments
 
-scrapli_cfg doesn't have a lot of options/arguments that you need to worry about! The most important argument is the 
+scrapli_cfg doesn't have a ton of arguments/options that you need to worry about! The most important argument is the 
 `conn` argument -- which is expecting a scrapli connection that is built from the `NetworkDriver`. This connection 
 must be from one of the "core" scrapli platforms (EOS, IOSXE, IOSXR, NXOS, JunOS).
+
+The other remaining primary arguments are as follows:
+
+- `config_sources`: Generally ignored/handled by the platform implementation for you. A list of strings representing 
+  the valid config sources, i.e. "running", "candidate", or "startup"
+- `on_prepare`: A callable (sync or async depending on your code of course) that is executed during the `prepare` 
+  method; initially scrapli-cfg contained a default callable that would disable console logging (in most cases), 
+  however as this actually made changes to your device that were somewhat "magic" it was removed. Now, users can 
+  pass an `on_prepare` callable to disable console logging, or really anything else they want. This callable should 
+  accept `cls` as the first argument which is a reference to the scrapli-cfg object itself (and thus has access to 
+  the underlying scrapli connection). More on this in the [`on_prepare` section](#on-prepare).
+- `dedicated_connection`: If `False` (default value) scrapli cfg will not open or close the underlying scrapli 
+  connection and will raise an exception if the scrapli connection is not open. If `True` will automatically open 
+  and close the scrapli connection when using with a context manager, `prepare` will open the scrapli connection (if 
+  not already open), and `close` will close the scrapli connection.
+- `ignore_version`: Ignore checking device version support; currently this just means that scrapli-cfg will not 
+  fetch the device version during the prepare phase, however this will (hopefully) be used in the future to limit 
+  what methods can be used against a target device. For example, for EOS devices we need > 4.14 to load configs; so 
+  if a device is encountered at 4.13 the version check would raise an exception rather than just failing in a 
+  potentially awkward fashion.
 
 There are no additional arguments for creating a scrapli_cfg object, though each platform may have other 
 optional arguments as necessary -- check the docs/class for those.
@@ -78,11 +98,11 @@ device = {
    "auth_strict_key": False,
    "platform": "cisco_iosxe"
 }
-conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(conn=conn)
-cfg_conn.open()
-version_result = cfg_conn.get_version()
-print(version_result.result)
+with Scrapli(**device) as conn:
+    cfg_conn = ScrapliCfg(conn=conn)
+    cfg_conn.prepare()
+    version_result = cfg_conn.get_version()
+    print(version_result.result)
 ```
 
 
@@ -106,11 +126,11 @@ device = {
    "auth_strict_key": False,
    "platform": "cisco_iosxe"
 }
-conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(conn=conn)
-cfg_conn.open()
-cfg_result = cfg_conn.get_config(source="startup")
-print(cfg_result.result)
+with Scrapli(**device) as conn:
+    cfg_conn = ScrapliCfg(conn=conn)
+    cfg_conn.prepare()
+    cfg_result = cfg_conn.get_config(source="startup")
+    print(cfg_result.result)
 ```
 
 
@@ -136,11 +156,11 @@ device = {
    "auth_strict_key": False,
    "platform": "cisco_nxos"
 }
-conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(conn=conn)
-cfg_conn.open()
-chkpoint_result = cfg_conn.get_checkpoint()
-print(chkpoint_result.result)
+with Scrapli(**device) as conn:
+    cfg_conn = ScrapliCfg(conn=conn)
+    cfg_conn.prepare()
+    chkpoint_result = cfg_conn.get_checkpoint()
+    print(chkpoint_result.result)
 ```
 
 
@@ -169,11 +189,11 @@ device = {
    "auth_strict_key": False,
    "platform": "cisco_iosxe"
 }
-conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(conn=conn)
-cfg_conn.open()
-load_result = cfg_conn.load_config(config=my_config, replace=True)
-print(load_result)
+with Scrapli(**device) as conn:
+    cfg_conn = ScrapliCfg(conn=conn)
+    cfg_conn.prepare()
+    load_result = cfg_conn.load_config(config=my_config, replace=True)
+    print(load_result)
 ```
 
 Note that *loading* a configuration does *not* apply the configuration! This simply will create a configuration 
@@ -201,13 +221,13 @@ device = {
    "auth_strict_key": False,
    "platform": "cisco_iosxe"
 }
-conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(conn=conn)
-cfg_conn.open()
-load_result = cfg_conn.load_config(config=my_config, replace=True)
-print(load_result)
-abort_result = cfg_conn.abort_config()
-print(abort_result)
+with Scrapli(**device) as conn:
+    cfg_conn = ScrapliCfg(conn=conn)
+    cfg_conn.prepare()
+    load_result = cfg_conn.load_config(config=my_config, replace=True)
+    print(load_result)
+    abort_result = cfg_conn.abort_config()
+    print(abort_result)
 ```
 
 
@@ -230,13 +250,13 @@ device = {
    "auth_strict_key": False,
    "platform": "cisco_iosxe"
 }
-conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(conn=conn)
-cfg_conn.open()
-load_result = cfg_conn.load_config(config=my_config, replace=True)
-print(load_result)
-commit_result = cfg_conn.commit_config()
-print(commit_result)
+with Scrapli(**device) as conn:
+    cfg_conn = ScrapliCfg(conn=conn)
+    cfg_conn.prepare()
+    load_result = cfg_conn.load_config(config=my_config, replace=True)
+    print(load_result)
+    commit_result = cfg_conn.commit_config()
+    print(commit_result)
 ```
 
 
@@ -270,15 +290,15 @@ device = {
    "auth_strict_key": False,
    "platform": "cisco_iosxe"
 }
-conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(conn=conn)
-cfg_conn.open()
-load_result = cfg_conn.load_config(config=my_config, replace=True)
-print(load_result)
-diff_result = cfg_conn.diff_config()
-print(diff_result.device_diff)
-print(diff_result.unified_diff)
-print(diff_result.side_by_side_diff)
+with Scrapli(**device) as conn:
+    cfg_conn = ScrapliCfg(conn=conn)
+    cfg_conn.prepare()
+    load_result = cfg_conn.load_config(config=my_config, replace=True)
+    print(load_result)
+    diff_result = cfg_conn.diff_config()
+    print(diff_result.device_diff)
+    print(diff_result.unified_diff)
+    print(diff_result.side_by_side_diff)
 ```
 
 
@@ -314,14 +334,14 @@ device = {
    "auth_strict_key": False,
    "platform": "arista_eos"
 }
-conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(conn=conn)
-cfg_conn.open()
-rendered_config = cfg_conn.render_substituted_config(
-    config_template=my_config, substitutes=[("ethernet_interfaces", ETHERNET_INTERFACES)]
-)
-load_result = cfg_conn.load_config(config=my_config, replace=True)
-print(load_result)
+with Scrapli(**device) as conn:
+    cfg_conn = ScrapliCfg(conn=conn)
+    cfg_conn.prepare()
+    rendered_config = cfg_conn.render_substituted_config(
+        config_template=my_config, substitutes=[("ethernet_interfaces", ETHERNET_INTERFACES)]
+    )
+    load_result = cfg_conn.load_config(config=my_config, replace=True)
+    print(load_result)
 ```
 
 In the above example we have a fairly "normal" scrapli_cfg setup -- create a connection and open it. Once the 
@@ -369,3 +389,20 @@ Our rendered template would end up looking just like that. Again, the point of t
 easily do configuration replaces without having to fully template out device configs. The obvious downside to this 
 method is that it may require fairly complicated regular expressions in order to properly slice and dice the real 
 config.
+
+
+
+## On Prepare
+
+The `on_prepare` argument of the scrapli-cfg objects gives users the opportunity to pass a callable that will be 
+executed prior to any operations occurring (this happens during the aptly named "prepare" method which you should be 
+calling prior to using scrapli_cfg operations -- note that if you use the context manager functionality this will 
+already be called for you!). The purpose of this `on_prepare` callable is to... prepare a device for config 
+operations. Initially scrapli_cfg platforms contained a sane default `on_prepare` function that basically just 
+disabled console logging. The reasoning for disabling console logging is to ensure that any `get_config` operations 
+don't have log messages garbling up the output.
+
+This "sane default" setting has since been removed as it was a bit too much "magic" -- meaning that it felt wrong 
+for scrapli_cfg to be making any kind of persistent configuration changes to your devices potentially without users 
+being aware that was happening. As such, it would be a good idea to provide an `on_prepare` callable to at the very 
+least disable console logging.

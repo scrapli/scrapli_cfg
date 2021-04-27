@@ -17,6 +17,7 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
         config_sources: List[str],
         on_prepare: Optional[Callable[..., Any]],
         dedicated_connection: bool,
+        ignore_version: bool,
     ) -> None:
         """
         Scrapli Config base class
@@ -30,6 +31,12 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
                 is not open. If `True` will automatically open and close the scrapli connection when
                 using with a context manager, `prepare` will open the scrapli connection (if not
                 already open), and `close` will close the scrapli connection.
+            ignore_version: ignore checking device version support; currently this just means that
+                scrapli-cfg will not fetch the device version during the prepare phase, however this
+                will (hopefully) be used in the future to limit what methods can be used against a
+                target device. For example, for EOS devices we need > 4.14 to load configs; so if a
+                device is encountered at 4.13 the version check would raise an exception rather than
+                just failing in a potentially awkward fashion.
 
         Returns:
             None
@@ -43,7 +50,7 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
 
         self.on_prepare = on_prepare
 
-        super().__init__(config_sources=config_sources)
+        super().__init__(config_sources=config_sources, ignore_version=ignore_version)
 
     def __enter__(self) -> "ScrapliCfgPlatform":
         """
@@ -83,7 +90,7 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
             N/A
 
         """
-        self.close()
+        self.cleanup()
 
     def _open(self) -> None:
         """
@@ -114,7 +121,7 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
             "cannot continue!"
         )
 
-    def close(self) -> None:
+    def _close(self) -> None:
         """
         Close the scrapli connection
 
@@ -129,20 +136,8 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
 
         """
         if self.dedicated_connection is True and self.conn.isalive():
-            self.logger.info("preserve_connection is False, closing scrapli connection")
+            self.logger.info("dedicated_connection is True, closing scrapli connection")
             self.conn.close()
-
-        # reset the version string so we know we need to re-fetch if user re-opens connection
-        self._version_string = ""
-
-        # this has *probably* been reset already, but reset it just in case user re-opens connection
-        # we can have a clean slate to work with
-        try:
-            self._reset_config_session()  # type: ignore
-        except AttributeError:
-            pass
-
-        self._prepared = False
 
     def prepare(self) -> None:
         """
@@ -162,7 +157,7 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
 
         self._open()
 
-        if self._ignore_version is False:
+        if self.ignore_version is False:
             self.logger.debug("ignore_version is False, fetching device version")
             version_response = self.get_version()
             self._validate_and_set_version(version_response=version_response)
@@ -171,15 +166,40 @@ class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
             self.logger.debug("on_prepare provided, executing now")
             self.on_prepare(self)
 
-        self._prepared = True
+    def cleanup(self) -> None:
+        """
+        Cleanup after scrapli-cfg operations
 
-        # TODO - need to have *something* here -- like an internal attribute that says prepare has
-        #  happened... then we decorate or just check in all the methods to see if that has happened
-        #  and if not we raise an exception
-        # TODO - also gotta re-check docs now
-        # TODO - also gotta re-gen the integration tests since we wont disable logging monitor now
-        # TODO - should add doc thing about `on_prepare` and how we dont wanna make config changes
-        #  but as a user you can provide a function to do that
+
+        Generally this can be skipped, however it will be executed if using a context manager. The
+        purpose of this method is to close the underlying scrapli connection (if in
+        "dedicated_connection" mode), and to reset the internally used `_version_string`, attribute.
+        All this is done so that this cfg connection, if re-used later (as in later in that script
+        using the same object) starts with a fresh slate.
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            N/A
+
+        """
+        self._close()
+
+        # reset the version string/prepare flag so we know we need to re-fetch/re-run if user
+        # re-opens connection
+        self._version_string = ""
+        self._prepared = False
+
+        # this has *probably* been reset already, but reset it just in case user re-opens connection
+        # we can have a clean slate to work with
+        try:
+            self._reset_config_session()  # type: ignore
+        except AttributeError:
+            pass
 
     @abstractmethod
     def get_version(self) -> ScrapliCfgResponse:

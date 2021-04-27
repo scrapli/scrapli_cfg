@@ -1,7 +1,6 @@
 import pytest
 
 from scrapli.response import Response
-from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import (
     AbortConfigError,
     CommitConfigError,
@@ -178,6 +177,7 @@ def test_pre_diff_config_exception_invalid_target(base_cfg_object):
 
 
 def test_pre_diff_config_exception_no_session_or_config(base_cfg_object):
+    base_cfg_object.strict_prepare = False
     with pytest.raises(DiffConfigError):
         base_cfg_object._pre_diff_config(source="running", session_or_config_file=False)
 

@@ -31,19 +31,19 @@ localhost:23023:AsynctelnetTransport::0:
     - channel_output: terminal length 0
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:55.517 UTC\nRP/0/RP0/CPU0:ios#"
+    - channel_output: "\nTue Apr 27 19:58:28.336 UTC\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: terminal width 512
       expected_channel_input_redacted: false
     - channel_output: terminal width 512
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:55.753 UTC\nRP/0/RP0/CPU0:ios#"
+    - channel_output: "\nTue Apr 27 19:58:28.426 UTC\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: show version | i Version
       expected_channel_input_redacted: false
     - channel_output: show version | i Version
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:55.994 UTC\nCisco IOS XR Software, Version\
+    - channel_output: "\nTue Apr 27 19:58:28.532 UTC\nCisco IOS XR Software, Version\
         \ 6.5.3\n Version      : 6.5.3\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
@@ -53,22 +53,10 @@ localhost:23023:AsynctelnetTransport::0:
     - channel_output: configure terminal
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:56.168 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    - channel_output: "\nTue Apr 27 19:58:28.659 UTC\nRP/0/RP0/CPU0:ios(config)#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
-      expected_channel_input: no logging console
-      expected_channel_input_redacted: false
-    - channel_output: no logging console
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
-      expected_channel_input: commit
-      expected_channel_input_redacted: false
-    - channel_output: commit
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:56.903 UTC\nRP/0/RP0/CPU0:ios(config)#"
       expected_channel_input: interface loopback1
       expected_channel_input_redacted: false
     - channel_output: interface loopback1
@@ -86,7 +74,7 @@ localhost:23023:AsynctelnetTransport::0:
     - channel_output: show commit changes diff
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:57.062 UTC\nBuilding configuration...\n\
+    - channel_output: "\nTue Apr 27 19:58:29.572 UTC\nBuilding configuration...\n\
         !! IOS XR Configuration version = 6.5.3\n+  interface Loopback1\n+   description\
         \ tacocat\n   !\nend\n\nRP/0/RP0/CPU0:ios(config-if)#"
       expected_channel_input: show running-config
@@ -94,9 +82,9 @@ localhost:23023:AsynctelnetTransport::0:
     - channel_output: show running-config
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nSun Apr 18 17:27:57.700 UTC\nBuilding configuration...\n\
-        !! IOS XR Configuration version = 6.5.3\n!! Last configuration change at Sun\
-        \ Apr 18 17:27:26 2021 by vrnetlab\n!\ntelnet vrf default ipv4 server max-servers\
+    - channel_output: "\nTue Apr 27 19:58:30.199 UTC\nBuilding configuration...\n\
+        !! IOS XR Configuration version = 6.5.3\n!! Last configuration change at Tue\
+        \ Apr 27 00:13:12 2021 by vrnetlab\n!\ntelnet vrf default ipv4 server max-servers\
         \ 10\nusername vrnetlab\n group root-lr\n group cisco-support\n secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0\n\
         !\ncall-home\n service active\n contact smart-licensing\n profile CiscoTAC-1\n\
         \  active\n  destination transport-method http\n !\n!\ninterface MgmtEth0/RP0/CPU0/0\n\
