@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.asyncio
 @pytest.mark.scrapli_replay
 async def test_get_config(async_cfg_conn):
-    await async_cfg_conn.open()
+    await async_cfg_conn.prepare()
     config = await async_cfg_conn.get_config()
     assert config.failed is False
     # expected config is loaded from disk and set as an attribute in the fixture to make life easy
@@ -16,7 +16,7 @@ async def test_get_config(async_cfg_conn):
 @pytest.mark.asyncio
 @pytest.mark.scrapli_replay
 async def test_load_config_merge_diff_and_abort(async_cfg_conn):
-    await async_cfg_conn.open()
+    await async_cfg_conn.prepare()
     load_config = await async_cfg_conn.load_config(
         config=async_cfg_conn._load_config, replace=False
     )
@@ -31,7 +31,7 @@ async def test_load_config_merge_diff_and_abort(async_cfg_conn):
 @pytest.mark.asyncio
 @pytest.mark.scrapli_replay
 async def test_load_config_merge_diff_and_commit(async_cfg_conn):
-    await async_cfg_conn.open()
+    await async_cfg_conn.prepare()
     load_config = await async_cfg_conn.load_config(
         config=async_cfg_conn._expected_config, replace=True
     )

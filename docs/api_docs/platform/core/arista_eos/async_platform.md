@@ -40,44 +40,25 @@ from scrapli_cfg.platform.core.arista_eos.base_platform import CONFIG_SOURCES, S
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-async def async_eos_on_open(cls: AsyncScrapliCfgPlatform) -> None:
-    """
-    Scrapli CFG EOS On open
-
-    Disable console logging, perhaps more things in the future!
-
-    Args:
-        cls: ScrapliCfg object
-
-    Returns:
-        None
-
-    Raises:
-        N/A
-
-    """
-    await cls.conn.send_config(config="no logging console")
-
-
 class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
     def __init__(
         self,
         conn: AsyncEOSDriver,
+        *,
         config_sources: Optional[List[str]] = None,
-        on_open: Optional[Callable[..., Any]] = None,
-        preserve_connection: bool = False,
+        on_prepare: Optional[Callable[..., Any]] = None,
+        dedicated_connection: bool = False,
+        ignore_version: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
 
-        if on_open is None:
-            on_open = async_eos_on_open
-
         super().__init__(
             conn=conn,
             config_sources=config_sources,
-            on_open=on_open,
-            preserve_connection=preserve_connection,
+            on_prepare=on_prepare,
+            dedicated_connection=dedicated_connection,
+            ignore_version=ignore_version,
         )
 
         self.conn: AsyncEOSDriver
@@ -344,30 +325,6 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
 
 
 
-## Functions
-
-    
-
-#### async_eos_on_open
-`async_eos_on_open(cls: scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform) ‑> NoneType`
-
-```text
-Scrapli CFG EOS On open
-
-Disable console logging, perhaps more things in the future!
-
-Args:
-    cls: ScrapliCfg object
-
-Returns:
-    None
-
-Raises:
-    N/A
-```
-
-
-
 
 ## Classes
 
@@ -383,9 +340,18 @@ Scrapli Config async base class
 Args:
     conn: scrapli connection to use
     config_sources: list of config sources
-    on_open: async callable to run at connection open
-    preserve_connection: if True underlying scrapli connection will *not* be closed when
-        the scrapli_cfg object is closed/exited
+    on_prepare: optional callable to run at connection `prepare`
+    dedicated_connection: if `False` (default value) scrapli cfg will not open or close the
+        underlying scrapli connection and will raise an exception if the scrapli connection
+        is not open. If `True` will automatically open and close the scrapli connection when
+        using with a context manager, `prepare` will open the scrapli connection (if not
+        already open), and `close` will close the scrapli connection.
+    ignore_version: ignore checking device version support; currently this just means that
+        scrapli-cfg will not fetch the device version during the prepare phase, however this
+        will (hopefully) be used in the future to limit what methods can be used against a
+        target device. For example, for EOS devices we need > 4.14 to load configs; so if a
+        device is encountered at 4.13 the version check would raise an exception rather than
+        just failing in a potentially awkward fashion.
 
 Returns:
     None
@@ -404,21 +370,21 @@ class AsyncScrapliCfgEOS(AsyncScrapliCfgPlatform, ScrapliCfgEOSBase):
     def __init__(
         self,
         conn: AsyncEOSDriver,
+        *,
         config_sources: Optional[List[str]] = None,
-        on_open: Optional[Callable[..., Any]] = None,
-        preserve_connection: bool = False,
+        on_prepare: Optional[Callable[..., Any]] = None,
+        dedicated_connection: bool = False,
+        ignore_version: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
 
-        if on_open is None:
-            on_open = async_eos_on_open
-
         super().__init__(
             conn=conn,
             config_sources=config_sources,
-            on_open=on_open,
-            preserve_connection=preserve_connection,
+            on_prepare=on_prepare,
+            dedicated_connection=dedicated_connection,
+            ignore_version=ignore_version,
         )
 
         self.conn: AsyncEOSDriver

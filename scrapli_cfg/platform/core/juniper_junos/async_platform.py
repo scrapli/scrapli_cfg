@@ -14,46 +14,27 @@ from scrapli_cfg.platform.core.juniper_junos.base_platform import (
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-async def junos_on_open(cls: AsyncScrapliCfgPlatform) -> None:
-    """
-    Scrapli CFG Junos On open
-
-    Nothing for now I think...? Keeping this here for consistency.
-
-    Args:
-        cls: ScrapliCfg object
-
-    Returns:
-        None
-
-    Raises:
-        N/A
-
-    """
-    _ = cls
-
-
 class AsyncScrapliCfgJunos(AsyncScrapliCfgPlatform, ScrapliCfgJunosBase):
     def __init__(
         self,
         conn: AsyncNetworkDriver,
+        *,
         config_sources: Optional[List[str]] = None,
-        on_open: Optional[Callable[..., Any]] = None,
+        on_prepare: Optional[Callable[..., Any]] = None,
         filesystem: str = "/config/",
         cleanup_post_commit: bool = True,
-        preserve_connection: bool = False,
+        dedicated_connection: bool = False,
+        ignore_version: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
 
-        if on_open is None:
-            on_open = junos_on_open
-
         super().__init__(
             conn=conn,
             config_sources=config_sources,
-            on_open=on_open,
-            preserve_connection=preserve_connection,
+            on_prepare=on_prepare,
+            dedicated_connection=dedicated_connection,
+            ignore_version=ignore_version,
         )
 
         self.filesystem = filesystem

@@ -44,43 +44,12 @@ localhost:21022:SystemTransport::0:
         \ (\"GPL\") Version 2.0.  The\nsoftware code licensed under GPL Version 2.0\
         \ is free software that comes\nGPL code under the terms of GPL Version 2.0.\
         \  For more details, see the\ncsr1000v#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v#"
-      expected_channel_input: configure terminal
-      expected_channel_input_redacted: false
-    - channel_output: configure terminal
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nEnter configuration commands, one per line.  End with CNTL/Z.\n\
-        csr1000v(config)#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v(config)#"
-      expected_channel_input: no logging monitor
-      expected_channel_input_redacted: false
-    - channel_output: no logging monitor
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v(config)#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v(config)#"
-      expected_channel_input: end
-      expected_channel_input_redacted: false
-    - channel_output: end
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\ncsr1000v#"
       expected_channel_input: 'dir flash: | i bytes'
       expected_channel_input_redacted: false
     - channel_output: 'dir flash: | i bytes'
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n6286540800 bytes total (5484310528 bytes free)\ncsr1000v#"
+    - channel_output: "\n6286540800 bytes total (5484630016 bytes free)\ncsr1000v#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\ncsr1000v#"
@@ -181,12 +150,6 @@ localhost:21022:SystemTransport::0:
       expected_channel_input: '!'
       expected_channel_input_redacted: false
     - channel_output: '!'
-      expected_channel_input: "\r"
-      expected_channel_input_redacted: false
-    - channel_output: "\n+>"
-      expected_channel_input: no logging monitor
-      expected_channel_input_redacted: false
-    - channel_output: no logging monitor
       expected_channel_input: "\r"
       expected_channel_input_redacted: false
     - channel_output: "\n+>"
@@ -1689,8 +1652,8 @@ localhost:21022:SystemTransport::0:
         \ certificate chain TP-self-signed-422690288\n -certificate self-signed 01\n\
         \  -3082032E 30820216 A0030201 02020101 300D0609 2A864886 F70D0101 05050030\n\
         \  -30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274\n\
-        \  -69666963 6174652D 34323236 39303238 38301E17 0D323130 34323131 34343231\n\
-        \  -385A170D 33303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F\n\
+        \  -69666963 6174652D 34323236 39303238 38301E17 0D323130 34323431 34343633\n\
+        \  -325A170D 33303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F\n\
         \  -532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3432 32363930\n\
         \  -32383830 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 82010A02\n\
         \  -82010100 C27FD6F3 1166295D F49633D3 51450DE6 F9BFCF2F 7D3AACC7 3B5ED6B2\n\
@@ -1704,27 +1667,27 @@ localhost:21022:SystemTransport::0:
         \  -3F1B3887 02030100 01A35330 51300F06 03551D13 0101FF04 05300301 01FF301F\n\
         \  -0603551D 23041830 16801452 75C9AA75 B92C6980 AFFF95F7 015BA9DB CF56EF30\n\
         \  -1D060355 1D0E0416 04145275 C9AA75B9 2C6980AF FF95F701 5BA9DBCF 56EF300D\n\
-        \  -06092A86 4886F70D 01010505 00038201 01006446 20F1E71B 02DEF574 3DF4B9FB\n\
-        \  -99B19BEE 8D6477EC 2EE1AFE3 91C70180 FC1FEF1A F2FE1F9E AB737ED3 C972C60D\n\
-        \  -C8380A9E D0574AB8 31979975 6FD63A5C 8F17CA6C 704BAF7E AC43A6A7 D997061E\n\
-        \  -0E9081D4 DF926881 B9504FA9 68271F8A 30955768 880758AB 87316676 2D784C1B\n\
-        \  -82AC49B0 65FA518C 6366EB81 9E18CA2A BD5AA903 044FCACE 52743E2C 0B5A33B6\n\
-        \  -D3AFC41E CDAFAE40 A87F65DC DB249E60 D1359BC9 67B073E4 130245D9 1A543A3B\n\
-        \  -AF14FB7F 3B47E0C2 88E9D65D 0C0E3B62 2469BD7C A43B005E 598E8E5F 81D29B80\n\
-        \  -C84271C9 67B6AE6E E6AB8AB9 83E94563 744FA7C3 CD1083F6 602BC4F9 E45B35FF\n\
-        \  -AA9708A3 1699473D BB6C73FF 52CC550B F2E5\n  -\tquit\n\ncsr1000v#"
+        \  -06092A86 4886F70D 01010505 00038201 01007990 FB8C5182 74A472E9 F8933726\n\
+        \  -0AAAE421 58EC4C5E DD15BAAE 5E95D5D3 12FE143C 8A80F8FF F4512402 DE2D1091\n\
+        \  -F0928C73 ACB88E28 4DADB7CD E5876DE4 FCE7E1C1 EB465801 9592F6C0 06501F1F\n\
+        \  -03118D27 7F80C6C0 4C4C3CFC 67FABA0D 65C9E228 B4F43ED9 FAE62872 FFBCC72F\n\
+        \  -25635208 12E436D4 7F27BA6E 151EE76A 560AC6D4 B9983DF4 85D990E7 42A83E9B\n\
+        \  -CDB0E802 4D2B1C3B A091CC70 F2878CAF 1222B9D6 9FA625F0 B4426FAF 75C0B1DE\n\
+        \  -16B3C323 0E1B1D98 9B35DCCD 43A6CA7B C59AF71E FE525B64 F921D394 5CD3E67B\n\
+        \  -3E808F51 6B93BF9A 28BD9F50 E0C6AB58 4266EA8C 38893595 BAE03E69 838973C2\n\
+        \  -928F6137 2DCA8AB4 530DB0E8 57A12266 A50C\n  -\tquit\n\ncsr1000v#"
       expected_channel_input: show running-config
       expected_channel_input_redacted: false
     - channel_output: show running-config
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 7040\
-        \ bytes\n!\n! Last configuration change at 15:11:00 UTC Thu Apr 22 2021 by\
+    - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 7021\
+        \ bytes\n!\n! Last configuration change at 19:33:06 UTC Tue Apr 27 2021 by\
         \ vrnetlab\n!\nversion 16.12\nservice timestamps debug datetime msec\nservice\
         \ timestamps log datetime msec\nservice call-home\nplatform qfp utilization\
         \ monitor load 80\nplatform punt-keepalive disable-kernel-core\nplatform console\
         \ serial\n!\nhostname csr1000v\n!\nboot-start-marker\nboot-end-marker\n!\n\
-        !\nno logging monitor\nenable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ\n\
+        !\nenable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ\n\
         !\nno aaa new-model\ncall-home\n ! If contact email address in call-home is\
         \ configured as sch-smart-licensing@cisco.com\n ! the email address configured\
         \ in Cisco Smart License Portal will be used as contact email address to send\
@@ -1767,7 +1730,7 @@ localhost:21022:SystemTransport::0:
         \ self-signed 01\n  3082032E 30820216 A0030201 02020101 300D0609 2A864886\
         \ F70D0101 05050030 \n  30312E30 2C060355 04031325 494F532D 53656C66 2D536967\
         \ 6E65642D 43657274 \n  69666963 6174652D 34323236 39303238 38301E17 0D323130\
-        \ 34323131 34343231 \n  385A170D 33303031 30313030 30303030 5A303031 2E302C06\
+        \ 34323431 34343633 \n  325A170D 33303031 30313030 30303030 5A303031 2E302C06\
         \ 03550403 1325494F \n  532D5365 6C662D53 69676E65 642D4365 72746966 69636174\
         \ 652D3432 32363930 \n  32383830 82012230 0D06092A 864886F7 0D010101 05000382\
         \ 010F0030 82010A02 \n  82010100 C27FD6F3 1166295D F49633D3 51450DE6 F9BFCF2F\
@@ -1781,15 +1744,15 @@ localhost:21022:SystemTransport::0:
         \ 4CE59AEF 58F9E6EF \n  3F1B3887 02030100 01A35330 51300F06 03551D13 0101FF04\
         \ 05300301 01FF301F \n  0603551D 23041830 16801452 75C9AA75 B92C6980 AFFF95F7\
         \ 015BA9DB CF56EF30 \n  1D060355 1D0E0416 04145275 C9AA75B9 2C6980AF FF95F701\
-        \ 5BA9DBCF 56EF300D \n  06092A86 4886F70D 01010505 00038201 01006446 20F1E71B\
-        \ 02DEF574 3DF4B9FB \n  99B19BEE 8D6477EC 2EE1AFE3 91C70180 FC1FEF1A F2FE1F9E\
-        \ AB737ED3 C972C60D \n  C8380A9E D0574AB8 31979975 6FD63A5C 8F17CA6C 704BAF7E\
-        \ AC43A6A7 D997061E \n  0E9081D4 DF926881 B9504FA9 68271F8A 30955768 880758AB\
-        \ 87316676 2D784C1B \n  82AC49B0 65FA518C 6366EB81 9E18CA2A BD5AA903 044FCACE\
-        \ 52743E2C 0B5A33B6 \n  D3AFC41E CDAFAE40 A87F65DC DB249E60 D1359BC9 67B073E4\
-        \ 130245D9 1A543A3B \n  AF14FB7F 3B47E0C2 88E9D65D 0C0E3B62 2469BD7C A43B005E\
-        \ 598E8E5F 81D29B80 \n  C84271C9 67B6AE6E E6AB8AB9 83E94563 744FA7C3 CD1083F6\
-        \ 602BC4F9 E45B35FF \n  AA9708A3 1699473D BB6C73FF 52CC550B F2E5\n  \tquit\n\
+        \ 5BA9DBCF 56EF300D \n  06092A86 4886F70D 01010505 00038201 01007990 FB8C5182\
+        \ 74A472E9 F8933726 \n  0AAAE421 58EC4C5E DD15BAAE 5E95D5D3 12FE143C 8A80F8FF\
+        \ F4512402 DE2D1091 \n  F0928C73 ACB88E28 4DADB7CD E5876DE4 FCE7E1C1 EB465801\
+        \ 9592F6C0 06501F1F \n  03118D27 7F80C6C0 4C4C3CFC 67FABA0D 65C9E228 B4F43ED9\
+        \ FAE62872 FFBCC72F \n  25635208 12E436D4 7F27BA6E 151EE76A 560AC6D4 B9983DF4\
+        \ 85D990E7 42A83E9B \n  CDB0E802 4D2B1C3B A091CC70 F2878CAF 1222B9D6 9FA625F0\
+        \ B4426FAF 75C0B1DE \n  16B3C323 0E1B1D98 9B35DCCD 43A6CA7B C59AF71E FE525B64\
+        \ F921D394 5CD3E67B \n  3E808F51 6B93BF9A 28BD9F50 E0C6AB58 4266EA8C 38893595\
+        \ BAE03E69 838973C2 \n  928F6137 2DCA8AB4 530DB0E8 57A12266 A50C\n  \tquit\n\
         !\nlicense udi pid CSR1000V sn 9MVVU09YZFH\ndiagnostic bootup level minimal\n\
         archive\n log config\n  logging enable\n path bootflash:\nmemory free low-watermark\
         \ processor 72329\n!\n!\nspanning-tree extend system-id\n!\nusername vrnetlab\

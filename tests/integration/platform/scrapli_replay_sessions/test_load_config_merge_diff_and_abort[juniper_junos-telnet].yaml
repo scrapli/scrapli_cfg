@@ -16,7 +16,7 @@ localhost:25023:TelnetTransport::0:
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "vrnetlab\nPassword:"
+    - channel_output: 'Password:'
       expected_channel_input: REDACTED
       expected_channel_input_redacted: true
     - channel_output: ''
@@ -155,7 +155,7 @@ localhost:25023:TelnetTransport::0:
     - channel_output: run show configuration
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \n## Last commit: 2021-04-18 16:19:32 UTC by vrnetlab\nversion\
+    - channel_output: " \n## Last commit: 2021-04-27 19:35:05 UTC by vrnetlab\nversion\
         \ 17.3R2.10;\nsystem {\n    root-authentication {\n        encrypted-password\
         \ \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
         ; ## SECRET-DATA\n    }\n    login {\n        user vrnetlab {\n          \

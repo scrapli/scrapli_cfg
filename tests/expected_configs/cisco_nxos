@@ -295,5 +295,3 @@ interface mgmt0
 line console
 line vty
 boot nxos bootflash:/nxos.9.2.4.bin
-
-no logging monitor

@@ -39,6 +39,8 @@ def base_cfg_object():
     base = ScrapliCfgBase
     base.conn = Scrapli(host="localhost", platform="cisco_iosxe")
     cfg_conn = ScrapliCfgBase(config_sources=["running", "startup"])
+    cfg_conn.on_prepare = None
+    cfg_conn.ignore_version = True
     return cfg_conn
 
 

@@ -10,44 +10,25 @@ from scrapli_cfg.platform.core.cisco_iosxr.base_platform import CONFIG_SOURCES, 
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-def iosxr_on_open(cls: ScrapliCfgPlatform) -> None:
-    """
-    Scrapli CFG IOSXR On open
-
-    Disable console logging, perhaps more things in the future!
-
-    Args:
-        cls: ScrapliCfg object
-
-    Returns:
-        None
-
-    Raises:
-        N/A
-
-    """
-    cls.conn.send_configs(configs=["no logging console", "commit"])
-
-
 class ScrapliCfgIOSXR(ScrapliCfgPlatform, ScrapliCfgIOSXRBase):
     def __init__(
         self,
         conn: NetworkDriver,
+        *,
         config_sources: Optional[List[str]] = None,
-        on_open: Optional[Callable[..., Any]] = None,
-        preserve_connection: bool = False,
+        on_prepare: Optional[Callable[..., Any]] = None,
+        dedicated_connection: bool = False,
+        ignore_version: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
 
-        if on_open is None:
-            on_open = iosxr_on_open
-
         super().__init__(
             conn=conn,
             config_sources=config_sources,
-            on_open=on_open,
-            preserve_connection=preserve_connection,
+            on_prepare=on_prepare,
+            dedicated_connection=dedicated_connection,
+            ignore_version=ignore_version,
         )
 
         self._replace = False

@@ -18,7 +18,6 @@ boot-start-marker
 boot-end-marker
 !
 !
-no logging monitor
 enable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ
 !
 no aaa new-model

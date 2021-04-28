@@ -7,7 +7,7 @@ switchport default mode routed
 !
 transceiver qsfp default-mode 4x10G
 !
-no logging console
+logging console informational
 !
 logging level AAA errors
 logging level ACCOUNTING errors

@@ -13,6 +13,7 @@ from scrapli_cfg.exceptions import (
     GetConfigError,
     InvalidConfigTarget,
     LoadConfigError,
+    PrepareNotCalled,
     TemplateError,
     VersionError,
 )
@@ -30,9 +31,12 @@ class ScrapliCfgBase:
         self.config_sources = config_sources
         self.candidate_config = ""
 
-        self._ignore_version = ignore_version
+        self.ignore_version = ignore_version
         self._get_version_command = ""
         self._version_string = ""
+
+        # bool indicated if a `on_prepare` callable has been executed or not
+        self._prepared = False
 
     def _render_substituted_config(
         self, config_template: str, substitutes: List[Tuple[str, Pattern[str]]], source_config: str
@@ -114,7 +118,7 @@ class ScrapliCfgBase:
 
         """
         if version_response.failed:
-            msg = "getting version from device failed"
+            msg = "failed getting version from device"
             self.logger.critical(msg)
             raise VersionError(msg)
         if not version_response.result:
@@ -122,6 +126,77 @@ class ScrapliCfgBase:
             self.logger.critical(msg)
             raise VersionError(msg)
         self._version_string = version_response.result
+
+    def _prepare_ok(self) -> None:
+        """
+        Determine if prepare is "OK" for a given operation
+
+        Checks if an `on_prepare` callable has been provided, and if so, if it has been executed.
+        This is meant to help force users into calling `prepare` or using the context manager prior
+        to running any methods.
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            PrepareNotCalled: if `on_prepare` is not None and `_prepared` is False
+
+        """
+        # ignoring type/complaints as `on_prepare` will always be set in the sync/async classes;
+        # but is not set here since in one its a coroutine and the other not
+        _on_prepare = self.on_prepare  # type: ignore  # noqa
+        if _on_prepare is not None and self._prepared is False:
+            raise PrepareNotCalled(
+                "on_prepare callable provided, but prepare method not called. call prepare method "
+                "or use context manager to ensure it is called for you"
+            )
+
+    def _version_ok(self) -> None:
+        """
+        Determine if version is "OK" for a given operation
+
+        Should be overridden and super'd to by platforms that implement version constraints, will
+        simply check that if `ignore_version` is `False` we have set the internal `_version_string`
+        attribute, if not, will raise `PrepareNotCalled` exception.
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            PrepareNotCalled: if ignore version is False and _version_string not set
+
+        """
+        if self.ignore_version is False and not self._version_string:
+            raise PrepareNotCalled(
+                "ignore_version is False, but version has not yet been fetched. call prepare method"
+                " or use context manager to ensure that version is properly gathered"
+            )
+
+    def _operation_ok(self) -> None:
+        """
+        Determine if all values are "OK" for a given operation
+
+        Checks if version and prepare are ok. Convenience func to just have one thing to call in the
+        `_pre` operation methods.
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            N/A
+
+        """
+        self._prepare_ok()
+        self._version_ok()
 
     def _pre_get_version(self) -> ScrapliCfgResponse:
         """
@@ -189,6 +264,8 @@ class ScrapliCfgBase:
         """
         self.logger.info(f"get_config for config source '{source}' requested")
 
+        self._operation_ok()
+
         if source not in self.config_sources:
             msg = (
                 f"provided config source '{source}' not valid, must be one of {self.config_sources}"
@@ -250,6 +327,8 @@ class ScrapliCfgBase:
         """
         self.logger.info("load_config requested")
 
+        self._operation_ok()
+
         self.candidate_config = config
 
         response = ScrapliCfgResponse(
@@ -302,6 +381,8 @@ class ScrapliCfgBase:
 
         """
         self.logger.info("abort_config requested")
+
+        self._operation_ok()
 
         if session_or_config_file is False:
             msg = (
@@ -362,6 +443,8 @@ class ScrapliCfgBase:
 
         """
         self.logger.info(f"get_config for config source '{source}' requested")
+
+        self._operation_ok()
 
         if source not in self.config_sources:
             msg = (
@@ -429,6 +512,8 @@ class ScrapliCfgBase:
 
         """
         self.logger.info("diff_config requested")
+
+        self._operation_ok()
 
         if source not in self.config_sources:
             msg = (

@@ -8,7 +8,7 @@ async def test_open(async_cfg_object, monkeypatch):
     open_called = False
     get_version_called = False
     validate_and_set_version_called = False
-    on_open_called = False
+    on_prepare_called = False
 
     # just going to mock things so we know that when open is called these functions get executed,
     # this test isn't for testing those other functions, we'll do that elsewhere
@@ -25,9 +25,9 @@ async def test_open(async_cfg_object, monkeypatch):
         nonlocal validate_and_set_version_called
         validate_and_set_version_called = True
 
-    async def _on_open(cls):
-        nonlocal on_open_called
-        on_open_called = True
+    async def _on_prepare(cls):
+        nonlocal on_prepare_called
+        on_prepare_called = True
 
     monkeypatch.setattr("scrapli.driver.base.async_driver.AsyncDriver.open", _open)
     monkeypatch.setattr(
@@ -39,13 +39,14 @@ async def test_open(async_cfg_object, monkeypatch):
         _validate_and_set_version,
     )
 
-    async_cfg_object.on_open = _on_open
-    await async_cfg_object.open()
+    async_cfg_object.dedicated_connection = True
+    async_cfg_object.on_prepare = _on_prepare
+    await async_cfg_object.prepare()
 
     assert open_called is True
     assert get_version_called is True
     assert validate_and_set_version_called is True
-    assert on_open_called is True
+    assert on_prepare_called is True
 
 
 @pytest.mark.asyncio
@@ -63,7 +64,8 @@ async def test_close(async_cfg_object, monkeypatch):
     # lie and pretend its alive so we actually run close
     monkeypatch.setattr("scrapli.driver.base.async_driver.AsyncDriver.isalive", lambda cls: True)
 
-    await async_cfg_object.close()
+    async_cfg_object.dedicated_connection = True
+    await async_cfg_object.cleanup()
 
     assert close_called is True
 
@@ -74,19 +76,19 @@ async def test_context_manager(monkeypatch, async_cfg_object):
     open_called = False
     close_called = False
 
-    async def _open(cls):
+    async def _prepare(cls):
         nonlocal open_called
         open_called = True
 
-    async def _close(cls):
+    async def _cleanup(cls):
         nonlocal close_called
         close_called = True
 
     monkeypatch.setattr(
-        "scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform.open", _open
+        "scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform.prepare", _prepare
     )
     monkeypatch.setattr(
-        "scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform.close", _close
+        "scrapli_cfg.platform.base.async_platform.AsyncScrapliCfgPlatform.cleanup", _cleanup
     )
 
     async with async_cfg_object:

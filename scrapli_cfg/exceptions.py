@@ -6,6 +6,19 @@ class ScrapliCfgException(ScrapliException):
     """Base scrapli_cfg exception"""
 
 
+class PrepareNotCalled(ScrapliCfgException):
+    """
+    Raised when the `prepare` method has not been called
+
+    This will only be raised in two scenarios:
+    1) an `on_prepare` callable has been provided, yet `prepare` was not called
+    2) `ignore_version` is False and `prepare` was not called
+
+    If using a context manager this should never be raised as the enter method will handle things
+    for you
+    """
+
+
 class TemplateError(ScrapliCfgException):
     """For errors relating to configuration templates"""
 

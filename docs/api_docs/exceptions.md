@@ -36,6 +36,10 @@ class ScrapliCfgException(ScrapliException):
     """Base scrapli_cfg exception"""
 
 
+class PrepareNotCalled(ScrapliCfgException):
+    """Raised when the `prepare` method has not been called and strict_prepare is `True`"""
+
+
 class TemplateError(ScrapliCfgException):
     """For errors relating to configuration templates"""
 
@@ -420,6 +424,34 @@ class LoadConfigError(ConfigError):
 
 
 
+### PrepareNotCalled
+
+
+```text
+Raised when the `prepare` method has not been called and strict_prepare is `True`
+```
+
+<details class="source">
+    <summary>
+        <span>Expand source code</span>
+    </summary>
+    <pre>
+        <code class="python">
+class PrepareNotCalled(ScrapliCfgException):
+    """Raised when the `prepare` method has not been called and strict_prepare is `True`"""
+        </code>
+    </pre>
+</details>
+
+
+#### Ancestors (in MRO)
+- scrapli_cfg.exceptions.ScrapliCfgException
+- scrapli.exceptions.ScrapliException
+- builtins.Exception
+- builtins.BaseException
+
+
+
 ### ScrapliCfgException
 
 
@@ -448,6 +480,7 @@ class ScrapliCfgException(ScrapliException):
 - scrapli_cfg.exceptions.CleanupError
 - scrapli_cfg.exceptions.ConfigError
 - scrapli_cfg.exceptions.FailedToDetermineDeviceState
+- scrapli_cfg.exceptions.PrepareNotCalled
 - scrapli_cfg.exceptions.TemplateError
 - scrapli_cfg.exceptions.VersionError
 

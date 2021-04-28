@@ -71,12 +71,13 @@ device = {
 with open("myconfig", "r") as f:
     my_config = f.read()
 
-conn = Scrapli(**device)
-cfg_conn = ScrapliCfg(conn=conn)
-cfg_conn.open()
-cfg_conn.load_config(config=my_config, replace=True)
-diff = cfg_conn.diff_config()
-print(diff.side_by_side_diff)
-cfg_conn.commit_config()
-cfg_conn.close()
+with Scrapli(**device) as conn:
+  cfg_conn = ScrapliCfg(conn=conn)
+  cfg_conn.prepare()
+  cfg_conn.load_config(config=my_config, replace=True)
+  diff = cfg_conn.diff_config()
+  print(diff.side_by_side_diff)
+  cfg_conn.commit_config()
+  cfg_conn.cleanup()
+
 ```

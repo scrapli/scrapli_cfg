@@ -44,46 +44,27 @@ from scrapli_cfg.platform.core.cisco_iosxe.base_platform import (
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-def iosxe_on_open(cls: ScrapliCfgPlatform) -> None:
-    """
-    Scrapli CFG IOSXE On open
-
-    Disable console logging, perhaps more things in the future!
-
-    Args:
-        cls: ScrapliCfg object
-
-    Returns:
-        None
-
-    Raises:
-        N/A
-
-    """
-    cls.conn.send_config(config="no logging monitor")
-
-
 class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
     def __init__(
         self,
         conn: NetworkDriver,
+        *,
         config_sources: Optional[List[str]] = None,
-        on_open: Optional[Callable[..., Any]] = None,
+        on_prepare: Optional[Callable[..., Any]] = None,
         filesystem: str = "flash:",
         cleanup_post_commit: bool = True,
-        preserve_connection: bool = False,
+        dedicated_connection: bool = False,
+        ignore_version: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
 
-        if on_open is None:
-            on_open = iosxe_on_open
-
         super().__init__(
             conn=conn,
             config_sources=config_sources,
-            on_open=on_open,
-            preserve_connection=preserve_connection,
+            on_prepare=on_prepare,
+            dedicated_connection=dedicated_connection,
+            ignore_version=ignore_version,
         )
 
         self.filesystem = filesystem
@@ -257,13 +238,12 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
 
         return self._post_abort_config(response=response, scrapli_responses=[abort_result])
 
-    def save_config(self, file_prompt_mode: Optional[FilePromptMode] = None) -> Response:
+    def save_config(self) -> Response:
         """
         Save the config -- "copy run start"!
 
         Args:
-             file_prompt_mode: optionally provide the file prompt mode, if its None we will fetch it
-                 to decide if we need to use interactive mode or not
+             N/A
 
         Returns:
             Response: scrapli response object
@@ -272,8 +252,8 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
             N/A
 
         """
-        if file_prompt_mode is None:
-            file_prompt_mode = self._determine_file_prompt_mode()
+        # we always re-check file prompt mode because it could have changed!
+        file_prompt_mode = self._determine_file_prompt_mode()
 
         if file_prompt_mode == FilePromptMode.ALERT:
             save_events = [
@@ -365,7 +345,7 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
 
         scrapli_responses.append(commit_result)
 
-        save_config_result = self.save_config(file_prompt_mode=file_prompt_mode)
+        save_config_result = self.save_config()
         scrapli_responses.append(save_config_result)
 
         if self.cleanup_post_commit:
@@ -431,30 +411,6 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
 
 
 
-## Functions
-
-    
-
-#### iosxe_on_open
-`iosxe_on_open(cls: scrapli_cfg.platform.base.sync_platform.ScrapliCfgPlatform) ‑> NoneType`
-
-```text
-Scrapli CFG IOSXE On open
-
-Disable console logging, perhaps more things in the future!
-
-Args:
-    cls: ScrapliCfg object
-
-Returns:
-    None
-
-Raises:
-    N/A
-```
-
-
-
 
 ## Classes
 
@@ -470,9 +426,18 @@ Scrapli Config base class
 Args:
     conn: scrapli connection to use
     config_sources: list of config sources
-    on_open: async callable to run at connection open
-    preserve_connection: if True underlying scrapli connection will *not* be closed when
-        the scrapli_cfg object is closed/exited
+    on_prepare: optional callable to run at connection `prepare`
+    dedicated_connection: if `False` (default value) scrapli cfg will not open or close the
+        underlying scrapli connection and will raise an exception if the scrapli connection
+        is not open. If `True` will automatically open and close the scrapli connection when
+        using with a context manager, `prepare` will open the scrapli connection (if not
+        already open), and `close` will close the scrapli connection.
+    ignore_version: ignore checking device version support; currently this just means that
+        scrapli-cfg will not fetch the device version during the prepare phase, however this
+        will (hopefully) be used in the future to limit what methods can be used against a
+        target device. For example, for EOS devices we need > 4.14 to load configs; so if a
+        device is encountered at 4.13 the version check would raise an exception rather than
+        just failing in a potentially awkward fashion.
 
 Returns:
     None
@@ -491,23 +456,23 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
     def __init__(
         self,
         conn: NetworkDriver,
+        *,
         config_sources: Optional[List[str]] = None,
-        on_open: Optional[Callable[..., Any]] = None,
+        on_prepare: Optional[Callable[..., Any]] = None,
         filesystem: str = "flash:",
         cleanup_post_commit: bool = True,
-        preserve_connection: bool = False,
+        dedicated_connection: bool = False,
+        ignore_version: bool = False,
     ) -> None:
         if config_sources is None:
             config_sources = CONFIG_SOURCES
 
-        if on_open is None:
-            on_open = iosxe_on_open
-
         super().__init__(
             conn=conn,
             config_sources=config_sources,
-            on_open=on_open,
-            preserve_connection=preserve_connection,
+            on_prepare=on_prepare,
+            dedicated_connection=dedicated_connection,
+            ignore_version=ignore_version,
         )
 
         self.filesystem = filesystem
@@ -681,13 +646,12 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
 
         return self._post_abort_config(response=response, scrapli_responses=[abort_result])
 
-    def save_config(self, file_prompt_mode: Optional[FilePromptMode] = None) -> Response:
+    def save_config(self) -> Response:
         """
         Save the config -- "copy run start"!
 
         Args:
-             file_prompt_mode: optionally provide the file prompt mode, if its None we will fetch it
-                 to decide if we need to use interactive mode or not
+             N/A
 
         Returns:
             Response: scrapli response object
@@ -696,8 +660,8 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
             N/A
 
         """
-        if file_prompt_mode is None:
-            file_prompt_mode = self._determine_file_prompt_mode()
+        # we always re-check file prompt mode because it could have changed!
+        file_prompt_mode = self._determine_file_prompt_mode()
 
         if file_prompt_mode == FilePromptMode.ALERT:
             save_events = [
@@ -789,7 +753,7 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
 
         scrapli_responses.append(commit_result)
 
-        save_config_result = self.save_config(file_prompt_mode=file_prompt_mode)
+        save_config_result = self.save_config()
         scrapli_responses.append(save_config_result)
 
         if self.cleanup_post_commit:
@@ -900,14 +864,13 @@ Raises:
     
 
 ##### save_config
-`save_config(self, file_prompt_mode: Optional[scrapli_cfg.platform.core.cisco_iosxe.base_platform.FilePromptMode] = None) ‑> scrapli.response.Response`
+`save_config(self) ‑> scrapli.response.Response`
 
 ```text
 Save the config -- "copy run start"!
 
 Args:
-     file_prompt_mode: optionally provide the file prompt mode, if its None we will fetch it
-         to decide if we need to use interactive mode or not
+     N/A
 
 Returns:
     Response: scrapli response object
