@@ -6,28 +6,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Scrapli CFG: Configuration management with scrapli">
+        <meta name="description" content="Network device configuration management with scrapli">
       
       
       
         <meta name="author" content="Carl Montanari">
       
       
-        <link rel="canonical" href="https://github.com/scrapli/scrapli_cfg/user_guide/basic_usage/">
-      
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.2">
     
     
       
-        <title>Basic Usage - Scrapli CFG</title>
+        <title>Basic Usage - Scrapli Cfg</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f955dcd.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
           
           
@@ -59,8 +57,9 @@
     
     
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="teal">
-      
   
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -77,11 +76,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="https://github.com/scrapli/scrapli_cfg" title="Scrapli CFG" class="md-header__button md-logo" aria-label="Scrapli CFG">
+    <a href="../.." title="Scrapli Cfg" class="md-header__button md-logo" aria-label="Scrapli Cfg" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -94,7 +91,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Scrapli CFG
+            Scrapli Cfg
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -106,9 +103,8 @@
         </div>
       </div>
     </div>
-    <div class="md-header__options">
-      
-    </div>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
@@ -124,7 +120,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
       <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
@@ -173,17 +169,15 @@
                     
 
 
-
-
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://github.com/scrapli/scrapli_cfg" title="Scrapli CFG" class="md-nav__button md-logo" aria-label="Scrapli CFG">
+    <a href="../.." title="Scrapli Cfg" class="md-nav__button md-logo" aria-label="Scrapli Cfg" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Scrapli CFG
+    Scrapli Cfg
   </label>
   
     <div class="md-nav__source">
@@ -300,6 +294,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -314,6 +309,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -405,6 +401,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-prepare" class="md-nav__link">
+    On Prepare
+  </a>
   
 </li>
       
@@ -1096,8 +1099,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../more_scrapli/nornir_scrapli/" class="md-nav__link">
-        Nornir Scrapli
+      <a href="../../more_scrapli/scrapli_replay/" class="md-nav__link">
+        Scrapli Replay
       </a>
     </li>
   
@@ -1108,8 +1111,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../more_scrapli/scrapli_stubs/" class="md-nav__link">
-        Scrapli Stubs
+      <a href="../../more_scrapli/nornir_scrapli/" class="md-nav__link">
+        Nornir Scrapli
       </a>
     </li>
   
@@ -1188,6 +1191,7 @@
                   <div class="md-sidebar__inner">
                     
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1282,6 +1286,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#on-prepare" class="md-nav__link">
+    On Prepare
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1339,9 +1350,29 @@ device. You can create your connection object directly from the appropriate scra
 <li><code>juniper_junos</code></li>
 </ul>
 <h2 id="driver-arguments">Driver Arguments<a class="headerlink" href="#driver-arguments" title="Permanent link">&para;</a></h2>
-<p>scrapli_cfg doesn't have a lot of options/arguments that you need to worry about! The most important argument is the 
+<p>scrapli_cfg doesn't have a ton of arguments/options that you need to worry about! The most important argument is the 
 <code>conn</code> argument -- which is expecting a scrapli connection that is built from the <code>NetworkDriver</code>. This connection 
 must be from one of the "core" scrapli platforms (EOS, IOSXE, IOSXR, NXOS, JunOS).</p>
+<p>The other remaining primary arguments are as follows:</p>
+<ul>
+<li><code>config_sources</code>: Generally ignored/handled by the platform implementation for you. A list of strings representing 
+  the valid config sources, i.e. "running", "candidate", or "startup"</li>
+<li><code>on_prepare</code>: A callable (sync or async depending on your code of course) that is executed during the <code>prepare</code> 
+  method; initially scrapli-cfg contained a default callable that would disable console logging (in most cases), 
+  however as this actually made changes to your device that were somewhat "magic" it was removed. Now, users can 
+  pass an <code>on_prepare</code> callable to disable console logging, or really anything else they want. This callable should 
+  accept <code>cls</code> as the first argument which is a reference to the scrapli-cfg object itself (and thus has access to 
+  the underlying scrapli connection). More on this in the <a href="#on-prepare"><code>on_prepare</code> section</a>.</li>
+<li><code>dedicated_connection</code>: If <code>False</code> (default value) scrapli cfg will not open or close the underlying scrapli 
+  connection and will raise an exception if the scrapli connection is not open. If <code>True</code> will automatically open 
+  and close the scrapli connection when using with a context manager, <code>prepare</code> will open the scrapli connection (if 
+  not already open), and <code>close</code> will close the scrapli connection.</li>
+<li><code>ignore_version</code>: Ignore checking device version support; currently this just means that scrapli-cfg will not 
+  fetch the device version during the prepare phase, however this will (hopefully) be used in the future to limit 
+  what methods can be used against a target device. For example, for EOS devices we need &gt; 4.14 to load configs; so 
+  if a device is encountered at 4.13 the version check would raise an exception rather than just failing in a 
+  potentially awkward fashion.</li>
+</ul>
 <p>There are no additional arguments for creating a scrapli_cfg object, though each platform may have other 
 optional arguments as necessary -- check the docs/class for those.</p>
 <h2 id="scrapli_cfg-methods">scrapli_cfg Methods<a class="headerlink" href="#scrapli_cfg-methods" title="Permanent link">&para;</a></h2>
@@ -1382,11 +1413,11 @@ needs in order to manage the configurations. </p>
    <span class="s2">&quot;auth_strict_key&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
-<span class="n">version_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">version_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+    <span class="n">cfg_conn</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="n">version_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">version_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="get-config">Get Config<a class="headerlink" href="#get-config" title="Permanent link">&para;</a></h3>
@@ -1418,11 +1449,11 @@ like to get -- generally this will be either "startup" or "running".</p>
    <span class="s2">&quot;auth_strict_key&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
-<span class="n">cfg_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;startup&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cfg_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+    <span class="n">cfg_conn</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="n">cfg_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;startup&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cfg_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="get-checkpoint-nxos-only">Get Checkpoint (NXOS Only)<a class="headerlink" href="#get-checkpoint-nxos-only" title="Permanent link">&para;</a></h3>
@@ -1456,11 +1487,11 @@ as <code>get_config</code>, just resulting in fetching a checkpoint file. Some d
    <span class="s2">&quot;auth_strict_key&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_nxos&quot;</span>
 <span class="p">}</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
-<span class="n">chkpoint_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_checkpoint</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">chkpoint_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+    <span class="n">cfg_conn</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="n">chkpoint_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">get_checkpoint</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">chkpoint_result</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="load-config">Load Config<a class="headerlink" href="#load-config" title="Permanent link">&para;</a></h3>
@@ -1500,11 +1531,11 @@ as a full <em>replace</em> candidate.</p>
    <span class="s2">&quot;auth_strict_key&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
-<span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+    <span class="n">cfg_conn</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>Note that <em>loading</em> a configuration does <em>not</em> apply the configuration! This simply will create a configuration 
@@ -1544,13 +1575,13 @@ candidate config/delete config sessions used to load the config.</p>
    <span class="s2">&quot;auth_strict_key&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
-<span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
-<span class="n">abort_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">abort_config</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">abort_result</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+    <span class="n">cfg_conn</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
+    <span class="n">abort_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">abort_config</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">abort_result</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="commit-config">Commit Config<a class="headerlink" href="#commit-config" title="Permanent link">&para;</a></h3>
@@ -1587,13 +1618,13 @@ candidate config/delete config sessions used to load the config.</p>
    <span class="s2">&quot;auth_strict_key&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
-<span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
-<span class="n">commit_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">commit_config</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">commit_result</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+    <span class="n">cfg_conn</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
+    <span class="n">commit_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">commit_config</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">commit_result</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="diff-config">Diff Config<a class="headerlink" href="#diff-config" title="Permanent link">&para;</a></h3>
@@ -1641,15 +1672,15 @@ the diff will always show the "full" configuration diff (with colorful output th
    <span class="s2">&quot;auth_strict_key&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;cisco_iosxe&quot;</span>
 <span class="p">}</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
-<span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
-<span class="n">diff_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">diff_config</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">diff_result</span><span class="o">.</span><span class="n">device_diff</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">diff_result</span><span class="o">.</span><span class="n">unified_diff</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">diff_result</span><span class="o">.</span><span class="n">side_by_side_diff</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+    <span class="n">cfg_conn</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
+    <span class="n">diff_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">diff_config</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">diff_result</span><span class="o">.</span><span class="n">device_diff</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">diff_result</span><span class="o">.</span><span class="n">unified_diff</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">diff_result</span><span class="o">.</span><span class="n">side_by_side_diff</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h3 id="render-substituted-config">Render Substituted Config<a class="headerlink" href="#render-substituted-config" title="Permanent link">&para;</a></h3>
@@ -1700,14 +1731,14 @@ designed to help you with.</p>
    <span class="s2">&quot;auth_strict_key&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
    <span class="s2">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;arista_eos&quot;</span>
 <span class="p">}</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">cfg_conn</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
-<span class="n">rendered_config</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">render_substituted_config</span><span class="p">(</span>
-    <span class="n">config_template</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">substitutes</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;ethernet_interfaces&quot;</span><span class="p">,</span> <span class="n">ETHERNET_INTERFACES</span><span class="p">)]</span>
-<span class="p">)</span>
-<span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">Scrapli</span><span class="p">(</span><span class="o">**</span><span class="n">device</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">cfg_conn</span> <span class="o">=</span> <span class="n">ScrapliCfg</span><span class="p">(</span><span class="n">conn</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+    <span class="n">cfg_conn</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+    <span class="n">rendered_config</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">render_substituted_config</span><span class="p">(</span>
+        <span class="n">config_template</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">substitutes</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;ethernet_interfaces&quot;</span><span class="p">,</span> <span class="n">ETHERNET_INTERFACES</span><span class="p">)]</span>
+    <span class="p">)</span>
+    <span class="n">load_result</span> <span class="o">=</span> <span class="n">cfg_conn</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">load_result</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>In the above example we have a fairly "normal" scrapli_cfg setup -- create a connection and open it. Once the 
@@ -1762,6 +1793,18 @@ interface Management1
 easily do configuration replaces without having to fully template out device configs. The obvious downside to this 
 method is that it may require fairly complicated regular expressions in order to properly slice and dice the real 
 config.</p>
+<h2 id="on-prepare">On Prepare<a class="headerlink" href="#on-prepare" title="Permanent link">&para;</a></h2>
+<p>The <code>on_prepare</code> argument of the scrapli-cfg objects gives users the opportunity to pass a callable that will be 
+executed prior to any operations occurring (this happens during the aptly named "prepare" method which you should be 
+calling prior to using scrapli_cfg operations -- note that if you use the context manager functionality this will 
+already be called for you!). The purpose of this <code>on_prepare</code> callable is to... prepare a device for config 
+operations. Initially scrapli_cfg platforms contained a sane default <code>on_prepare</code> function that basically just 
+disabled console logging. The reasoning for disabling console logging is to ensure that any <code>get_config</code> operations 
+don't have log messages garbling up the output.</p>
+<p>This "sane default" setting has since been removed as it was a bit too much "magic" -- meaning that it felt wrong 
+for scrapli_cfg to be making any kind of persistent configuration changes to your devices potentially without users 
+being aware that was happening. As such, it would be a good idea to provide an <code>on_prepare</code> callable to at the very 
+least disable console logging.</p>
                 
               
               
@@ -1772,6 +1815,7 @@ config.</p>
             </article>
           </div>
         </div>
+        
       </main>
       
         
@@ -1818,6 +1862,7 @@ config.</p>
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs
         </a>
+        
       </div>
       
   <div class="md-footer-social">
@@ -1868,10 +1913,10 @@ config.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
       
     
   </body>

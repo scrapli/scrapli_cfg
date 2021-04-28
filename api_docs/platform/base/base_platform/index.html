@@ -6,28 +6,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Scrapli CFG: Configuration management with scrapli">
+        <meta name="description" content="Network device configuration management with scrapli">
       
       
       
         <meta name="author" content="Carl Montanari">
       
       
-        <link rel="canonical" href="https://github.com/scrapli/scrapli_cfg/api_docs/platform/base/base_platform/">
-      
-      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.2">
     
     
       
-        <title>Base platform - Scrapli CFG</title>
+        <title>Base platform - Scrapli Cfg</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6f955dcd.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ef6f36e2.min.css">
         
           
           
@@ -59,8 +57,9 @@
     
     
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="teal">
-      
   
+    
+    <script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -77,11 +76,9 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="https://github.com/scrapli/scrapli_cfg" title="Scrapli CFG" class="md-header__button md-logo" aria-label="Scrapli CFG">
+    <a href="../../../.." title="Scrapli Cfg" class="md-header__button md-logo" aria-label="Scrapli Cfg" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -94,7 +91,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Scrapli CFG
+            Scrapli Cfg
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -106,9 +103,8 @@
         </div>
       </div>
     </div>
-    <div class="md-header__options">
-      
-    </div>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
@@ -124,7 +120,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
       <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
@@ -173,17 +169,15 @@
                     
 
 
-
-
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://github.com/scrapli/scrapli_cfg" title="Scrapli CFG" class="md-nav__button md-logo" aria-label="Scrapli CFG">
+    <a href="../../../.." title="Scrapli Cfg" class="md-nav__button md-logo" aria-label="Scrapli Cfg" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Scrapli CFG
+    Scrapli Cfg
   </label>
   
     <div class="md-nav__source">
@@ -980,8 +974,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../more_scrapli/nornir_scrapli/" class="md-nav__link">
-        Nornir Scrapli
+      <a href="../../../../more_scrapli/scrapli_replay/" class="md-nav__link">
+        Scrapli Replay
       </a>
     </li>
   
@@ -992,8 +986,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../more_scrapli/scrapli_stubs/" class="md-nav__link">
-        Scrapli Stubs
+      <a href="../../../../more_scrapli/nornir_scrapli/" class="md-nav__link">
+        Nornir Scrapli
       </a>
     </li>
   
@@ -1072,6 +1066,7 @@
                   <div class="md-sidebar__inner">
                     
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1156,7 +1151,7 @@ from typing import List, Pattern, Tuple, Union
 
 from scrapli.driver import AsyncNetworkDriver, NetworkDriver
 from scrapli.logging import get_instance_logger
-from scrapli.response import Response
+from scrapli.response import MultiResponse, Response
 from scrapli_cfg.diff import ScrapliCfgDiffResponse
 from scrapli_cfg.exceptions import (
     AbortConfigError,
@@ -1165,6 +1160,7 @@ from scrapli_cfg.exceptions import (
     GetConfigError,
     InvalidConfigTarget,
     LoadConfigError,
+    PrepareNotCalled,
     TemplateError,
     VersionError,
 )
@@ -1182,9 +1178,12 @@ class ScrapliCfgBase:
         self.config_sources = config_sources
         self.candidate_config = ""
 
-        self._ignore_version = ignore_version
+        self.ignore_version = ignore_version
         self._get_version_command = ""
         self._version_string = ""
+
+        # bool indicated if a `on_prepare` callable has been executed or not
+        self._prepared = False
 
     def _render_substituted_config(
         self, config_template: str, substitutes: List[Tuple[str, Pattern[str]]], source_config: str
@@ -1266,7 +1265,7 @@ class ScrapliCfgBase:
 
         """
         if version_response.failed:
-            msg = "getting version from device failed"
+            msg = "failed getting version from device"
             self.logger.critical(msg)
             raise VersionError(msg)
         if not version_response.result:
@@ -1274,6 +1273,77 @@ class ScrapliCfgBase:
             self.logger.critical(msg)
             raise VersionError(msg)
         self._version_string = version_response.result
+
+    def _prepare_ok(self) -> None:
+        """
+        Determine if prepare is "OK" for a given operation
+
+        Checks if an `on_prepare` callable has been provided, and if so, if it has been executed.
+        This is meant to help force users into calling `prepare` or using the context manager prior
+        to running any methods.
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            PrepareNotCalled: if `on_prepare` is not None and `_prepared` is False
+
+        """
+        # ignoring type/complaints as `on_prepare` will always be set in the sync/async classes;
+        # but is not set here since in one its a coroutine and the other not
+        _on_prepare = self.on_prepare  # type: ignore  # noqa
+        if _on_prepare is not None and self._prepared is False:
+            raise PrepareNotCalled(
+                "on_prepare callable provided, but prepare method not called. call prepare method "
+                "or use context manager to ensure it is called for you"
+            )
+
+    def _version_ok(self) -> None:
+        """
+        Determine if version is "OK" for a given operation
+
+        Should be overridden and super'd to by platforms that implement version constraints, will
+        simply check that if `ignore_version` is `False` we have set the internal `_version_string`
+        attribute, if not, will raise `PrepareNotCalled` exception.
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            PrepareNotCalled: if ignore version is False and _version_string not set
+
+        """
+        if self.ignore_version is False and not self._version_string:
+            raise PrepareNotCalled(
+                "ignore_version is False, but version has not yet been fetched. call prepare method"
+                " or use context manager to ensure that version is properly gathered"
+            )
+
+    def _operation_ok(self) -> None:
+        """
+        Determine if all values are "OK" for a given operation
+
+        Checks if version and prepare are ok. Convenience func to just have one thing to call in the
+        `_pre` operation methods.
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            N/A
+
+        """
+        self._prepare_ok()
+        self._version_ok()
 
     def _pre_get_version(self) -> ScrapliCfgResponse:
         """
@@ -1341,6 +1411,8 @@ class ScrapliCfgBase:
         """
         self.logger.info(f"get_config for config source '{source}' requested")
 
+        self._operation_ok()
+
         if source not in self.config_sources:
             msg = (
                 f"provided config source '{source}' not valid, must be one of {self.config_sources}"
@@ -1358,7 +1430,7 @@ class ScrapliCfgBase:
         self,
         response: ScrapliCfgResponse,
         source: str,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
         result: str,
     ) -> ScrapliCfgResponse:
         """
@@ -1401,6 +1473,8 @@ class ScrapliCfgBase:
 
         """
         self.logger.info("load_config requested")
+
+        self._operation_ok()
 
         self.candidate_config = config
 
@@ -1455,6 +1529,8 @@ class ScrapliCfgBase:
         """
         self.logger.info("abort_config requested")
 
+        self._operation_ok()
+
         if session_or_config_file is False:
             msg = (
                 "no configuration session or candidate configuration file exists, you must load a "
@@ -1472,7 +1548,7 @@ class ScrapliCfgBase:
     def _post_abort_config(
         self,
         response: ScrapliCfgResponse,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
     ) -> ScrapliCfgResponse:
         """
         Handle post "abort_config" operations for parity between sync and async
@@ -1515,6 +1591,8 @@ class ScrapliCfgBase:
         """
         self.logger.info(f"get_config for config source '{source}' requested")
 
+        self._operation_ok()
+
         if source not in self.config_sources:
             msg = (
                 f"provided config source '{source}' not valid, must be one of {self.config_sources}"
@@ -1539,7 +1617,7 @@ class ScrapliCfgBase:
     def _post_commit_config(
         self,
         response: ScrapliCfgResponse,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
     ) -> ScrapliCfgResponse:
         """
         Handle post "commit_config" operations for parity between sync and async
@@ -1581,6 +1659,8 @@ class ScrapliCfgBase:
 
         """
         self.logger.info("diff_config requested")
+
+        self._operation_ok()
 
         if source not in self.config_sources:
             msg = (
@@ -1659,9 +1739,12 @@ class ScrapliCfgBase:
         self.config_sources = config_sources
         self.candidate_config = ""
 
-        self._ignore_version = ignore_version
+        self.ignore_version = ignore_version
         self._get_version_command = ""
         self._version_string = ""
+
+        # bool indicated if a `on_prepare` callable has been executed or not
+        self._prepared = False
 
     def _render_substituted_config(
         self, config_template: str, substitutes: List[Tuple[str, Pattern[str]]], source_config: str
@@ -1743,7 +1826,7 @@ class ScrapliCfgBase:
 
         """
         if version_response.failed:
-            msg = "getting version from device failed"
+            msg = "failed getting version from device"
             self.logger.critical(msg)
             raise VersionError(msg)
         if not version_response.result:
@@ -1751,6 +1834,77 @@ class ScrapliCfgBase:
             self.logger.critical(msg)
             raise VersionError(msg)
         self._version_string = version_response.result
+
+    def _prepare_ok(self) -> None:
+        """
+        Determine if prepare is "OK" for a given operation
+
+        Checks if an `on_prepare` callable has been provided, and if so, if it has been executed.
+        This is meant to help force users into calling `prepare` or using the context manager prior
+        to running any methods.
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            PrepareNotCalled: if `on_prepare` is not None and `_prepared` is False
+
+        """
+        # ignoring type/complaints as `on_prepare` will always be set in the sync/async classes;
+        # but is not set here since in one its a coroutine and the other not
+        _on_prepare = self.on_prepare  # type: ignore  # noqa
+        if _on_prepare is not None and self._prepared is False:
+            raise PrepareNotCalled(
+                "on_prepare callable provided, but prepare method not called. call prepare method "
+                "or use context manager to ensure it is called for you"
+            )
+
+    def _version_ok(self) -> None:
+        """
+        Determine if version is "OK" for a given operation
+
+        Should be overridden and super'd to by platforms that implement version constraints, will
+        simply check that if `ignore_version` is `False` we have set the internal `_version_string`
+        attribute, if not, will raise `PrepareNotCalled` exception.
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            PrepareNotCalled: if ignore version is False and _version_string not set
+
+        """
+        if self.ignore_version is False and not self._version_string:
+            raise PrepareNotCalled(
+                "ignore_version is False, but version has not yet been fetched. call prepare method"
+                " or use context manager to ensure that version is properly gathered"
+            )
+
+    def _operation_ok(self) -> None:
+        """
+        Determine if all values are "OK" for a given operation
+
+        Checks if version and prepare are ok. Convenience func to just have one thing to call in the
+        `_pre` operation methods.
+
+        Args:
+            N/A
+
+        Returns:
+            None
+
+        Raises:
+            N/A
+
+        """
+        self._prepare_ok()
+        self._version_ok()
 
     def _pre_get_version(self) -> ScrapliCfgResponse:
         """
@@ -1818,6 +1972,8 @@ class ScrapliCfgBase:
         """
         self.logger.info(f"get_config for config source '{source}' requested")
 
+        self._operation_ok()
+
         if source not in self.config_sources:
             msg = (
                 f"provided config source '{source}' not valid, must be one of {self.config_sources}"
@@ -1835,7 +1991,7 @@ class ScrapliCfgBase:
         self,
         response: ScrapliCfgResponse,
         source: str,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
         result: str,
     ) -> ScrapliCfgResponse:
         """
@@ -1878,6 +2034,8 @@ class ScrapliCfgBase:
 
         """
         self.logger.info("load_config requested")
+
+        self._operation_ok()
 
         self.candidate_config = config
 
@@ -1932,6 +2090,8 @@ class ScrapliCfgBase:
         """
         self.logger.info("abort_config requested")
 
+        self._operation_ok()
+
         if session_or_config_file is False:
             msg = (
                 "no configuration session or candidate configuration file exists, you must load a "
@@ -1949,7 +2109,7 @@ class ScrapliCfgBase:
     def _post_abort_config(
         self,
         response: ScrapliCfgResponse,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
     ) -> ScrapliCfgResponse:
         """
         Handle post "abort_config" operations for parity between sync and async
@@ -1992,6 +2152,8 @@ class ScrapliCfgBase:
         """
         self.logger.info(f"get_config for config source '{source}' requested")
 
+        self._operation_ok()
+
         if source not in self.config_sources:
             msg = (
                 f"provided config source '{source}' not valid, must be one of {self.config_sources}"
@@ -2016,7 +2178,7 @@ class ScrapliCfgBase:
     def _post_commit_config(
         self,
         response: ScrapliCfgResponse,
-        scrapli_responses: List[Response],
+        scrapli_responses: List[Union[Response, MultiResponse]],
     ) -> ScrapliCfgResponse:
         """
         Handle post "commit_config" operations for parity between sync and async
@@ -2058,6 +2220,8 @@ class ScrapliCfgBase:
 
         """
         self.logger.info("diff_config requested")
+
+        self._operation_ok()
 
         if source not in self.config_sources:
             msg = (
@@ -2134,6 +2298,7 @@ class ScrapliCfgBase:
             </article>
           </div>
         </div>
+        
       </main>
       
         
@@ -2147,6 +2312,7 @@ class ScrapliCfgBase:
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs
         </a>
+        
       </div>
       
   <div class="md-footer-social">
@@ -2197,10 +2363,10 @@ class ScrapliCfgBase:
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.4ea5477f.min.js"></script>
       
     
   </body>
