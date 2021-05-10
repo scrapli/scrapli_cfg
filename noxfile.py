@@ -60,7 +60,7 @@ REQUIREMENTS: Dict[str, str] = parse_requirements(dev=False)
 DEV_REQUIREMENTS: Dict[str, str] = parse_requirements(dev=True)
 
 
-@nox.session(python=["3.6", "3.7", "3.8", "3.9"])
+@nox.session(python=["3.6", "3.7", "3.8", "3.9", "3.10"])
 def unit_tests(session):
     """
     Nox run unit tests
