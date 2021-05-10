@@ -76,7 +76,8 @@ def unit_tests(session):
         N/A
 
     """
-    if sys.platform.startswith("darwin"):
+    if sys.platform.startswith("darwin") and session.python == "3.10":
+        # ssh2-python not currently installable on darwin w/ 3.10
         return
 
     session.install("-r", "requirements-dev.txt")
