@@ -1,5 +1,6 @@
 """scrapli_cfg.noxfile"""
 import re
+import sys
 from pathlib import Path
 from typing import Dict, List
 
@@ -75,6 +76,9 @@ def unit_tests(session):
         N/A
 
     """
+    if sys.platform.startswith("darwin"):
+        return
+
     session.install("-r", "requirements-dev.txt")
     session.install(".")
     session.run(

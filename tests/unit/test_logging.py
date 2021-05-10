@@ -1,10 +1,13 @@
 import logging
-import re
+import sys
 from pathlib import Path
+
+import pytest
 
 from scrapli_cfg.logging import ScrapliFileHandler, ScrapliFormatter, enable_basic_logging, logger
 
 
+@pytest.mark.skipif(sys.version_info > (3, 9), reason="skipping pending pyfakefs 3.10 support")
 def test_enable_basic_logging(fs):
     assert Path("scrapli_cfg.log").is_file() is False
     enable_basic_logging(file=True, level="debug")
@@ -22,6 +25,7 @@ def test_enable_basic_logging(fs):
     del logger.handlers[1]
 
 
+@pytest.mark.skipif(sys.version_info > (3, 9), reason="skipping pending pyfakefs 3.10 support")
 def test_enable_basic_logging_no_buffer(fs):
     assert Path("mylog.log").is_file() is False
 
