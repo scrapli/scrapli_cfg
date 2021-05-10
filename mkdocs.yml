@@ -40,7 +40,6 @@ nav:
           - Async Platform: api_docs/platform/core/cisco_iosxe/async_platform.md
           - Sync Platform: api_docs/platform/core/cisco_iosxe/sync_platform.md
           - Patterns: api_docs/platform/core/cisco_iosxe/patterns.md
-          - Types: api_docs/platform/core/cisco_iosxe/types.md
         - Cisco IOSXR:
           - Base Platform: api_docs/platform/core/cisco_iosxr/async_platform.md
           - Async Platform: api_docs/platform/core/cisco_iosxr/async_platform.md
