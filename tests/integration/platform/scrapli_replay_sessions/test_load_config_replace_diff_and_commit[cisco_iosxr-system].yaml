@@ -2,7 +2,7 @@ localhost:23022:SystemTransport::0:
   connection_profile:
     host: localhost
     port: 23022
-    auth_username: vrnetlab
+    auth_username: boxen
     auth_password: true
     auth_private_key: ''
     auth_private_key_passphrase: false
@@ -26,19 +26,19 @@ localhost:23022:SystemTransport::0:
     - channel_output: terminal length 0
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:53:51.885 UTC\nRP/0/RP0/CPU0:ios#"
+    - channel_output: "\nSat May 29 16:58:03.235 UTC\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: terminal width 512
       expected_channel_input_redacted: false
     - channel_output: terminal width 512
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:53:51.972 UTC\nRP/0/RP0/CPU0:ios#"
+    - channel_output: "\nSat May 29 16:58:03.393 UTC\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: show version | i Version
       expected_channel_input_redacted: false
     - channel_output: show version | i Version
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:53:52.079 UTC\nCisco IOS XR Software, Version\
+    - channel_output: "\nSat May 29 16:58:03.543 UTC\nCisco IOS XR Software, Version\
         \ 6.5.3\n Version      : 6.5.3\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
@@ -48,7 +48,7 @@ localhost:23022:SystemTransport::0:
     - channel_output: configure terminal
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:53:52.206 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    - channel_output: "\nSat May 29 16:58:03.760 UTC\nRP/0/RP0/CPU0:ios(config)#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
@@ -88,9 +88,9 @@ localhost:23022:SystemTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
-      expected_channel_input: username vrnetlab
+      expected_channel_input: username boxen
       expected_channel_input_redacted: false
-    - channel_output: username vrnetlab
+    - channel_output: username boxen
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nRP/0/RP0/CPU0:ios(config-un)#"
@@ -106,9 +106,9 @@ localhost:23022:SystemTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nRP/0/RP0/CPU0:ios(config-un)#"
-      expected_channel_input: ' secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0'
+      expected_channel_input: ' secret 5 $1$fW1M$wIX/Q6Qpcg06QmgxVETb9/'
       expected_channel_input_redacted: false
-    - channel_output: ' secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0'
+    - channel_output: ' secret 5 $1$fW1M$wIX/Q6Qpcg06QmgxVETb9/'
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nRP/0/RP0/CPU0:ios(config-un)#"
@@ -2541,7 +2541,7 @@ localhost:23022:SystemTransport::0:
     - channel_output: show configuration changes diff
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:53:59.179 UTC\nBuilding configuration...\n\
+    - channel_output: "\nSat May 29 16:58:11.274 UTC\nBuilding configuration...\n\
         !! IOS XR Configuration version = 6.5.3\n+  interface MgmtEth0/RP0/CPU0/0\n\
         +  !\n+  interface GigabitEthernet0/0/0/0\n+  !\n+  interface GigabitEthernet0/0/0/1\n\
         +  !\n+  interface GigabitEthernet0/0/0/2\n+  !\n+  interface GigabitEthernet0/0/0/3\n\
@@ -2613,10 +2613,10 @@ localhost:23022:SystemTransport::0:
     - channel_output: show running-config
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:53:59.866 UTC\nBuilding configuration...\n\
-        !! IOS XR Configuration version = 6.5.3\n!! Last configuration change at Tue\
-        \ Apr 27 00:13:12 2021 by vrnetlab\n!\ntelnet vrf default ipv4 server max-servers\
-        \ 10\nusername vrnetlab\n group root-lr\n group cisco-support\n secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0\n\
+    - channel_output: "\nSat May 29 16:58:11.971 UTC\nBuilding configuration...\n\
+        !! IOS XR Configuration version = 6.5.3\n!! Last configuration change at Sat\
+        \ May 29 16:56:12 2021 by boxen\n!\ntelnet vrf default ipv4 server max-servers\
+        \ 10\nusername boxen\n group root-lr\n group cisco-support\n secret 5 $1$fW1M$wIX/Q6Qpcg06QmgxVETb9/\n\
         !\ncall-home\n service active\n contact smart-licensing\n profile CiscoTAC-1\n\
         \  active\n  destination transport-method http\n !\n!\ninterface MgmtEth0/RP0/CPU0/0\n\
         \ ipv4 address 10.0.0.15 255.255.255.0\n!\ninterface GigabitEthernet0/0/0/0\n\
@@ -2710,7 +2710,7 @@ localhost:23022:SystemTransport::0:
     - channel_output: commit replace
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:54:00.494 UTC\n\nThis commit will replace or\
+    - channel_output: "\nSat May 29 16:58:12.718 UTC\n\nThis commit will replace or\
         \ remove the entire running configuration. This\noperation can be service\
         \ affecting.\nDo you wish to proceed? [no]: "
       expected_channel_input: yes

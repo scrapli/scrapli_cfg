@@ -1,15 +1,15 @@
-## Last commit: 2021-03-07 19:15:24 UTC by vrnetlab
+## Last commit: 2021-03-07 19:15:24 UTC by boxen
 version 17.3R2.10;
 system {
     root-authentication {
-        encrypted-password "$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F."; ## SECRET-DATA
+        encrypted-password "$6$Adf5A57s$5Iu/Tdzi/qQuSA.9tV.przrz51avKm.6TvJMBF42zODEM/d7.cvk2Y/kIeLinV5R.HGEEOOD6wane6Xs6rbfT0"; ## SECRET-DATA
     }
     login {
-        user vrnetlab {
+        user boxen {
             uid 2000;
             class super-user;
             authentication {
-                encrypted-password "$6$1tKhsTEi$VjaGckqjhgSqaZf5rrWqlhDkI1xAsaTWxFRtVQQnpE4qaeIWFuQUZ3GulwPfBYq2RLSTTl/ZnyyZJrcBl.7lP0"; ## SECRET-DATA
+                encrypted-password "$6$SDiXXE9D$KTq4es.BGkdh5IlSxbDhCFn8yWkaFxsjEhmbi4cd53hc9aNfOVmtL1iJiQKEUkgQOdYRvyJetjzygVsVR3CCf."; ## SECRET-DATA
             }
         }
     }

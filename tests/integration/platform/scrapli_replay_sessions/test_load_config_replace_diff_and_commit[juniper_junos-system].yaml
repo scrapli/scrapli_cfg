@@ -2,7 +2,7 @@ localhost:25022:SystemTransport::0:
   connection_profile:
     host: localhost
     port: 25022
-    auth_username: vrnetlab
+    auth_username: boxen
     auth_password: true
     auth_private_key: ''
     auth_private_key_passphrase: false
@@ -17,37 +17,37 @@ localhost:25022:SystemTransport::0:
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n--- JUNOS 17.3R2.10 built 2018-02-08 02:19:07 UTC\nvrnetlab> "
+    - channel_output: "\n--- JUNOS 17.3R2.10 built 2018-02-08 02:19:07 UTC\nboxen> "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n\nvrnetlab> "
+    - channel_output: "\n\nboxen> "
       expected_channel_input: set cli screen-length 0
       expected_channel_input_redacted: false
     - channel_output: set cli screen-length 0
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \nScreen length set to 0\n\nvrnetlab> "
+    - channel_output: " \nScreen length set to 0\n\nboxen> "
       expected_channel_input: set cli screen-width 511
       expected_channel_input_redacted: false
     - channel_output: set cli screen-width 511
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \nScreen width set to 511\n\nvrnetlab> "
+    - channel_output: " \nScreen width set to 511\n\nboxen> "
       expected_channel_input: set cli complete-on-space off
       expected_channel_input_redacted: false
     - channel_output: set cli complete-on-space off
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \nDisabling complete-on-space\n\nvrnetlab> "
+    - channel_output: " \nDisabling complete-on-space\n\nboxen> "
       expected_channel_input: 'show version | grep junos:'
       expected_channel_input_redacted: false
     - channel_output: 'show version | grep junos:'
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \nJunos: 17.3R2.10\n\nvrnetlab> "
+    - channel_output: " \nJunos: 17.3R2.10\n\nboxen> "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n\nvrnetlab> "
+    - channel_output: "\n\nboxen> "
       expected_channel_input: start shell user root
       expected_channel_input_redacted: false
     - channel_output: start shell user root
@@ -64,10 +64,10 @@ localhost:25022:SystemTransport::0:
       expected_channel_input_redacted: false
     - channel_output: "\nroot@% "
       expected_channel_input: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '## Last\
-        \ commit: 2021-03-07 19:15:24 UTC by vrnetlab'"
+        \ commit: 2021-03-07 19:15:24 UTC by boxen'"
       expected_channel_input_redacted: false
     - channel_output: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '## Last commit:\
-        \ 2021-03-07 19:15:24 UTC by vrnetlab'"
+        \ 2021-03-07 19:15:24 UTC by boxen'"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nroot@% "
@@ -94,11 +94,11 @@ localhost:25022:SystemTransport::0:
       expected_channel_input_redacted: false
     - channel_output: "\nroot@% "
       expected_channel_input: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    \
-        \    encrypted-password \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
+        \    encrypted-password \"$6$Adf5A57s$5Iu/Tdzi/qQuSA.9tV.przrz51avKm.6TvJMBF42zODEM/d7.cvk2Y/kIeLinV5R.HGEEOOD6wane6Xs6rbfT0\"\
         ; ## SECRET-DATA'"
       expected_channel_input_redacted: false
     - channel_output: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        encrypted-password\
-        \ \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
+        \ \"$6$Adf5A57s$5Iu/Tdzi/qQuSA.9tV.przrz51avKm.6TvJMBF42zODEM/d7.cvk2Y/kIeLinV5R.HGEEOOD6wane6Xs6rbfT0\"\
         ; ## SECRET-DATA'"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
@@ -117,9 +117,9 @@ localhost:25022:SystemTransport::0:
       expected_channel_input_redacted: false
     - channel_output: "\nroot@% "
       expected_channel_input: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        user
-        vrnetlab {'
+        boxen {'
       expected_channel_input_redacted: false
-    - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        user vrnetlab
+    - channel_output: echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '        user boxen
         {'
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
@@ -149,11 +149,11 @@ localhost:25022:SystemTransport::0:
       expected_channel_input_redacted: false
     - channel_output: "\nroot@% "
       expected_channel_input: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '    \
-        \            encrypted-password \"$6$1tKhsTEi$VjaGckqjhgSqaZf5rrWqlhDkI1xAsaTWxFRtVQQnpE4qaeIWFuQUZ3GulwPfBYq2RLSTTl/ZnyyZJrcBl.7lP0\"\
+        \            encrypted-password \"$6$SDiXXE9D$KTq4es.BGkdh5IlSxbDhCFn8yWkaFxsjEhmbi4cd53hc9aNfOVmtL1iJiQKEUkgQOdYRvyJetjzygVsVR3CCf.\"\
         ; ## SECRET-DATA'"
       expected_channel_input_redacted: false
     - channel_output: "echo >> /config/__SCRAPLI_CFG_SESSION_NAME__ '            \
-        \    encrypted-password \"$6$1tKhsTEi$VjaGckqjhgSqaZf5rrWqlhDkI1xAsaTWxFRtVQQnpE4qaeIWFuQUZ3GulwPfBYq2RLSTTl/ZnyyZJrcBl.7lP0\"\
+        \    encrypted-password \"$6$SDiXXE9D$KTq4es.BGkdh5IlSxbDhCFn8yWkaFxsjEhmbi4cd53hc9aNfOVmtL1iJiQKEUkgQOdYRvyJetjzygVsVR3CCf.\"\
         ; ## SECRET-DATA'"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
@@ -878,42 +878,42 @@ localhost:25022:SystemTransport::0:
     - channel_output: exit
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nexit\n\nvrnetlab> "
+    - channel_output: "\nexit\n\nboxen> "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n\nvrnetlab> "
+    - channel_output: "\n\nboxen> "
       expected_channel_input: configure
       expected_channel_input_redacted: false
     - channel_output: configure
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \nEntering configuration mode\n\n[edit]\nvrnetlab# "
+    - channel_output: " \nEntering configuration mode\n\n[edit]\nboxen# "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n\n[edit]\nvrnetlab# "
+    - channel_output: "\n\n[edit]\nboxen# "
       expected_channel_input: load override /config/__SCRAPLI_CFG_SESSION_NAME__
       expected_channel_input_redacted: false
     - channel_output: load override /config/__SCRAPLI_CFG_SESSION_NAME__
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \n|\bload complete\n\n[edit]\nvrnetlab# "
+    - channel_output: " \n|\bload complete\n\n[edit]\nboxen# "
       expected_channel_input: show | compare
       expected_channel_input_redacted: false
     - channel_output: show | compare
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \n\n[edit]\nvrnetlab# "
+    - channel_output: " \n\n[edit]\nboxen# "
       expected_channel_input: run show configuration
       expected_channel_input_redacted: false
     - channel_output: run show configuration
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \n## Last commit: 2021-04-27 19:35:05 UTC by vrnetlab\nversion\
+    - channel_output: " \n## Last commit: 2021-05-29 17:10:28 UTC by boxen\nversion\
         \ 17.3R2.10;\nsystem {\n    root-authentication {\n        encrypted-password\
-        \ \"$6$dWt4Lg4V$wiqols.Ou//eIg.3kpdu98L9hSzA7VSytcnV4NWI3S2BKM4rfruJf5JKLBdihyCyEgUVHb1Rw3xHIVxQR/O0F.\"\
-        ; ## SECRET-DATA\n    }\n    login {\n        user vrnetlab {\n          \
-        \  uid 2000;\n            class super-user;\n            authentication {\n\
-        \                encrypted-password \"$6$1tKhsTEi$VjaGckqjhgSqaZf5rrWqlhDkI1xAsaTWxFRtVQQnpE4qaeIWFuQUZ3GulwPfBYq2RLSTTl/ZnyyZJrcBl.7lP0\"\
+        \ \"$6$Adf5A57s$5Iu/Tdzi/qQuSA.9tV.przrz51avKm.6TvJMBF42zODEM/d7.cvk2Y/kIeLinV5R.HGEEOOD6wane6Xs6rbfT0\"\
+        ; ## SECRET-DATA\n    }\n    login {\n        user boxen {\n            uid\
+        \ 2000;\n            class super-user;\n            authentication {\n   \
+        \             encrypted-password \"$6$SDiXXE9D$KTq4es.BGkdh5IlSxbDhCFn8yWkaFxsjEhmbi4cd53hc9aNfOVmtL1iJiQKEUkgQOdYRvyJetjzygVsVR3CCf.\"\
         ; ## SECRET-DATA\n            }\n        }\n    }\n    services {\n      \
         \  ssh {\n            protocol-version v2;\n        }\n        telnet;\n \
         \       netconf {\n            ssh;\n        }\n        web-management {\n\
@@ -945,25 +945,25 @@ localhost:25022:SystemTransport::0:
         \         tcp-rst;\n        }\n        security-zone untrust {\n         \
         \   screen untrust-screen;\n        }\n    }\n}\ninterfaces {\n    fxp0 {\n\
         \        unit 0 {\n            family inet {\n                address 10.0.0.15/24;\n\
-        \            }\n        }\n    }\n}\n\n[edit]\nvrnetlab# "
+        \            }\n        }\n    }\n}\n\n[edit]\nboxen# "
       expected_channel_input: commit
       expected_channel_input_redacted: false
     - channel_output: commit
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \ncommit complete\n\n[edit]\nvrnetlab# "
+    - channel_output: " \ncommit complete\n\n[edit]\nboxen# "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n\n[edit]\nvrnetlab# "
+    - channel_output: "\n\n[edit]\nboxen# "
       expected_channel_input: exit configuration-mode
       expected_channel_input_redacted: false
     - channel_output: exit configuration-mode
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: " \nExiting configuration mode\n\nvrnetlab> "
+    - channel_output: " \nExiting configuration mode\n\nboxen> "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n\nvrnetlab> "
+    - channel_output: "\n\nboxen> "
       expected_channel_input: start shell user root
       expected_channel_input_redacted: false
     - channel_output: start shell user root
@@ -993,10 +993,10 @@ localhost:25022:SystemTransport::0:
     - channel_output: exit
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nexit\n\nvrnetlab> "
+    - channel_output: "\nexit\n\nboxen> "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n\nvrnetlab> "
+    - channel_output: "\n\nboxen> "
       expected_channel_input: exit
       expected_channel_input_redacted: false
     - channel_output: ''

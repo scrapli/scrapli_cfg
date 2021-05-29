@@ -1,13 +1,13 @@
 Thu Mar  4 01:14:46.184 UTC
 Building configuration...
 !! IOS XR Configuration version = 6.5.3
-!! Last configuration change at Thu Feb 11 19:22:50 2021 by vrnetlab
+!! Last configuration change at Thu Feb 11 19:22:50 2021 by boxen
 !
 telnet vrf default ipv4 server max-servers 10
-username vrnetlab
+username boxen
  group root-lr
  group cisco-support
- secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0
+ secret 5 $1$fW1M$wIX/Q6Qpcg06QmgxVETb9/
 !
 call-home
  service active

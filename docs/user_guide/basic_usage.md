@@ -9,7 +9,6 @@ device. You can create your connection object directly from the appropriate scra
 `conn` object (scrapli connection object). A simple example of creating a scrapli_cfg object by both methods is below:
 
 ```python
-
 from scrapli import Scrapli
 from scrapli_cfg.platform.core.cisco_iosxe import ScrapliCfgIOSXE
 from scrapli_cfg import ScrapliCfg
@@ -52,7 +51,7 @@ The other remaining primary arguments are as follows:
   accept `cls` as the first argument which is a reference to the scrapli-cfg object itself (and thus has access to 
   the underlying scrapli connection). More on this in the [`on_prepare` section](#on-prepare).
 - `dedicated_connection`: If `False` (default value) scrapli cfg will not open or close the underlying scrapli 
-  connection and will raise an exception if the scrapli connection is not open. If `True` will automatically open 
+  connection and will raise an exception if the scrapli connection is not open. If `True` it will automatically open 
   and close the scrapli connection when using with a context manager, `prepare` will open the scrapli connection (if 
   not already open), and `close` will close the scrapli connection.
 - `ignore_version`: Ignore checking device version support; currently this just means that scrapli-cfg will not 
@@ -87,7 +86,6 @@ needs in order to manage the configurations.
 A simple example of fetching and printing the device version:
 
 ```python
-
 from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 
@@ -115,7 +113,6 @@ like to get -- generally this will be either "startup" or "running".
 A simple example of fetching and printing the device startup configuration:
 
 ```python
-
 from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 
@@ -145,7 +142,6 @@ as `get_config`, just resulting in fetching a checkpoint file. Some details abou
 A simple example of fetching and printing a checkpoint file from an NXOS device:
 
 ```python
-
 from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 
@@ -175,7 +171,6 @@ If `replace` is `False` (default) then the config will be loaded as a *merge* ca
 as a full *replace* candidate.
 
 ```python
-
 from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 
@@ -207,7 +202,6 @@ candidate config/delete config sessions used to load the config.
 
 
 ```python
-
 from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 
@@ -236,7 +230,6 @@ with Scrapli(**device) as conn:
 If you've loaded a config and want to save/commit it you can do so with the `commit_config` method:
 
 ```python
-
 from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 
@@ -276,7 +269,6 @@ the diff will always show the "full" configuration diff (with colorful output th
 You can see each of the diffs like so:
 
 ```python
-
 from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 
@@ -318,7 +310,6 @@ designed to help you with.
 Here is an example of using this method:
 
 ```python
-
 from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 from scrapli_cfg.platform.core.arista_eos.patterns import ETHERNET_INTERFACES
