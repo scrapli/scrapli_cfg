@@ -21,10 +21,9 @@ from scrapli.driver.core import (
     NXOSDriver,
 )
 
-VROUTER_MODE = bool(os.environ.get("SCRAPLI_VROUTER", False))
-
-USERNAME = "vrnetlab"
-PASSWORD = "VR-netlab9"
+VRNETLAB_MODE = bool(os.environ.get("SCRAPLI_VRNETLAB", False))
+USERNAME = "boxen" if not VRNETLAB_MODE else "vrnetlab"
+PASSWORD = "b0x3N-b0x3N" if not VRNETLAB_MODE else "VR-netlab9"
 
 DEVICES = {
     "cisco_iosxe": {
@@ -34,8 +33,8 @@ DEVICES = {
         "auth_password": PASSWORD,
         "auth_secondary": PASSWORD,
         "auth_strict_key": False,
-        "host": "localhost" if VROUTER_MODE else "172.18.0.11",
-        "port": 21022 if VROUTER_MODE else 22,
+        "host": "localhost" if not VRNETLAB_MODE else "172.18.0.11",
+        "port": 21022 if not VRNETLAB_MODE else 22,
     },
     "cisco_nxos": {
         "driver": NXOSDriver,
@@ -44,8 +43,8 @@ DEVICES = {
         "auth_password": PASSWORD,
         "auth_secondary": PASSWORD,
         "auth_strict_key": False,
-        "host": "localhost" if VROUTER_MODE else "172.18.0.12",
-        "port": 22022 if VROUTER_MODE else 22,
+        "host": "localhost" if not VRNETLAB_MODE else "172.18.0.12",
+        "port": 22022 if not VRNETLAB_MODE else 22,
     },
     "cisco_iosxr": {
         "driver": IOSXRDriver,
@@ -54,8 +53,8 @@ DEVICES = {
         "auth_password": PASSWORD,
         "auth_secondary": PASSWORD,
         "auth_strict_key": False,
-        "host": "localhost" if VROUTER_MODE else "172.18.0.13",
-        "port": 23022 if VROUTER_MODE else 22,
+        "host": "localhost" if not VRNETLAB_MODE else "172.18.0.13",
+        "port": 23022 if not VRNETLAB_MODE else 22,
     },
     "arista_eos": {
         "driver": EOSDriver,
@@ -64,9 +63,8 @@ DEVICES = {
         "auth_password": PASSWORD,
         "auth_secondary": PASSWORD,
         "auth_strict_key": False,
-        "host": "localhost" if VROUTER_MODE else "172.18.0.14",
-        "port": 24022 if VROUTER_MODE else 22,
-        "comms_ansi": True,
+        "host": "localhost" if not VRNETLAB_MODE else "172.18.0.14",
+        "port": 24022 if not VRNETLAB_MODE else 22,
     },
     "juniper_junos": {
         "driver": JunosDriver,
@@ -75,8 +73,8 @@ DEVICES = {
         "auth_password": PASSWORD,
         "auth_secondary": PASSWORD,
         "auth_strict_key": False,
-        "host": "localhost" if VROUTER_MODE else "172.18.0.15",
-        "port": 25022 if VROUTER_MODE else 22,
+        "host": "localhost" if not VRNETLAB_MODE else "172.18.0.15",
+        "port": 25022 if not VRNETLAB_MODE else 22,
     },
 }
 

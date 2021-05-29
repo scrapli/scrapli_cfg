@@ -2,7 +2,7 @@ localhost:21023:TelnetTransport::0:
   connection_profile:
     host: localhost
     port: 21023
-    auth_username: vrnetlab
+    auth_username: boxen
     auth_password: true
     auth_private_key: ''
     auth_private_key_passphrase: false
@@ -11,12 +11,12 @@ localhost:21023:TelnetTransport::0:
     auth_secondary: true
   interactions:
     - channel_output: "\n\nUser Access Verification\n\nUsername: "
-      expected_channel_input: vrnetlab
+      expected_channel_input: boxen
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "vrnetlab\nPassword: "
+    - channel_output: "boxen\nPassword: "
       expected_channel_input: REDACTED
       expected_channel_input_redacted: true
     - channel_output: ''
@@ -54,7 +54,7 @@ localhost:21023:TelnetTransport::0:
     - channel_output: 'dir flash: | i bytes'
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n6286540800 bytes total (5484552192 bytes free)\ncsr1000v#"
+    - channel_output: "\n6286540800 bytes total (5488701440 bytes free)\ncsr1000v#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\ncsr1000v#"
@@ -158,9 +158,9 @@ localhost:21023:TelnetTransport::0:
       expected_channel_input: "\r"
       expected_channel_input_redacted: false
     - channel_output: "\n+>"
-      expected_channel_input: enable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ
+      expected_channel_input: enable secret 9 $9$xvWnx8Fe35f8xE$E9ijp7GM/V48P5y1Uz3IEPtotXgwkJKYJmN0q3q2E92
       expected_channel_input_redacted: false
-    - channel_output: enable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ
+    - channel_output: enable secret 9 $9$xvWnx8Fe35f8xE$E9ijp7GM/V48P5y1Uz3IEPtotXgwkJKYJmN0q3q2E92
       expected_channel_input: "\r"
       expected_channel_input_redacted: false
     - channel_output: "\n+>"
@@ -805,9 +805,9 @@ localhost:21023:TelnetTransport::0:
       expected_channel_input: "\r"
       expected_channel_input_redacted: false
     - channel_output: "\n+>"
-      expected_channel_input: username vrnetlab privilege 15 password 0 VR-netlab9
+      expected_channel_input: username boxen privilege 15 password 0 b0x3N-b0x3N
       expected_channel_input_redacted: false
-    - channel_output: username vrnetlab privilege 15 password 0 VR-netlab9
+    - channel_output: username boxen privilege 15 password 0 b0x3N-b0x3N
       expected_channel_input: "\r"
       expected_channel_input_redacted: false
     - channel_output: "\n+>"
@@ -1423,9 +1423,9 @@ localhost:21023:TelnetTransport::0:
       expected_channel_input: "\r"
       expected_channel_input_redacted: false
     - channel_output: "\n+>"
-      expected_channel_input: '  username vrnetlab'
+      expected_channel_input: '  username boxen'
       expected_channel_input_redacted: false
-    - channel_output: '  username vrnetlab'
+    - channel_output: '  username boxen'
       expected_channel_input: "\r"
       expected_channel_input_redacted: false
     - channel_output: "\n+>"
@@ -1651,19 +1651,20 @@ localhost:21023:TelnetTransport::0:
     - channel_output: show archive config differences system:running-config flash:__SCRAPLI_CFG_SESSION_NAME__
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n!Contextual Config Diffs:\n!No changes were found\n\ncsr1000v#"
+    - channel_output: "\n!Contextual Config Diffs:\n+license udi pid CSR1000V sn 9MVVU09YZFH\n\
+        -license udi pid CSR1000V sn 9IB2R42M6QG\n\ncsr1000v#"
       expected_channel_input: show running-config
       expected_channel_input_redacted: false
     - channel_output: show running-config
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 4826\
-        \ bytes\n!\n! Last configuration change at 19:49:38 UTC Tue Apr 27 2021 by\
-        \ vrnetlab\n!\nversion 16.12\nservice timestamps debug datetime msec\nservice\
+    - channel_output: "\nBuilding configuration...\n\nCurrent configuration : 4818\
+        \ bytes\n!\n! Last configuration change at 13:22:52 UTC Sat May 29 2021 by\
+        \ boxen\n!\nversion 16.12\nservice timestamps debug datetime msec\nservice\
         \ timestamps log datetime msec\nservice call-home\nplatform qfp utilization\
         \ monitor load 80\nplatform punt-keepalive disable-kernel-core\nplatform console\
         \ serial\n!\nhostname csr1000v\n!\nboot-start-marker\nboot-end-marker\n!\n\
-        !\nenable secret 9 $9$h6Ayg86tb/EImk$2T6Ns.ke08cAlZ2TbMf3YRCYr7ngDGzgAxZB0YMe7lQ\n\
+        !\nenable secret 9 $9$xvWnx8Fe35f8xE$E9ijp7GM/V48P5y1Uz3IEPtotXgwkJKYJmN0q3q2E92\n\
         !\nno aaa new-model\ncall-home\n ! If contact email address in call-home is\
         \ configured as sch-smart-licensing@cisco.com\n ! the email address configured\
         \ in Cisco Smart License Portal will be used as contact email address to send\
@@ -1700,11 +1701,11 @@ localhost:21023:TelnetTransport::0:
         \ F3A58BE1 1A48A229 C37C1E69 39F08678 \n  80DDCD16 D6BACECA EEBC7CF9 8428787B\
         \ 35202CDC 60E4616A B623CDBD 230E3AFB \n  418616A9 4093E049 4D10AB75 27E86F73\
         \ 932E35B5 8862FDAE 0275156F 719BB2F0 \n  D697DF7F 28\n  \tquit\n!\nlicense\
-        \ udi pid CSR1000V sn 9MVVU09YZFH\ndiagnostic bootup level minimal\narchive\n\
+        \ udi pid CSR1000V sn 9IB2R42M6QG\ndiagnostic bootup level minimal\narchive\n\
         \ log config\n  logging enable\n path bootflash:\nmemory free low-watermark\
-        \ processor 72329\n!\n!\nspanning-tree extend system-id\n!\nusername vrnetlab\
-        \ privilege 15 password 0 VR-netlab9\n!\nredundancy\n!\n!\n!\n!\n!\n!\n! \n\
-        !\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n! \n! \n!\n!\ninterface GigabitEthernet1\n\
+        \ processor 72329\n!\n!\nspanning-tree extend system-id\n!\nusername boxen\
+        \ privilege 15 password 0 b0x3N-b0x3N\n!\nredundancy\n!\n!\n!\n!\n!\n!\n!\
+        \ \n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n! \n! \n!\n!\ninterface GigabitEthernet1\n\
         \ ip address 10.0.0.15 255.255.255.0\n negotiation auto\n no mop enabled\n\
         \ no mop sysid\n!\ninterface GigabitEthernet2\n no ip address\n shutdown\n\
         \ negotiation auto\n no mop enabled\n no mop sysid\n!\ninterface GigabitEthernet3\n\
@@ -1721,11 +1722,11 @@ localhost:21023:TelnetTransport::0:
         \ GigabitEthernet10\n no ip address\n shutdown\n negotiation auto\n no mop\
         \ enabled\n no mop sysid\n!\n!\nvirtual-service csr_mgmt\n!\nip forward-protocol\
         \ nd\nno ip http server\nno ip http secure-server\n!\nip ssh pubkey-chain\n\
-        \  username vrnetlab\n   key-hash ssh-rsa 5CC74A68B18B026A1709FB09D1F44E2F\
-        \ \nip scp server enable\n!\n!\n!\n!\n!\n!\n!\ncontrol-plane\n!\n!\n!\n!\n\
-        !\n!\nline con 0\n stopbits 1\nline vty 0 4\n login local\n transport input\
-        \ all\nline vty 5 15\n login local\n transport input all\n!\nnetconf ssh\n\
-        !\n!\n!\n!\n!\nnetconf-yang\nend\n\ncsr1000v#"
+        \  username boxen\n   key-hash ssh-rsa 5CC74A68B18B026A1709FB09D1F44E2F \n\
+        ip scp server enable\n!\n!\n!\n!\n!\n!\n!\ncontrol-plane\n!\n!\n!\n!\n!\n\
+        !\nline con 0\n stopbits 1\nline vty 0 4\n login local\n transport input all\n\
+        line vty 5 15\n login local\n transport input all\n!\nnetconf ssh\n!\n!\n\
+        !\n!\n!\nnetconf-yang\nend\n\ncsr1000v#"
       expected_channel_input: show run | i file prompt
       expected_channel_input_redacted: false
     - channel_output: show run | i file prompt
@@ -1738,7 +1739,11 @@ localhost:21023:TelnetTransport::0:
     - channel_output: configure replace flash:__SCRAPLI_CFG_SESSION_NAME__ force
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTotal number of passes: 0\nRollback Done\n\ncsr1000v#"
+    - channel_output: "\nThe rollback configlet from the last pass is listed below:\n\
+        ********\n!List of Rollback Commands:\nno license udi pid CSR1000V sn 9IB2R42M6QG\n\
+        license udi pid CSR1000V sn 9MVVU09YZFH\nend\n********\n\n\nRollback aborted\
+        \ after 5 passes\nThe following commands are failed to apply to the IOS image.\n\
+        ********\nlicense udi pid CSR1000V sn 9MVVU09YZFH\n********\n\n\ncsr1000v#"
       expected_channel_input: show run | i file prompt
       expected_channel_input_redacted: false
     - channel_output: show run | i file prompt

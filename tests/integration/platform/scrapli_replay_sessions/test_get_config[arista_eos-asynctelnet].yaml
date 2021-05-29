@@ -2,7 +2,7 @@ localhost:24023:AsynctelnetTransport::0:
   connection_profile:
     host: localhost
     port: 24023
-    auth_username: vrnetlab
+    auth_username: boxen
     auth_password: true
     auth_private_key: ''
     auth_private_key_passphrase: false
@@ -18,7 +18,7 @@ localhost:24023:AsynctelnetTransport::0:
         \ at the CLI. Alternatively, to disable Zero Touch\nProvisioning permanently,\
         \ type 'zerotouch disable' at the CLI.\nNote: The device will reload when\
         \ these commands are issued.\nUsername: "
-      expected_channel_input: vrnetlab
+      expected_channel_input: boxen
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: "\n"
@@ -29,7 +29,7 @@ localhost:24023:AsynctelnetTransport::0:
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nLast login: Tue Apr 27 19:54:47 from 10.0.0.2\nlocalhost>"
+    - channel_output: "\nLast login: Sat May 29 13:08:57 from 10.0.0.2\nlocalhost>"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nlocalhost>"
@@ -112,8 +112,8 @@ localhost:24023:AsynctelnetTransport::0:
         \ level VMWAREVI errors\nlogging level VMWAREVS errors\nlogging level VRF\
         \ errors\nlogging level VRRP errors\nlogging level VXLAN errors\nlogging level\
         \ XMPP errors\nlogging level ZTP informational\n!\nspanning-tree mode mstp\n\
-        !\nenable secret sha512 $6$P1M9SV2bLTmQJpwW$KVoaaIa7i34uTFp7JRRp.hqL55nr7jSJJiDA.9CHTCW7q4GDIwyceMMSp6TavgYiAokjobyBYCO70L7FxpZon1\n\
-        no aaa root\n!\nusername vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.\n\
+        !\nenable secret sha512 $6$TVJ6KgdC0qsGkKfb$LjGGPd6W3S1iJQVQ.Vvo3Bca4Yt1R3y4nOjWAaaTCsk1NuIoqB/gOMseoigt/HQVFDTvDAJ3IPmsF9sWfxi1V/\n\
+        no aaa root\n!\nusername boxen role network-admin secret sha512 $6$1ex07TzYfKx23A9z$c02oeDxnr4J7HMgj0PcabYvACZfjdiu3zp4IAgjJQ51IBtkstpvOjm0FYbxSSBhsl.mytIr9Y4PaERp4MDXJM/\n\
         !\ninterface Ethernet1\n   speed forced 10000full\n   no switchport\n   ipv6\
         \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
         !\ninterface Ethernet2\n   speed forced 10000full\n   no switchport\n   ipv6\

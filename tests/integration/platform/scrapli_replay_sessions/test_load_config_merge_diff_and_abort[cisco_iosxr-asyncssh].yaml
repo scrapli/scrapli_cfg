@@ -2,7 +2,7 @@ localhost:23022:AsyncsshTransport::0:
   connection_profile:
     host: localhost
     port: 23022
-    auth_username: vrnetlab
+    auth_username: boxen
     auth_password: true
     auth_private_key: ''
     auth_private_key_passphrase: false
@@ -13,25 +13,25 @@ localhost:23022:AsyncsshTransport::0:
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n\nRP/0/RP0/CPU0:ios#\n"
+    - channel_output: "\n\n\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: terminal length 0
       expected_channel_input_redacted: false
-    - channel_output: RP/0/RP0/CPU0:ios#terminal length 0
+    - channel_output: terminal length 0
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:58:17.609 UTC\nRP/0/RP0/CPU0:ios#"
+    - channel_output: "\nSat May 29 13:13:06.370 UTC\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: terminal width 512
       expected_channel_input_redacted: false
     - channel_output: terminal width 512
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:58:17.696 UTC\nRP/0/RP0/CPU0:ios#"
+    - channel_output: "\nSat May 29 13:13:06.495 UTC\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: show version | i Version
       expected_channel_input_redacted: false
     - channel_output: show version | i Version
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:58:17.792 UTC\nCisco IOS XR Software, Version\
+    - channel_output: "\nSat May 29 13:13:06.583 UTC\nCisco IOS XR Software, Version\
         \ 6.5.3\n Version      : 6.5.3\nRP/0/RP0/CPU0:ios#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
@@ -41,7 +41,7 @@ localhost:23022:AsyncsshTransport::0:
     - channel_output: configure terminal
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:58:17.914 UTC\nRP/0/RP0/CPU0:ios(config)#"
+    - channel_output: "\nSat May 29 13:13:06.704 UTC\nRP/0/RP0/CPU0:ios(config)#"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nRP/0/RP0/CPU0:ios(config)#"
@@ -62,7 +62,7 @@ localhost:23022:AsyncsshTransport::0:
     - channel_output: show commit changes diff
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:58:18.740 UTC\nBuilding configuration...\n\
+    - channel_output: "\nSat May 29 13:13:07.443 UTC\nBuilding configuration...\n\
         !! IOS XR Configuration version = 6.5.3\n+  interface Loopback1\n+   description\
         \ tacocat\n   !\nend\n\nRP/0/RP0/CPU0:ios(config-if)#"
       expected_channel_input: show running-config
@@ -70,10 +70,10 @@ localhost:23022:AsyncsshTransport::0:
     - channel_output: show running-config
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nTue Apr 27 19:58:19.289 UTC\nBuilding configuration...\n\
-        !! IOS XR Configuration version = 6.5.3\n!! Last configuration change at Tue\
-        \ Apr 27 00:13:12 2021 by vrnetlab\n!\ntelnet vrf default ipv4 server max-servers\
-        \ 10\nusername vrnetlab\n group root-lr\n group cisco-support\n secret 5 $1$5aFx$Ul43RjEjA7C4LFsghgQCu0\n\
+    - channel_output: "\nSat May 29 13:13:07.942 UTC\nBuilding configuration...\n\
+        !! IOS XR Configuration version = 6.5.3\n!! Last configuration change at Sat\
+        \ May 29 01:20:11 2021 by boxen\n!\ntelnet vrf default ipv4 server max-servers\
+        \ 10\nusername boxen\n group root-lr\n group cisco-support\n secret 5 $1$ERrP$IwIygdqbJGkqrXZDtaWVI0\n\
         !\ncall-home\n service active\n contact smart-licensing\n profile CiscoTAC-1\n\
         \  active\n  destination transport-method http\n !\n!\ninterface MgmtEth0/RP0/CPU0/0\n\
         \ ipv4 address 10.0.0.15 255.255.255.0\n!\ninterface GigabitEthernet0/0/0/0\n\

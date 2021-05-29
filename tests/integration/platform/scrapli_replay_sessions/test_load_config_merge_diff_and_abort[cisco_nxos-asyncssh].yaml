@@ -2,7 +2,7 @@ localhost:22022:AsyncsshTransport::0:
   connection_profile:
     host: localhost
     port: 22022
-    auth_username: vrnetlab
+    auth_username: boxen
     auth_password: true
     auth_private_key: ''
     auth_private_key_passphrase: false
@@ -35,10 +35,10 @@ localhost:22022:AsyncsshTransport::0:
         \ any   *\n*  purposes is expressly prohibited except as otherwise authorized\
         \ by     *\n*  Cisco in writing.                                         \
         \             *\n***************************************************************************\n\
-        switch# \nswitch# "
+        switch# \n"
       expected_channel_input: terminal length 0
       expected_channel_input_redacted: false
-    - channel_output: terminal length 0
+    - channel_output: switch# terminal length 0
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nswitch# "
@@ -59,7 +59,7 @@ localhost:22022:AsyncsshTransport::0:
     - channel_output: "dir bootflash: | i 'bytes free'"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\n 1950605312 bytes free\nswitch# "
+    - channel_output: "\n 1950945280 bytes free\nswitch# "
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nswitch# "
@@ -127,7 +127,7 @@ localhost:22022:AsyncsshTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\n\n!Command: show running-config\n!Running configuration last\
-        \ done at: Tue Apr 27 16:04:25 2021\n!Time: Tue Apr 27 19:57:54 2021\n\nversion\
+        \ done at: Sat May 29 12:38:33 2021\n!Time: Sat May 29 13:12:40 2021\n\nversion\
         \ 9.2(4) Bios:version  \nvdc switch id 1\n  limit-resource vlan minimum 16\
         \ maximum 4094\n  limit-resource vrf minimum 2 maximum 4096\n  limit-resource\
         \ port-channel minimum 0 maximum 511\n  limit-resource u4route-mem minimum\
@@ -135,12 +135,12 @@ localhost:22022:AsyncsshTransport::0:
         \ m4route-mem minimum 58 maximum 58\n  limit-resource m6route-mem minimum\
         \ 8 maximum 8\nfeature telnet\nfeature nxapi\nfeature scp-server\n\nno password\
         \ strength-check\nusername admin password 5 $5$LOIMHI$hIaO64VM40/x.MTQoeWg8/IAn2iBY5jv4WZyzQbb5q9\
-        \  role network-admin\nusername vrnetlab password 5 $5$AT5s3bhE$4/A..pCU3QK/YfesFHYPgbStJuRKK2JoYO7dEOGN2n3\
-        \  role network-admin\nusername vrnetlab passphrase  lifetime 99999 warntime\
+        \  role network-admin\nusername boxen password 5 $5$rFrywOjz$buvWY6uEPf79GVyfGNO6SGOi5gbxV2VAcsbBtyXDZyB\
+        \  role network-admin\nusername boxen passphrase  lifetime 99999 warntime\
         \ 14 gracetime 3\nip domain-lookup\ncopp profile strict\nsnmp-server user\
         \ admin network-admin auth md5 0xd42fc9f6e153a348e1ab40f0f5b84589 priv 0xd42fc9f6e153a348e1ab40f0f5b84589\
-        \ localizedkey\nsnmp-server user vrnetlab network-admin auth md5 0x1a3abb28531cf988a22cc61af30861a7\
-        \ priv 0x1a3abb28531cf988a22cc61af30861a7 localizedkey\nrmon event 1 description\
+        \ localizedkey\nsnmp-server user boxen network-admin auth md5 0xc168bfc2b500129bd35ee550b6d5d93d\
+        \ priv 0xc168bfc2b500129bd35ee550b6d5d93d localizedkey\nrmon event 1 description\
         \ FATAL(1) owner PMON@FATAL\nrmon event 2 description CRITICAL(2) owner PMON@CRITICAL\n\
         rmon event 3 description ERROR(3) owner PMON@ERROR\nrmon event 4 description\
         \ WARNING(4) owner PMON@WARNING\nrmon event 5 description INFORMATION(5) owner\

@@ -2,7 +2,7 @@ localhost:24022:SystemTransport::0:
   connection_profile:
     host: localhost
     port: 24022
-    auth_username: vrnetlab
+    auth_username: boxen
     auth_password: true
     auth_private_key: ''
     auth_private_key_passphrase: false
@@ -24,7 +24,7 @@ localhost:24022:SystemTransport::0:
     - channel_output: ''
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nLast login: Tue Apr 27 19:49:18 2021 from 10.0.0.2\n\e[5nlocalhost>"
+    - channel_output: "\nLast login: Sat May 29 17:03:22 2021 from 10.0.0.2\nlocalhost>"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nlocalhost>"
@@ -739,9 +739,9 @@ localhost:24022:SystemTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: enable secret sha512 $6$P1M9SV2bLTmQJpwW$KVoaaIa7i34uTFp7JRRp.hqL55nr7jSJJiDA.9CHTCW7q4GDIwyceMMSp6TavgYiAokjobyBYCO70L7FxpZon1
+      expected_channel_input: enable secret sha512 $6$TVJ6KgdC0qsGkKfb$LjGGPd6W3S1iJQVQ.Vvo3Bca4Yt1R3y4nOjWAaaTCsk1NuIoqB/gOMseoigt/HQVFDTvDAJ3IPmsF9sWfxi1V/
       expected_channel_input_redacted: false
-    - channel_output: enable secret sha512 $6$P1M9SV2bLTmQJpwW$KVoaaIa7i34uTFp7JRRp.hqL55nr7jSJJiDA.9CHTCW7q4GDIwyceMMSp6TavgYiAokjobyBYCO70L7FxpZon1
+    - channel_output: enable secret sha512 $6$TVJ6KgdC0qsGkKfb$LjGGPd6W3S1iJQVQ.Vvo3Bca4Yt1R3y4nOjWAaaTCsk1NuIoqB/gOMseoigt/HQVFDTvDAJ3IPmsF9sWfxi1V/
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nlocalhost(config-s-scrapl)#"
@@ -757,9 +757,9 @@ localhost:24022:SystemTransport::0:
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: username vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.
+      expected_channel_input: username boxen role network-admin secret sha512 $6$1ex07TzYfKx23A9z$c02oeDxnr4J7HMgj0PcabYvACZfjdiu3zp4IAgjJQ51IBtkstpvOjm0FYbxSSBhsl.mytIr9Y4PaERp4MDXJM/
       expected_channel_input_redacted: false
-    - channel_output: username vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.
+    - channel_output: username boxen role network-admin secret sha512 $6$1ex07TzYfKx23A9z$c02oeDxnr4J7HMgj0PcabYvACZfjdiu3zp4IAgjJQ51IBtkstpvOjm0FYbxSSBhsl.mytIr9Y4PaERp4MDXJM/
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: "\nlocalhost(config-s-scrapl)#"
@@ -1717,8 +1717,8 @@ localhost:24022:SystemTransport::0:
       expected_channel_input: download the startup-config from a remote system. The
         device will not
       expected_channel_input_redacted: false
-    - channel_output: "\ndownload the startup-config from a remote system. The device\
-        \ will not"
+    - channel_output: "The device is in Zero Touch Provisioning mode and is attempting\
+        \ to\ndownload the startup-config from a remote system. The device will not"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
@@ -1739,44 +1739,44 @@ localhost:24022:SystemTransport::0:
       expected_channel_input: To cancel Zero Touch Provisioning, login as admin and
         type
       expected_channel_input_redacted: false
-    - channel_output: "\nTo cancel Zero Touch Provisioning, login as admin and type"
+    - channel_output: "be fully functional until either a valid startup-config is\
+        \ downloaded\n\nTo cancel Zero Touch Provisioning, login as admin and type"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: "'zerotouch cancel' at the CLI. Alternatively, to disable\
         \ Zero Touch"
       expected_channel_input_redacted: false
-    - channel_output: "The device is in Zero Touch Provisioning mode and is attempting\
-        \ to\n\n'zerotouch cancel' at the CLI. Alternatively, to disable Zero Touch"
+    - channel_output: "\n'zerotouch cancel' at the CLI. Alternatively, to disable\
+        \ Zero Touch"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: Provisioning permanently, type 'zerotouch disable' at
         the CLI.
       expected_channel_input_redacted: false
-    - channel_output: "download the startup-config from a remote system. The device\
-        \ will not\n\nProvisioning permanently, type 'zerotouch disable' at the CLI."
+    - channel_output: "\nProvisioning permanently, type 'zerotouch disable' at the\
+        \ CLI."
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: 'Note: The device will reload when these commands are
         issued.'
       expected_channel_input_redacted: false
-    - channel_output: "be fully functional until either a valid startup-config is\
-        \ downloaded\n\nNote: The device will reload when these commands are issued."
+    - channel_output: "\nNote: The device will reload when these commands are issued."
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
     - channel_output: ''
       expected_channel_input: EOF
       expected_channel_input_redacted: false
-    - channel_output: "\nEOF"
+    - channel_output: "from a remote system or Zero Touch Provisioning is cancelled.\n\
+        To cancel Zero Touch Provisioning, login as admin and type\n\nEOF'zerotouch\
+        \ cancel' at the CLI. Alternatively, to disable Zero Touch\n"
       expected_channel_input: "\n"
       expected_channel_input_redacted: false
-    - channel_output: "\nfrom a remote system or Zero Touch Provisioning is cancelled.\n\
-        To cancel Zero Touch Provisioning, login as admin and type\n'zerotouch cancel'\
-        \ at the CLI. Alternatively, to disable Zero Touch\nProvisioning permanently,\
-        \ type 'zerotouch disable' at the CLI.\nNote: The device will reload when\
-        \ these commands are issued.\nEOF\nlocalhost(config-s-scrapl)#"
+    - channel_output: "\nProvisioning permanently, type 'zerotouch disable' at the\
+        \ CLI.\nNote: The device will reload when these commands are issued.\nEOF\n\
+        localhost(config-s-scrapl)#"
       expected_channel_input: show session-config diffs
       expected_channel_input_redacted: false
     - channel_output: show session-config diffs
@@ -1841,8 +1841,8 @@ localhost:24022:SystemTransport::0:
         \ level VMWAREVI errors\nlogging level VMWAREVS errors\nlogging level VRF\
         \ errors\nlogging level VRRP errors\nlogging level VXLAN errors\nlogging level\
         \ XMPP errors\nlogging level ZTP informational\n!\nspanning-tree mode mstp\n\
-        !\nenable secret sha512 $6$P1M9SV2bLTmQJpwW$KVoaaIa7i34uTFp7JRRp.hqL55nr7jSJJiDA.9CHTCW7q4GDIwyceMMSp6TavgYiAokjobyBYCO70L7FxpZon1\n\
-        no aaa root\n!\nusername vrnetlab role network-admin secret sha512 $6$8zrJ4ESW2fqG2QqH$9u768TvLXXDeUJmG2Std71EX1ip6q4MoJrMwDng1cmpuSYc9ECWytRjvXpMH7C3dzSdoEv0MxAUiAZeeTre3h.\n\
+        !\nenable secret sha512 $6$TVJ6KgdC0qsGkKfb$LjGGPd6W3S1iJQVQ.Vvo3Bca4Yt1R3y4nOjWAaaTCsk1NuIoqB/gOMseoigt/HQVFDTvDAJ3IPmsF9sWfxi1V/\n\
+        no aaa root\n!\nusername boxen role network-admin secret sha512 $6$1ex07TzYfKx23A9z$c02oeDxnr4J7HMgj0PcabYvACZfjdiu3zp4IAgjJQ51IBtkstpvOjm0FYbxSSBhsl.mytIr9Y4PaERp4MDXJM/\n\
         !\ninterface Ethernet1\n   speed forced 10000full\n   no switchport\n   ipv6\
         \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
         !\ninterface Ethernet2\n   speed forced 10000full\n   no switchport\n   ipv6\
