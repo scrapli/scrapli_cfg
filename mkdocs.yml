@@ -2,6 +2,7 @@
 site_name: Scrapli Cfg
 site_description: Network device configuration management with scrapli
 site_author: Carl Montanari
+site_url: https://scrapli.github.io/
 
 repo_name: scrapli/scrapli_cfg
 repo_url: https://github.com/scrapli/scrapli_cfg
