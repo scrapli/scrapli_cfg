@@ -166,6 +166,8 @@ class AsyncScrapliCfgPlatform(ABC, ScrapliCfgBase):
             self.logger.debug("on_prepare provided, executing now")
             await self.on_prepare(self)
 
+        self._prepared = True
+
     async def cleanup(self) -> None:
         """
         Cleanup after scrapli-cfg operations
