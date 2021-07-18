@@ -3,9 +3,10 @@ from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 
 DEVICE = {
-    "host": "172.18.0.11",
-    "auth_username": "vrnetlab",
-    "auth_password": "VR-netlab9",
+    "host": "localhost",
+    "port": 21022,
+    "auth_username": "boxen",
+    "auth_password": "b0x3N-b0x3N",
     "auth_strict_key": False,
     "platform": "cisco_iosxe",
 }
