@@ -52,10 +52,6 @@ doc_map = {
         "path": "platform/core/cisco_iosxe/patterns",
         "content": None,
     },
-    "scrapli_cfg.platform.core.cisco_iosxe.types": {
-        "path": "platform/core/cisco_iosxe/types",
-        "content": None,
-    },
     "scrapli_cfg.platform.core.cisco_iosxr.async_platform": {
         "path": "platform/core/cisco_iosxr/async_platform",
         "content": None,
