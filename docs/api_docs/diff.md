@@ -159,7 +159,7 @@ class ScrapliCfgDiffResponse(ScrapliCfgResponse):
 
         side_by_side_diff_lines = []
         for line in self._difflines:
-            if line[:2] == " ?":
+            if line[:2] == "? ":
                 current = (
                     yellow + f"{line[2:][:diff_side_width].rstrip() : <{half_term_width}}" + end
                 )
@@ -204,7 +204,7 @@ class ScrapliCfgDiffResponse(ScrapliCfgResponse):
 
         unified_diff = [
             yellow + line[2:] + end
-            if line[:2] == " ?"
+            if line[:2] == "? "
             else red + line[2:] + end
             if line[:2] == "- "
             else green + line[2:] + end
@@ -369,7 +369,7 @@ class ScrapliCfgDiffResponse(ScrapliCfgResponse):
 
         side_by_side_diff_lines = []
         for line in self._difflines:
-            if line[:2] == " ?":
+            if line[:2] == "? ":
                 current = (
                     yellow + f"{line[2:][:diff_side_width].rstrip() : <{half_term_width}}" + end
                 )
@@ -414,7 +414,7 @@ class ScrapliCfgDiffResponse(ScrapliCfgResponse):
 
         unified_diff = [
             yellow + line[2:] + end
-            if line[:2] == " ?"
+            if line[:2] == "? "
             else red + line[2:] + end
             if line[:2] == "- "
             else green + line[2:] + end
