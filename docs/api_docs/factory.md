@@ -111,10 +111,18 @@ def ScrapliCfg(
         ScrapliCfg: sync scrapli cfg object
 
     Raises:
-        ScrapliCfgException: if platform is not a string
+        ScrapliCfgException: if provided connection object is async
+        ScrapliCfgException: if provided connection object is sync but is not a supported ("core")
+            platform type
 
     """
     logger.debug("ScrapliCfg factory initialized")
+
+    if isinstance(conn, AsyncNetworkDriver):
+        raise ScrapliCfgException(
+            "provided scrapli connection is sync but using 'AsyncScrapliCfg' -- you must use an "
+            "async connection with 'AsyncScrapliCfg'!"
+        )
 
     platform_class = SYNC_CORE_PLATFORM_MAP.get(type(conn))
     if not platform_class:
@@ -173,10 +181,18 @@ def AsyncScrapliCfg(
         AsyncScrapliCfg: async scrapli cfg object
 
     Raises:
-        ScrapliCfgException: if platform is not a string
+        ScrapliCfgException: if provided connection object is sync
+        ScrapliCfgException: if provided connection object is async but is not a supported ("core")
+            platform type
 
     """
     logger.debug("AsyncScrapliCfg factory initialized")
+
+    if isinstance(conn, NetworkDriver):
+        raise ScrapliCfgException(
+            "provided scrapli connection is sync but using 'AsyncScrapliCfg' -- you must use an "
+            "async connection with 'AsyncScrapliCfg'!"
+        )
 
     platform_class = ASYNC_CORE_PLATFORM_MAP.get(type(conn))
     if not platform_class:
@@ -237,7 +253,9 @@ Returns:
     AsyncScrapliCfg: async scrapli cfg object
 
 Raises:
-    ScrapliCfgException: if platform is not a string
+    ScrapliCfgException: if provided connection object is sync
+    ScrapliCfgException: if provided connection object is async but is not a supported ("core")
+        platform type
 ```
 
 
@@ -278,5 +296,7 @@ Returns:
     ScrapliCfg: sync scrapli cfg object
 
 Raises:
-    ScrapliCfgException: if platform is not a string
+    ScrapliCfgException: if provided connection object is async
+    ScrapliCfgException: if provided connection object is sync but is not a supported ("core")
+        platform type
 ```
