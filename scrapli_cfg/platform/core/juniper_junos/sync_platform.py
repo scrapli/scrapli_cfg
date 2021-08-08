@@ -148,12 +148,12 @@ class ScrapliCfgJunos(ScrapliCfgPlatform, ScrapliCfgJunosBase):
             session_or_config_file=bool(self.candidate_config_filename)
         )
 
-        abort_result = self._delete_candidate_config()
         rollback_result = self.conn.send_config(config="rollback 0")
+        abort_result = self._delete_candidate_config()
         self._reset_config_session()
 
         return self._post_abort_config(
-            response=response, scrapli_responses=[abort_result, rollback_result]
+            response=response, scrapli_responses=[rollback_result, abort_result]
         )
 
     def commit_config(self, source: str = "running") -> ScrapliCfgResponse:
