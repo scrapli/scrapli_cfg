@@ -16,7 +16,7 @@ def main():
     """Demo basic config replace functionality"""
 
     # load up a config to use for the candidate config
-    with open("config", "r") as f:
+    with open("config", "r", encoding="utf-8") as f:
         my_config = f.read()
 
     # open the "normal" scrapli connection

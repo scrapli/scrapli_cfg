@@ -22,7 +22,7 @@ def main():
     # in the configuration that looks an awful lot like a jinja2 variable, in this case:
     # "{{ ethernet_interfaces }}" -- all we need to do is tell scrapli_cfg how to match (from the
     # actual running config) what *should* go in this section (see the next comment section!)
-    with open("config", "r") as f:
+    with open("config", "r", encoding="utf-8") as f:
         my_config = f.read()
 
     # in this example we have a `dedicated_connection` which means that the scrapli connection is
