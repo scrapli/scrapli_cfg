@@ -34,7 +34,6 @@ from datetime import datetime
 from logging import LoggerAdapter
 from typing import Tuple
 
-from scrapli.driver.network.base_driver import PrivilegeLevel
 from scrapli_cfg.platform.core.juniper_junos.patterns import (
     EDIT_PATTERN,
     OUTPUT_HEADER_PATTERN,
@@ -44,33 +43,6 @@ from scrapli_cfg.platform.core.juniper_junos.patterns import (
 CONFIG_SOURCES = [
     "running",
 ]
-
-JUNOS_ADDTL_PRIVS = {
-    "shell": (
-        PrivilegeLevel(
-            pattern=r"^(?!root)%\s?$",
-            name="shell",
-            previous_priv="exec",
-            deescalate="exit",
-            escalate="start shell",
-            escalate_auth=False,
-            escalate_prompt="",
-        )
-    ),
-    # feel like ive had issues w/ root shell in the past... if this all goes well then it can be
-    # added back to scrapli core
-    "root_shell": (
-        PrivilegeLevel(
-            pattern=r"^root@%\s?$",
-            name="root_shell",
-            previous_priv="exec",
-            deescalate="exit",
-            escalate="start shell user root",
-            escalate_auth=True,
-            escalate_prompt=r"^[pP]assword:\s?$",
-        )
-    ),
-}
 
 
 class ScrapliCfgJunosBase:
