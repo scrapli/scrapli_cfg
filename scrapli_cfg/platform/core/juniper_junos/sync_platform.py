@@ -8,7 +8,6 @@ from scrapli_cfg.exceptions import DiffConfigError
 from scrapli_cfg.platform.base.sync_platform import ScrapliCfgPlatform
 from scrapli_cfg.platform.core.juniper_junos.base_platform import (
     CONFIG_SOURCES,
-    JUNOS_ADDTL_PRIVS,
     ScrapliCfgJunosBase,
 )
 from scrapli_cfg.response import ScrapliCfgResponse
@@ -46,11 +45,6 @@ class ScrapliCfgJunos(ScrapliCfgPlatform, ScrapliCfgJunosBase):
         self._in_configuration_session = False
 
         self.cleanup_post_commit = cleanup_post_commit
-
-        original_privs = self.conn.privilege_levels
-        updated_privs = {**original_privs, **JUNOS_ADDTL_PRIVS}
-        self.conn.privilege_levels = updated_privs
-        self.conn.update_privilege_levels()
 
     def _delete_candidate_config(self) -> Response:
         """
