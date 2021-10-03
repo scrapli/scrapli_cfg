@@ -8,7 +8,6 @@ from scrapli_cfg.exceptions import DiffConfigError
 from scrapli_cfg.platform.base.async_platform import AsyncScrapliCfgPlatform
 from scrapli_cfg.platform.core.juniper_junos.base_platform import (
     CONFIG_SOURCES,
-    JUNOS_ADDTL_PRIVS,
     ScrapliCfgJunosBase,
 )
 from scrapli_cfg.response import ScrapliCfgResponse
@@ -46,11 +45,6 @@ class AsyncScrapliCfgJunos(AsyncScrapliCfgPlatform, ScrapliCfgJunosBase):
         self._in_configuration_session = False
 
         self.cleanup_post_commit = cleanup_post_commit
-
-        original_privs = self.conn.privilege_levels
-        updated_privs = {**original_privs, **JUNOS_ADDTL_PRIVS}
-        self.conn.privilege_levels = updated_privs
-        self.conn.update_privilege_levels()
 
     async def _delete_candidate_config(self) -> Response:
         """
@@ -150,12 +144,12 @@ class AsyncScrapliCfgJunos(AsyncScrapliCfgPlatform, ScrapliCfgJunosBase):
             session_or_config_file=bool(self.candidate_config_filename)
         )
 
-        abort_result = await self._delete_candidate_config()
         rollback_result = await self.conn.send_config(config="rollback 0")
+        abort_result = await self._delete_candidate_config()
         self._reset_config_session()
 
         return self._post_abort_config(
-            response=response, scrapli_responses=[abort_result, rollback_result]
+            response=response, scrapli_responses=[rollback_result, abort_result]
         )
 
     async def commit_config(self, source: str = "running") -> ScrapliCfgResponse:
