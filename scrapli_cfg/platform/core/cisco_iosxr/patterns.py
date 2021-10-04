@@ -33,7 +33,7 @@ END_PATTERN = re.compile(pattern="end$")
 IOSXR_INTERFACES_PATTERN = r"(?:Ethernet|GigabitEthernet|TenGigE|HundredGigE)"
 ETHERNET_INTERFACES = re.compile(
     pattern=fr"(^interface {IOSXR_INTERFACES_PATTERN}(?:\d|\/)+$(?:\n^\s{1}.*$)*\n!\n)+",
-    flags=re.I | re.M
+    flags=re.I | re.M,
 )
 # match mgmteth[numbers, letters, forward slashes] interface and config items below it
 MANAGEMENT_ONE_INTERFACE = re.compile(
