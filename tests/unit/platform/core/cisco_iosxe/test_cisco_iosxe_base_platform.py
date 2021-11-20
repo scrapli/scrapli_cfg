@@ -125,7 +125,8 @@ def test_parse_version_no_match(iosxe_base_cfg_object):
     assert actual_version_string == ""
 
 
-def test_clean_config(iosxe_base_cfg_object):
+def test_clean_config(iosxe_base_cfg_object, dummy_logger):
+    iosxe_base_cfg_object.logger = dummy_logger
     assert iosxe_base_cfg_object.clean_config(config=CONFIG_PAYLOAD) == "version 16.12"
 
 
@@ -209,16 +210,3 @@ def test_prepare_load_config(iosxe_base_cfg_object, dummy_logger):
     # config is what we think it shoudl be
     assert actual_config.startswith("""puts [open "flash:scrapli_cfg_""")
     assert actual_config.endswith("""w+] {\ninterface loopback123\n  description tacocat\n}""")
-
-
-def test_normalize_source_candidate_configs(iosxe_base_cfg_object, dummy_logger):
-    iosxe_base_cfg_object.logger = dummy_logger
-    iosxe_base_cfg_object.candidate_config = CONFIG_PAYLOAD
-
-    (
-        actual_source_config,
-        actual_candidate_config,
-    ) = iosxe_base_cfg_object._normalize_source_candidate_configs(source_config=CONFIG_PAYLOAD)
-
-    assert actual_source_config == "version 16.12"
-    assert actual_candidate_config == "version 16.12"

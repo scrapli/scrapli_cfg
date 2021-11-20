@@ -99,20 +99,13 @@ def test_get_diff_command(iosxr_base_cfg_object, test_data):
     assert iosxr_base_cfg_object._get_diff_command() == expected_command
 
 
-def test_normalize_source_candidate_configs(iosxr_base_cfg_object, dummy_logger):
+def test_clean_config(iosxr_base_cfg_object, dummy_logger):
     iosxr_base_cfg_object.logger = dummy_logger
 
     iosxr_base_cfg_object.candidate_config = CONFIG_PAYLOAD
-    (
-        actual_source_config,
-        actual_candidate_config,
-    ) = iosxr_base_cfg_object._normalize_source_candidate_configs(source_config=CONFIG_PAYLOAD)
+    actual_config = iosxr_base_cfg_object.clean_config(config=CONFIG_PAYLOAD)
 
     assert (
-        actual_source_config
-        == "!\ntelnet vrf default ipv4 server max-servers 10\nbanner motd ^\nsomething in a banner\n^\nend"
-    )
-    assert (
-        actual_candidate_config
+        actual_config
         == "!\ntelnet vrf default ipv4 server max-servers 10\nbanner motd ^\nsomething in a banner\n^\nend"
     )
