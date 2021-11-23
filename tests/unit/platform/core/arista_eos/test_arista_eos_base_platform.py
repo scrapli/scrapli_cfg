@@ -133,24 +133,16 @@ def test_reset_config_session(eos_base_cfg_object, dummy_logger):
     assert eos_base_cfg_object.candidate_config == ""
 
 
-def test_normalize_source_candidate_configs(eos_base_cfg_object, dummy_logger):
+def test_clean_config(eos_base_cfg_object, dummy_logger):
     eos_base_cfg_object.logger = dummy_logger
     eos_base_cfg_object.candidate_config = CONFIG_PAYLOAD
 
-    (
-        actual_source_config,
-        actual_candidate_config,
-    ) = eos_base_cfg_object._normalize_source_candidate_configs(source_config=CONFIG_PAYLOAD)
+    actual_config = eos_base_cfg_object.clean_config(config=CONFIG_PAYLOAD)
 
     # checking that this removes the comment banner basically, in the future it may have to "clean"
     # more things too
-
     assert (
-        actual_source_config
-        == "!\n!\nswitchport default mode routed\n!\ntransceiver qsfp default-mode 4x10G\n!\nbanner login\nNo startup-config was found.\nEOF\n!\nend"
-    )
-    assert (
-        actual_candidate_config
+        actual_config
         == "!\n!\nswitchport default mode routed\n!\ntransceiver qsfp default-mode 4x10G\n!\nbanner login\nNo startup-config was found.\nEOF\n!\nend"
     )
 

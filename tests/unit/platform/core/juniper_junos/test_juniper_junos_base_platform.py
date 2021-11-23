@@ -67,14 +67,10 @@ def test_prepare_load_config(junos_base_cfg_object, dummy_logger):
     assert actual_config.endswith("""description tacocat'""")
 
 
-def test_normalize_source_candidate_configs(junos_base_cfg_object, dummy_logger):
+def test_clean_config(junos_base_cfg_object, dummy_logger):
     junos_base_cfg_object.logger = dummy_logger
     junos_base_cfg_object.candidate_config = CONFIG_PAYLOAD
 
-    (
-        actual_source_config,
-        actual_candidate_config,
-    ) = junos_base_cfg_object._normalize_source_candidate_configs(source_config=CONFIG_PAYLOAD)
+    actual_config = junos_base_cfg_object.clean_config(config=CONFIG_PAYLOAD)
 
-    assert actual_source_config == "system {"
-    assert actual_candidate_config == "system {"
+    assert actual_config == "system {"

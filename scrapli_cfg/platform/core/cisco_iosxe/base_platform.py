@@ -6,6 +6,7 @@ from logging import LoggerAdapter
 from typing import Tuple
 
 from scrapli_cfg.exceptions import FailedToFetchSpaceAvailable, InsufficientSpaceAvailable
+from scrapli_cfg.helper import strip_blank_lines
 from scrapli_cfg.platform.core.cisco_iosxe.patterns import (
     BYTES_FREE,
     FILE_PROMPT_MODE,
@@ -134,10 +135,9 @@ class ScrapliCfgIOSXEBase:
         version_string = version_string_search.group(0) or ""
         return version_string
 
-    @staticmethod
-    def clean_config(config: str) -> str:
+    def clean_config(self, config: str) -> str:
         """
-        Clean a configuration file; make it "loadable"
+        Clean a configuration file of unwanted lines
 
         Args:
             config: configuration string to "clean"; cleaning removes lines that would prevent using
@@ -151,9 +151,11 @@ class ScrapliCfgIOSXEBase:
             N/A
 
         """
-        config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
-        config = "\n".join(line for line in config.splitlines() if line)
-        return config
+        self.logger.debug("cleaning config file")
+
+        return strip_blank_lines(
+            config=re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
+        )
 
     def _reset_config_session(self) -> None:
         """
