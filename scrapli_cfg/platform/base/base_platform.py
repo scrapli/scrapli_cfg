@@ -24,6 +24,20 @@ class ScrapliCfgBase:
     conn: Union[NetworkDriver, AsyncNetworkDriver]
 
     def __init__(self, config_sources: List[str], ignore_version: bool = False) -> None:
+        """
+        Base class for all CFG platforms
+
+        Args:
+            config_sources: list of allowed config sources
+            ignore_version: ignore platform version check or not
+
+        Returns:
+            None
+
+        Raises:
+            N/A
+
+        """
         self.logger = get_instance_logger(
             instance_name="scrapli_cfg.platform", host=self.conn.host, port=self.conn.port
         )
