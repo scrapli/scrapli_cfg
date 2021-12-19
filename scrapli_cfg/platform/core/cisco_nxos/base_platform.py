@@ -1,7 +1,7 @@
 """scrapli_cfg.platform.core.cisco_nxos.base_platform"""
 import re
 from datetime import datetime
-from logging import LoggerAdapter
+from logging import Logger, LoggerAdapter
 from typing import List, Tuple, Union
 
 from scrapli.driver.network import AsyncNetworkDriver, NetworkDriver
@@ -26,7 +26,7 @@ CONFIG_SOURCES = [
 
 
 class ScrapliCfgNXOSBase:
-    logger: LoggerAdapter
+    logger: LoggerAdapter[Logger]
     candidate_config: str
     candidate_config_filename: str
     _replace: bool

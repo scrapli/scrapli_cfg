@@ -2,7 +2,7 @@
 import re
 from datetime import datetime
 from enum import Enum
-from logging import LoggerAdapter
+from logging import Logger, LoggerAdapter
 from typing import Tuple
 
 from scrapli_cfg.exceptions import FailedToFetchSpaceAvailable, InsufficientSpaceAvailable
@@ -29,7 +29,7 @@ class FilePromptMode(Enum):
 
 
 class ScrapliCfgIOSXEBase:
-    logger: LoggerAdapter
+    logger: LoggerAdapter[Logger]
     candidate_config: str
     candidate_config_filename: str
     _replace: bool

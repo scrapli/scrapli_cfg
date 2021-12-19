@@ -1,7 +1,7 @@
 """scrapli_cfg.platform.core.juniper_junos.base_platform"""
 import re
 from datetime import datetime
-from logging import LoggerAdapter
+from logging import Logger, LoggerAdapter
 
 from scrapli_cfg.helper import strip_blank_lines
 from scrapli_cfg.platform.core.juniper_junos.patterns import (
@@ -16,7 +16,7 @@ CONFIG_SOURCES = [
 
 
 class ScrapliCfgJunosBase:
-    logger: LoggerAdapter
+    logger: LoggerAdapter[Logger]
     candidate_config: str
     candidate_config_filename: str
     _in_configuration_session: bool

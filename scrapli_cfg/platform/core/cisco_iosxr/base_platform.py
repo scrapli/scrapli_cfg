@@ -1,6 +1,6 @@
 """scrapli_cfg.platform.core.cisco_iosxr.base_platform"""
 import re
-from logging import LoggerAdapter
+from logging import Logger, LoggerAdapter
 from typing import Tuple
 
 from scrapli_cfg.helper import strip_blank_lines
@@ -17,7 +17,7 @@ CONFIG_SOURCES = [
 
 
 class ScrapliCfgIOSXRBase:
-    logger: LoggerAdapter
+    logger: LoggerAdapter[Logger]
     _in_configuration_session: bool
     _config_privilege_level: str
     _replace: bool

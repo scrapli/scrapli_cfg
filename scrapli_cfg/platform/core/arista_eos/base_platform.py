@@ -2,7 +2,7 @@
 import json
 import re
 from datetime import datetime
-from logging import LoggerAdapter
+from logging import Logger, LoggerAdapter
 from typing import Iterable, List, Tuple, Union
 
 from scrapli.driver import AsyncNetworkDriver, NetworkDriver
@@ -25,7 +25,7 @@ CONFIG_SOURCES = [
 
 class ScrapliCfgEOSBase:
     conn: Union[NetworkDriver, AsyncNetworkDriver]
-    logger: LoggerAdapter
+    logger: LoggerAdapter[Logger]
     config_sources: List[str]
     config_session_name: str
     candidate_config: str
