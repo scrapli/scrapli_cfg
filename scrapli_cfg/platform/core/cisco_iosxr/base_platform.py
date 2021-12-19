@@ -1,7 +1,7 @@
 """scrapli_cfg.platform.core.cisco_iosxr.base_platform"""
 import re
 from logging import Logger, LoggerAdapter
-from typing import Tuple
+from typing import TYPE_CHECKING, Tuple
 
 from scrapli_cfg.helper import strip_blank_lines
 from scrapli_cfg.platform.core.cisco_iosxr.patterns import (
@@ -11,13 +11,19 @@ from scrapli_cfg.platform.core.cisco_iosxr.patterns import (
     VERSION_PATTERN,
 )
 
+if TYPE_CHECKING:
+    LoggerAdapterT = LoggerAdapter[Logger]  # pylint:disable=E1136
+else:
+    LoggerAdapterT = LoggerAdapter
+
+
 CONFIG_SOURCES = [
     "running",
 ]
 
 
 class ScrapliCfgIOSXRBase:
-    logger: LoggerAdapter[Logger]
+    logger: LoggerAdapterT
     _in_configuration_session: bool
     _config_privilege_level: str
     _replace: bool

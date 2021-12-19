@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 from enum import Enum
 from logging import Logger, LoggerAdapter
-from typing import Tuple
+from typing import TYPE_CHECKING, Tuple
 
 from scrapli_cfg.exceptions import FailedToFetchSpaceAvailable, InsufficientSpaceAvailable
 from scrapli_cfg.helper import strip_blank_lines
@@ -13,6 +13,12 @@ from scrapli_cfg.platform.core.cisco_iosxe.patterns import (
     OUTPUT_HEADER_PATTERN,
     VERSION_PATTERN,
 )
+
+if TYPE_CHECKING:
+    LoggerAdapterT = LoggerAdapter[Logger]  # pylint:disable=E1136
+else:
+    LoggerAdapterT = LoggerAdapter
+
 
 CONFIG_SOURCES = [
     "running",
@@ -29,7 +35,7 @@ class FilePromptMode(Enum):
 
 
 class ScrapliCfgIOSXEBase:
-    logger: LoggerAdapter[Logger]
+    logger: LoggerAdapterT
     candidate_config: str
     candidate_config_filename: str
     _replace: bool

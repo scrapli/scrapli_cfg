@@ -3,7 +3,7 @@ import json
 import re
 from datetime import datetime
 from logging import Logger, LoggerAdapter
-from typing import Iterable, List, Tuple, Union
+from typing import TYPE_CHECKING, Iterable, List, Tuple, Union
 
 from scrapli.driver import AsyncNetworkDriver, NetworkDriver
 from scrapli.response import Response
@@ -17,6 +17,12 @@ from scrapli_cfg.platform.core.arista_eos.patterns import (
 )
 from scrapli_cfg.response import ScrapliCfgResponse
 
+if TYPE_CHECKING:
+    LoggerAdapterT = LoggerAdapter[Logger]  # pylint:disable=E1136
+else:
+    LoggerAdapterT = LoggerAdapter
+
+
 CONFIG_SOURCES = [
     "running",
     "startup",
@@ -25,7 +31,7 @@ CONFIG_SOURCES = [
 
 class ScrapliCfgEOSBase:
     conn: Union[NetworkDriver, AsyncNetworkDriver]
-    logger: LoggerAdapter[Logger]
+    logger: LoggerAdapterT
     config_sources: List[str]
     config_session_name: str
     candidate_config: str

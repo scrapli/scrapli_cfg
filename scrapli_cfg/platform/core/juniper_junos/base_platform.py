@@ -2,6 +2,7 @@
 import re
 from datetime import datetime
 from logging import Logger, LoggerAdapter
+from typing import TYPE_CHECKING
 
 from scrapli_cfg.helper import strip_blank_lines
 from scrapli_cfg.platform.core.juniper_junos.patterns import (
@@ -10,13 +11,19 @@ from scrapli_cfg.platform.core.juniper_junos.patterns import (
     VERSION_PATTERN,
 )
 
+if TYPE_CHECKING:
+    LoggerAdapterT = LoggerAdapter[Logger]  # pylint:disable=E1136
+else:
+    LoggerAdapterT = LoggerAdapter
+
+
 CONFIG_SOURCES = [
     "running",
 ]
 
 
 class ScrapliCfgJunosBase:
-    logger: LoggerAdapter[Logger]
+    logger: LoggerAdapterT
     candidate_config: str
     candidate_config_filename: str
     _in_configuration_session: bool
