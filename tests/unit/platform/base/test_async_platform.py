@@ -1,9 +1,6 @@
-import pytest
-
 from scrapli_cfg.response import ScrapliCfgResponse
 
 
-@pytest.mark.asyncio
 async def test_open(async_cfg_object, monkeypatch):
     open_called = False
     get_version_called = False
@@ -49,7 +46,6 @@ async def test_open(async_cfg_object, monkeypatch):
     assert on_prepare_called is True
 
 
-@pytest.mark.asyncio
 async def test_close(async_cfg_object, monkeypatch):
     close_called = False
 
@@ -70,7 +66,6 @@ async def test_close(async_cfg_object, monkeypatch):
     assert close_called is True
 
 
-@pytest.mark.asyncio
 async def test_context_manager(monkeypatch, async_cfg_object):
     """Asserts context manager properly opens/closes"""
     open_called = False
@@ -98,7 +93,6 @@ async def test_context_manager(monkeypatch, async_cfg_object):
     assert close_called is True
 
 
-@pytest.mark.asyncio
 async def test_render_substituted_config(monkeypatch, async_cfg_object):
     """Asserts context manager properly opens/closes"""
     get_config_called = False
