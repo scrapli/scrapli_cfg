@@ -94,7 +94,7 @@ logger.addHandler(NullHandler())
     
 
 #### enable_basic_logging
-`enable_basic_logging(file: Union[str, bool] = False, level: str = 'info', caller_info: bool = False, buffer_log: bool = True) ‑> NoneType`
+`enable_basic_logging(file: Union[str, bool] = False, level: str = 'info', caller_info: bool = False, buffer_log: bool = True) ‑> None`
 
 ```text
 Enable opinionated logging for scrapli_cfg

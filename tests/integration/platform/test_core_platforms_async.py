@@ -1,7 +1,6 @@
 import pytest
 
 
-@pytest.mark.asyncio
 @pytest.mark.scrapli_replay
 async def test_get_config(async_cfg_conn):
     await async_cfg_conn.prepare()
@@ -13,7 +12,6 @@ async def test_get_config(async_cfg_conn):
     )
 
 
-@pytest.mark.asyncio
 @pytest.mark.scrapli_replay
 async def test_load_config_merge_diff_and_abort(async_cfg_conn):
     await async_cfg_conn.prepare()
@@ -28,7 +26,6 @@ async def test_load_config_merge_diff_and_abort(async_cfg_conn):
     # dont bother with checking the diff itself, we'll do that in unit tests much more thoroughly
 
 
-@pytest.mark.asyncio
 @pytest.mark.scrapli_replay
 async def test_load_config_merge_diff_and_commit(async_cfg_conn):
     await async_cfg_conn.prepare()

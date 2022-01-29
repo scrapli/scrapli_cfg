@@ -24,6 +24,20 @@ class ScrapliCfgBase:
     conn: Union[NetworkDriver, AsyncNetworkDriver]
 
     def __init__(self, config_sources: List[str], ignore_version: bool = False) -> None:
+        """
+        Base class for all CFG platforms
+
+        Args:
+            config_sources: list of allowed config sources
+            ignore_version: ignore platform version check or not
+
+        Returns:
+            None
+
+        Raises:
+            N/A
+
+        """
         self.logger = get_instance_logger(
             instance_name="scrapli_cfg.platform", host=self.conn.host, port=self.conn.port
         )
@@ -561,7 +575,9 @@ class ScrapliCfgBase:
         """
         diff_response.record_response(scrapli_responses=scrapli_responses)
         diff_response.record_diff_response(
-            source_config=source_config, candidate_config=candidate_config, device_diff=device_diff
+            source_config=source_config + "\n",
+            candidate_config=candidate_config + "\n",
+            device_diff=device_diff,
         )
 
         if diff_response.failed:

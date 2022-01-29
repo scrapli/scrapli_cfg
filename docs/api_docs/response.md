@@ -339,7 +339,7 @@ class ScrapliCfgResponse:
     
 
 ##### raise_for_status
-`raise_for_status(self) ‑> NoneType`
+`raise_for_status(self) ‑> None`
 
 ```text
 Raise a `ScrapliCommandFailure` if command/config failed
@@ -359,7 +359,7 @@ Raises:
     
 
 ##### record_response
-`record_response(self, scrapli_responses: Iterable[Union[scrapli.response.Response, scrapli.response.MultiResponse]], result: str = '') ‑> NoneType`
+`record_response(self, scrapli_responses: Iterable[Union[scrapli.response.Response, scrapli.response.MultiResponse]], result: str = '') ‑> None`
 
 ```text
 Record channel_input results and elapsed time of channel input/reading output

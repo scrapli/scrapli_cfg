@@ -173,18 +173,12 @@ def test_prepare_load_config(nxos_base_cfg_object, dummy_logger):
     )
 
 
-def test_normalize_source_candidate_configs(nxos_base_cfg_object, dummy_logger):
+def test_clean_config(nxos_base_cfg_object, dummy_logger):
     nxos_base_cfg_object.logger = dummy_logger
     nxos_base_cfg_object.candidate_config = CONFIG_PAYLOAD
 
-    (
-        actual_source_config,
-        actual_candidate_config,
-    ) = nxos_base_cfg_object._normalize_source_candidate_configs(source_config=CONFIG_PAYLOAD)
-
-    # actual source config wouldnt have the checkpoint lines in there to remove, but candidate would
-    assert actual_source_config == "!#feature ssh\n!#ssh key rsa 1024\nversion 9.2(4) Bios:version"
-    assert actual_candidate_config == "version 9.2(4) Bios:version"
+    actual_config = nxos_base_cfg_object.clean_config(config=CONFIG_PAYLOAD)
+    assert actual_config == "version 9.2(4) Bios:version"
 
 
 def test_pre_get_checkpoint(nxos_base_cfg_object, dummy_logger, sync_scrapli_conn):

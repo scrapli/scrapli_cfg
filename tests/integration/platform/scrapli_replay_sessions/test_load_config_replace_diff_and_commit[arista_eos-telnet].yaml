@@ -1,1806 +1,1027 @@
 localhost:24023:TelnetTransport::0:
-  connection_profile:
-    host: localhost
-    port: 24023
-    auth_username: boxen
-    auth_password: true
-    auth_private_key: ''
-    auth_private_key_passphrase: false
-    auth_bypass: false
-    transport: telnet
-    auth_secondary: true
+  connection_profile: {auth_bypass: false, auth_password: true, auth_private_key: '',
+    auth_private_key_passphrase: false, auth_secondary: true, auth_username: boxen,
+    host: localhost, port: 24023, transport: telnet}
   interactions:
-    - channel_output: "No startup-config was found.\nThe device is in Zero Touch Provisioning\
-        \ mode and is attempting to\ndownload the startup-config from a remote system.\
+    - {channel_output: "No startup-config was found.\nThe device is in Zero Touch\
+        \ Provisioning mode and is attempting to\ndownload the startup-config from\
+        \ a remote system. The device will not\nbe fully functional until either a\
+        \ valid startup-config is downloaded\nfrom a remote system or Zero Touch Provisioning\
+        \ is cancelled.\nTo cancel Zero Touch Provisioning, login as admin and type\n\
+        'zerotouch cancel' at the CLI. Alternatively, to disable Zero Touch\nProvisioning\
+        \ permanently, type 'zerotouch disable' at the CLI.\nNote: The device will\
+        \ reload when these commands are issued.\nUsername: ", expected_channel_input: boxen,
+      expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: 'Password: ', expected_channel_input: REDACTED, expected_channel_input_redacted: true}
+    - {channel_output: '', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nLast login: Sat Nov 20 00:21:14 from 10.0.0.2\nlocalhost>",
+      expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost>", expected_channel_input: enable, expected_channel_input_redacted: false}
+    - {channel_output: enable, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nPassword: ", expected_channel_input: REDACTED, expected_channel_input_redacted: true}
+    - {channel_output: '', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost#", expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost#", expected_channel_input: terminal length 0,
+      expected_channel_input_redacted: false}
+    - {channel_output: terminal length 0, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nPagination disabled.\nlocalhost#", expected_channel_input: terminal
+        width 32767, expected_channel_input_redacted: false}
+    - {channel_output: terminal width 32767, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nWidth set to 32767 columns.\nlocalhost#", expected_channel_input: show
+        version | i Software image version, expected_channel_input_redacted: false}
+    - {channel_output: show version | i Software image version, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nSoftware image version: 4.22.1F\nlocalhost#", expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost#", expected_channel_input: configure session __SCRAPLI_CFG_SESSION_NAME__,
+      expected_channel_input_redacted: false}
+    - {channel_output: configure session __SCRAPLI_CFG_SESSION_NAME__, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: rollback
+        clean-config, expected_channel_input_redacted: false}
+    - {channel_output: rollback clean-config, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: switchport
+        default mode routed, expected_channel_input_redacted: false}
+    - {channel_output: switchport default mode routed, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: transceiver
+        qsfp default-mode 4x10G, expected_channel_input_redacted: false}
+    - {channel_output: transceiver qsfp default-mode 4x10G, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        console informational, expected_channel_input_redacted: false}
+    - {channel_output: logging console informational, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level AAA errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level AAA errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level ACCOUNTING errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level ACCOUNTING errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level ACL errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level ACL errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level AGENT errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level AGENT errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level ALE errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level ALE errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level ARP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level ARP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level BFD errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level BFD errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level BGP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level BGP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level BMP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level BMP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level CAPACITY errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level CAPACITY errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level CAPI errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level CAPI errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level CLEAR errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level CLEAR errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level CVX errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level CVX errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level DATAPLANE errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level DATAPLANE errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level DHCP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level DHCP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level DOT1X errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level DOT1X errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level DSCP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level DSCP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level ENVMON errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level ENVMON errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level ETH errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level ETH errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level EVENTMON errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level EVENTMON errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level EXTENSION errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level EXTENSION errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level FHRP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level FHRP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level FLOW errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level FLOW errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level FORWARDING errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level FORWARDING errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level FRU errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level FRU errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level FWK errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level FWK errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level GMP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level GMP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level HARDWARE errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level HARDWARE errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level HEALTH errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level HEALTH errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level HTTPSERVICE errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level HTTPSERVICE errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level IGMP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level IGMP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level IGMPSNOOPING errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level IGMPSNOOPING errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level INT errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level INT errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level INTF errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level INTF errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level IP6ROUTING errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level IP6ROUTING errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level IPRIB errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level IPRIB errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level IRA errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level IRA errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level ISIS errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level ISIS errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level KERNELFIB errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level KERNELFIB errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level LACP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level LACP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level LAG errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level LAG errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level LAUNCHER errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level LAUNCHER errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level LDP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level LDP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level LICENSE errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level LICENSE errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level LINEPROTO errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level LINEPROTO errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level LLDP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level LLDP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level LOGMGR errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level LOGMGR errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level LOOPBACK errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level LOOPBACK errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level LOOPPROTECT errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level LOOPPROTECT errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MAPREDUCEMONITOR errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MAPREDUCEMONITOR errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MIRRORING errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MIRRORING errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MKA errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MKA errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MLAG errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MLAG errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MMODE errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MMODE errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MROUTE errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MROUTE errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MRP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MRP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MSDP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MSDP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MSRP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MSRP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MSSPOLICYMONITOR errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MSSPOLICYMONITOR errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level MVRP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level MVRP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level NAT errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level NAT errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level OPENCONFIG errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level OPENCONFIG errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level OPENFLOW errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level OPENFLOW errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level OSPF errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level OSPF errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level OSPF3 errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level OSPF3 errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level PACKAGE errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level PACKAGE errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level PFC errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level PFC errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level PIMBSR errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level PIMBSR errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level PORTSECURITY errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level PORTSECURITY errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level PTP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level PTP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level PWRMGMT errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level PWRMGMT errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level QOS errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level QOS errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level QUEUEMONITOR errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level QUEUEMONITOR errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level REDUNDANCY errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level REDUNDANCY errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level RIB errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level RIB errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level ROUTING errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level ROUTING errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level SECURITY errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level SECURITY errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level SERVERMONITOR errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level SERVERMONITOR errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level SPANTREE errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level SPANTREE errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level SSO errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level SSO errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level STAGEMGR errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level STAGEMGR errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level SYS errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level SYS errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level SYSDB errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level SYSDB errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level TAPAGG errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level TAPAGG errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level TCP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level TCP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level TRANSCEIVER errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level TRANSCEIVER errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level TUNNEL errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level TUNNEL errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level TUNNELINTF errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level TUNNELINTF errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level VMTRACERSESS errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level VMTRACERSESS errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level VMWAREVI errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level VMWAREVI errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level VMWAREVS errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level VMWAREVS errors, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level VRF errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level VRF errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level VRRP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level VRRP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level VXLAN errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level VXLAN errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level XMPP errors, expected_channel_input_redacted: false}
+    - {channel_output: logging level XMPP errors, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: logging
+        level ZTP informational, expected_channel_input_redacted: false}
+    - {channel_output: logging level ZTP informational, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: spanning-tree
+        mode mstp, expected_channel_input_redacted: false}
+    - {channel_output: spanning-tree mode mstp, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: enable
+        secret sha512 $6$TVJ6KgdC0qsGkKfb$LjGGPd6W3S1iJQVQ.Vvo3Bca4Yt1R3y4nOjWAaaTCsk1NuIoqB/gOMseoigt/HQVFDTvDAJ3IPmsF9sWfxi1V/,
+      expected_channel_input_redacted: false}
+    - {channel_output: enable secret sha512 $6$TVJ6KgdC0qsGkKfb$LjGGPd6W3S1iJQVQ.Vvo3Bca4Yt1R3y4nOjWAaaTCsk1NuIoqB/gOMseoigt/HQVFDTvDAJ3IPmsF9sWfxi1V/,
+      expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: no
+        aaa root, expected_channel_input_redacted: false}
+    - {channel_output: no aaa root, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: username
+        boxen role network-admin secret sha512 $6$1ex07TzYfKx23A9z$c02oeDxnr4J7HMgj0PcabYvACZfjdiu3zp4IAgjJQ51IBtkstpvOjm0FYbxSSBhsl.mytIr9Y4PaERp4MDXJM/,
+      expected_channel_input_redacted: false}
+    - {channel_output: username boxen role network-admin secret sha512 $6$1ex07TzYfKx23A9z$c02oeDxnr4J7HMgj0PcabYvACZfjdiu3zp4IAgjJQ51IBtkstpvOjm0FYbxSSBhsl.mytIr9Y4PaERp4MDXJM/,
+      expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: interface
+        Ethernet1, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet1, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#", expected_channel_input: interface
+        Ethernet2, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet2, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#", expected_channel_input: interface
+        Ethernet3, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet3, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#", expected_channel_input: interface
+        Ethernet4, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet4, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#", expected_channel_input: interface
+        Ethernet5, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet5, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#", expected_channel_input: interface
+        Ethernet6, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet6, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#", expected_channel_input: interface
+        Ethernet7, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet7, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#", expected_channel_input: interface
+        Ethernet8, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet8, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#", expected_channel_input: interface
+        Ethernet9, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet9, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#", expected_channel_input: interface
+        Ethernet10, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet10, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#", expected_channel_input: interface
+        Ethernet11, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet11, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#", expected_channel_input: interface
+        Ethernet12, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet12, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#", expected_channel_input: interface
+        Ethernet13, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet13, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#", expected_channel_input: interface
+        Ethernet14, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet14, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#", expected_channel_input: interface
+        Ethernet15, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet15, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#", expected_channel_input: interface
+        Ethernet16, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet16, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#", expected_channel_input: interface
+        Ethernet17, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet17, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#", expected_channel_input: interface
+        Ethernet18, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet18, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#", expected_channel_input: interface
+        Ethernet19, expected_channel_input_redacted: false}
+    - {channel_output: interface Ethernet19, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#", expected_channel_input: '   speed
+        forced 10000full', expected_channel_input_redacted: false}
+    - {channel_output: '   speed forced 10000full', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#", expected_channel_input: '   no
+        switchport', expected_channel_input_redacted: false}
+    - {channel_output: '   no switchport', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#", expected_channel_input: interface
+        Management1, expected_channel_input_redacted: false}
+    - {channel_output: interface Management1, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#", expected_channel_input: '   ip
+        address 10.0.0.15/24', expected_channel_input_redacted: false}
+    - {channel_output: '   ip address 10.0.0.15/24', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#", expected_channel_input: '   ipv6
+        enable', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 enable', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#", expected_channel_input: '   ipv6
+        address auto-config', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 address auto-config', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#", expected_channel_input: '   ipv6
+        nd ra rx accept default-route', expected_channel_input_redacted: false}
+    - {channel_output: '   ipv6 nd ra rx accept default-route', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#", expected_channel_input: no
+        ip routing, expected_channel_input_redacted: false}
+    - {channel_output: no ip routing, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: control-plane,
+      expected_channel_input_redacted: false}
+    - {channel_output: control-plane, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-cp)#", expected_channel_input: '   no
+        service-policy input copp-system-policy', expected_channel_input_redacted: false}
+    - {channel_output: '   no service-policy input copp-system-policy', expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-cp)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-cp)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-cp)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-cp)#", expected_channel_input: management
+        api http-commands, expected_channel_input_redacted: false}
+    - {channel_output: management api http-commands, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-mgmt-api-http-cmds)#", expected_channel_input: '   protocol
+        unix-socket', expected_channel_input_redacted: false}
+    - {channel_output: '   protocol unix-socket', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-mgmt-api-http-cmds)#", expected_channel_input: '   no
+        shutdown', expected_channel_input_redacted: false}
+    - {channel_output: '   no shutdown', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-mgmt-api-http-cmds)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-mgmt-api-http-cmds)#", expected_channel_input: management
+        telnet, expected_channel_input_redacted: false}
+    - {channel_output: management telnet, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-mgmt-telnet)#", expected_channel_input: '   no
+        shutdown', expected_channel_input_redacted: false}
+    - {channel_output: '   no shutdown', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-mgmt-telnet)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-mgmt-telnet)#", expected_channel_input: '!',
+      expected_channel_input_redacted: false}
+    - {channel_output: '!', expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl-mgmt-telnet)#", expected_channel_input: banner
+        login, expected_channel_input_redacted: false}
+    - {channel_output: banner login, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: No startup-config was found., expected_channel_input_redacted: false}
+    - {channel_output: "\nNo startup-config was found.", expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: The device is in Zero Touch Provisioning
+        mode and is attempting to, expected_channel_input_redacted: false}
+    - {channel_output: "\nThe device is in Zero Touch Provisioning mode and is attempting\
+        \ to", expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: download the startup-config from
+        a remote system. The device will not, expected_channel_input_redacted: false}
+    - {channel_output: "\ndownload the startup-config from a remote system. The device\
+        \ will not", expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: be fully functional until either
+        a valid startup-config is downloaded, expected_channel_input_redacted: false}
+    - {channel_output: "Enter TEXT message. Type 'EOF' on its own line to end.\nNo\
+        \ startup-config was found.\nThe device is in Zero Touch Provisioning mode\
+        \ and is attempting to\ndownload the startup-config from a remote system.\
         \ The device will not\nbe fully functional until either a valid startup-config\
-        \ is downloaded\nfrom a remote system or Zero Touch Provisioning is cancelled.\n\
-        To cancel Zero Touch Provisioning, login as admin and type\n'zerotouch cancel'\
-        \ at the CLI. Alternatively, to disable Zero Touch\nProvisioning permanently,\
-        \ type 'zerotouch disable' at the CLI.\nNote: The device will reload when\
-        \ these commands are issued.\nUsername: "
-      expected_channel_input: boxen
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: 'Password: '
-      expected_channel_input: REDACTED
-      expected_channel_input_redacted: true
-    - channel_output: ''
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nLast login: Sat May 29 17:04:37 from 10.0.0.2\nlocalhost>"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost>"
-      expected_channel_input: enable
-      expected_channel_input_redacted: false
-    - channel_output: enable
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nPassword: "
-      expected_channel_input: REDACTED
-      expected_channel_input_redacted: true
-    - channel_output: ''
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost#"
-      expected_channel_input: terminal length 0
-      expected_channel_input_redacted: false
-    - channel_output: terminal length 0
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nPagination disabled.\nlocalhost#"
-      expected_channel_input: terminal width 32767
-      expected_channel_input_redacted: false
-    - channel_output: terminal width 32767
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nWidth set to 32767 columns.\nlocalhost#"
-      expected_channel_input: show version | i Software image version
-      expected_channel_input_redacted: false
-    - channel_output: show version | i Software image version
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nSoftware image version: 4.22.1F\nlocalhost#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost#"
-      expected_channel_input: configure session __SCRAPLI_CFG_SESSION_NAME__
-      expected_channel_input_redacted: false
-    - channel_output: configure session __SCRAPLI_CFG_SESSION_NAME__
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: rollback clean-config
-      expected_channel_input_redacted: false
-    - channel_output: rollback clean-config
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: switchport default mode routed
-      expected_channel_input_redacted: false
-    - channel_output: switchport default mode routed
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: transceiver qsfp default-mode 4x10G
-      expected_channel_input_redacted: false
-    - channel_output: transceiver qsfp default-mode 4x10G
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging console informational
-      expected_channel_input_redacted: false
-    - channel_output: logging console informational
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level AAA errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level AAA errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level ACCOUNTING errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level ACCOUNTING errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level ACL errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level ACL errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level AGENT errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level AGENT errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level ALE errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level ALE errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level ARP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level ARP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level BFD errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level BFD errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level BGP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level BGP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level BMP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level BMP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level CAPACITY errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level CAPACITY errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level CAPI errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level CAPI errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level CLEAR errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level CLEAR errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level CVX errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level CVX errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level DATAPLANE errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level DATAPLANE errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level DHCP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level DHCP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level DOT1X errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level DOT1X errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level DSCP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level DSCP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level ENVMON errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level ENVMON errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level ETH errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level ETH errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level EVENTMON errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level EVENTMON errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level EXTENSION errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level EXTENSION errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level FHRP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level FHRP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level FLOW errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level FLOW errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level FORWARDING errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level FORWARDING errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level FRU errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level FRU errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level FWK errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level FWK errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level GMP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level GMP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level HARDWARE errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level HARDWARE errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level HEALTH errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level HEALTH errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level HTTPSERVICE errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level HTTPSERVICE errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level IGMP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level IGMP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level IGMPSNOOPING errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level IGMPSNOOPING errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level INT errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level INT errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level INTF errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level INTF errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level IP6ROUTING errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level IP6ROUTING errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level IPRIB errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level IPRIB errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level IRA errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level IRA errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level ISIS errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level ISIS errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level KERNELFIB errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level KERNELFIB errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level LACP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level LACP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level LAG errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level LAG errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level LAUNCHER errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level LAUNCHER errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level LDP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level LDP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level LICENSE errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level LICENSE errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level LINEPROTO errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level LINEPROTO errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level LLDP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level LLDP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level LOGMGR errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level LOGMGR errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level LOOPBACK errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level LOOPBACK errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level LOOPPROTECT errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level LOOPPROTECT errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MAPREDUCEMONITOR errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MAPREDUCEMONITOR errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MIRRORING errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MIRRORING errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MKA errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MKA errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MLAG errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MLAG errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MMODE errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MMODE errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MROUTE errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MROUTE errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MRP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MRP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MSDP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MSDP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MSRP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MSRP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MSSPOLICYMONITOR errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MSSPOLICYMONITOR errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level MVRP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level MVRP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level NAT errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level NAT errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level OPENCONFIG errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level OPENCONFIG errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level OPENFLOW errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level OPENFLOW errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level OSPF errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level OSPF errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level OSPF3 errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level OSPF3 errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level PACKAGE errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level PACKAGE errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level PFC errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level PFC errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level PIMBSR errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level PIMBSR errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level PORTSECURITY errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level PORTSECURITY errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level PTP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level PTP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level PWRMGMT errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level PWRMGMT errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level QOS errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level QOS errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level QUEUEMONITOR errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level QUEUEMONITOR errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level REDUNDANCY errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level REDUNDANCY errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level RIB errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level RIB errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level ROUTING errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level ROUTING errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level SECURITY errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level SECURITY errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level SERVERMONITOR errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level SERVERMONITOR errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level SPANTREE errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level SPANTREE errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level SSO errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level SSO errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level STAGEMGR errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level STAGEMGR errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level SYS errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level SYS errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level SYSDB errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level SYSDB errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level TAPAGG errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level TAPAGG errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level TCP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level TCP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level TRANSCEIVER errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level TRANSCEIVER errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level TUNNEL errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level TUNNEL errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level TUNNELINTF errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level TUNNELINTF errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level VMTRACERSESS errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level VMTRACERSESS errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level VMWAREVI errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level VMWAREVI errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level VMWAREVS errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level VMWAREVS errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level VRF errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level VRF errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level VRRP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level VRRP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level VXLAN errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level VXLAN errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level XMPP errors
-      expected_channel_input_redacted: false
-    - channel_output: logging level XMPP errors
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: logging level ZTP informational
-      expected_channel_input_redacted: false
-    - channel_output: logging level ZTP informational
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: spanning-tree mode mstp
-      expected_channel_input_redacted: false
-    - channel_output: spanning-tree mode mstp
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: enable secret sha512 $6$TVJ6KgdC0qsGkKfb$LjGGPd6W3S1iJQVQ.Vvo3Bca4Yt1R3y4nOjWAaaTCsk1NuIoqB/gOMseoigt/HQVFDTvDAJ3IPmsF9sWfxi1V/
-      expected_channel_input_redacted: false
-    - channel_output: enable secret sha512 $6$TVJ6KgdC0qsGkKfb$LjGGPd6W3S1iJQVQ.Vvo3Bca4Yt1R3y4nOjWAaaTCsk1NuIoqB/gOMseoigt/HQVFDTvDAJ3IPmsF9sWfxi1V/
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: no aaa root
-      expected_channel_input_redacted: false
-    - channel_output: no aaa root
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: username boxen role network-admin secret sha512 $6$1ex07TzYfKx23A9z$c02oeDxnr4J7HMgj0PcabYvACZfjdiu3zp4IAgjJQ51IBtkstpvOjm0FYbxSSBhsl.mytIr9Y4PaERp4MDXJM/
-      expected_channel_input_redacted: false
-    - channel_output: username boxen role network-admin secret sha512 $6$1ex07TzYfKx23A9z$c02oeDxnr4J7HMgj0PcabYvACZfjdiu3zp4IAgjJQ51IBtkstpvOjm0FYbxSSBhsl.mytIr9Y4PaERp4MDXJM/
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: interface Ethernet1
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet1
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et1)#"
-      expected_channel_input: interface Ethernet2
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet2
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et2)#"
-      expected_channel_input: interface Ethernet3
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet3
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et3)#"
-      expected_channel_input: interface Ethernet4
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet4
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et4)#"
-      expected_channel_input: interface Ethernet5
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet5
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et5)#"
-      expected_channel_input: interface Ethernet6
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet6
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et6)#"
-      expected_channel_input: interface Ethernet7
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet7
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et7)#"
-      expected_channel_input: interface Ethernet8
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet8
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et8)#"
-      expected_channel_input: interface Ethernet9
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet9
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et9)#"
-      expected_channel_input: interface Ethernet10
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet10
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et10)#"
-      expected_channel_input: interface Ethernet11
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet11
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et11)#"
-      expected_channel_input: interface Ethernet12
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet12
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et12)#"
-      expected_channel_input: interface Ethernet13
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet13
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et13)#"
-      expected_channel_input: interface Ethernet14
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet14
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et14)#"
-      expected_channel_input: interface Ethernet15
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet15
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et15)#"
-      expected_channel_input: interface Ethernet16
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet16
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et16)#"
-      expected_channel_input: interface Ethernet17
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet17
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et17)#"
-      expected_channel_input: interface Ethernet18
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet18
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et18)#"
-      expected_channel_input: interface Ethernet19
-      expected_channel_input_redacted: false
-    - channel_output: interface Ethernet19
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#"
-      expected_channel_input: '   speed forced 10000full'
-      expected_channel_input_redacted: false
-    - channel_output: '   speed forced 10000full'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#"
-      expected_channel_input: '   no switchport'
-      expected_channel_input_redacted: false
-    - channel_output: '   no switchport'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Et19)#"
-      expected_channel_input: interface Management1
-      expected_channel_input_redacted: false
-    - channel_output: interface Management1
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#"
-      expected_channel_input: '   ip address 10.0.0.15/24'
-      expected_channel_input_redacted: false
-    - channel_output: '   ip address 10.0.0.15/24'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#"
-      expected_channel_input: '   ipv6 enable'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 enable'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#"
-      expected_channel_input: '   ipv6 address auto-config'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 address auto-config'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#"
-      expected_channel_input: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input_redacted: false
-    - channel_output: '   ipv6 nd ra rx accept default-route'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-if-Ma1)#"
-      expected_channel_input: no ip routing
-      expected_channel_input_redacted: false
-    - channel_output: no ip routing
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: control-plane
-      expected_channel_input_redacted: false
-    - channel_output: control-plane
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-cp)#"
-      expected_channel_input: '   no service-policy input copp-system-policy'
-      expected_channel_input_redacted: false
-    - channel_output: '   no service-policy input copp-system-policy'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-cp)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-cp)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-cp)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-cp)#"
-      expected_channel_input: management api http-commands
-      expected_channel_input_redacted: false
-    - channel_output: management api http-commands
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-mgmt-api-http-cmds)#"
-      expected_channel_input: '   protocol unix-socket'
-      expected_channel_input_redacted: false
-    - channel_output: '   protocol unix-socket'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-mgmt-api-http-cmds)#"
-      expected_channel_input: '   no shutdown'
-      expected_channel_input_redacted: false
-    - channel_output: '   no shutdown'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-mgmt-api-http-cmds)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-mgmt-api-http-cmds)#"
-      expected_channel_input: management telnet
-      expected_channel_input_redacted: false
-    - channel_output: management telnet
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-mgmt-telnet)#"
-      expected_channel_input: '   no shutdown'
-      expected_channel_input_redacted: false
-    - channel_output: '   no shutdown'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-mgmt-telnet)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-mgmt-telnet)#"
-      expected_channel_input: '!'
-      expected_channel_input_redacted: false
-    - channel_output: '!'
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl-mgmt-telnet)#"
-      expected_channel_input: banner login
-      expected_channel_input_redacted: false
-    - channel_output: banner login
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: No startup-config was found.
-      expected_channel_input_redacted: false
-    - channel_output: "\nEnter TEXT message. Type 'EOF' on its own line to end.\n\
-        No startup-config was found."
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: The device is in Zero Touch Provisioning mode and is
-        attempting to
-      expected_channel_input_redacted: false
-    - channel_output: "\nThe device is in Zero Touch Provisioning mode and is attempting\
-        \ toThe device is in Zero Touch Provis"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: download the startup-config from a remote system. The
-        device will not
-      expected_channel_input_redacted: false
-    - channel_output: "ioning mode and is attempting to\ndownload the startup-config\
-        \ from a remote system. The device will not"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: be fully functional until either a valid startup-config
-        is downloaded
-      expected_channel_input_redacted: false
-    - channel_output: "\nbe fully functional until either a valid startup-config is\
-        \ downloaded"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: from a remote system or Zero Touch Provisioning is cancelled.
-      expected_channel_input_redacted: false
-    - channel_output: "\nfrom a remote system or Zero Touch Provisioning is cancelled."
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: To cancel Zero Touch Provisioning, login as admin and
-        type
-      expected_channel_input_redacted: false
-    - channel_output: "\nTo cancel Zero Touch Provisioning, login as admin and type"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: "'zerotouch cancel' at the CLI. Alternatively, to disable\
-        \ Zero Touch"
-      expected_channel_input_redacted: false
-    - channel_output: "\n'zerotouch cancel' at the CLI. Alternatively, to disable\
-        \ Zero Touch"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: Provisioning permanently, type 'zerotouch disable' at
-        the CLI.
-      expected_channel_input_redacted: false
-    - channel_output: "\nProvisioning permanently, type 'zerotouch disable' at the\
-        \ CLI."
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: 'Note: The device will reload when these commands are
-        issued.'
-      expected_channel_input_redacted: false
-    - channel_output: "\nNote: The device will reload when these commands are issued."
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: EOF
-      expected_channel_input_redacted: false
-    - channel_output: "\nEOF"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: show session-config diffs
-      expected_channel_input_redacted: false
-    - channel_output: show session-config diffs
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\n\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost(config-s-scrapl)#"
-      expected_channel_input: end
-      expected_channel_input_redacted: false
-    - channel_output: end
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost#"
-      expected_channel_input: show running-config
-      expected_channel_input_redacted: false
-    - channel_output: show running-config
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\n! Command: show running-config\n! device: localhost (vEOS,\
+        \ is downloaded", expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: from a remote system or Zero Touch
+        Provisioning is cancelled., expected_channel_input_redacted: false}
+    - {channel_output: "\nfrom a remote system or Zero Touch Provisioning is cancelled.fro",
+      expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: 'To cancel Zero Touch Provisioning,
+        login as admin and type', expected_channel_input_redacted: false}
+    - {channel_output: "m a remote system or Zero Touch Provisioning is cancelled.\n\
+        To cancel Zero Touch Provisioning, login as admin and type", expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: "'zerotouch cancel' at the CLI.\
+        \ Alternatively, to disable Zero Touch", expected_channel_input_redacted: false}
+    - {channel_output: "\n'zerotouch cancel' at the CLI. Alternatively, to disable\
+        \ Zero Touch'zerotouch cancel' at the CLI. Al", expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: "Provisioning permanently, type\
+        \ 'zerotouch disable' at the CLI.", expected_channel_input_redacted: false}
+    - {channel_output: "ternatively, to disable Zero Touch\nProvisioning permanently,\
+        \ type 'zerotouch disable' at the CLI.", expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: 'Note: The device will reload when
+        these commands are issued.', expected_channel_input_redacted: false}
+    - {channel_output: "Provisioning permanently, type 'zerotouch disable' at the\
+        \ CLI.\nNote: The device will reload when these commands are issued.", expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: EOF, expected_channel_input_redacted: false}
+    - {channel_output: "\nEOF", expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: show
+        session-config diffs, expected_channel_input_redacted: false}
+    - {channel_output: show session-config diffs, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\n\nlocalhost(config-s-scrapl)#", expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost(config-s-scrapl)#", expected_channel_input: end,
+      expected_channel_input_redacted: false}
+    - {channel_output: end, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost#", expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost#", expected_channel_input: show running-config,
+      expected_channel_input_redacted: false}
+    - {channel_output: show running-config, expected_channel_input: "\n", expected_channel_input_redacted: false}
+    - {channel_output: "\n! Command: show running-config\n! device: localhost (vEOS,\
         \ EOS-4.22.1F)\n!\n! boot system flash:/vEOS-lab.swi\n!\nswitchport default\
         \ mode routed\n!\ntransceiver qsfp default-mode 4x10G\n!\nlogging console\
         \ informational\n!\nlogging level AAA errors\nlogging level ACCOUNTING errors\n\
@@ -1881,36 +1102,28 @@ localhost:24023:TelnetTransport::0:
         \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
         !\ninterface Ethernet19\n   speed forced 10000full\n   no switchport\n   ipv6\
         \ enable\n   ipv6 address auto-config\n   ipv6 nd ra rx accept default-route\n\
-        !\ninterface Management1\n   ip address 10.0.0.15/24\n   ipv6 enable\n   ipv6\
-        \ address auto-config\n   ipv6 nd ra rx accept default-route\n!\nno ip routing\n\
-        !\ncontrol-plane\n   no service-policy input copp-system-policy\n!\nbanner\
-        \ login\nNo startup-config was found.\nThe device is in Zero Touch Provisioning\
-        \ mode and is attempting to\ndownload the startup-config from a remote system.\
-        \ The device will not\nbe fully functional until either a valid startup-config\
-        \ is downloaded\nfrom a remote system or Zero Touch Provisioning is cancelled.\n\
-        To cancel Zero Touch Provisioning, login as admin and type\n'zerotouch cancel'\
-        \ at the CLI. Alternatively, to disable Zero Touch\nProvisioning permanently,\
-        \ type 'zerotouch disable' at the CLI.\nNote: The device will reload when\
-        \ these commands are issued.\nEOF\n!\nmanagement api http-commands\n   protocol\
-        \ unix-socket\n   no shutdown\n!\nmanagement telnet\n   no shutdown\n!\nend\n\
-        localhost#"
-      expected_channel_input: configure session __SCRAPLI_CFG_SESSION_NAME__ commit
-      expected_channel_input_redacted: false
-    - channel_output: configure session __SCRAPLI_CFG_SESSION_NAME__ commit
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost#"
-      expected_channel_input: copy running-config startup-config
-      expected_channel_input_redacted: false
-    - channel_output: copy running-config startup-config
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nCopy completed successfully.\nlocalhost#"
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
-    - channel_output: "\nlocalhost#"
-      expected_channel_input: exit
-      expected_channel_input_redacted: false
-    - channel_output: ''
-      expected_channel_input: "\n"
-      expected_channel_input_redacted: false
+        !\ninterface Ethernet20\n   no switchport\n!\ninterface Management1\n   ip\
+        \ address 10.0.0.15/24\n   ipv6 enable\n   ipv6 address auto-config\n   ipv6\
+        \ nd ra rx accept default-route\n!\nno ip routing\n!\ncontrol-plane\n   no\
+        \ service-policy input copp-system-policy\n!\nbanner login\nNo startup-config\
+        \ was found.\nThe device is in Zero Touch Provisioning mode and is attempting\
+        \ to\ndownload the startup-config from a remote system. The device will not\n\
+        be fully functional until either a valid startup-config is downloaded\nfrom\
+        \ a remote system or Zero Touch Provisioning is cancelled.\nTo cancel Zero\
+        \ Touch Provisioning, login as admin and type\n'zerotouch cancel' at the CLI.\
+        \ Alternatively, to disable Zero Touch\nProvisioning permanently, type 'zerotouch\
+        \ disable' at the CLI.\nNote: The device will reload when these commands are\
+        \ issued.\nEOF\n!\nmanagement api http-commands\n   protocol unix-socket\n\
+        \   no shutdown\n!\nmanagement telnet\n   no shutdown\n!\nend\nlocalhost#",
+      expected_channel_input: configure session __SCRAPLI_CFG_SESSION_NAME__ commit,
+      expected_channel_input_redacted: false}
+    - {channel_output: configure session __SCRAPLI_CFG_SESSION_NAME__ commit, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost#", expected_channel_input: copy running-config
+        startup-config, expected_channel_input_redacted: false}
+    - {channel_output: copy running-config startup-config, expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nCopy completed successfully.\nlocalhost#", expected_channel_input: "\n",
+      expected_channel_input_redacted: false}
+    - {channel_output: "\nlocalhost#", expected_channel_input: exit, expected_channel_input_redacted: false}
+    - {channel_output: '', expected_channel_input: "\n", expected_channel_input_redacted: false}

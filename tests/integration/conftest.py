@@ -96,7 +96,6 @@ async def async_conn(test_devices_dict, device_type, async_transport):
     return async_conn, device_type
 
 
-@pytest.mark.asyncio
 @pytest.fixture(scope="function")
 async def async_cfg_conn(config_replacer_dict, async_conn, expected_configs):
     scrapli_conn, device_type = async_conn

@@ -50,6 +50,38 @@ class ScrapliCfgDiffResponse(ScrapliCfgResponse):
         self._unified_diff = ""
         self._side_by_side_diff = ""
 
+    def __repr__(self) -> str:
+        """
+        Magic repr method for ScrapliCfgResponse class
+
+        Args:
+            N/A
+
+        Returns:
+            str: repr for class object
+
+        Raises:
+            N/A
+
+        """
+        return f"ScrapliCfgDiffResponse <Success: {str(not self.failed)}>"
+
+    def __str__(self) -> str:
+        """
+        Magic str method for ScrapliCfgDiffResponse class
+
+        Args:
+            N/A
+
+        Returns:
+            str: str for class object
+
+        Raises:
+            N/A
+
+        """
+        return f"ScrapliCfgDiffResponse <Success: {str(not self.failed)}>"
+
     def record_diff_response(
         self, source_config: str, candidate_config: str, device_diff: str
     ) -> None:

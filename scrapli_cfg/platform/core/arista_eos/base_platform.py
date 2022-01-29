@@ -2,12 +2,13 @@
 import json
 import re
 from datetime import datetime
-from logging import LoggerAdapter
-from typing import Iterable, List, Tuple, Union
+from logging import Logger, LoggerAdapter
+from typing import TYPE_CHECKING, Iterable, List, Tuple, Union
 
 from scrapli.driver import AsyncNetworkDriver, NetworkDriver
 from scrapli.response import Response
 from scrapli_cfg.exceptions import ScrapliCfgException
+from scrapli_cfg.helper import strip_blank_lines
 from scrapli_cfg.platform.core.arista_eos.patterns import (
     BANNER_PATTERN,
     END_PATTERN,
@@ -15,6 +16,12 @@ from scrapli_cfg.platform.core.arista_eos.patterns import (
     VERSION_PATTERN,
 )
 from scrapli_cfg.response import ScrapliCfgResponse
+
+if TYPE_CHECKING:
+    LoggerAdapterT = LoggerAdapter[Logger]  # pylint:disable=E1136
+else:
+    LoggerAdapterT = LoggerAdapter
+
 
 CONFIG_SOURCES = [
     "running",
@@ -24,7 +31,7 @@ CONFIG_SOURCES = [
 
 class ScrapliCfgEOSBase:
     conn: Union[NetworkDriver, AsyncNetworkDriver]
-    logger: LoggerAdapter
+    logger: LoggerAdapterT
     config_sources: List[str]
     config_session_name: str
     candidate_config: str
@@ -173,34 +180,29 @@ class ScrapliCfgEOSBase:
         self.candidate_config = ""
         self.config_session_name = ""
 
-    def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
+    def clean_config(self, config: str) -> str:
         """
-        Normalize candidate config and source config so that we can easily diff them
+        Clean a configuration file of unwanted lines
 
         Args:
-            source_config: current config of the source config store
+            config: configuration string to "clean";  remove all comment lines from both the source
+                and candidate configs -- this is only done here pre-diff, so we dont modify the user
+                provided candidate config which can totally have those comment lines - we only
+                remove "global" (top level) comments though... user comments attached to interfaces
+                and the stuff will remain
 
         Returns:
-            ScrapliCfgDiff: scrapli cfg diff object
+            str: cleaned configuration string
 
         Raises:
             N/A
 
         """
-        self.logger.debug("normalizing source and candidate configs for diff object")
+        self.logger.debug("cleaning config file")
 
-        # Remove all comment lines from both the source and candidate configs -- this is only done
-        # here pre-diff, so we dont modify the user provided candidate config which can totally have
-        # those comment lines - we only remove "global" (top level) comments though... user comments
-        # attached to interfaces and the stuff will remain
-        source_config = re.sub(pattern=GLOBAL_COMMENT_LINE_PATTERN, string=source_config, repl="")
-        source_config = "\n".join(line for line in source_config.splitlines() if line)
-        candidate_config = re.sub(
-            pattern=GLOBAL_COMMENT_LINE_PATTERN, string=self.candidate_config, repl=""
+        return strip_blank_lines(
+            config=re.sub(pattern=GLOBAL_COMMENT_LINE_PATTERN, string=config, repl="")
         )
-        candidate_config = "\n".join(line for line in candidate_config.splitlines() if line)
-
-        return source_config, candidate_config
 
     def _pre_clear_config_sessions(self) -> ScrapliCfgResponse:
         """
