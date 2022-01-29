@@ -801,7 +801,7 @@ Raises:
     
 
 ##### cleanup
-`cleanup(self) ‑> NoneType`
+`cleanup(self) ‑> None`
 
 ```text
 Cleanup after scrapli-cfg operations
@@ -935,7 +935,7 @@ Raises:
     
 
 ##### prepare
-`prepare(self) ‑> NoneType`
+`prepare(self) ‑> None`
 
 ```text
 Prepare connection for scrapli_cfg operations

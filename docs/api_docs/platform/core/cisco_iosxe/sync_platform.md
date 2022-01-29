@@ -394,15 +394,11 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
         except DiffConfigError:
             pass
 
-        source_config, candidate_config = self._normalize_source_candidate_configs(
-            source_config=source_config
-        )
-
         return self._post_diff_config(
             diff_response=diff_response,
             scrapli_responses=scrapli_responses,
-            source_config=source_config,
-            candidate_config=candidate_config,
+            source_config=self.clean_config(source_config),
+            candidate_config=self.clean_config(self.candidate_config),
             device_diff=device_diff,
         )
         </code>
@@ -802,15 +798,11 @@ class ScrapliCfgIOSXE(ScrapliCfgPlatform, ScrapliCfgIOSXEBase):
         except DiffConfigError:
             pass
 
-        source_config, candidate_config = self._normalize_source_candidate_configs(
-            source_config=source_config
-        )
-
         return self._post_diff_config(
             diff_response=diff_response,
             scrapli_responses=scrapli_responses,
-            source_config=source_config,
-            candidate_config=candidate_config,
+            source_config=self.clean_config(source_config),
+            candidate_config=self.clean_config(self.candidate_config),
             device_diff=device_diff,
         )
         </code>

@@ -31,14 +31,21 @@ scrapli_cfg.platform.core.juniper_junos.base_platform
 """scrapli_cfg.platform.core.juniper_junos.base_platform"""
 import re
 from datetime import datetime
-from logging import LoggerAdapter
-from typing import Tuple
+from logging import Logger, LoggerAdapter
+from typing import TYPE_CHECKING
 
+from scrapli_cfg.helper import strip_blank_lines
 from scrapli_cfg.platform.core.juniper_junos.patterns import (
     EDIT_PATTERN,
     OUTPUT_HEADER_PATTERN,
     VERSION_PATTERN,
 )
+
+if TYPE_CHECKING:
+    LoggerAdapterT = LoggerAdapter[Logger]  # pylint:disable=E1136
+else:
+    LoggerAdapterT = LoggerAdapter
+
 
 CONFIG_SOURCES = [
     "running",
@@ -46,7 +53,7 @@ CONFIG_SOURCES = [
 
 
 class ScrapliCfgJunosBase:
-    logger: LoggerAdapter
+    logger: LoggerAdapterT
     candidate_config: str
     candidate_config_filename: str
     _in_configuration_session: bool
@@ -154,31 +161,25 @@ class ScrapliCfgJunosBase:
 
         return config
 
-    def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
+    def clean_config(self, config: str) -> str:
         """
-        Normalize candidate config and source config so that we can easily diff them
+        Clean a configuration file of unwanted lines
 
         Args:
-            source_config: current config of the source config store
+            config: configuration string to "clean"
 
         Returns:
-            ScrapliCfgDiff: scrapli cfg diff object
+            str: cleaned configuration string
 
         Raises:
             N/A
 
         """
-        self.logger.debug("normalizing source and candidate configs for diff object")
+        self.logger.debug("cleaning config file")
 
-        source_config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=source_config, repl="")
-        source_config = re.sub(pattern=EDIT_PATTERN, string=source_config, repl="")
-        source_config = "\n".join(line for line in source_config.splitlines() if line)
-        candidate_config = re.sub(
-            pattern=OUTPUT_HEADER_PATTERN, string=self.candidate_config, repl=""
-        )
-        candidate_config = "\n".join(line for line in candidate_config.splitlines() if line)
-
-        return source_config, candidate_config
+        config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
+        config = re.sub(pattern=EDIT_PATTERN, string=config, repl="")
+        return strip_blank_lines(config=config)
         </code>
     </pre>
 </details>
@@ -199,7 +200,7 @@ class ScrapliCfgJunosBase:
     <pre>
         <code class="python">
 class ScrapliCfgJunosBase:
-    logger: LoggerAdapter
+    logger: LoggerAdapterT
     candidate_config: str
     candidate_config_filename: str
     _in_configuration_session: bool
@@ -307,31 +308,25 @@ class ScrapliCfgJunosBase:
 
         return config
 
-    def _normalize_source_candidate_configs(self, source_config: str) -> Tuple[str, str]:
+    def clean_config(self, config: str) -> str:
         """
-        Normalize candidate config and source config so that we can easily diff them
+        Clean a configuration file of unwanted lines
 
         Args:
-            source_config: current config of the source config store
+            config: configuration string to "clean"
 
         Returns:
-            ScrapliCfgDiff: scrapli cfg diff object
+            str: cleaned configuration string
 
         Raises:
             N/A
 
         """
-        self.logger.debug("normalizing source and candidate configs for diff object")
+        self.logger.debug("cleaning config file")
 
-        source_config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=source_config, repl="")
-        source_config = re.sub(pattern=EDIT_PATTERN, string=source_config, repl="")
-        source_config = "\n".join(line for line in source_config.splitlines() if line)
-        candidate_config = re.sub(
-            pattern=OUTPUT_HEADER_PATTERN, string=self.candidate_config, repl=""
-        )
-        candidate_config = "\n".join(line for line in candidate_config.splitlines() if line)
-
-        return source_config, candidate_config
+        config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
+        config = re.sub(pattern=EDIT_PATTERN, string=config, repl="")
+        return strip_blank_lines(config=config)
         </code>
     </pre>
 </details>
@@ -362,3 +357,25 @@ class ScrapliCfgJunosBase:
 
     
 `logger: logging.LoggerAdapter`
+
+
+
+#### Methods
+
+    
+
+##### clean_config
+`clean_config(self, config: str) ‑> str`
+
+```text
+Clean a configuration file of unwanted lines
+
+Args:
+    config: configuration string to "clean"
+
+Returns:
+    str: cleaned configuration string
+
+Raises:
+    N/A
+```

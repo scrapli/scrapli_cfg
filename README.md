@@ -34,7 +34,7 @@ scrapli behaviour you know and love.
 
 ## Requirements
 
-MacOS or \*nix<sup>1</sup>, Python 3.6+
+MacOS or \*nix<sup>1</sup>, Python 3.7+
 
 scrapli_cfg's only requirements is `scrapli`.
 
@@ -59,8 +59,8 @@ from scrapli_cfg import ScrapliCfg
 
 device = {
    "host": "172.18.0.11",
-   "auth_username": "vrnetlab",
-   "auth_password": "VR-netlab9",
+   "auth_username": "scrapli",
+   "auth_password": "scrapli",
    "auth_strict_key": False,
    "platform": "cisco_iosxe"
 }

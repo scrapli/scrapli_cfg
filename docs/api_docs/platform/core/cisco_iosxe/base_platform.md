@@ -32,16 +32,23 @@ scrapli_cfg.platform.core.cisco_iosxe.base
 import re
 from datetime import datetime
 from enum import Enum
-from logging import LoggerAdapter
-from typing import Tuple
+from logging import Logger, LoggerAdapter
+from typing import TYPE_CHECKING, Tuple
 
 from scrapli_cfg.exceptions import FailedToFetchSpaceAvailable, InsufficientSpaceAvailable
+from scrapli_cfg.helper import strip_blank_lines
 from scrapli_cfg.platform.core.cisco_iosxe.patterns import (
     BYTES_FREE,
     FILE_PROMPT_MODE,
     OUTPUT_HEADER_PATTERN,
     VERSION_PATTERN,
 )
+
+if TYPE_CHECKING:
+    LoggerAdapterT = LoggerAdapter[Logger]  # pylint:disable=E1136
+else:
+    LoggerAdapterT = LoggerAdapter
+
 
 CONFIG_SOURCES = [
     "running",
@@ -58,7 +65,7 @@ class FilePromptMode(Enum):
 
 
 class ScrapliCfgIOSXEBase:
-    logger: LoggerAdapter
+    logger: LoggerAdapterT
     candidate_config: str
     candidate_config_filename: str
     _replace: bool
@@ -164,10 +171,9 @@ class ScrapliCfgIOSXEBase:
         version_string = version_string_search.group(0) or ""
         return version_string
 
-    @staticmethod
-    def clean_config(config: str) -> str:
+    def clean_config(self, config: str) -> str:
         """
-        Clean a configuration file; make it "loadable"
+        Clean a configuration file of unwanted lines
 
         Args:
             config: configuration string to "clean"; cleaning removes lines that would prevent using
@@ -181,9 +187,11 @@ class ScrapliCfgIOSXEBase:
             N/A
 
         """
-        config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
-        config = "\n".join(line for line in config.splitlines() if line)
-        return config
+        self.logger.debug("cleaning config file")
+
+        return strip_blank_lines(
+            config=re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
+        )
 
     def _reset_config_session(self) -> None:
         """
@@ -389,7 +397,7 @@ class FilePromptMode(Enum):
     <pre>
         <code class="python">
 class ScrapliCfgIOSXEBase:
-    logger: LoggerAdapter
+    logger: LoggerAdapterT
     candidate_config: str
     candidate_config_filename: str
     _replace: bool
@@ -495,10 +503,9 @@ class ScrapliCfgIOSXEBase:
         version_string = version_string_search.group(0) or ""
         return version_string
 
-    @staticmethod
-    def clean_config(config: str) -> str:
+    def clean_config(self, config: str) -> str:
         """
-        Clean a configuration file; make it "loadable"
+        Clean a configuration file of unwanted lines
 
         Args:
             config: configuration string to "clean"; cleaning removes lines that would prevent using
@@ -512,9 +519,11 @@ class ScrapliCfgIOSXEBase:
             N/A
 
         """
-        config = re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
-        config = "\n".join(line for line in config.splitlines() if line)
-        return config
+        self.logger.debug("cleaning config file")
+
+        return strip_blank_lines(
+            config=re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
+        )
 
     def _reset_config_session(self) -> None:
         """
@@ -685,15 +694,15 @@ class ScrapliCfgIOSXEBase:
 
 
 
-#### Static methods
+#### Methods
 
     
 
-#### clean_config
-`clean_config(config: str) ‑> str`
+##### clean_config
+`clean_config(self, config: str) ‑> str`
 
 ```text
-Clean a configuration file; make it "loadable"
+Clean a configuration file of unwanted lines
 
 Args:
     config: configuration string to "clean"; cleaning removes lines that would prevent using
