@@ -190,7 +190,7 @@ class ScrapliCfgIOSXEBase:
         self.logger.debug("cleaning config file")
 
         return strip_blank_lines(
-            config=re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
+            config=re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="", count=1)
         )
 
     def _reset_config_session(self) -> None:
@@ -522,7 +522,7 @@ class ScrapliCfgIOSXEBase:
         self.logger.debug("cleaning config file")
 
         return strip_blank_lines(
-            config=re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="")
+            config=re.sub(pattern=OUTPUT_HEADER_PATTERN, string=config, repl="", count=1)
         )
 
     def _reset_config_session(self) -> None:
