@@ -1,6 +1,11 @@
 Changelog
 =========
 
+## 2022.07.30
+
+- Fix from @WillIrvine to sort a very bad (carl's fault) regex overly aggressive matching -- see #41
+
+
 ## 2022.01.30
 
 - Revised juniper abort config to remove candidate config file *after* rollback 0 to avoid issues where junos would 
