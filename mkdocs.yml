@@ -99,3 +99,17 @@ extra:
 
 plugins:
     - search
+    - gen-files:
+        scripts:
+        - docs/generate.py
+    - mkdocstrings:
+        handlers:
+          python:
+            paths: [ scrapli_cfg ]
+            options:
+              show_signature_annotations: true
+        watch:
+        - scrapli_cfg
+    - section-index
+    - literate-nav:
+        nav_file: SUMMARY.md
