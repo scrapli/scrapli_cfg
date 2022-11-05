@@ -100,7 +100,7 @@ def unit_tests(session):
     )
 
 
-@nox.session(python=["3.10"])
+@nox.session(python=["3.11"])
 def integration_tests(session):
     """
     Nox run integration tests
@@ -137,7 +137,7 @@ def integration_tests(session):
     )
 
 
-@nox.session(python=["3.10"])
+@nox.session(python=["3.11"])
 def isort(session):
     """
     Nox run isort
@@ -157,7 +157,7 @@ def isort(session):
     session.run("python", "-m", "isort", "-c", ".")
 
 
-@nox.session(python=["3.10"])
+@nox.session(python=["3.11"])
 def black(session):
     """
     Nox run black
@@ -177,7 +177,7 @@ def black(session):
     session.run("python", "-m", "black", "--check", ".")
 
 
-@nox.session(python=["3.10"])
+@nox.session(python=["3.11"])
 def pylama(session):
     """
     Nox run pylama
@@ -196,7 +196,7 @@ def pylama(session):
     session.run("python", "-m", "pylama", ".")
 
 
-@nox.session(python=["3.10"])
+@nox.session(python=["3.11"])
 def pydocstyle(session):
     """
     Nox run pydocstyle
@@ -216,7 +216,7 @@ def pydocstyle(session):
     session.run("python", "-m", "pydocstyle", ".")
 
 
-@nox.session(python=["3.10"])
+@nox.session(python=["3.11"])
 def mypy(session):
     """
     Nox run mypy
@@ -237,7 +237,7 @@ def mypy(session):
     session.run("python", "-m", "mypy", "--strict", "scrapli_cfg/")
 
 
-@nox.session(python=["3.10"])
+@nox.session(python=["3.11"])
 def darglint(session):
     """
     Nox run darglint
