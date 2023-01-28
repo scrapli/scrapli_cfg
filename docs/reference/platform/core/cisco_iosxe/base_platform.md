@@ -1,0 +1,1 @@
+::: platform.core.cisco_iosxe.base_platform

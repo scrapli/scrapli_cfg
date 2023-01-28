@@ -1,0 +1,1 @@
+::: platform.core.arista_eos.patterns

@@ -1,0 +1,1 @@
+::: platform.core.cisco_iosxr.patterns

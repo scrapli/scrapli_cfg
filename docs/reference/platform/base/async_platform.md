@@ -1,0 +1,1 @@
+::: platform.base.async_platform

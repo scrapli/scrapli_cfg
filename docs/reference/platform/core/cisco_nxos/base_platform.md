@@ -1,0 +1,1 @@
+::: platform.core.cisco_nxos.base_platform
