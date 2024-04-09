@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.arista_eos.async_platform"""
+
 from typing import Any, Callable, List, Optional
 
 from scrapli.driver.core import AsyncEOSDriver

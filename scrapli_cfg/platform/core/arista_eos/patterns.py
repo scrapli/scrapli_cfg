@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.arista_eos.patterns"""
+
 import re
 
 VERSION_PATTERN = re.compile(pattern=r"\d+\.\d+\.[a-z0-9\-]+(\.\d+[a-z]{0,1})?", flags=re.I)

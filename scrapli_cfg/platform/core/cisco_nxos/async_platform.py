@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.cisco_nxos.async_platform"""
+
 from typing import Any, Callable, List, Optional, Union
 
 from scrapli.driver.core import AsyncNXOSDriver

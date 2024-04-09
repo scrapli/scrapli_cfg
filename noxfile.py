@@ -1,4 +1,5 @@
 """scrapli_cfg.noxfile"""
+
 import re
 import sys
 from pathlib import Path

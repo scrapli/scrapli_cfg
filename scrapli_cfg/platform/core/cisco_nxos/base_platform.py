@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.cisco_nxos.base_platform"""
+
 import re
 from datetime import datetime
 from logging import Logger, LoggerAdapter

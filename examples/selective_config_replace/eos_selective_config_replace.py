@@ -1,4 +1,5 @@
 """scrapli_cfg.examples.basic_usage.eos_selective_config_replace"""
+
 from scrapli import Scrapli
 from scrapli_cfg.platform.core.arista_eos import ScrapliCfgEOS
 from scrapli_cfg.platform.core.arista_eos.patterns import ETHERNET_INTERFACES

@@ -1,4 +1,5 @@
 """scrapli_cfg.examples.basic_usage.config_replace"""
+
 from scrapli import Scrapli
 from scrapli_cfg import ScrapliCfg
 

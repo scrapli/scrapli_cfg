@@ -1,4 +1,5 @@
 """scrapli_cfg.platforms.base_platform"""
+
 import re
 from typing import List, Pattern, Tuple, Union
 

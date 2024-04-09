@@ -1,4 +1,5 @@
 """scrapli_cfg.platforms.cisco_nxos.patterns"""
+
 import re
 
 VERSION_PATTERN = re.compile(pattern=r"\d+\.[a-z0-9\(\)\.]+", flags=re.I)

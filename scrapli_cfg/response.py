@@ -1,4 +1,5 @@
 """scrapli_cfg.response"""
+
 from datetime import datetime
 from typing import Iterable, List, Optional, Type, Union
 

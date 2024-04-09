@@ -1,4 +1,5 @@
 """scrapli_cfg.diff"""
+
 import difflib
 import shutil
 from typing import List, Tuple
@@ -205,13 +206,15 @@ class ScrapliCfgDiffResponse(ScrapliCfgResponse):
         yellow, red, green, end = self._generate_colors()
 
         unified_diff = [
-            yellow + line[2:] + end
-            if line[:2] == "? "
-            else red + line[2:] + end
-            if line[:2] == "- "
-            else green + line[2:] + end
-            if line[:2] == "+ "
-            else line[2:]
+            (
+                yellow + line[2:] + end
+                if line[:2] == "? "
+                else (
+                    red + line[2:] + end
+                    if line[:2] == "- "
+                    else green + line[2:] + end if line[:2] == "+ " else line[2:]
+                )
+            )
             for line in self._difflines
         ]
         joined_unified_diff = "".join(unified_diff)

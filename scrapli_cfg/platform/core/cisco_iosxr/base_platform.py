@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.cisco_iosxr.base_platform"""
+
 import re
 from logging import Logger, LoggerAdapter
 from typing import TYPE_CHECKING, Tuple

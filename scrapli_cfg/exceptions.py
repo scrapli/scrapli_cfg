@@ -1,4 +1,5 @@
 """scrapli_cfg.exceptions"""
+
 from scrapli.exceptions import ScrapliException
 
 

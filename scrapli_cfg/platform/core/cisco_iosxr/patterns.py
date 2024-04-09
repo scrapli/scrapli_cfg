@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.cisco_iosxr.patterns"""
+
 import re
 
 VERSION_PATTERN = re.compile(pattern=r"\d+\.\d+\.\d+", flags=re.I)

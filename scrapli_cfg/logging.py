@@ -1,4 +1,5 @@
 """scrapli_cfg.logging"""
+
 from logging import FileHandler, NullHandler, getLogger
 from typing import Union
 

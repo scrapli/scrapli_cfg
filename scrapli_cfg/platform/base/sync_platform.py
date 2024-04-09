@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.sync_platform"""
+
 from abc import ABC, abstractmethod
 from types import TracebackType
 from typing import Any, Callable, List, Optional, Pattern, Tuple, Type

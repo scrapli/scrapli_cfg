@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.juniper_junos.patterns"""
+
 import re
 
 VERSION_PATTERN = re.compile(

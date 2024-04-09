@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.arista_eos.base"""
+
 import json
 import re
 from datetime import datetime

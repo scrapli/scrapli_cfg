@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.juniper_junos.sync_platform"""
+
 from typing import Any, Callable, List, Optional
 
 from scrapli.driver import NetworkDriver

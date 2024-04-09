@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.cisco_iosxe.base"""
+
 import re
 from datetime import datetime
 from enum import Enum

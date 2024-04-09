@@ -1,4 +1,5 @@
 """scrapli_cfg.platform.core.juniper_junos.base_platform"""
+
 import re
 from datetime import datetime
 from logging import Logger, LoggerAdapter

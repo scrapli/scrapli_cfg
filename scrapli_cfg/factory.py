@@ -1,4 +1,5 @@
 """scrapli_cfg.factory"""
+
 from typing import TYPE_CHECKING, Any, Callable, List, Optional
 
 from scrapli.driver.core import (
