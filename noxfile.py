@@ -1,5 +1,6 @@
 """scrapli_cfg.noxfile"""
 
+import os
 import re
 import sys
 from pathlib import Path
@@ -10,6 +11,8 @@ import nox
 nox.options.error_on_missing_interpreters = False
 nox.options.stop_on_first_error = False
 nox.options.default_venv_backend = "venv"
+
+PRE = bool(os.environ.get("PRE_RELEASE"))
 
 
 def parse_requirements(dev: bool = True) -> Dict[str, str]:
@@ -67,6 +70,18 @@ SKIP_LIST: List[str] = [
 ]
 
 
+def _get_install_test_args() -> List[str]:
+    args = [".[dev]"]
+
+    if sys.platform == "darwin":
+        args = [".[dev-darwin]"]
+
+    if PRE:
+        args.append("--pre")
+
+    return args
+
+
 @nox.session(python=["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"])
 def unit_tests(session):
     """
@@ -86,7 +101,7 @@ def unit_tests(session):
         return
 
     session.install("-U", "setuptools", "wheel", "pip")
-    session.install(".[dev]")
+    session.install(*_get_install_test_args())
     session.run(
         "python",
         "-m",
@@ -120,7 +135,7 @@ def integration_tests(session):
         return
 
     session.install("-U", "setuptools", "wheel", "pip")
-    session.install(".[dev]")
+    session.install(*_get_install_test_args())
     # setting scrapli boxen -> 1 so that the saved scrapli replay sessions are "correctly"
     # pointing to the boxen dev env (i.e. port 21022 instead of 22 for iosxe, etc.)
     session.run(
@@ -193,7 +208,7 @@ def pylama(session):
         N/A
 
     """
-    session.install(".[dev]")
+    session.install(*_get_install_test_args())
     session.run("python", "-m", "pylama", ".")
 
 
