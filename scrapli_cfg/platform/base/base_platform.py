@@ -162,7 +162,7 @@ class ScrapliCfgBase:
         """
         # ignoring type/complaints as `on_prepare` will always be set in the sync/async classes;
         # but is not set here since in one its a coroutine and the other not
-        _on_prepare = self.on_prepare  # type: ignore  # noqa
+        _on_prepare = self.on_prepare  # type: ignore  # pylint:disable=E1101
         if _on_prepare is not None and self._prepared is False:
             raise PrepareNotCalled(
                 "on_prepare callable provided, but prepare method not called. call prepare method "
