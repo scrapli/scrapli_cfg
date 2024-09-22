@@ -549,7 +549,7 @@ class ScrapliCfgBase:
 
         return diff_response
 
-    def _post_diff_config(
+    def _post_diff_config(  # pylint: disable=R0917
         self,
         diff_response: ScrapliCfgDiffResponse,
         scrapli_responses: List[Response],

@@ -12,7 +12,7 @@ from scrapli_cfg.response import ScrapliCfgResponse
 
 
 class ScrapliCfgPlatform(ABC, ScrapliCfgBase):
-    def __init__(
+    def __init__(  # pylint: disable=R0917
         self,
         conn: NetworkDriver,
         config_sources: List[str],
