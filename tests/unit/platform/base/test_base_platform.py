@@ -21,6 +21,15 @@ def test_render_substituted_config(base_cfg_object):
     assert result == "notinthesource\nyoinkthisline\nalsonotinthesource"
 
 
+def test_render_substituted_config_multiple_substitutes(base_cfg_object):
+    result = base_cfg_object._render_substituted_config(
+        config_template="notinthesource\n{{ taco }}\n{{ bell }}\nalsonotinthesource",
+        substitutes=[("taco", "FOO"), ("bell", "BAR")],
+        source_config="something\nFOO\nBAR\nsomethingelse",
+    )
+    assert result == "notinthesource\nFOO\nBAR\nalsonotinthesource"
+
+
 def test_render_substituted_config_no_substitutes(base_cfg_object):
     with pytest.raises(TemplateError):
         base_cfg_object._render_substituted_config(

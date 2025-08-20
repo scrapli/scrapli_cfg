@@ -97,7 +97,8 @@ class ScrapliCfgBase:
             for name, pattern in substitutes
         ]
 
-        rendered_config = ""
+        rendered_config = config_template
+
         for name, replace_section in replace_sections:
             if not replace_section:
                 msg = (
@@ -107,8 +108,13 @@ class ScrapliCfgBase:
                 self.logger.critical(msg)
                 raise TemplateError(msg)
 
-            replace_group = replace_section.group()
-            rendered_config = config_template.replace(f"{{{{ {name} }}}}", replace_group)
+            groups = replace_section.groups()
+            if not groups:
+                replace_content = replace_section.group()
+            else:
+                replace_content = groups[0]
+
+            rendered_config = rendered_config.replace(f"{{{{ {name} }}}}", replace_content)
 
         # remove any totally empty lines (from bad regex, or just device spitting out lines w/
         # nothing on it
